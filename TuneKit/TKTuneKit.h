@@ -1,5 +1,5 @@
 //
-//  TuneKit.h
+//  TKTuneKit.h
 //  TuneKit
 //
 //  Created by Tim Moose on 2/21/14.
@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TKControlPanelTableViewController.h"
+#import "TKSliderConfig.h"
+#import "TKButtonConfig.h"
 
-@interface TuneKit : NSObject
+@interface TKTuneKit : NSObject
 
 #pragma mark - Presenting control panels
 
-+ (TKControlPanelTableViewController *)presentControlPanelWithConfigs:(NSArray *)configs;
++ (void)presentControlPanelWithConfigs:(NSArray *)configs;
 
 @end

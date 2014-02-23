@@ -12,17 +12,22 @@
 @interface TKSliderConfig : TKConfig
 
 @property (nonatomic) float value;
-@property (nonatomic) float minValue;
-@property (nonatomic) float maxValue;
-@property (copy, nonatomic) NSArray *validValues;
+//@property (nonatomic) float minValue;
+//@property (nonatomic) float maxValue;
+//@property (copy, nonatomic) NSArray *validValues;
+
+#pragma mark - View bindings
 
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
+#pragma mark - Creating slider configs
+
 + (TKSliderConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath;
-+ (TKSliderConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(float)min max:(float)max;
 + (TKSliderConfig *)configWithName:(NSString *)name changeHandler:(TKValueCallback)changeHandler value:(float)value;
-+ (TKSliderConfig *)configWithName:(NSString *)name changeHandler:(TKValueCallback)changeHandler value:(float)value min:(float)min max:(float)max;
+
+//+ (TKSliderConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(float)min max:(float)max;
+//+ (TKSliderConfig *)configWithName:(NSString *)name changeHandler:(TKValueCallback)changeHandler value:(float)value min:(float)min max:(float)max;
 
 @end

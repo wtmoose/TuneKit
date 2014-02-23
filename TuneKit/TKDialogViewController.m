@@ -9,30 +9,55 @@
 #import "TKDialogViewController.h"
 
 @interface TKDialogViewController ()
-
+@property (weak, nonatomic) NSLayoutConstraint *originYConstraint;
+@property (weak, nonatomic) NSLayoutConstraint *originXConstraint;
 @end
 
 @implementation TKDialogViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+#pragma mark - View controller lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    [self.dismissButton addTarget:self action:@selector(dismiss)
+                 forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Presenting
+
+- (void)present
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [rootViewController addChildViewController:self];
+    UIView *rootView = rootViewController.view;
+    
+    self.originYConstraint = [NSLayoutConstraint constraintWithItem:rootView
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeTop
+                                                         multiplier:1
+                                                           constant:0];
+    self.originXConstraint = [NSLayoutConstraint constraintWithItem:rootView
+                                                          attribute:NSLayoutAttributeLeft
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeLeft
+                                                         multiplier:1
+                                                           constant:0];
+    
+    [rootView addSubview:self.view];
+    
+    [rootView addConstraints:@[self.originYConstraint, self.originXConstraint]];
+}
+
+- (IBAction)dismiss {
+    [self.view removeFromSuperview];
+    [self removeFromParentViewController];
+    self.originYConstraint = nil;
+    self.originXConstraint = nil;
 }
 
 @end

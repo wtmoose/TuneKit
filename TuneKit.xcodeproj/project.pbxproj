@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		3CDB83ED63FB44BEA571E6D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54C10009A8C4326887BE111 /* libPods.a */; };
 		86CB5AE418B7C1FF003039CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CB5AE318B7C1FF003039CC /* Foundation.framework */; };
-		86CB5AE918B7C1FF003039CC /* TuneKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86CB5AE818B7C1FF003039CC /* TuneKit.h */; };
-		86CB5AEB18B7C1FF003039CC /* TuneKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB5AEA18B7C1FF003039CC /* TuneKit.m */; };
+		86CB5AE918B7C1FF003039CC /* TKTuneKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86CB5AE818B7C1FF003039CC /* TKTuneKit.h */; };
+		86CB5AEB18B7C1FF003039CC /* TKTuneKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB5AEA18B7C1FF003039CC /* TKTuneKit.m */; };
 		86CB5AF218B7C1FF003039CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CB5AF118B7C1FF003039CC /* XCTest.framework */; };
 		86CB5AF318B7C1FF003039CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CB5AE318B7C1FF003039CC /* Foundation.framework */; };
 		86CB5AF518B7C1FF003039CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CB5AF418B7C1FF003039CC /* UIKit.framework */; };
@@ -51,7 +51,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				86CB5AE918B7C1FF003039CC /* TuneKit.h in CopyFiles */,
+				86CB5AE918B7C1FF003039CC /* TKTuneKit.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +62,8 @@
 		86CB5AE018B7C1FF003039CC /* libTuneKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTuneKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CB5AE318B7C1FF003039CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86CB5AE718B7C1FF003039CC /* TuneKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TuneKit-Prefix.pch"; sourceTree = "<group>"; };
-		86CB5AE818B7C1FF003039CC /* TuneKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TuneKit.h; sourceTree = "<group>"; };
-		86CB5AEA18B7C1FF003039CC /* TuneKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TuneKit.m; sourceTree = "<group>"; };
+		86CB5AE818B7C1FF003039CC /* TKTuneKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKTuneKit.h; sourceTree = "<group>"; };
+		86CB5AEA18B7C1FF003039CC /* TKTuneKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKTuneKit.m; sourceTree = "<group>"; };
 		86CB5AF018B7C1FF003039CC /* TuneKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuneKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CB5AF118B7C1FF003039CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		86CB5AF418B7C1FF003039CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -150,10 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				86CB69A318B86096003039CC /* UI */,
-				86CB5AE818B7C1FF003039CC /* TuneKit.h */,
-				86CB5AEA18B7C1FF003039CC /* TuneKit.m */,
+				86CB5AE818B7C1FF003039CC /* TKTuneKit.h */,
+				86CB5AEA18B7C1FF003039CC /* TKTuneKit.m */,
 				86CB5AE618B7C1FF003039CC /* Supporting Files */,
-				86CB5B0B18B7C769003039CC /* Configuration */,
+				86CB5B0B18B7C769003039CC /* Configurations */,
 			);
 			path = TuneKit;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		86CB5B0B18B7C769003039CC /* Configuration */ = {
+		86CB5B0B18B7C769003039CC /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
 				86CB5B0C18B7C784003039CC /* TKConfig.h */,
@@ -196,7 +196,7 @@
 				86F2834118B875C300CD971C /* TKColorPickerConfig.h */,
 				86F2834218B875C300CD971C /* TKColorPickerConfig.m */,
 			);
-			name = Configuration;
+			name = Configurations;
 			sourceTree = "<group>";
 		};
 		86CB69A318B86096003039CC /* UI */ = {
@@ -330,7 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86F2834318B875C300CD971C /* TKColorPickerConfig.m in Sources */,
-				86CB5AEB18B7C1FF003039CC /* TuneKit.m in Sources */,
+				86CB5AEB18B7C1FF003039CC /* TKTuneKit.m in Sources */,
 				86CB69A118B825D0003039CC /* TKButtonConfig.m in Sources */,
 				86CB5B1218B7C7CE003039CC /* TKSliderConfig.m in Sources */,
 				86CB69A818B86473003039CC /* TKControlPanelTableViewController.m in Sources */,

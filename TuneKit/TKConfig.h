@@ -12,6 +12,7 @@ typedef void(^TKCallback)();
 typedef void(^TKValueCallback)(id value);
 
 @interface TKConfig : NSObject
+
 @property (strong, nonatomic, readonly) NSString *name;
 
 - (instancetype)initWithName:(NSString *)name;

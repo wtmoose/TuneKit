@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import <TLIndexPathTools/TLTableViewController.h>
 
-@interface TKControlPanelTableViewController : UIViewController
+@interface TKControlPanelTableViewController : TLTableViewController
 @end

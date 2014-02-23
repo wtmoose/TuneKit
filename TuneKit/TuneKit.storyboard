@@ -268,11 +268,28 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBX-hX-CER">
+                                        <rect key="frame" x="220" y="0.0" width="40" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismiss" destination="BqX-b3-dvG" eventType="touchUpInside" id="oh3-Cp-4SW"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.84189138100000005" green="0.84189138100000005" blue="0.84189138100000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="uBX-hX-CER" secondAttribute="bottom" id="3BG-0Q-Wet"/>
+                                    <constraint firstItem="uBX-hX-CER" firstAttribute="top" secondItem="ckw-gY-9ek" secondAttribute="top" id="9Cc-hk-F9D"/>
                                     <constraint firstAttribute="height" constant="44" id="XVR-Of-sLE"/>
+                                    <constraint firstAttribute="trailing" secondItem="uBX-hX-CER" secondAttribute="trailing" constant="20" id="acB-8T-j9r"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="oSb-js-saH" appends="YES" id="mNY-tf-xxu"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cb3-Zs-15l">
                                 <rect key="frame" x="0.0" y="44" width="280" height="484"/>
@@ -288,7 +305,7 @@
                             <constraint firstItem="ckw-gY-9ek" firstAttribute="top" secondItem="Yp9-yV-NkW" secondAttribute="bottom" id="LIb-be-3Vo"/>
                             <constraint firstAttribute="trailing" secondItem="cb3-Zs-15l" secondAttribute="trailing" id="NTb-4V-fl8"/>
                             <constraint firstItem="cb3-Zs-15l" firstAttribute="leading" secondItem="9P9-mi-QZw" secondAttribute="leading" id="eit-p3-wGY"/>
-                            <constraint firstAttribute="trailing" secondItem="ckw-gY-9ek" secondAttribute="trailing" id="nHP-FQ-vGz"/>
+                            <constraint firstAttribute="trailing" secondItem="ckw-gY-9ek" secondAttribute="trailing" id="fw7-by-KBt"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -296,8 +313,14 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="dismissButton" destination="uBX-hX-CER" id="TEA-Z2-LbX"/>
+                        <outlet property="panGestureRecognizer" destination="oSb-js-saH" id="C91-e8-jnW"/>
+                        <outlet property="titleBar" destination="ckw-gY-9ek" id="WMU-5l-kmf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zig-LD-PlQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="oSb-js-saH"/>
             </objects>
             <point key="canvasLocation" x="445" y="89"/>
         </scene>

@@ -11,7 +11,11 @@
 
 @interface TKButtonConfig : TKConfig
 
+#pragma mark - View bindings
+
 @property (weak, nonatomic) IBOutlet UIButton *button;
+
+#pragma mark - Creating button configs
 
 + (TKButtonConfig *)configWithName:(NSString *)name target:(id)target selector:(SEL)selector;
 + (TKButtonConfig *)configWithName:(NSString *)name actionHanlder:(TKCallback)actionHanlder;
