@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3CDB83ED63FB44BEA571E6D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54C10009A8C4326887BE111 /* libPods.a */; };
+		86889D6218BABAA500F0407D /* TKDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86889D6118BABAA500F0407D /* TKDialog.xib */; };
 		86CB5AE418B7C1FF003039CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CB5AE318B7C1FF003039CC /* Foundation.framework */; };
 		86CB5AE918B7C1FF003039CC /* TKTuneKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86CB5AE818B7C1FF003039CC /* TKTuneKit.h */; };
 		86CB5AEB18B7C1FF003039CC /* TKTuneKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB5AEA18B7C1FF003039CC /* TKTuneKit.m */; };
@@ -32,6 +33,7 @@
 		86F2834418B875C300CD971C /* TKColorPickerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F2834218B875C300CD971C /* TKColorPickerConfig.m */; };
 		86F2834718B9B21B00CD971C /* TKDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F2834618B9B21B00CD971C /* TKDialogViewController.m */; };
 		86F2834818B9B21B00CD971C /* TKDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F2834618B9B21B00CD971C /* TKDialogViewController.m */; };
+		86F2834A18BA6DD100CD971C /* TuneKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 86F2834918BA6DD100CD971C /* TuneKit.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		2313EA3C34A54573AED6FB07 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		86889D6118BABAA500F0407D /* TKDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKDialog.xib; sourceTree = "<group>"; };
 		86CB5AE018B7C1FF003039CC /* libTuneKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTuneKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CB5AE318B7C1FF003039CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86CB5AE718B7C1FF003039CC /* TuneKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TuneKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		86F2834218B875C300CD971C /* TKColorPickerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKColorPickerConfig.m; sourceTree = "<group>"; };
 		86F2834518B9B21B00CD971C /* TKDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDialogViewController.h; sourceTree = "<group>"; };
 		86F2834618B9B21B00CD971C /* TKDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDialogViewController.m; sourceTree = "<group>"; };
+		86F2834918BA6DD100CD971C /* TuneKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TuneKit.podspec; sourceTree = "<group>"; };
 		F54C10009A8C4326887BE111 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,6 +120,7 @@
 		86CB5AD718B7C1FF003039CC = {
 			isa = PBXGroup;
 			children = (
+				86F2834918BA6DD100CD971C /* TuneKit.podspec */,
 				86CB69A418B8619F003039CC /* Podfile */,
 				86CB5AE518B7C1FF003039CC /* TuneKit */,
 				86CB5AF918B7C1FF003039CC /* TuneKitTests */,
@@ -207,6 +212,7 @@
 				86CB69AC18B86835003039CC /* TuneKit.storyboard */,
 				86F2834518B9B21B00CD971C /* TKDialogViewController.h */,
 				86F2834618B9B21B00CD971C /* TKDialogViewController.m */,
+				86889D6118BABAA500F0407D /* TKDialog.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -285,7 +291,9 @@
 			files = (
 				86CB69A518B8619F003039CC /* Podfile in Resources */,
 				86CB69AD18B86835003039CC /* TuneKit.storyboard in Resources */,
+				86889D6218BABAA500F0407D /* TKDialog.xib in Resources */,
 				86CB5AFE18B7C1FF003039CC /* InfoPlist.strings in Resources */,
+				86F2834A18BA6DD100CD971C /* TuneKit.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,18 +15,23 @@
 
 @implementation TKSliderConfig
 
+- (void)dealloc
+{
+    NSLog(@"dealloc'ed TKSliderConfig");
+}
+
 #pragma mark - Binding to models
 
-
-//- (void)setValue:(NSNumber *)value
-//{
-//    if ((value == nil && value != nil) || ![_value isEqual:value]) {
-//        _value = value;
-//        [self updateTargetKeyPath];
-//        [self updateValueLabel];
-//        [self updateSlider];
-//    }
-//}
+- (void)setValue:(float)value
+{
+    if (_value != value) {
+        _value = value;
+        [self updateValueLabel];
+        if (self.changeHandler) {
+            self.changeHandler(@(value));
+        }
+    }
+}
 
 #pragma mark - View bindings
 
@@ -65,11 +70,13 @@
     //TODO replace this with some kind of logarithmic function
     float constant = 0.f;
     if (fabs(self.midValue) < 10.f) {
-        constant = 100.f;
+        constant = 5.f;
     } else if (fabs(self.midValue) < 100.f) {
-        constant = 1000.f;
+        constant = 50.f;
     } else if (fabs(self.midValue) < 1000.f) {
-        constant = 10000.f;
+        constant = 500.f;
+    } else {
+        constant = 5000.f;
     }
     self.value = self.midValue + constant * (slider.value - 0.5f) * 2.f;
 }
@@ -108,8 +115,9 @@
 
 + (TKSliderConfig *)configWithName:(NSString *)name changeHandler:(TKValueCallback)changeHandler value:(float)value
 {
-    TKSliderConfig *config = [[TKSliderConfig alloc] initWithName:name];
+    TKSliderConfig *config = [[TKSliderConfig alloc] initWithName:name type:TKConfigTypeSlider];
     config.changeHandler = changeHandler;
+    config.value = value;
     return config;
 }
 

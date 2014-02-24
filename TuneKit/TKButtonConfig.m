@@ -27,6 +27,7 @@ _Pragma("clang diagnostic pop")                                         \
     [_button removeTarget:self action:@selector(buttonTapped) forControlEvents:UIControlEventTouchUpInside];
     _button = button;
     [button addTarget:self action:@selector(buttonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:self.name forState:UIControlStateNormal];
 }
 
 - (void)buttonTapped
@@ -49,7 +50,7 @@ _Pragma("clang diagnostic pop")                                         \
 
 + (TKButtonConfig *)configWithName:(NSString *)name actionHanlder:(TKCallback)actionHanlder
 {
-    TKButtonConfig *config = [[TKButtonConfig alloc] initWithName:name];
+    TKButtonConfig *config = [[TKButtonConfig alloc] initWithName:name type:TKConfigTypeButton];
     config.actionHanlder = actionHanlder;
     return config;
 }

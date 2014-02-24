@@ -11,10 +11,18 @@
 typedef void(^TKCallback)();
 typedef void(^TKValueCallback)(id value);
 
+typedef NS_ENUM(NSInteger, TKConfigType)
+{
+    TKConfigTypeButton,
+    TKConfigTypeSlider,
+    TKConfigTypeColorPicker,
+};
+
 @interface TKConfig : NSObject
 
 @property (strong, nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) TKConfigType type;
 
-- (instancetype)initWithName:(NSString *)name;
+- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type;
 
 @end

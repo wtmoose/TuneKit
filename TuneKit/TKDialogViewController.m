@@ -25,22 +25,35 @@
                  forControlEvents:UIControlEventTouchUpInside];
 }
 
+#pragma mark - Content
+
+- (void)setContentViewController:(UIViewController *)contentViewController
+{
+    [self view];
+    [_contentViewController removeFromParentViewController];
+    [_contentViewController.view removeFromSuperview];
+    _contentViewController = contentViewController;
+    [self addChildViewController:contentViewController];
+    contentViewController.view.frame = self.contentView.bounds;
+    contentViewController.view.translatesAutoresizingMaskIntoConstraints = YES;
+    contentViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.contentView addSubview:contentViewController.view];
+}
+
 #pragma mark - Presenting
 
 - (void)present
 {
-    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    [rootViewController addChildViewController:self];
-    UIView *rootView = rootViewController.view;
+    UIView *parentView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
     
-    self.originYConstraint = [NSLayoutConstraint constraintWithItem:rootView
+    self.originYConstraint = [NSLayoutConstraint constraintWithItem:parentView
                                                           attribute:NSLayoutAttributeTop
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.view
                                                           attribute:NSLayoutAttributeTop
                                                          multiplier:1
                                                            constant:0];
-    self.originXConstraint = [NSLayoutConstraint constraintWithItem:rootView
+    self.originXConstraint = [NSLayoutConstraint constraintWithItem:parentView
                                                           attribute:NSLayoutAttributeLeft
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.view
@@ -48,9 +61,14 @@
                                                          multiplier:1
                                                            constant:0];
     
-    [rootView addSubview:self.view];
+    CGRect frame = CGRectMake(0, 0, 280, 528);
+    self.view.frame = frame;
     
-    [rootView addConstraints:@[self.originYConstraint, self.originXConstraint]];
+    [parentView addSubview:self.view];
+    
+    [parentView addConstraints:@[self.originYConstraint, self.originXConstraint]];
+    
+    [self.view layoutIfNeeded];
 }
 
 - (IBAction)dismiss {

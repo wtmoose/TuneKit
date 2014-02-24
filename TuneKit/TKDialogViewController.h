@@ -11,6 +11,7 @@
 @interface TKDialogViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIView *titleBar;
+@property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UIButton *dismissButton;
 
 @property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *panGestureRecognizer;

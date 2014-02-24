@@ -12,7 +12,7 @@
 
 @interface TKTuneKit ()
 //@property (strong, nonatomic) NSMutableDictionary *tunersByName;
-//@property (strong, nonatomic) TKDialogViewController *dialog;
+@property (strong, nonatomic) TKDialogViewController *dialog;
 @end
 
 @implementation TKTuneKit
@@ -58,23 +58,16 @@
 
 + (void)presentControlPanelWithConfigs:(NSArray *)configs
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TKTuneKit" bundle:nil];
+    TKTuneKit *tk = [self sharedInstance];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TuneKit" bundle:nil];
     TKControlPanelTableViewController *controlPanel = [storyboard instantiateViewControllerWithIdentifier:@"ControlPanel"];
     controlPanel.indexPathController.items = configs;
 
-    TKDialogViewController *dialog = [storyboard instantiateViewControllerWithIdentifier:@"Dialog"];
-    dialog.contentViewController = controlPanel;
+    tk.dialog = [[TKDialogViewController alloc] initWithNibName:@"TKDialog" bundle:nil];
+    tk.dialog.contentViewController = controlPanel;
     
-    [dialog present];
-    
-//    tk.dialog = dialog;
-//    
-//    __weak TKTuneKit *weakTK = tk;
-//    [dialog setDismissHandler:^{
-//        [weakTK dismissDialog];
-//    }];
-//    
-    
+    [tk.dialog present];
 }
 
 @end

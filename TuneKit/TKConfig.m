@@ -8,12 +8,17 @@
 
 #import "TKConfig.h"
 
+@class TKButtonConfig;
+@class TKSliderConfig;
+@class TKColorPickerConfig;
+
 @implementation TKConfig
 
-- (instancetype)initWithName:(NSString *)name
+- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type
 {
     if (self = [super init]) {
         _name = name;
+        _type = type;
     }
     return self;
 }
