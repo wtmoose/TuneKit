@@ -187,8 +187,18 @@
 {
     TKColorPickerConfig *config = [[TKColorPickerConfig alloc] initWithName:name type:TKConfigTypeColorPicker];
     config.changeHandler = changeHandler;
-    config.value = value;
+    config.value = [self rgbColorForColor:value];
     return config;
+}
+
++ (UIColor *)rgbColorForColor:(UIColor *)color
+{
+    if (![color getRed:NULL green:NULL blue:NULL alpha:NULL]) {
+        CGFloat white, alpha;
+        [color getWhite:&white alpha:&alpha];
+        return [UIColor colorWithRed:white green:white blue:white alpha:alpha];
+    }
+    return color;
 }
 
 @end

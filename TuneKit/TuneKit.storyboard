@@ -35,18 +35,18 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Slider" rowHeight="100" id="Dbr-yF-dBo">
-                                <rect key="frame" x="0.0" y="82" width="280" height="100"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Slider" rowHeight="83" id="Dbr-yF-dBo">
+                                <rect key="frame" x="0.0" y="82" width="280" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dbr-yF-dBo" id="KsP-ik-I0x">
-                                    <rect key="frame" x="0.0" y="0.0" width="280" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="82"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <slider opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Og4-YR-a27">
-                                            <rect key="frame" x="38" y="46" width="171" height="34"/>
+                                            <rect key="frame" x="38" y="34" width="171" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </slider>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ol-rB-Gpf">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ol-rB-Gpf">
                                             <rect key="frame" x="20" y="10" width="240" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
@@ -54,7 +54,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999.9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0d6-Kb-NZl">
-                                            <rect key="frame" x="215" y="54" width="45" height="18"/>
+                                            <rect key="frame" x="215" y="42" width="45" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="45" id="Lin-bo-HJZ"/>
@@ -64,6 +64,7 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="Og4-YR-a27" firstAttribute="top" secondItem="5Ol-rB-Gpf" secondAttribute="bottom" constant="8" id="ILR-vE-P3u"/>
                                         <constraint firstItem="Og4-YR-a27" firstAttribute="leading" secondItem="KsP-ik-I0x" secondAttribute="leading" constant="40" id="L5Z-kI-dSy"/>
                                         <constraint firstItem="5Ol-rB-Gpf" firstAttribute="leading" secondItem="KsP-ik-I0x" secondAttribute="leading" constant="20" id="Ujb-6N-DdU"/>
                                         <constraint firstItem="Og4-YR-a27" firstAttribute="centerY" secondItem="0d6-Kb-NZl" secondAttribute="centerY" id="WSS-aD-FLM"/>
@@ -71,12 +72,12 @@
                                         <constraint firstAttribute="trailing" secondItem="0d6-Kb-NZl" secondAttribute="trailing" constant="20" symbolic="YES" id="jnn-cg-P05"/>
                                         <constraint firstItem="5Ol-rB-Gpf" firstAttribute="top" secondItem="KsP-ik-I0x" secondAttribute="top" constant="10" id="q9q-Wl-HVL"/>
                                         <constraint firstItem="0d6-Kb-NZl" firstAttribute="leading" secondItem="Og4-YR-a27" secondAttribute="trailing" constant="8" symbolic="YES" id="qQU-z1-TQa"/>
-                                        <constraint firstAttribute="bottom" secondItem="Og4-YR-a27" secondAttribute="bottom" constant="20" symbolic="YES" id="rd1-hv-zDY"/>
+                                        <constraint firstAttribute="bottom" secondItem="Og4-YR-a27" secondAttribute="bottom" constant="15" id="rd1-hv-zDY"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ColorPicker" rowHeight="300" id="ZHD-Cm-k4P">
-                                <rect key="frame" x="0.0" y="182" width="280" height="300"/>
+                                <rect key="frame" x="0.0" y="165" width="280" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZHD-Cm-k4P" id="RM7-RK-Pkz">
                                     <rect key="frame" x="0.0" y="0.0" width="280" height="299"/>
@@ -86,7 +87,7 @@
                                             <rect key="frame" x="38" y="195" width="171" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </slider>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUj-ba-DH9">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUj-ba-DH9">
                                             <rect key="frame" x="20" y="10" width="240" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
