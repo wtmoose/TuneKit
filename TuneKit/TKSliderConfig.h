@@ -18,9 +18,9 @@
 
 #pragma mark - View bindings
 
-@property (weak, nonatomic) IBOutlet UISlider *slider;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+@property (weak, nonatomic) UISlider *slider;
+@property (weak, nonatomic) UILabel *nameLabel;
+@property (weak, nonatomic) UILabel *valueLabel;
 
 #pragma mark - Creating slider configs
 

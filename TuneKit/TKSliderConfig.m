@@ -15,11 +15,6 @@
 
 @implementation TKSliderConfig
 
-- (void)dealloc
-{
-    NSLog(@"dealloc'ed TKSliderConfig");
-}
-
 #pragma mark - Binding to models
 
 - (void)setValue:(float)value

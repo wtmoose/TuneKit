@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TKSliderConfig.h"
 #import "TKButtonConfig.h"
+#import "TKSliderConfig.h"
+#import "TKColorPickerConfig.h"
 
 @interface TKTuneKit : NSObject
 

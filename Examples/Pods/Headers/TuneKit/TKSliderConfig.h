@@ -1,0 +1,1 @@
+../../../../TuneKit/TKSliderConfig.h

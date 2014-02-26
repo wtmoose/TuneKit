@@ -1,0 +1,18 @@
+PODS:
+  - TLIndexPathTools (HEAD based on 0.2.1)
+  - TuneKit (0.0.1):
+    - TLIndexPathTools
+
+DEPENDENCIES:
+  - TLIndexPathTools (HEAD)
+  - TuneKit (from `..`)
+
+EXTERNAL SOURCES:
+  TuneKit:
+    :path: ..
+
+SPEC CHECKSUMS:
+  TLIndexPathTools: 396e76177d4e8343d693fa5049aae1be58cefb95
+  TuneKit: 8043af12df73f0c55ec4485d955c643a220f7032
+
+COCOAPODS: 0.29.0

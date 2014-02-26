@@ -13,7 +13,7 @@
 
 #pragma mark - View bindings
 
-@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) UIButton *button;
 
 #pragma mark - Creating button configs
 

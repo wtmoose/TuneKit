@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>06FBD6A4-2369-4FC5-8AAB-D6742A3C43FD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Examples</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E5673B85-6791-44E9-BA48-7F0DEC9F310C</key>
+		<string>https://github.com/wtmoose/TLLayoutTransitioning.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Examples/Examples.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E5673B85-6791-44E9-BA48-7F0DEC9F310C</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wtmoose/TLLayoutTransitioning.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E5673B85-6791-44E9-BA48-7F0DEC9F310C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E5673B85-6791-44E9-BA48-7F0DEC9F310C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TLLayoutTransitioning</string>
+		</dict>
+	</array>
+</dict>
+</plist>
