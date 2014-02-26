@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Tractable Labs. All rights reserved.
 //
 
+//TODO Handle non-RBG initial color values
+
 #import "TKColorPickerConfig.h"
 
 @interface TKColorPickerConfig ()
@@ -20,7 +22,7 @@
 {
     if (_value != value) {
         _value = value;
-        [self updateSliderValuesAndLabels];
+        [self updateValueViews];
         if (self.changeHandler) {
             self.changeHandler(value);
         }
@@ -33,20 +35,20 @@
 {
     if (_nameLabel != nameLabel) {
         _nameLabel = nameLabel;
-        nameLabel.text = self.name;
+        nameLabel.text = [self.name uppercaseString];
     }
 }
 
 - (void)setColorSpacePicker:(UISegmentedControl *)colorSpacePicker
 {
     _colorSpacePicker = colorSpacePicker;
-    [colorSpacePicker addTarget:self action:@selector(updateSliderValuesAndLabels) forControlEvents:UIControlEventValueChanged];
+    [colorSpacePicker addTarget:self action:@selector(updateValueViews) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)setSliderLabels:(NSArray *)sliderLabels
 {
     _sliderLabels = sliderLabels;
-    [self updateSliderValuesAndLabels];
+    [self updateValueViews];
 }
 
 - (void)setSliders:(NSArray *)sliders
@@ -58,13 +60,13 @@
         [slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         [slider addTarget:self action:@selector(sliderValueStoppedChanging:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside];
     }
-    [self updateSliderValuesAndLabels];
+    [self updateValueViews];
 }
 
 - (void)setSliderValues:(NSArray *)sliderValues
 {
     _sliderValues = sliderValues;
-    [self updateSliderValuesAndLabels];
+    [self updateValueViews];
 }
 
 - (void)setCurrentColorView:(UIView *)currentColorView
@@ -91,7 +93,7 @@
     [self commitNewColor];
 }
 
-- (void)updateSliderValuesAndLabels
+- (void)updateValueViews
 {
     CGFloat v1 = 0, v2 = 0, v3 = 0, v4 = 0;
     NSArray *labels = nil;
@@ -116,6 +118,20 @@
         sliderValue.text = [NSString stringWithFormat:@"%.0f", roundf([components[i] floatValue] * 255.f)];
         sliderLabel.text = labels[i];
     }
+    
+    self.hexTextField.text = [[self hexForColor:self.value] uppercaseString];
+}
+                              
+-(NSString *)hexForColor:(UIColor *)uiColor{
+    CGFloat red, green, blue, alpha;
+    [uiColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    red = roundf(red*255.f);
+    green = roundf(green*255.f);
+    blue = roundf(blue*255.f);
+    alpha = roundf(alpha*255.f);
+    NSString *hexString = [NSString stringWithFormat:@"#%02x%02x%02x%02x",
+                            ((int)red),((int)green),((int)blue), ((int)alpha)];
+    return hexString;
 }
 
 #pragma mark - Colors

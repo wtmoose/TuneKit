@@ -76,6 +76,7 @@
 {
     config.nameLabel = (UILabel *)[cell viewWithTag:1];
     config.colorSpacePicker = (UISegmentedControl *)[cell viewWithTag:2];
+    config.hexTextField = (UITextField *)[cell viewWithTag:3];
     config.sliders = [self view:cell viewsWithTags:@[@10, @11, @12, @13]];
     config.sliderLabels = [self view:cell viewsWithTags:@[@20, @21, @22, @23]];
     config.sliderValues = [self view:cell viewsWithTags:@[@30, @31, @32, @33]];

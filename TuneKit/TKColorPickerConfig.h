@@ -17,6 +17,7 @@
 
 @property (weak, nonatomic) UILabel *nameLabel;
 @property (weak, nonatomic) UISegmentedControl *colorSpacePicker;
+@property (weak, nonatomic) UITextField *hexTextField;
 @property (strong, nonatomic) NSArray *sliders;
 @property (strong, nonatomic) NSArray *sliderLabels;
 @property (strong, nonatomic) NSArray *sliderValues;

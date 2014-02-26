@@ -46,7 +46,7 @@
 {
     if (_nameLabel != nameLabel) {
         _nameLabel = nameLabel;
-        nameLabel.text = self.name;
+        nameLabel.text = [self.name uppercaseString];
     }
 }
 
