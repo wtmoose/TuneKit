@@ -26,7 +26,7 @@ Content is added to the control panel using the various `add` methods:
 [TuneKit addButton:@"Run Animation" target:self selector:@selector(runAnimation)];
 [TuneKit addSlider:@"Duration" target:self keyPath:@"animationDuration" min:0.25 max:3];
 [TuneKit addSlider:@"Delay" target:self keyPath:@"animationDelay" min:9 max:3];
-[TuneKit addColorPicker:@"Color" target:self keyPath:@"animationView.backgroundColor";
+[TuneKit addColorPicker:@"Color" target:self keyPath:@"animationView.backgroundColor"];
 ```
 
 Content is removed from the control panel using:
