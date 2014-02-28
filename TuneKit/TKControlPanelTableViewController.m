@@ -17,27 +17,7 @@
 
 @implementation TKControlPanelTableViewController
 
-- (NSString *)tableView:(UITableView *)tableView cellIdentifierAtIndexPath:(NSIndexPath *)indexPath
-{
-    TLIndexPathItem *item = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
-    TKConfig *config = item.data;
-    switch (config.type) {
-        case TKConfigTypeButton:
-            return @"Button";
-            break;
-        case TKConfigTypeSlider:
-            return @"Slider";
-            break;
-        case TKConfigTypeColorPicker:
-            return @"ColorPicker";
-            break;
-        default:
-            return @"Cell";
-            break;
-    }
-}
-
-#pragma mark - UITableViewDataModel
+#pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -60,6 +40,28 @@
     }
     
     return cell;
+}
+
+#pragma mark - Cell configuration
+
+- (NSString *)tableView:(UITableView *)tableView cellIdentifierAtIndexPath:(NSIndexPath *)indexPath
+{
+    TLIndexPathItem *item = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
+    TKConfig *config = item.data;
+    switch (config.type) {
+        case TKConfigTypeButton:
+            return @"Button";
+            break;
+        case TKConfigTypeSlider:
+            return @"Slider";
+            break;
+        case TKConfigTypeColorPicker:
+            return @"ColorPicker";
+            break;
+        default:
+            return @"Cell";
+            break;
+    }
 }
 
 - (void)configureCell:(UITableViewCell *)cell forButtonConfig:(TKButtonConfig *)config

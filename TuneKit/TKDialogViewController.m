@@ -23,6 +23,8 @@
     
     [self.dismissButton addTarget:self action:@selector(dismiss)
                  forControlEvents:UIControlEventTouchUpInside];
+    
+    [self themeViewController:self];
 }
 
 #pragma mark - Content
@@ -76,6 +78,28 @@
     [self removeFromParentViewController];
     self.originYConstraint = nil;
     self.originXConstraint = nil;
+}
+
+
+#pragma mark - Theme
+
+- (void)themeViewController:(TKDialogViewController *)controller
+{
+    CGFloat cornerRadius = 5.f;
+    
+    CALayer *contentLayer = controller.containerView.layer;
+    contentLayer.cornerRadius = cornerRadius;
+    contentLayer.borderColor = [UIColor colorWithWhite:0.75 alpha:1].CGColor;
+    contentLayer.borderWidth = 1;
+    contentLayer.masksToBounds = YES;
+    
+    CALayer *layer = self.view.layer;
+    layer.cornerRadius = cornerRadius;
+    layer.shadowColor = [UIColor colorWithWhite:0 alpha:1].CGColor;
+    layer.shadowOffset = CGSizeMake(0.f, 1.5f);
+    layer.shadowOpacity = 0.3f;
+    layer.shadowRadius = 3.f;
+    layer.shadowPath = CGPathCreateWithRoundedRect(layer.bounds, cornerRadius, cornerRadius, NULL);
 }
 
 @end
