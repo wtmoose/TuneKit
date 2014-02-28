@@ -87,7 +87,7 @@ Content is removed from the control panel using:
 [TuneKit removePath:nil];
 ```
 
-TuneKit is meant to support hierarchical configuration, but currently only supports flat paths specified as strings as illustrated above.
+TuneKit is meant to support hierarchical configuration, but currently only supports a flat list of controls as illustrated above. So right now, there is no way to remove groups of controls other than removing them individually.
 
 ##Installation
 
