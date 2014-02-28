@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "TuneKit"
   s.version      = "0.0.1"
   s.summary      = "TuneKit lets you modify the look and feel of
-                   your app in real time."
+                   your iOS app in real time."
 
   s.description  = <<-DESC
                    TuneKit lets you modify the look and feel of
