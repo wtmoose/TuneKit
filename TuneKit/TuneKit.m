@@ -101,6 +101,10 @@ static TuneKit *sharedInstance = nil;
     //TODO Support panel organized by paths
     NSMutableArray *items = [NSMutableArray arrayWithArray:self.controlPanel.indexPathController.items];
     NSString *identifier = [self pathStringFromPath:path];
+    id existingItem = [self.controlPanel.indexPathController.dataModel itemForIdentifier:identifier];
+    if (existingItem) {
+        [items removeObject:existingItem];
+    }
     TLIndexPathItem *item = [[TLIndexPathItem alloc] initWithIdentifier:identifier
                                                             sectionName:nil
                                                          cellIdentifier:nil

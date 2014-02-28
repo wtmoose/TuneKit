@@ -21,7 +21,7 @@
 {
     if (_value != value) {
         _value = value;
-        [self updateValueLabel];
+        [self updateValueViews];
         if (self.changeHandler) {
             self.changeHandler(@(value));
         }
@@ -51,6 +51,7 @@
     if (_slider != slider) {
         _slider = slider;
         [self updateSliderRange];
+        [self updateValueViews];
         [slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     }
 }
@@ -67,7 +68,7 @@
 {
     if (_valueLabel != valueLabel) {
         _valueLabel = valueLabel;
-        [self updateValueLabel];
+        [self updateValueViews];
     }
 }
 
@@ -86,8 +87,10 @@
     self.value = MIN(self.max, self.value);
 }
 
-- (void)updateValueLabel
+- (void)updateValueViews
 {
+    [self.slider setValue:self.value animated:YES];
+    
     NSString *format = @"%0.0f";
     if (fabs(self.value) < 100.f) {
         format = @"%0.2f";
@@ -111,6 +114,8 @@
 {
     TKSliderConfig *config = [[TKSliderConfig alloc] initWithName:name type:TKConfigTypeSlider];
     config.changeHandler = changeHandler;
+    config.min = min;
+    config.max = max;
     config.value = value;
     return config;
 }

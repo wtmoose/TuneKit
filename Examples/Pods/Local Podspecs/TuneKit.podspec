@@ -1,11 +1,13 @@
 Pod::Spec.new do |s|
   s.name         = "TuneKit"
   s.version      = "0.0.1"
-  s.summary      = "Tune Kit lets you tune your app in real time."
+  s.summary      = "TuneKit lets you modify the look and feel of
+                   your iOS app in real time."
 
   s.description  = <<-DESC
-                   Tune Kit is an experimental project and is subject to drastic API changes.
-                   Unless you want to be on the bleeding edge, check back later.
+                   TuneKit lets you modify the look and feel of
+                   your app in real time. Tune animations, colors, etc.
+                   and get instant feedback.
                    DESC
   s.homepage     = ""
   s.license      = { :type => 'MIT' }

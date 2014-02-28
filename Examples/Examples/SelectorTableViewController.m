@@ -18,7 +18,7 @@
     TLIndexPathItem *basicsItem = [[TLIndexPathItem alloc] initWithIdentifier:@"Basics"
                                                                   sectionName:nil
                                                                cellIdentifier:nil
-                                                                         data:@"Basic usage."];
+                                                                         data:@"Demonstrates some basic uses for TuneKit."];
     
     self.indexPathController.items = @[basicsItem];
 }

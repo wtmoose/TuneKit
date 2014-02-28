@@ -20,13 +20,62 @@ Then display the control panel, for example, when an admin button is tapped:
     
 You can drag the control panel around the screen, collapse it, or dismiss it (well actually, right now you can only dismiss it). But it is designed to remain on screen while the app is in use.
 
-Content is added to the control panel using the various `add` methods:
+Content is added to the control panel using the various `add` methods after setting default values for the tunable parameters:
 
 ```Objective-C
+// set default values for tunable parameters
+self.animationDuration = 0.65;
+self.animationDampingRatio = 0.3;
+self.animationScale = 0.75;
+self.animationView.backgroundColor = [UIColor colorWithHexRGB:0x1694AE];
+
+// add a button to start the animation
 [TuneKit addButton:@"Run Animation" target:self selector:@selector(runAnimation)];
-[TuneKit addSlider:@"Duration" target:self keyPath:@"animationDuration" min:0.25 max:3];
-[TuneKit addSlider:@"Delay" target:self keyPath:@"animationDelay" min:9 max:3];
+
+// add a slider to adjust the animation duration
+[TuneKit addSlider:@"Duration" target:self keyPath:@"animationDuration" min:0.1 max:1.5];
+
+// add a slider to adjust the animation damping ratio (for a spring animation)
+[TuneKit addSlider:@"Damping Ratio" target:self keyPath:@"animationDampingRatio" min:0 max:1];
+
+// add a slider to adjust the animation scale factor
+[TuneKit addSlider:@"Scale" target:self keyPath:@"animationScale" min:0.25 max:1.25];
+
+// add a color picker to set the animation view's color
 [TuneKit addColorPicker:@"Color" target:self keyPath:@"animationView.backgroundColor"];
+
+// present the control panel (automatically)
+[TuneKit presentControlPanel];
+```
+
+Then somewhere in the view controller, the `runAnimation` method would be defined like:
+
+```Objective-C
+- (void)runAnimation
+{
+    CGFloat width = self.animationViewWidth.constant;
+    CGFloat height = self.animationViewHeight.constant;
+    
+    // bounce
+    [UIView animateWithDuration:self.animationDuration delay:0 usingSpringWithDamping:self.animationDampingRatio initialSpringVelocity:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        
+        self.animationViewWidth.constant = width * self.animationScale;
+        self.animationViewHeight.constant = height * self.animationScale;
+        [self.animationView layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {
+        
+        // bounce back
+        [UIView animateWithDuration:self.animationDuration delay:0 usingSpringWithDamping:self.animationDampingRatio initialSpringVelocity:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+            
+            self.animationViewWidth.constant = width;
+            self.animationViewHeight.constant = height;
+            [self.animationView layoutIfNeeded];
+            
+        } completion:nil];
+        
+    }];
+}
 ```
 
 Content is removed from the control panel using:

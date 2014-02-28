@@ -102,13 +102,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ej-XB-5IF">
-                                <rect key="frame" x="397" y="80" width="250" height="250"/>
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ej-XB-5IF">
+                                <rect key="frame" x="402" y="92" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.84189138100000005" green="0.84189138100000005" blue="0.84189138100000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="IOl-hh-CvT"/>
+                                    <constraint firstAttribute="width" constant="200" id="Osl-CA-YNl"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGw-xa-mT4">
-                                <rect key="frame" x="397" y="51" width="51" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGw-xa-mT4">
+                                <rect key="frame" x="402" y="63" width="118" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -116,10 +120,18 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DGw-xa-mT4" firstAttribute="leading" secondItem="wmi-1i-XWc" secondAttribute="leading" constant="402" id="8kM-Km-xVf"/>
+                            <constraint firstItem="DGw-xa-mT4" firstAttribute="top" secondItem="kps-3e-AFU" secondAttribute="bottom" constant="43" id="Kht-7H-muK"/>
+                            <constraint firstItem="7ej-XB-5IF" firstAttribute="leading" secondItem="DGw-xa-mT4" secondAttribute="leading" id="YLR-5X-MdD"/>
+                            <constraint firstItem="7ej-XB-5IF" firstAttribute="top" secondItem="DGw-xa-mT4" secondAttribute="bottom" constant="8" id="a1R-s4-yNI"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
-                        <outlet property="view1" destination="7ej-XB-5IF" id="m03-UM-BKi"/>
+                        <outlet property="animationView" destination="7ej-XB-5IF" id="VxX-q3-dlN"/>
+                        <outlet property="animationViewHeight" destination="Osl-CA-YNl" id="2TM-n2-cNi"/>
+                        <outlet property="animationViewWidth" destination="IOl-hh-CvT" id="ZWc-SN-8qh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMo-xx-qtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
