@@ -11,8 +11,8 @@
 		86889D6218BABAA500F0407D /* TKDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86889D6118BABAA500F0407D /* TKDialog.xib */; };
 		86AB2D4918BD748100038D69 /* TuneKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86AB2D4818BD748100038D69 /* TuneKit.xcassets */; };
 		86CB5AE418B7C1FF003039CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CB5AE318B7C1FF003039CC /* Foundation.framework */; };
-		86CB5AE918B7C1FF003039CC /* TKTuneKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86CB5AE818B7C1FF003039CC /* TKTuneKit.h */; };
-		86CB5AEB18B7C1FF003039CC /* TKTuneKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB5AEA18B7C1FF003039CC /* TKTuneKit.m */; };
+		86CB5AE918B7C1FF003039CC /* TuneKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86CB5AE818B7C1FF003039CC /* TuneKit.h */; };
+		86CB5AEB18B7C1FF003039CC /* TuneKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB5AEA18B7C1FF003039CC /* TuneKit.m */; };
 		86CB5AF218B7C1FF003039CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CB5AF118B7C1FF003039CC /* XCTest.framework */; };
 		86CB5AF318B7C1FF003039CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CB5AE318B7C1FF003039CC /* Foundation.framework */; };
 		86CB5AF518B7C1FF003039CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CB5AF418B7C1FF003039CC /* UIKit.framework */; };
@@ -54,7 +54,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				86CB5AE918B7C1FF003039CC /* TKTuneKit.h in CopyFiles */,
+				86CB5AE918B7C1FF003039CC /* TuneKit.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,8 +67,8 @@
 		86CB5AE018B7C1FF003039CC /* libTuneKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTuneKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CB5AE318B7C1FF003039CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86CB5AE718B7C1FF003039CC /* TuneKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TuneKit-Prefix.pch"; sourceTree = "<group>"; };
-		86CB5AE818B7C1FF003039CC /* TKTuneKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKTuneKit.h; sourceTree = "<group>"; };
-		86CB5AEA18B7C1FF003039CC /* TKTuneKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKTuneKit.m; sourceTree = "<group>"; };
+		86CB5AE818B7C1FF003039CC /* TuneKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TuneKit.h; sourceTree = "<group>"; };
+		86CB5AEA18B7C1FF003039CC /* TuneKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TuneKit.m; sourceTree = "<group>"; };
 		86CB5AF018B7C1FF003039CC /* TuneKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuneKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CB5AF118B7C1FF003039CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		86CB5AF418B7C1FF003039CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -82,10 +82,11 @@
 		86CB5B1118B7C7CE003039CC /* TKSliderConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSliderConfig.m; sourceTree = "<group>"; };
 		86CB699F18B825D0003039CC /* TKButtonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButtonConfig.h; sourceTree = "<group>"; };
 		86CB69A018B825D0003039CC /* TKButtonConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButtonConfig.m; sourceTree = "<group>"; };
-		86CB69A418B8619F003039CC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		86CB69A418B8619F003039CC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		86CB69A618B86473003039CC /* TKControlPanelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKControlPanelTableViewController.h; sourceTree = "<group>"; };
 		86CB69A718B86473003039CC /* TKControlPanelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKControlPanelTableViewController.m; sourceTree = "<group>"; };
 		86CB69AC18B86835003039CC /* TuneKit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TuneKit.storyboard; sourceTree = "<group>"; };
+		86EA9E8C18C0600600FEABC8 /* TKGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGlobal.h; sourceTree = "<group>"; };
 		86F2834118B875C300CD971C /* TKColorPickerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKColorPickerConfig.h; sourceTree = "<group>"; };
 		86F2834218B875C300CD971C /* TKColorPickerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKColorPickerConfig.m; sourceTree = "<group>"; };
 		86F2834518B9B21B00CD971C /* TKDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDialogViewController.h; sourceTree = "<group>"; };
@@ -157,10 +158,11 @@
 			isa = PBXGroup;
 			children = (
 				86CB69A318B86096003039CC /* UI */,
-				86CB5AE818B7C1FF003039CC /* TKTuneKit.h */,
-				86CB5AEA18B7C1FF003039CC /* TKTuneKit.m */,
+				86CB5AE818B7C1FF003039CC /* TuneKit.h */,
+				86CB5AEA18B7C1FF003039CC /* TuneKit.m */,
 				86CB5AE618B7C1FF003039CC /* Supporting Files */,
 				86CB5B0B18B7C769003039CC /* Configurations */,
+				86EA9E8C18C0600600FEABC8 /* TKGlobal.h */,
 			);
 			path = TuneKit;
 			sourceTree = "<group>";
@@ -342,7 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86F2834318B875C300CD971C /* TKColorPickerConfig.m in Sources */,
-				86CB5AEB18B7C1FF003039CC /* TKTuneKit.m in Sources */,
+				86CB5AEB18B7C1FF003039CC /* TuneKit.m in Sources */,
 				86CB69A118B825D0003039CC /* TKButtonConfig.m in Sources */,
 				86CB5B1218B7C7CE003039CC /* TKSliderConfig.m in Sources */,
 				86CB69A818B86473003039CC /* TKControlPanelTableViewController.m in Sources */,

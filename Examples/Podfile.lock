@@ -1,6 +1,8 @@
 PODS:
+  - OBSlider (1.1.0)
   - TLIndexPathTools (HEAD based on 0.2.1)
   - TuneKit (0.0.1):
+    - OBSlider
     - TLIndexPathTools
 
 DEPENDENCIES:
@@ -12,7 +14,8 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
+  OBSlider: 1eae1ad6fea0af687f7dde0366003044c4ba3d27
   TLIndexPathTools: 396e76177d4e8343d693fa5049aae1be58cefb95
-  TuneKit: 8043af12df73f0c55ec4485d955c643a220f7032
+  TuneKit: 4519470f3de2951f0cfdc787c1524ad3496abb74
 
 COCOAPODS: 0.29.0

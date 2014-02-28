@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <TLIndexPathTools/TLTableViewController.h>
+#import <TLIndexPathTools/TLCollapsibleTableViewController.h>
 
-@interface TKControlPanelTableViewController : TLTableViewController
+@interface TKControlPanelTableViewController : TLCollapsibleTableViewController
 @end

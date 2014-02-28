@@ -7,6 +7,7 @@
 //
 
 #import "TKControlPanelTableViewController.h"
+#import <TLIndexPathTools/TLIndexPathItem.h>
 #import "TKButtonConfig.h"
 #import "TKSliderConfig.h"
 #import "TKColorPickerConfig.h"
@@ -18,8 +19,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView cellIdentifierAtIndexPath:(NSIndexPath *)indexPath
 {
-    TKConfig *config = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
-    
+    TLIndexPathItem *item = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
+    TKConfig *config = item.data;
     switch (config.type) {
         case TKConfigTypeButton:
             return @"Button";
@@ -42,7 +43,8 @@
 {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
-    TKConfig *config = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
+    TLIndexPathItem *item = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
+    TKConfig *config = item.data;
     
     switch (config.type) {
         case TKConfigTypeButton:

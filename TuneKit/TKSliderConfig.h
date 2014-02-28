@@ -12,9 +12,8 @@
 @interface TKSliderConfig : TKConfig
 
 @property (nonatomic) float value;
-//@property (nonatomic) float minValue;
-//@property (nonatomic) float maxValue;
-//@property (copy, nonatomic) NSArray *validValues;
+@property (nonatomic) float min;
+@property (nonatomic) float max;
 
 #pragma mark - View bindings
 
@@ -24,10 +23,6 @@
 
 #pragma mark - Creating slider configs
 
-+ (TKSliderConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath;
-+ (TKSliderConfig *)configWithName:(NSString *)name changeHandler:(TKValueCallback)changeHandler value:(float)value;
-
-//+ (TKSliderConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(float)min max:(float)max;
-//+ (TKSliderConfig *)configWithName:(NSString *)name changeHandler:(TKValueCallback)changeHandler value:(float)value min:(float)min max:(float)max;
++ (TKSliderConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max;
 
 @end

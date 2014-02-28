@@ -8,9 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^TKCallback)();
-typedef void(^TKValueCallback)(id value);
-
 typedef NS_ENUM(NSInteger, TKConfigType)
 {
     TKConfigTypeButton,

@@ -7,7 +7,7 @@
 //
 
 #import "BasicsViewController.h"
-#import <TuneKit/TKTuneKit.h>
+#import <TuneKit/TuneKit.h>
 
 @interface BasicsViewController ()
 @property (strong, nonatomic) IBOutlet UIView *view1;
@@ -18,9 +18,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    TKColorPickerConfig *view1ColorConfig = [TKColorPickerConfig configWithName:@"View1 Color" target:self keyPath:@"view1.backgroundColor"];
-    [TKTuneKit presentControlPanelWithConfigs:@[view1ColorConfig]];
+
+    [TuneKit enable];
+    [TuneKit addColorPicker:@"View1 Color" target:self keyPath:@"view1.backgroundColor"];
+    [TuneKit presentControlPanel];
 }
 
 @end

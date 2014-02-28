@@ -7,10 +7,10 @@
 //
 
 #import "TKSliderConfig.h"
+#import "TKGlobal.h"
 
 @interface TKSliderConfig ()
 @property (strong, nonatomic) TKValueCallback changeHandler;
-@property (nonatomic) float midValue;
 @end
 
 @implementation TKSliderConfig
@@ -28,17 +28,30 @@
     }
 }
 
+- (void)setMin:(float)min
+{
+    if (_min != min) {
+        _min = min;
+        [self updateSliderRange];
+    }
+}
+
+- (void)setMax:(float)max
+{
+    if (_max != max) {
+        _max = max;
+        [self updateSliderRange];
+    }
+}
+
 #pragma mark - View bindings
 
 - (void)setSlider:(UISlider *)slider
 {
     if (_slider != slider) {
         _slider = slider;
-        slider.minimumValue = 0.f;
-        slider.maximumValue = 1.f;
-        [self updateSliderScale:NO];
+        [self updateSliderRange];
         [slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
-        [slider addTarget:self action:@selector(sliderValueStoppedChanging:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside];
     }
 }
 
@@ -62,29 +75,15 @@
 
 - (void)sliderValueChanged:(UISlider *)slider
 {
-    //TODO replace this with some kind of logarithmic function
-    float constant = 0.f;
-    if (fabs(self.midValue) < 10.f) {
-        constant = 5.f;
-    } else if (fabs(self.midValue) < 100.f) {
-        constant = 50.f;
-    } else if (fabs(self.midValue) < 1000.f) {
-        constant = 500.f;
-    } else {
-        constant = 5000.f;
-    }
-    self.value = self.midValue + constant * (slider.value - 0.5f) * 2.f;
+    self.value = slider.value;
 }
 
-- (void)sliderValueStoppedChanging:(UISlider *)slider
+- (void)updateSliderRange
 {
-    [self updateSliderScale:YES];
-}
-
-- (void)updateSliderScale:(BOOL)animated
-{
-    self.midValue = self.value;
-    [self.slider setValue:0.5f animated:animated];
+    self.slider.minimumValue = self.min;
+    self.slider.maximumValue = self.max;
+    self.value = MAX(self.min, self.value);
+    self.value = MIN(self.max, self.value);
 }
 
 - (void)updateValueLabel
@@ -100,15 +99,15 @@
 
 #pragma mark - Creating slider configs
 
-+ (TKSliderConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
++ (TKSliderConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max
 {
     NSNumber *value = [target valueForKeyPath:keyPath];
     return [self configWithName:name changeHandler:^(id value) {
         [target setValue:value forKeyPath:keyPath];
-    } value:[value floatValue]];
+    } value:[value floatValue] min:min max:max];
 }
 
-+ (TKSliderConfig *)configWithName:(NSString *)name changeHandler:(TKValueCallback)changeHandler value:(float)value
++ (TKSliderConfig *)configWithName:(NSString *)name changeHandler:(TKValueCallback)changeHandler value:(float)value min:(CGFloat)min max:(CGFloat)max
 {
     TKSliderConfig *config = [[TKSliderConfig alloc] initWithName:name type:TKConfigTypeSlider];
     config.changeHandler = changeHandler;

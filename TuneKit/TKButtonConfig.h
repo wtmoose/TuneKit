@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TKGlobal.h"
 #import "TKConfig.h"
 
 @interface TKButtonConfig : TKConfig

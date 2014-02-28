@@ -9,6 +9,7 @@
 //TODO Handle non-RBG initial color values
 
 #import "TKColorPickerConfig.h"
+#import "TKGlobal.h"
 
 @interface TKColorPickerConfig ()
 @property (strong, nonatomic) TKValueCallback changeHandler;

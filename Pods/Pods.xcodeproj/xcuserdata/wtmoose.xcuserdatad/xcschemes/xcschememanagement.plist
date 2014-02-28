@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-OBSlider.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TLIndexPathTools.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6EE0DAC120BE49E5B2489E33</key>
+		<key>5C638380F2F942C99293DA71</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC189B4C171A42A896BB6E3B</key>
+		<key>650385F54F9C4584A19D66C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D80718775A6947A7BB7F7DD4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
