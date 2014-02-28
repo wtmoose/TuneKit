@@ -117,13 +117,17 @@ static TuneKit *sharedInstance = nil;
 
 - (void)removePath:(id)path
 {
-    //TODO This currently only works with leaf paths
-    NSString *identifier = [self pathStringFromPath:path];
-    id item = [self.controlPanel.indexPathController.dataModel itemForIdentifier:identifier];
-    if (item) {
-        NSMutableArray *items = [NSMutableArray arrayWithArray:self.controlPanel.indexPathController.items];
-        [items removeObject:item];
-        self.controlPanel.indexPathController.items = items;
+    //TODO This currently only works with leaf paths or nil
+    if (path == nil) {
+        self.controlPanel.indexPathController.items = nil;
+    } else {
+        NSString *identifier = [self pathStringFromPath:path];
+        id item = [self.controlPanel.indexPathController.dataModel itemForIdentifier:identifier];
+        if (item) {
+            NSMutableArray *items = [NSMutableArray arrayWithArray:self.controlPanel.indexPathController.items];
+            [items removeObject:item];
+            self.controlPanel.indexPathController.items = items;
+        }
     }
 }
 

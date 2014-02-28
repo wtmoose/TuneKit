@@ -87,6 +87,7 @@
 		86CB69A718B86473003039CC /* TKControlPanelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKControlPanelTableViewController.m; sourceTree = "<group>"; };
 		86CB69AC18B86835003039CC /* TuneKit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TuneKit.storyboard; sourceTree = "<group>"; };
 		86EA9E8C18C0600600FEABC8 /* TKGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGlobal.h; sourceTree = "<group>"; };
+		86EA9E9218C101F400FEABC8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		86F2834118B875C300CD971C /* TKColorPickerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKColorPickerConfig.h; sourceTree = "<group>"; };
 		86F2834218B875C300CD971C /* TKColorPickerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKColorPickerConfig.m; sourceTree = "<group>"; };
 		86F2834518B9B21B00CD971C /* TKDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDialogViewController.h; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 		86CB5AD718B7C1FF003039CC = {
 			isa = PBXGroup;
 			children = (
+				86EA9E9218C101F400FEABC8 /* README.md */,
 				86F2834918BA6DD100CD971C /* TuneKit.podspec */,
 				86CB69A418B8619F003039CC /* Podfile */,
 				86CB5AE518B7C1FF003039CC /* TuneKit */,
