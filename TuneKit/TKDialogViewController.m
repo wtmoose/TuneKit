@@ -44,22 +44,22 @@
     self.shadowOpacity = 0.15f;
     self.shadowYOffset = 4.f;
 
-    [TuneKit add:^{
-        
-        [TuneKit addSlider:@"Corner Radius" target:self keyPath:@"cornerRadius" min:0 max:20];
-        [TuneKit addSlider:@"Shadow Radius" target:self keyPath:@"shadowRadius" min:0 max:10];
-        [TuneKit addSlider:@"Shadow Opacity" target:self keyPath:@"shadowOpacity" min:0 max:1];
-        [TuneKit addSlider:@"Shadow Y Offset" target:self keyPath:@"shadowYOffset" min:-5 max:5];
-        
-    } inPath:@[@"TuneKit Control Panel"]];
+//    [TuneKit add:^{
+//        
+//        [TuneKit addSlider:@"Corner Radius" target:self keyPath:@"cornerRadius" min:0 max:20];
+//        [TuneKit addSlider:@"Shadow Radius" target:self keyPath:@"shadowRadius" min:0 max:10];
+//        [TuneKit addSlider:@"Shadow Opacity" target:self keyPath:@"shadowOpacity" min:0 max:1];
+//        [TuneKit addSlider:@"Shadow Y Offset" target:self keyPath:@"shadowYOffset" min:-5 max:5];
+//        
+//    } inPath:@[@"TuneKit Control Panel"]];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    
-    [TuneKit removePath:@[@"TuneKit Control Panel"]];
-}
+//- (void)viewDidDisappear:(BOOL)animated
+//{
+//    [super viewDidDisappear:animated];
+//    
+//    [TuneKit removePath:@[@"TuneKit Control Panel"]];
+//}
 
 //- (void)viewDidLoad
 //{
