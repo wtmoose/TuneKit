@@ -175,7 +175,9 @@ NSString *kTuneKitPathKey = @"kTuneKitPathKey";
                 break;
         }
     }
+    // remove self after all children have bene removed
     [self removeIdentifier:node fromDataModelForPath:parentPath];
+    [self.dataModelsByPath removeObjectForKey:path];
 }
 
 - (void)addConfigToDataModel:(TKConfig *)config
@@ -185,11 +187,11 @@ NSString *kTuneKitPathKey = @"kTuneKitPathKey";
     NSMutableArray *items = [NSMutableArray arrayWithArray:oldDataModel.items];
     TLIndexPathItem *item = [[TLIndexPathItem alloc] initWithIdentifier:config.name sectionName:nil cellIdentifier:nil data:config];
     [items addObject:item];
-    [items sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        NSString *string1 = [obj1 identifier];
-        NSString *string2 = [obj1 identifier];
-        return [string1 caseInsensitiveCompare:string2];
-    }];
+//    [items sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+//        NSString *string1 = [obj1 identifier];
+//        NSString *string2 = [obj2 identifier];
+//        return [string1 caseInsensitiveCompare:string2];
+//    }];
     TLIndexPathDataModel *dataModel = [[TLIndexPathDataModel alloc] initWithItems:items];
     [self.dataModelsByPath setObject:dataModel forKey:path];
     [self notifyPathChanged:path];

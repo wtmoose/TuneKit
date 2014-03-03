@@ -15,10 +15,10 @@ First, enable TuneKit, for example in your app's delegate:
 Then display the control panel, for example, when an admin button is tapped:
 
 ```Objective-C
-[TuneKit presentControlPanel];
+[TuneKit presentControlPanelAtLeftOrigin:];
 ```
     
-You can drag the control panel around the screen, collapse it, or dismiss it (well actually, right now you can only dismiss it). But it is designed to remain on screen while the app is in use.
+You can drag the control panel around the screen, collapse it, or dismiss it (well actually, right now you can only drag and dismiss it). But it is designed to remain on screen while the app is in use.
 
 Content is added to the control panel using the various `add` methods after setting default values for the tunable parameters:
 
@@ -78,16 +78,26 @@ Then somewhere in the view controller, the `runAnimation` method would be define
 }
 ```
 
+Content can be organized hierarchically using a block-based syntax and providing an array of strings representing the path:
+
+```Objective-C
+[TuneKit add:^{
+    
+    // add content here
+
+} inPath:@[@"Animation Example"]];
+```
+
 Content is removed from the control panel using:
 ```Objective-C
-// Remove the color picker
-[TuneKit removePath:@"Color"];
+// Remove the animation example
+[TuneKit removePath:@[@"Animation Example"]];
 
 // Remove everything
 [TuneKit removePath:nil];
 ```
 
-TuneKit is meant to support hierarchical configuration, but currently only supports a flat list of controls as illustrated above. So right now, there is no way to remove groups of controls other than removing them individually.
+Typically, one would add and remove content as view controllers appear and disappear, respectively.
 
 ##Installation
 

@@ -39,7 +39,6 @@
 {
     [super viewDidAppear:animated];
     
-    
     // present the control panel
     [TuneKit presentControlPanelAtLeftOrigin:350.f];
 }

@@ -37,6 +37,11 @@
                                                object:nil];
 }
 
+- (IBAction)dismiss
+{
+    [TuneKit dismissControlPanel];
+}
+
 #pragma mark - Configuration
 
 - (void)pathChanged:(NSNotification *)notification

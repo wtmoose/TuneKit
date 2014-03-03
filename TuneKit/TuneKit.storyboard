@@ -289,7 +289,13 @@
                             <outlet property="delegate" destination="qNf-Ww-Mak" id="fAM-rD-ciL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="TG7-Xq-1DH"/>
+                    <navigationItem key="navigationItem" id="TG7-Xq-1DH">
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="htr-Lx-9k5">
+                            <connections>
+                                <action selector="dismiss" destination="qNf-Ww-Mak" id="oXq-Uc-USy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="veO-2l-4iU" userLabel="First Responder" sceneMemberID="firstResponder"/>

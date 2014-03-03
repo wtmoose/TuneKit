@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F6380BC4115543C1A98DCB48"
+               BlueprintIdentifier = "DF8E97655A4B4F2B8F4E0194"
                BuildableName = "libPods-OBSlider.a"
                BlueprintName = "Pods-OBSlider"
                ReferencedContainer = "container:Pods.xcodeproj">
