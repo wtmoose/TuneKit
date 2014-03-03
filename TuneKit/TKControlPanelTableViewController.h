@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <TLIndexPathTools/TLCollapsibleTableViewController.h>
 #import <TLIndexPathTools/TLTableViewController.h>
 
-//@interface TKControlPanelTableViewController : TLCollapsibleTableViewController
 @interface TKControlPanelTableViewController : TLTableViewController
+@property (strong, nonatomic) NSString *path;
+@property (strong, nonatomic) UIViewController *(^nodeViewControllerProvider)(NSString *nodeName);
 @end

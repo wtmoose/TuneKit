@@ -8,14 +8,59 @@
 
 #import "TKControlPanelTableViewController.h"
 #import <TLIndexPathTools/TLIndexPathItem.h>
-#import "TKButtonConfig.h"
-#import "TKSliderConfig.h"
-#import "TKColorPickerConfig.h"
+#import "TuneKit.h"
 
 @interface TKControlPanelTableViewController ()
 @end
 
 @implementation TKControlPanelTableViewController
+
+#pragma mark - View controller lifecycle
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(pathChanged:)
+                                                 name:kTuneKitPathChangedNotification
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(pathRemoved:)
+                                                 name:kTuneKitPathRemovedNotification
+                                               object:nil];
+}
+
+#pragma mark - Configuration
+
+- (void)pathChanged:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    NSString *path = [userInfo valueForKey:kTuneKitPathKey];
+    if ([self.path isEqualToString:path]) {
+        TLIndexPathDataModel *dataModel = [userInfo valueForKey:kTuneKitDataModelKey];
+        self.indexPathController.dataModel = dataModel;
+    }
+}
+
+- (void)pathRemoved:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    NSString *path = [userInfo valueForKey:kTuneKitPathKey];
+    if ([self.path isEqualToString:path]) {
+        NSInteger index = [self.navigationController.viewControllers indexOfObject:self];
+        if (index != NSNotFound && index > 0) {
+            UIViewController *parentController = self.navigationController.viewControllers[index-1];
+            [self.navigationController popToViewController:parentController animated:YES];
+        }
+    }
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -27,6 +72,9 @@
     TKConfig *config = item.data;
     
     switch (config.type) {
+        case TKConfigTypeNode:
+            [self configureCell:cell forNodeConfig:(TKNodeConfig *)config];
+            break;
         case TKConfigTypeButton:
             [self configureCell:cell forButtonConfig:(TKButtonConfig *)config];
             break;
@@ -42,13 +90,32 @@
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TLIndexPathItem *item = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
+
+    if ([item.data isKindOfClass:[TKNodeConfig class]]) {
+        TKNodeConfig *config = item.data;
+        UIViewController *viewController = self.nodeViewControllerProvider(config.name);
+        if (viewController) {
+            [self.navigationController pushViewController:viewController animated:YES];
+        }
+    }
+}
+
 #pragma mark - Cell configuration
 
 - (NSString *)tableView:(UITableView *)tableView cellIdentifierAtIndexPath:(NSIndexPath *)indexPath
 {
     TLIndexPathItem *item = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
     TKConfig *config = item.data;
+
     switch (config.type) {
+        case TKConfigTypeNode:
+            return @"Node";
+            break;
         case TKConfigTypeButton:
             return @"Button";
             break;
@@ -62,6 +129,11 @@
             return @"Cell";
             break;
     }
+}
+
+- (void)configureCell:(UITableViewCell *)cell forNodeConfig:(TKNodeConfig *)config
+{
+    cell.textLabel.text = config.name;
 }
 
 - (void)configureCell:(UITableViewCell *)cell forButtonConfig:(TKButtonConfig *)config

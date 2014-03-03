@@ -10,6 +10,7 @@
 
 typedef NS_ENUM(NSInteger, TKConfigType)
 {
+    TKConfigTypeNode,
     TKConfigTypeButton,
     TKConfigTypeSlider,
     TKConfigTypeColorPicker,

@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TKDialogViewController : UIViewController
+@interface TKDialogViewController : UINavigationController
 
-@property (strong, nonatomic) IBOutlet UIView *titleBar;
-@property (strong, nonatomic) IBOutlet UIView *containerView;
-@property (strong, nonatomic) IBOutlet UIView *contentView;
+//@property (strong, nonatomic) IBOutlet UIView *titleBar;
+//@property (strong, nonatomic) IBOutlet UIView *containerView;
+//@property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UIButton *dismissButton;
 
-@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *panGestureRecognizer;
+//@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *panGestureRecognizer;
 
-@property (weak, nonatomic) UIViewController *contentViewController;
+//@property (weak, nonatomic) UIViewController *contentViewController;
 
-- (void)present;
+- (void)presentAtLeftOrigin:(CGFloat)leftOrigin;
 
 - (IBAction)dismiss;
 

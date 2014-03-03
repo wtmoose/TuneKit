@@ -8,16 +8,34 @@
 
 #import <UIKit/UIKit.h>
 #import "TKGlobal.h"
+#import "TKNodeConfig.h"
 #import "TKButtonConfig.h"
 #import "TKSliderConfig.h"
 #import "TKColorPickerConfig.h"
+
+/**
+ */
+extern NSString *kTuneKitPathRemovedNotification;
+
+/**
+ */
+extern NSString *kTuneKitPathChangedNotification;
+
+/**
+ */
+extern NSString *kTuneKitDataModelKey;
+
+/**
+ */
+extern NSString *kTuneKitPathKey;
 
 @interface TuneKit : NSObject
 
 #pragma mark - Configuration
 
 /**
- Enables TuneKit. None of the methods in this class do anything until this method
+ Enables TuneKit. None of the methods in this class do 
+ anything until TuneKit is enabled.
  */
 + (void)enable;
 
@@ -28,27 +46,32 @@
 
 /**
  */
-+ (TKButtonConfig *)addButton:(id)path target:(id)target selector:(SEL)selector;
++ (TKButtonConfig *)addButton:(NSString *)name target:(id)target selector:(SEL)selector;
 
 /**
  */
-+ (TKButtonConfig *)addButton:(id)path actionHanlder:(TKCallback)actionHanlder;
++ (TKButtonConfig *)addButton:(NSString *)name actionHanlder:(TKCallback)actionHanlder;
 
 /**
  */
-+ (TKSliderConfig *)addSlider:(id)path target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max;
++ (TKSliderConfig *)addSlider:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max;
 
 /**
  */
-+ (TKColorPickerConfig *)addColorPicker:(id)path target:(id)target keyPath:(NSString *)keyPath;
++ (TKColorPickerConfig *)addColorPicker:(NSString *)name target:(id)target keyPath:(NSString *)keyPath;
 
 /**
  */
-+ (void)removePath:(id)path;
++ (void)add:(TKCallback)add inPath:(NSArray *)path;
+
+/**
+ Remove the specified path and all of it's content.
+ */
++ (void)removePath:(NSArray *)path;
 
 #pragma mark - Presenting control panels
 
-+ (void)presentControlPanel;
++ (void)presentControlPanelAtLeftOrigin:(CGFloat)leftOrigin;
 
 + (void)dismissControlPanel;
 

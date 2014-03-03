@@ -21,33 +21,47 @@
 
 @implementation BasicsViewController
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-
+    [super viewWillAppear:animated];
+    
     // set default values for tunable parameters
     self.animationDuration = 0.65;
     self.animationDampingRatio = 0.3;
     self.animationScale = 0.75;
     self.animationView.backgroundColor = [UIColor colorWithHexRGB:0x1694AE];
     
-    // add a button to start the animation
-    [TuneKit addButton:@"Run Animation" target:self selector:@selector(runAnimation)];
+    // add color example
+    [TuneKit add:^{
+        
+        // add a color picker to set the animation view's color
+        [TuneKit addColorPicker:@"Animation View's Color" target:self keyPath:@"animationView.backgroundColor"];
+        
+    } inPath:@[@"Basics", @"Color Example"]];
     
-    // add a slider to adjust the animation duration
-    [TuneKit addSlider:@"Duration" target:self keyPath:@"animationDuration" min:0.1 max:1.5];
-    
-    // add a slider to adjust the animation damping ratio (for a spring animation)
-    [TuneKit addSlider:@"Damping Ratio" target:self keyPath:@"animationDampingRatio" min:0 max:1];
+    // add animation example
+    [TuneKit add:^{
+        
+        // add a button to start the animation
+        [TuneKit addButton:@"Run Animation" target:self selector:@selector(runAnimation)];
+        
+        // add a slider to adjust the animation duration
+        [TuneKit addSlider:@"Duration" target:self keyPath:@"animationDuration" min:0.1 max:1.5];
+        
+        // add a slider to adjust the animation damping ratio (for a spring animation)
+        [TuneKit addSlider:@"Damping Ratio" target:self keyPath:@"animationDampingRatio" min:0 max:1];
+        
+        // add a slider to adjust the animation scale factor
+        [TuneKit addSlider:@"Scale" target:self keyPath:@"animationScale" min:0.25 max:1.25];
+        
+    } inPath:@[@"Basics", @"Animation Example"]];
 
-    // add a slider to adjust the animation scale factor
-    [TuneKit addSlider:@"Scale" target:self keyPath:@"animationScale" min:0.25 max:1.25];
+}
 
-    // add a color picker to set the animation view's color
-    [TuneKit addColorPicker:@"Color" target:self keyPath:@"animationView.backgroundColor"];
-    
-    // present the control panel (automatically)
-    [TuneKit presentControlPanel];
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];    
+    [TuneKit removePath:@[@"Basics"]];
 }
 
 - (void)runAnimation

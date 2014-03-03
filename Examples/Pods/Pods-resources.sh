@@ -41,7 +41,6 @@ install_resource()
       ;;
   esac
 }
-install_resource "../../TuneKit/TKDialog.xib"
 install_resource "../../TuneKit/TuneKit.storyboard"
 install_resource "../../TuneKit/TuneKit.xcassets/checkers.imageset/checkers.png"
 install_resource "../../TuneKit/TuneKit.xcassets/checkers.imageset/checkers@2x.png"

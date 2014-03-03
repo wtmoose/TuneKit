@@ -8,6 +8,7 @@
 
 #import "SelectorTableViewController.h"
 #import <TLIndexPathTools/TLIndexPathItem.h>
+#import <TuneKit/TuneKit.h>
 
 @implementation SelectorTableViewController
 
@@ -19,14 +20,28 @@
                                                                   sectionName:nil
                                                                cellIdentifier:nil
                                                                          data:@"Demonstrates some basic uses for TuneKit."];
-    
-    self.indexPathController.items = @[basicsItem];
+
+    TLIndexPathItem *dynamicsItem = [[TLIndexPathItem alloc] initWithIdentifier:@"Dynamics"
+                                                                  sectionName:nil
+                                                               cellIdentifier:nil
+                                                                         data:@"Does something with UIKit Dyanamics."];
+
+    self.indexPathController.items = @[basicsItem, dynamicsItem];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self performSegueWithIdentifier:@"MainDetail" sender:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    
+    // present the control panel
+    [TuneKit presentControlPanelAtLeftOrigin:350.f];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

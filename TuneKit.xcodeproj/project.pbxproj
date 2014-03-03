@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3CDB83ED63FB44BEA571E6D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54C10009A8C4326887BE111 /* libPods.a */; };
-		86889D6218BABAA500F0407D /* TKDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86889D6118BABAA500F0407D /* TKDialog.xib */; };
 		86AB2D4918BD748100038D69 /* TuneKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86AB2D4818BD748100038D69 /* TuneKit.xcassets */; };
 		86CB5AE418B7C1FF003039CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CB5AE318B7C1FF003039CC /* Foundation.framework */; };
 		86CB5AE918B7C1FF003039CC /* TuneKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86CB5AE818B7C1FF003039CC /* TuneKit.h */; };
@@ -30,6 +29,8 @@
 		86CB69A818B86473003039CC /* TKControlPanelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB69A718B86473003039CC /* TKControlPanelTableViewController.m */; };
 		86CB69A918B86473003039CC /* TKControlPanelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB69A718B86473003039CC /* TKControlPanelTableViewController.m */; };
 		86CB69AD18B86835003039CC /* TuneKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86CB69AC18B86835003039CC /* TuneKit.storyboard */; };
+		86EA9EA518C3089F00FEABC8 /* TKNodeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EA9EA418C3089F00FEABC8 /* TKNodeConfig.m */; };
+		86EA9EA618C3089F00FEABC8 /* TKNodeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EA9EA418C3089F00FEABC8 /* TKNodeConfig.m */; };
 		86F2834318B875C300CD971C /* TKColorPickerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F2834218B875C300CD971C /* TKColorPickerConfig.m */; };
 		86F2834418B875C300CD971C /* TKColorPickerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F2834218B875C300CD971C /* TKColorPickerConfig.m */; };
 		86F2834718B9B21B00CD971C /* TKDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F2834618B9B21B00CD971C /* TKDialogViewController.m */; };
@@ -62,7 +63,6 @@
 
 /* Begin PBXFileReference section */
 		2313EA3C34A54573AED6FB07 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		86889D6118BABAA500F0407D /* TKDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKDialog.xib; sourceTree = "<group>"; };
 		86AB2D4818BD748100038D69 /* TuneKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TuneKit.xcassets; sourceTree = "<group>"; };
 		86CB5AE018B7C1FF003039CC /* libTuneKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTuneKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CB5AE318B7C1FF003039CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -88,6 +88,8 @@
 		86CB69AC18B86835003039CC /* TuneKit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TuneKit.storyboard; sourceTree = "<group>"; };
 		86EA9E8C18C0600600FEABC8 /* TKGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGlobal.h; sourceTree = "<group>"; };
 		86EA9E9218C101F400FEABC8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		86EA9EA318C3089F00FEABC8 /* TKNodeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNodeConfig.h; sourceTree = "<group>"; };
+		86EA9EA418C3089F00FEABC8 /* TKNodeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNodeConfig.m; sourceTree = "<group>"; };
 		86F2834118B875C300CD971C /* TKColorPickerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKColorPickerConfig.h; sourceTree = "<group>"; };
 		86F2834218B875C300CD971C /* TKColorPickerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKColorPickerConfig.m; sourceTree = "<group>"; };
 		86F2834518B9B21B00CD971C /* TKDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDialogViewController.h; sourceTree = "<group>"; };
@@ -206,6 +208,8 @@
 				86CB69A018B825D0003039CC /* TKButtonConfig.m */,
 				86F2834118B875C300CD971C /* TKColorPickerConfig.h */,
 				86F2834218B875C300CD971C /* TKColorPickerConfig.m */,
+				86EA9EA318C3089F00FEABC8 /* TKNodeConfig.h */,
+				86EA9EA418C3089F00FEABC8 /* TKNodeConfig.m */,
 			);
 			name = Configurations;
 			sourceTree = "<group>";
@@ -218,7 +222,6 @@
 				86CB69AC18B86835003039CC /* TuneKit.storyboard */,
 				86F2834518B9B21B00CD971C /* TKDialogViewController.h */,
 				86F2834618B9B21B00CD971C /* TKDialogViewController.m */,
-				86889D6118BABAA500F0407D /* TKDialog.xib */,
 				86AB2D4818BD748100038D69 /* TuneKit.xcassets */,
 			);
 			name = UI;
@@ -299,7 +302,6 @@
 				86CB69A518B8619F003039CC /* Podfile in Resources */,
 				86CB69AD18B86835003039CC /* TuneKit.storyboard in Resources */,
 				86AB2D4918BD748100038D69 /* TuneKit.xcassets in Resources */,
-				86889D6218BABAA500F0407D /* TKDialog.xib in Resources */,
 				86CB5AFE18B7C1FF003039CC /* InfoPlist.strings in Resources */,
 				86F2834A18BA6DD100CD971C /* TuneKit.podspec in Resources */,
 			);
@@ -349,6 +351,7 @@
 				86CB5AEB18B7C1FF003039CC /* TuneKit.m in Sources */,
 				86CB69A118B825D0003039CC /* TKButtonConfig.m in Sources */,
 				86CB5B1218B7C7CE003039CC /* TKSliderConfig.m in Sources */,
+				86EA9EA518C3089F00FEABC8 /* TKNodeConfig.m in Sources */,
 				86CB69A818B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
 				86CB5B0E18B7C784003039CC /* TKConfig.m in Sources */,
 				86F2834718B9B21B00CD971C /* TKDialogViewController.m in Sources */,
@@ -363,6 +366,7 @@
 				86CB5B0018B7C1FF003039CC /* TuneKitTests.m in Sources */,
 				86CB69A218B825D0003039CC /* TKButtonConfig.m in Sources */,
 				86CB5B1318B7C7CE003039CC /* TKSliderConfig.m in Sources */,
+				86EA9EA618C3089F00FEABC8 /* TKNodeConfig.m in Sources */,
 				86CB69A918B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
 				86CB5B0F18B7C784003039CC /* TKConfig.m in Sources */,
 				86F2834818B9B21B00CD971C /* TKDialogViewController.m in Sources */,
