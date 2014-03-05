@@ -171,7 +171,7 @@
     UIPanGestureRecognizer *pan = (UIPanGestureRecognizer *)recognizer;
     CGPoint translation = [pan translationInView:parentView];
     CGFloat constant = self.leftConstraint.constant + translation.x;
-    if (constant >= 20.f && constant + self.containerView.bounds.size.width <= parentView.bounds.size.width - 20.f) {
+    if (constant >= 0.f && constant + self.containerView.bounds.size.width <= parentView.bounds.size.width - 0.f) {
         self.leftConstraint.constant = constant;
     }
     [pan setTranslation:CGPointZero inView:parentView];
