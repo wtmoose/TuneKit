@@ -89,10 +89,16 @@
 
 - (void)updateValueViews
 {
+    //TODO Calculate the number of decimal places
+    
     [self.slider setValue:self.value animated:YES];
     
     NSString *format = @"%0.0f";
-    if (fabs(self.value) < 100.f) {
+    if (fabs(self.value) < .1f) {
+        format = @"%0.4f";
+    } else if (fabs(self.value) < 1.f) {
+        format = @"%0.3f";
+    } else if (fabs(self.value) < 100.f) {
         format = @"%0.2f";
     } else if (fabs(self.value) < 1000.f) {
         format = @"%0.1f";
