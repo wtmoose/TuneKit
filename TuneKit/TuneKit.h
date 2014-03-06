@@ -11,6 +11,7 @@
 #import "TKNodeConfig.h"
 #import "TKButtonConfig.h"
 #import "TKSliderConfig.h"
+#import "TKSwitchConfig.h"
 #import "TKColorPickerConfig.h"
 
 /**
@@ -55,6 +56,10 @@ extern NSString *kTuneKitPathKey;
 /**
  */
 + (TKSliderConfig *)addSlider:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max;
+
+/**
+ */
++ (TKSwitchConfig *)addSwitch:(NSString *)name target:(id)target keyPath:(NSString *)keyPath;
 
 /**
  */

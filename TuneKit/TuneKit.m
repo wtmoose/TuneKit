@@ -64,6 +64,12 @@ NSString *kTuneKitPathKey = @"kTuneKitPathKey";
     return [tk addSlider:name target:target keyPath:keyPath min:min max:max];
 }
 
++ (TKSwitchConfig *)addSwitch:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
+{
+    TuneKit *tk = [self sharedInstance];
+    return [tk addSwitch:name target:target keyPath:keyPath];
+}
+
 + (TKColorPickerConfig *)addColorPicker:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
 {
     TuneKit *tk = [self sharedInstance];
@@ -120,6 +126,13 @@ NSString *kTuneKitPathKey = @"kTuneKitPathKey";
 - (TKSliderConfig *)addSlider:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max
 {
     TKSliderConfig *config = [TKSliderConfig configWithName:name target:target keyPath:keyPath min:min max:max];
+    [self addConfigToDataModel:config];
+    return config;
+}
+
+- (TKSwitchConfig *)addSwitch:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
+{
+    TKSwitchConfig *config = [TKSwitchConfig configWithName:name target:target keyPath:keyPath];
     [self addConfigToDataModel:config];
     return config;
 }
