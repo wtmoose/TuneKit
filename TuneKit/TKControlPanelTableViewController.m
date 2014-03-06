@@ -86,6 +86,9 @@
         case TKConfigTypeSlider:
             [self configureCell:cell forSliderConfig:(TKSliderConfig *)config];
             break;
+        case TKConfigTypeSwitch:
+            [self configureCell:cell forSwitchConfig:(TKSwitchConfig *)config];
+            break;
         case TKConfigTypeColorPicker:
             [self configureCell:cell forColorPickerConfig:(TKColorPickerConfig *)config];
         default:
@@ -127,6 +130,9 @@
         case TKConfigTypeSlider:
             return @"Slider";
             break;
+        case TKConfigTypeSwitch:
+            return @"Switch";
+            break;
         case TKConfigTypeColorPicker:
             return @"ColorPicker";
             break;
@@ -151,6 +157,12 @@
     config.nameLabel = (UILabel *)[cell viewWithTag:1];
     config.valueLabel = (UILabel *)[cell viewWithTag:2];
     config.slider = (UISlider *)[cell viewWithTag:3];
+}
+
+- (void)configureCell:(UITableViewCell *)cell forSwitchConfig:(TKSwitchConfig *)config
+{
+    config.nameLabel = (UILabel *)[cell viewWithTag:1];
+    config.theSwitch = (UISwitch *)[cell viewWithTag:2];
 }
 
 - (void)configureCell:(UITableViewCell *)cell forColorPickerConfig:(TKColorPickerConfig *)config

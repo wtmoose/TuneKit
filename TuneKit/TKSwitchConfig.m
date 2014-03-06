@@ -72,7 +72,7 @@
 
 + (TKSwitchConfig *)configWithName:(NSString *)name changeHandler:(TKValueCallback)changeHandler value:(BOOL)value
 {
-    TKSwitchConfig *config = [[TKSwitchConfig alloc] initWithName:name type:TKConfigTypeSlider];
+    TKSwitchConfig *config = [[TKSwitchConfig alloc] initWithName:name type:TKConfigTypeSwitch];
     config.changeHandler = changeHandler;
     config.value = value;
     return config;
