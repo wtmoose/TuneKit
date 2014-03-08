@@ -196,6 +196,10 @@ NSString *kTuneKitPathKey = @"kTuneKitPathKey";
 - (void)addConfigToDataModel:(TKConfig *)config
 {
     NSString *path = [self.pathStack lastObject];
+    if (!path) {
+        path = kTuneKitTopNode;
+        [self.pathStack addObject:path];
+    }
     TLIndexPathDataModel *oldDataModel = [self.dataModelsByPath objectForKey:path];
     NSMutableArray *items = [NSMutableArray arrayWithArray:oldDataModel.items];
     TLIndexPathItem *item = [[TLIndexPathItem alloc] initWithIdentifier:config.name sectionName:nil cellIdentifier:nil data:config];
