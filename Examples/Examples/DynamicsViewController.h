@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface DynamicsViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIView *dynamicsView;
 @end

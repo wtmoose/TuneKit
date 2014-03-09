@@ -179,20 +179,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YuZ-Tg-Mmh">
-                                <rect key="frame" x="402" y="92" width="200" height="200"/>
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YuZ-Tg-Mmh">
+                                <rect key="frame" x="353" y="70" width="300" height="648"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RT7-X0-N2b">
+                                        <rect key="frame" x="75" y="249" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="XPF-78-BNW"/>
+                                            <constraint firstAttribute="height" constant="150" id="ZT1-ZR-VoU"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="3gl-hx-7B2" appends="YES" id="qHp-Cw-45o"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="0.84189138100000005" green="0.84189138100000005" blue="0.84189138100000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="RT7-X0-N2b" firstAttribute="top" secondItem="YuZ-Tg-Mmh" secondAttribute="top" constant="249" id="er8-dl-mvI"/>
+                                    <constraint firstItem="RT7-X0-N2b" firstAttribute="leading" secondItem="YuZ-Tg-Mmh" secondAttribute="leading" constant="75" id="rwC-9E-FrZ"/>
+                                    <constraint firstAttribute="width" constant="300" id="wMS-6R-r5y"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YuZ-Tg-Mmh" firstAttribute="top" secondItem="6a5-Ep-HVt" secondAttribute="bottom" constant="50" id="ASD-W9-fb0"/>
+                            <constraint firstItem="Yem-40-RvO" firstAttribute="top" secondItem="YuZ-Tg-Mmh" secondAttribute="bottom" constant="50" id="Upv-i4-6pV"/>
+                            <constraint firstAttribute="trailing" secondItem="YuZ-Tg-Mmh" secondAttribute="trailing" constant="50" id="vYn-ih-gvv"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
-                        <outlet property="dynamicsView" destination="YuZ-Tg-Mmh" id="eSv-Uj-dLp"/>
+                        <outlet property="actionView" destination="RT7-X0-N2b" id="n76-QD-sAI"/>
+                        <outlet property="actionViewLeft" destination="rwC-9E-FrZ" id="dLh-9K-ZAs"/>
+                        <outlet property="actionViewPan" destination="3gl-hx-7B2" id="JcQ-hx-bB9"/>
+                        <outlet property="actionViewTop" destination="er8-dl-mvI" id="q8G-Bt-Tqk"/>
+                        <outlet property="boundaryView" destination="YuZ-Tg-Mmh" id="RCf-Qf-chF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2z-1e-Jfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="3gl-hx-7B2">
+                    <connections>
+                        <action selector="actionViewPanned:" destination="Irc-Et-Quj" id="6zg-PE-SCZ"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="875" y="-244"/>
         </scene>

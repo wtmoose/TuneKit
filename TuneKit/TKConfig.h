@@ -15,6 +15,8 @@ typedef NS_ENUM(NSInteger, TKConfigType)
     TKConfigTypeSlider,
     TKConfigTypeSwitch,
     TKConfigTypeColorPicker,
+    TKConfigTypeLabel,
+    TKConfigTypeRate,
 };
 
 @interface TKConfig : NSObject

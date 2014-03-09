@@ -5,9 +5,9 @@ Pod::Spec.new do |s|
                    your iOS app in real time."
 
   s.description  = <<-DESC
-                   TuneKit lets you modify the look and feel of
-                   your app in real time. Tune animations, colors, etc.
-                   and get instant feedback.
+                   TuneKit creates on-the-fly control panels to modify the look 
+                   and feel of your iOS app in real time.. Tune animations, 
+                   colors, etc. and get instant feedback.
                    DESC
   s.homepage     = ""
   s.license      = { :type => 'MIT' }

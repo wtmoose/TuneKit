@@ -89,10 +89,9 @@
 
 - (void)updateValueViews
 {
-    //TODO Calculate the number of decimal places
-    
     [self.slider setValue:self.value animated:YES];
     
+    //TODO use a formula for this
     NSString *format = @"%0.0f";
     if (fabs(self.value) < .1f) {
         format = @"%0.4f";
@@ -120,8 +119,8 @@
 {
     TKSliderConfig *config = [[TKSliderConfig alloc] initWithName:name type:TKConfigTypeSlider];
     config.changeHandler = changeHandler;
-    config.min = min;
     config.max = max;
+    config.min = min;
     config.value = value;
     return config;
 }

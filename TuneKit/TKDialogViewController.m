@@ -8,13 +8,11 @@
 
 #import "TKDialogViewController.h"
 #import "TuneKit.h"
+#import "TKDialogScrollView.h"
 
 @interface TKDialogViewController ()
-@property (weak, nonatomic) UIView *containerView;
-@property (weak, nonatomic) NSLayoutConstraint *topConstraint;
-@property (weak, nonatomic) NSLayoutConstraint *leftConstraint;
-@property (weak, nonatomic) NSLayoutConstraint *bottomConstraint;
-@property (strong, nonatomic) UIPanGestureRecognizer *panNavigationBar;
+@property (strong, nonatomic) TKDialogScrollView *scrollView;
+@property (strong, nonatomic) UIView *containerView;
 
 @property (nonatomic) CGFloat cornerRadius;
 @property (nonatomic) CGFloat shadowRadius;
@@ -26,14 +24,6 @@
 @implementation TKDialogViewController
 
 #pragma mark - View controller lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    self.panNavigationBar = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panNavigationBar:)];
-    [self.navigationBar addGestureRecognizer:self.panNavigationBar];
-}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -90,91 +80,32 @@
 {
     static CGFloat width = 280.f;
     
+    UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+    self.scrollView = [[TKDialogScrollView alloc] initWithFrame:rootView.bounds];
+    self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [rootView addSubview:self.scrollView];
+
     // nest our view in a container view for styling purposes
+    self.containerView = [[UIView alloc] initWithFrame:self.view.bounds];
+    self.containerView.frame = CGRectMake(0, 0, width, self.scrollView.bounds.size.height);
+    self.containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    [self.scrollView addSubview:self.containerView];
     
-    UIView *view = [[UIView alloc] initWithFrame:self.view.bounds];
-    UIView *parentView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
-    
-    self.containerView = view;
-    view.translatesAutoresizingMaskIntoConstraints = NO;
+    self.view.frame = self.containerView.bounds;
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-    [parentView addSubview:view];
-    [view addSubview:self.view];
-
-    // setup constraints for managing the container view's frame
-    
-    self.topConstraint = [NSLayoutConstraint constraintWithItem:view
-                                                          attribute:NSLayoutAttributeTop
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:parentView
-                                                          attribute:NSLayoutAttributeTop
-                                                         multiplier:1
-                                                           constant:20.f];
-    self.leftConstraint = [NSLayoutConstraint constraintWithItem:view
-                                                          attribute:NSLayoutAttributeLeft
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:parentView
-                                                          attribute:NSLayoutAttributeLeft
-                                                         multiplier:1.f
-                                                           constant:leftOrigin];
-    
-    self.bottomConstraint = [NSLayoutConstraint constraintWithItem:parentView
-                                                      attribute:NSLayoutAttributeBottom
-                                                      relatedBy:NSLayoutRelationEqual
-                                                         toItem:view
-                                                      attribute:NSLayoutAttributeBottom
-                                                     multiplier:1.f
-                                                       constant:20.f];
-
-//    NSArray *horizontalBoundaries = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=20)-[view]-(>=20)-|"
-//                                                                            options:0
-//                                                                            metrics:nil
-//                                                                              views:@{@"view" : view}];
-//
-//    NSArray *verticalBoundaries = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=20)-[view]-(>=20)-|"
-//                                                                          options:0 metrics:nil
-//                                                                            views:@{@"view" : view}];
-
-    NSArray *widthConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(width)]"
-                                                                        options:0
-                                                                        metrics:@{@"width" : @(width)}
-                                                                          views:@{@"view" : view}];
-
-    [parentView addConstraints:@[self.topConstraint, self.leftConstraint, self.bottomConstraint]];
-//    [parentView addConstraints:horizontalBoundaries];
-//    [parentView addConstraints:verticalBoundaries];
-    [view addConstraints:widthConstraints];
-    
-    [view layoutIfNeeded];
+    self.view.translatesAutoresizingMaskIntoConstraints = YES;
+    [self.containerView addSubview:self.view];
 }
 
 - (IBAction)dismiss {
     [self.containerView removeFromSuperview];
     [self removeFromParentViewController];
-    self.topConstraint = nil;
-    self.leftConstraint = nil;
-    self.bottomConstraint = nil;
 }
 
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
     [self themeViewController:self];
-}
-
-#pragma mark - Moving
-
-- (void)panNavigationBar:(UIGestureRecognizer *)recognizer
-{
-    UIView *parentView = [self.containerView superview];
-    UIPanGestureRecognizer *pan = (UIPanGestureRecognizer *)recognizer;
-    CGPoint translation = [pan translationInView:parentView];
-    CGFloat constant = self.leftConstraint.constant + translation.x;
-    if (constant >= 0.f && constant + self.containerView.bounds.size.width <= parentView.bounds.size.width - 0.f) {
-        self.leftConstraint.constant = constant;
-    }
-    [pan setTranslation:CGPointZero inView:parentView];
 }
 
 #pragma mark - Theme

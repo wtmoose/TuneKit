@@ -91,6 +91,11 @@
             break;
         case TKConfigTypeColorPicker:
             [self configureCell:cell forColorPickerConfig:(TKColorPickerConfig *)config];
+            break;
+        case TKConfigTypeLabel:
+        case TKConfigTypeRate:
+            [self configureCell:cell forLabelConfig:(TKLabelConfig *)config];
+            break;
         default:
             break;
     }
@@ -136,6 +141,10 @@
         case TKConfigTypeColorPicker:
             return @"ColorPicker";
             break;
+        case TKConfigTypeLabel:
+        case TKConfigTypeRate:
+            return @"Label";
+            break;
         default:
             return @"Cell";
             break;
@@ -178,6 +187,12 @@
     config.updatedColorView = [colorPreviewsView viewWithTag:2];
     
     colorPreviewsView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"checkers"]];
+}
+
+- (void)configureCell:(UITableViewCell *)cell forLabelConfig:(TKLabelConfig *)config
+{
+    config.nameLabel = (UILabel *)[cell viewWithTag:1];
+    config.valueLabel = (UILabel *)[cell viewWithTag:2];
 }
 
 - (NSArray *)view:(UIView *)view viewsWithTags:(NSArray *)tags

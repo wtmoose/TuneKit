@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3CDB83ED63FB44BEA571E6D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54C10009A8C4326887BE111 /* libPods.a */; };
+		860D0EA018CADC3B00633FA3 /* TKDialogScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */; };
+		860D0EA118CADC3B00633FA3 /* TKDialogScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */; };
+		863BF50A18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
+		863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
+		863BF50E18CD086700EF0056 /* TKLabelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50D18CD086700EF0056 /* TKLabelConfig.m */; };
+		863BF50F18CD086700EF0056 /* TKLabelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50D18CD086700EF0056 /* TKLabelConfig.m */; };
 		86AB2D4918BD748100038D69 /* TuneKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86AB2D4818BD748100038D69 /* TuneKit.xcassets */; };
 		86C7A42818C81FD200759782 /* TKSwitchConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7A42718C81FD200759782 /* TKSwitchConfig.m */; };
 		86C7A42918C81FD200759782 /* TKSwitchConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7A42718C81FD200759782 /* TKSwitchConfig.m */; };
@@ -65,6 +71,12 @@
 
 /* Begin PBXFileReference section */
 		2313EA3C34A54573AED6FB07 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		860D0E9E18CADC3B00633FA3 /* TKDialogScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDialogScrollView.h; sourceTree = "<group>"; };
+		860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDialogScrollView.m; sourceTree = "<group>"; };
+		863BF50818CD044F00EF0056 /* TKRateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRateConfig.h; sourceTree = "<group>"; };
+		863BF50918CD044F00EF0056 /* TKRateConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRateConfig.m; sourceTree = "<group>"; };
+		863BF50C18CD086700EF0056 /* TKLabelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelConfig.h; sourceTree = "<group>"; };
+		863BF50D18CD086700EF0056 /* TKLabelConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelConfig.m; sourceTree = "<group>"; };
 		86AB2D4818BD748100038D69 /* TuneKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TuneKit.xcassets; sourceTree = "<group>"; };
 		86C7A42618C81FD200759782 /* TKSwitchConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSwitchConfig.h; sourceTree = "<group>"; };
 		86C7A42718C81FD200759782 /* TKSwitchConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSwitchConfig.m; sourceTree = "<group>"; };
@@ -216,6 +228,10 @@
 				86EA9EA418C3089F00FEABC8 /* TKNodeConfig.m */,
 				86C7A42618C81FD200759782 /* TKSwitchConfig.h */,
 				86C7A42718C81FD200759782 /* TKSwitchConfig.m */,
+				863BF50818CD044F00EF0056 /* TKRateConfig.h */,
+				863BF50918CD044F00EF0056 /* TKRateConfig.m */,
+				863BF50C18CD086700EF0056 /* TKLabelConfig.h */,
+				863BF50D18CD086700EF0056 /* TKLabelConfig.m */,
 			);
 			name = Configurations;
 			sourceTree = "<group>";
@@ -229,6 +245,8 @@
 				86F2834518B9B21B00CD971C /* TKDialogViewController.h */,
 				86F2834618B9B21B00CD971C /* TKDialogViewController.m */,
 				86AB2D4818BD748100038D69 /* TuneKit.xcassets */,
+				860D0E9E18CADC3B00633FA3 /* TKDialogScrollView.h */,
+				860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -354,14 +372,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				86F2834318B875C300CD971C /* TKColorPickerConfig.m in Sources */,
+				860D0EA018CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
 				86CB5AEB18B7C1FF003039CC /* TuneKit.m in Sources */,
 				86CB69A118B825D0003039CC /* TKButtonConfig.m in Sources */,
 				86CB5B1218B7C7CE003039CC /* TKSliderConfig.m in Sources */,
 				86C7A42818C81FD200759782 /* TKSwitchConfig.m in Sources */,
 				86EA9EA518C3089F00FEABC8 /* TKNodeConfig.m in Sources */,
 				86CB69A818B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
+				863BF50A18CD044F00EF0056 /* TKRateConfig.m in Sources */,
 				86CB5B0E18B7C784003039CC /* TKConfig.m in Sources */,
 				86F2834718B9B21B00CD971C /* TKDialogViewController.m in Sources */,
+				863BF50E18CD086700EF0056 /* TKLabelConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,14 +391,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				86F2834418B875C300CD971C /* TKColorPickerConfig.m in Sources */,
+				860D0EA118CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
 				86CB5B0018B7C1FF003039CC /* TuneKitTests.m in Sources */,
 				86CB69A218B825D0003039CC /* TKButtonConfig.m in Sources */,
 				86CB5B1318B7C7CE003039CC /* TKSliderConfig.m in Sources */,
 				86C7A42918C81FD200759782 /* TKSwitchConfig.m in Sources */,
 				86EA9EA618C3089F00FEABC8 /* TKNodeConfig.m in Sources */,
 				86CB69A918B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
+				863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */,
 				86CB5B0F18B7C784003039CC /* TKConfig.m in Sources */,
 				86F2834818B9B21B00CD971C /* TKDialogViewController.m in Sources */,
+				863BF50F18CD086700EF0056 /* TKLabelConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

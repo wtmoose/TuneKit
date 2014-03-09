@@ -13,6 +13,8 @@
 #import "TKSliderConfig.h"
 #import "TKSwitchConfig.h"
 #import "TKColorPickerConfig.h"
+#import "TKLabelConfig.h"
+#import "TKRateConfig.h"
 
 /**
  */
@@ -47,6 +49,15 @@ extern NSString *kTuneKitPathKey;
 
 /**
  */
++ (void)add:(TKCallback)add inPath:(NSArray *)path;
+
+/**
+ Remove the specified path and all of it's content.
+ */
++ (void)removePath:(NSArray *)path;
+
+/**
+ */
 + (TKButtonConfig *)addButton:(NSString *)name target:(id)target selector:(SEL)selector;
 
 /**
@@ -67,12 +78,11 @@ extern NSString *kTuneKitPathKey;
 
 /**
  */
-+ (void)add:(TKCallback)add inPath:(NSArray *)path;
++ (TKLabelConfig *)addLabel:(NSString *)name target:(id)target keyPath:(NSString *)keyPath;
 
 /**
- Remove the specified path and all of it's content.
  */
-+ (void)removePath:(NSArray *)path;
++ (TKRateConfig *)addRate:(NSString *)name target:(id)target keyPath:(NSString *)keyPath sampleInterval:(NSTimeInterval)sampleInterval;
 
 #pragma mark - Presenting control panels
 

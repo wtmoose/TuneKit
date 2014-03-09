@@ -19,6 +19,6 @@ SPEC CHECKSUMS:
   OBSlider: 1eae1ad6fea0af687f7dde0366003044c4ba3d27
   Reveal-iOS-SDK: f2525cb560a564fdc086316e89ec45ced6977fd3
   TLIndexPathTools: 396e76177d4e8343d693fa5049aae1be58cefb95
-  TuneKit: 02bcbdfc4388256151908eeefe9aeb2749a7949e
+  TuneKit: bbaac6e3b722fd86c020d70b1c3796bedad35de3
 
 COCOAPODS: 0.29.0

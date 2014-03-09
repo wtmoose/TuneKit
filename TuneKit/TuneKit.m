@@ -76,6 +76,18 @@ NSString *kTuneKitPathKey = @"kTuneKitPathKey";
     return [tk addColorPicker:name target:target keyPath:keyPath];
 }
 
++ (TKLabelConfig *)addLabel:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
+{
+    TuneKit *tk = [self sharedInstance];
+    return [tk addLabel:name target:target keyPath:keyPath];
+}
+
++ (TKRateConfig *)addRate:(NSString *)name target:(id)target keyPath:(NSString *)keyPath sampleInterval:(NSTimeInterval)sampleInterval
+{
+    TuneKit *tk = [self sharedInstance];
+    return [tk addRate:name target:target keyPath:keyPath sampleInterval:sampleInterval];
+}
+
 + (void)add:(TKCallback)add inPath:(NSArray *)path
 {
     TuneKit *tk = [self sharedInstance];
@@ -140,6 +152,20 @@ NSString *kTuneKitPathKey = @"kTuneKitPathKey";
 - (TKColorPickerConfig *)addColorPicker:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
 {
     TKColorPickerConfig *config = [TKColorPickerConfig configWithName:name target:target keyPath:keyPath];
+    [self addConfigToDataModel:config];
+    return config;
+}
+
+- (TKLabelConfig *)addLabel:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
+{
+    TKLabelConfig *config = [TKLabelConfig configWithName:name target:target keyPath:keyPath];
+    [self addConfigToDataModel:config];
+    return config;
+}
+
+- (TKRateConfig *)addRate:(NSString *)name target:(id)target keyPath:(NSString *)keyPath sampleInterval:(NSTimeInterval)sampleInterval
+{
+    TKRateConfig *config = [TKRateConfig configWithName:name target:target keyPath:keyPath sampleInterval:sampleInterval];
     [self addConfigToDataModel:config];
     return config;
 }
