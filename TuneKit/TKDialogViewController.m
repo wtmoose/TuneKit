@@ -91,14 +91,16 @@
     self.scrollView.showsVerticalScrollIndicator = NO;
     [rootView addSubview:self.scrollView];
 
+    CGFloat padding = 20.f;
+    
     // nest our view in a container view for styling purposes
     self.containerView = [[UIView alloc] initWithFrame:CGRectZero];
     CGSize rootSize = rootView.bounds.size;
-    CGSize containerSize = CGSizeMake(width, self.scrollView.bounds.size.height - 40.f);
-    self.scrollView.contentSize = CGSizeMake(rootSize.width * 2.f - containerSize.width - 40.f, rootSize.height * 2.f - containerSize.height - 40.f + 1);
+    CGSize containerSize = CGSizeMake(width, self.scrollView.bounds.size.height - 2.f * padding);
+    self.scrollView.contentSize = CGSizeMake(rootSize.width * 2.f - containerSize.width - 2.f * padding, rootSize.height * 2.f - containerSize.height - 2.f * padding + 1.f);
     CGRect containerFrame = CGRectMake(self.scrollView.contentSize.width / 2.f - containerSize.width / 2.f, self.scrollView.contentSize.height / 2.f - containerSize.height / 2.f, containerSize.width, containerSize.height);
     self.containerView.frame = containerFrame;
-    self.scrollView.contentOffset = CGPointMake(containerFrame.origin.x - leftOrigin, 0);
+    self.scrollView.contentOffset = CGPointMake(containerFrame.origin.x - leftOrigin, 0.f);
     [self.scrollView addSubview:self.containerView];
     self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast * self.decelerationRate;
     
