@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="324" y="89"/>
         </scene>
-        <!--Control Panel Table View Controller-->
+        <!--Control Panel Table View Controller - TuneKit-->
         <scene sceneID="4gH-JQ-tuF">
             <objects>
                 <tableViewController storyboardIdentifier="ControlPanel" id="qNf-Ww-Mak" customClass="TKControlPanelTableViewController" sceneMemberID="viewController">
@@ -347,7 +347,7 @@
                             <outlet property="delegate" destination="qNf-Ww-Mak" id="fAM-rD-ciL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="TG7-Xq-1DH">
+                    <navigationItem key="navigationItem" title="TuneKit" id="TG7-Xq-1DH">
                         <barButtonItem key="rightBarButtonItem" title="Close" id="htr-Lx-9k5">
                             <connections>
                                 <action selector="dismiss" destination="qNf-Ww-Mak" id="oXq-Uc-USy"/>
