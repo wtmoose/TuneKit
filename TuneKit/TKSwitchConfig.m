@@ -15,7 +15,7 @@
 
 @implementation TKSwitchConfig
 
-#pragma mark - Binding to models
+#pragma mark - Model bindings
 
 - (void)setValue:(BOOL)value
 {

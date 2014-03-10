@@ -15,7 +15,7 @@
 
 @implementation TKSliderConfig
 
-#pragma mark - Binding to models
+#pragma mark - Model bindings
 
 - (void)setValue:(float)value
 {

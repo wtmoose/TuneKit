@@ -22,6 +22,19 @@
     }
 }
 
+
+#pragma mark - Model bindings
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self updateValueViews];
+}
+
+- (NSString *)value
+{
+    return [self.target valueForKeyPath:self.keyPath];
+}
+
 #pragma mark - View bindings
 
 - (void)setValueLabel:(UILabel *)valueLabel
@@ -41,16 +54,6 @@
 }
 
 #pragma mark - Value
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    [self updateValueViews];
-}
-
-- (NSString *)value
-{
-    return [self.target valueForKeyPath:self.keyPath];
-}
 
 - (void)updateValueViews
 {

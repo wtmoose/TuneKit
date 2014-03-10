@@ -12,22 +12,40 @@
 #import "TKGlobal.h"
 
 @interface TKColorPickerConfig ()
-@property (strong, nonatomic) TKValueCallback changeHandler;
+@property (weak, nonatomic) id target;
+@property (strong, nonatomic) NSString *keyPath;
 @end
 
 @implementation TKColorPickerConfig
 
-#pragma mark - Binding to models
+- (void)dealloc
+{
+    if (self.target) {
+        [self.target removeObserver:self forKeyPath:self.keyPath];
+    }
+}
+
+#pragma mark - Model bindings
 
 - (void)setValue:(UIColor *)value
 {
     if (_value != value) {
-        _value = value;
-        [self updateValueViews];
-        if (self.changeHandler) {
-            self.changeHandler(value);
+        [self setValueInternal:value];
+        if (self.target) {
+            [self.target setValue:value forKeyPath:self.keyPath];
         }
     }
+}
+
+- (void)setValueInternal:(UIColor *)value
+{
+    _value = value;
+    [self updateValueViews];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self setValueInternal:[change objectForKey:NSKeyValueChangeNewKey]];
 }
 
 #pragma mark - View bindings
@@ -176,20 +194,21 @@
 
 #pragma mark - Creating color picker configs
 
-+ (TKColorPickerConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
+- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type target:(id)target keyPath:(NSString *)keyPath
 {
-    UIColor *value = [target valueForKeyPath:keyPath];
-    __weak id weakTarget = target;
-    return [self configWithName:name changeHandler:^(id value) {
-        [weakTarget setValue:value forKeyPath:keyPath];
-    } value:value];
+    if (self = [super initWithName:name type:type]) {
+        _target = target;
+        _keyPath = keyPath;
+        UIColor *value = [target valueForKeyPath:keyPath];
+        [self setValueInternal:value];
+        [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
+    }
+    return self;
 }
 
-+ (TKColorPickerConfig *)configWithName:(NSString *)name changeHandler:(TKValueCallback)changeHandler value:(UIColor *)value
++ (TKColorPickerConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
 {
-    TKColorPickerConfig *config = [[TKColorPickerConfig alloc] initWithName:name type:TKConfigTypeColorPicker];
-    config.changeHandler = changeHandler;
-    config.value = [self rgbColorForColor:value];
+    TKColorPickerConfig *config = [[TKColorPickerConfig alloc] initWithName:name type:TKConfigTypeColorPicker target:target keyPath:keyPath];
     return config;
 }
 
