@@ -14,6 +14,8 @@
 		863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
 		863BF50E18CD086700EF0056 /* TKLabelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50D18CD086700EF0056 /* TKLabelConfig.m */; };
 		863BF50F18CD086700EF0056 /* TKLabelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50D18CD086700EF0056 /* TKLabelConfig.m */; };
+		868D7D9B18CE0F320081F9F6 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */; };
+		868D7D9C18CE0F320081F9F6 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */; };
 		86AB2D4918BD748100038D69 /* TuneKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86AB2D4818BD748100038D69 /* TuneKit.xcassets */; };
 		86C7A42818C81FD200759782 /* TKSwitchConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7A42718C81FD200759782 /* TKSwitchConfig.m */; };
 		86C7A42918C81FD200759782 /* TKSwitchConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7A42718C81FD200759782 /* TKSwitchConfig.m */; };
@@ -77,6 +79,8 @@
 		863BF50918CD044F00EF0056 /* TKRateConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRateConfig.m; sourceTree = "<group>"; };
 		863BF50C18CD086700EF0056 /* TKLabelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelConfig.h; sourceTree = "<group>"; };
 		863BF50D18CD086700EF0056 /* TKLabelConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelConfig.m; sourceTree = "<group>"; };
+		868D7D9918CE0F320081F9F6 /* NSObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utils.h"; sourceTree = "<group>"; };
+		868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utils.m"; sourceTree = "<group>"; };
 		86AB2D4818BD748100038D69 /* TuneKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TuneKit.xcassets; sourceTree = "<group>"; };
 		86C7A42618C81FD200759782 /* TKSwitchConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSwitchConfig.h; sourceTree = "<group>"; };
 		86C7A42718C81FD200759782 /* TKSwitchConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSwitchConfig.m; sourceTree = "<group>"; };
@@ -139,6 +143,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		868D7D9418CE0E9D0081F9F6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				868D7D9918CE0F320081F9F6 /* NSObject+Utils.h */,
+				868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		86CB5AD718B7C1FF003039CC = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +190,7 @@
 		86CB5AE518B7C1FF003039CC /* TuneKit */ = {
 			isa = PBXGroup;
 			children = (
+				868D7D9418CE0E9D0081F9F6 /* Utils */,
 				86CB69A318B86096003039CC /* UI */,
 				86CB5AE818B7C1FF003039CC /* TuneKit.h */,
 				86CB5AEA18B7C1FF003039CC /* TuneKit.m */,
@@ -372,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86F2834318B875C300CD971C /* TKColorPickerConfig.m in Sources */,
+				868D7D9B18CE0F320081F9F6 /* NSObject+Utils.m in Sources */,
 				860D0EA018CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
 				86CB5AEB18B7C1FF003039CC /* TuneKit.m in Sources */,
 				86CB69A118B825D0003039CC /* TKButtonConfig.m in Sources */,
@@ -391,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86F2834418B875C300CD971C /* TKColorPickerConfig.m in Sources */,
+				868D7D9C18CE0F320081F9F6 /* NSObject+Utils.m in Sources */,
 				860D0EA118CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
 				86CB5B0018B7C1FF003039CC /* TuneKitTests.m in Sources */,
 				86CB69A218B825D0003039CC /* TKButtonConfig.m in Sources */,

@@ -10,6 +10,7 @@
 
 #import "TKColorPickerConfig.h"
 #import "TKGlobal.h"
+#import "NSObject+Utils.h"
 
 @interface TKColorPickerConfig ()
 @property (weak, nonatomic) id target;
@@ -29,7 +30,7 @@
 
 - (void)setValue:(UIColor *)value
 {
-    if (_value != value) {
+    if (![NSObject nilSafeObject:_value isEqual:value]) {
         [self setValueInternal:value];
         if (self.target) {
             [self.target setValue:value forKeyPath:self.keyPath];
@@ -45,7 +46,12 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    [self setValueInternal:[change objectForKey:NSKeyValueChangeNewKey]];
+    UIColor *value = [change objectForKey:NSKeyValueChangeNewKey];
+    if (![NSObject nilSafeObject:self.value isEqual:value]) {
+        [self setValueInternal:value];
+        [self updateNewColor];
+        [self commitNewColor];
+    }
 }
 
 #pragma mark - View bindings
@@ -97,14 +103,14 @@
 - (void)setUpdatedColorView:(UIView *)newColorView
 {
     _updatedColorView = newColorView;
-    [self updateNewColor];
+    [self updateNewColorWithSliders];
 }
 
 #pragma mark - Sliders
 
 - (void)sliderValueChanged:(UISlider *)slider
 {
-    [self updateNewColor];
+    [self updateNewColorWithSliders];
 }
 
 - (void)sliderValueStoppedChanging:(UISlider *)slider
@@ -161,6 +167,11 @@
 }
 
 - (void)updateNewColor
+{
+    self.updatedColorView.backgroundColor = self.value;
+}
+
+- (void)updateNewColorWithSliders
 {
     UISlider *s0 = self.sliders[0];
     UISlider *s1 = self.sliders[1];
