@@ -8,23 +8,45 @@
 
 #import "TKSliderConfig.h"
 #import "TKGlobal.h"
+#import "NSObject+Utils.h"
 
 @interface TKSliderConfig ()
-@property (strong, nonatomic) TKValueCallback changeHandler;
+@property (weak, nonatomic) id target;
+@property (strong, nonatomic) NSString *keyPath;
 @end
 
 @implementation TKSliderConfig
+
+- (void)dealloc
+{
+    if (self.target) {
+        [self.target removeObserver:self forKeyPath:self.keyPath];
+    }
+}
 
 #pragma mark - Model bindings
 
 - (void)setValue:(float)value
 {
     if (_value != value) {
-        _value = value;
-        [self updateValueViews];
-        if (self.changeHandler) {
-            self.changeHandler(@(value));
+        [self setValueInternal:value];
+        if (self.target) {
+            [self.target setValue:@(value) forKeyPath:self.keyPath];
         }
+    }
+}
+
+- (void)setValueInternal:(float)value
+{
+    _value = value;
+    [self updateValueViews];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    float value = [[change objectForKey:NSKeyValueChangeNewKey] floatValue];
+    if (self.value != value) {
+        [self setValueInternal:value];
     }
 }
 
@@ -107,22 +129,23 @@
 
 #pragma mark - Creating slider configs
 
-+ (TKSliderConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max
+- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type target:(id)target keyPath:(NSString *)keyPath min:(float)min max:(float)max
 {
-    NSNumber *value = [target valueForKeyPath:keyPath];
-    __weak id weakTarget = target;
-    return [self configWithName:name changeHandler:^(id value) {
-        [weakTarget setValue:value forKeyPath:keyPath];
-    } value:[value floatValue] min:min max:max];
+    if (self = [super initWithName:name type:type]) {
+        _target = target;
+        _keyPath = keyPath;
+        _min = min;
+        _max = max;
+        float value = [[target valueForKeyPath:keyPath] floatValue];
+        [self setValueInternal:value];
+        [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
+    }
+    return self;
 }
 
-+ (TKSliderConfig *)configWithName:(NSString *)name changeHandler:(TKValueCallback)changeHandler value:(float)value min:(CGFloat)min max:(CGFloat)max
++ (TKSliderConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max
 {
-    TKSliderConfig *config = [[TKSliderConfig alloc] initWithName:name type:TKConfigTypeSlider];
-    config.changeHandler = changeHandler;
-    config.max = max;
-    config.min = min;
-    config.value = value;
+    TKSliderConfig *config = [[TKSliderConfig alloc] initWithName:name type:TKConfigTypeSlider target:target keyPath:keyPath min:min max:max];
     return config;
 }
 
