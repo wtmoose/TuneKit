@@ -17,9 +17,8 @@
 
 - (void)dealloc
 {
-    //TODO are instance variables still valid here?
     if (self.target) {
-        [self.target removeObserver:self];
+        [self.target removeObserver:self forKeyPath:self.keyPath];
     }
 }
 

@@ -110,8 +110,9 @@
 + (TKSliderConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max
 {
     NSNumber *value = [target valueForKeyPath:keyPath];
+    __weak id weakTarget = target;
     return [self configWithName:name changeHandler:^(id value) {
-        [target setValue:value forKeyPath:keyPath];
+        [weakTarget setValue:value forKeyPath:keyPath];
     } value:[value floatValue] min:min max:max];
 }
 
