@@ -91,7 +91,7 @@
     self.scrollView.showsVerticalScrollIndicator = NO;
     [rootView addSubview:self.scrollView];
 
-    CGFloat padding = 20.f;
+    CGFloat padding = 10.f;
     
     // nest our view in a container view for styling purposes
     self.containerView = [[UIView alloc] initWithFrame:CGRectZero];
