@@ -103,6 +103,24 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName = [self.indexPathController.dataModel sectionNameForSection:section];
+    if ([sectionName isEqualToString:kTuneKitNoSectionName]) {
+        return 0;
+    }
+    return 20;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName = [self.indexPathController.dataModel sectionNameForSection:section];
+    if ([sectionName isEqualToString:kTuneKitNavigationSectionName]) {
+        return @"More";
+    }
+    return sectionName;
+}
+
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

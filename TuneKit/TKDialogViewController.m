@@ -25,6 +25,14 @@
 
 #pragma mark - View controller lifecycle
 
+//- (void)viewDidLoad
+//{
+//    [super viewDidLoad];
+//    for (UIGestureRecognizer *recongnizer in self.scrollView.gestureRecognizers) {
+//        recongnizer.delegate = self;
+//    }
+//}
+//
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];

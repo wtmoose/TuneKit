@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TKDialogScrollView : UIScrollView
+@interface TKDialogScrollView : UIScrollView  <UIGestureRecognizerDelegate>
 @end

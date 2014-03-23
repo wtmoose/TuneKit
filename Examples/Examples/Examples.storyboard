@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="c0a-cp-qWP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="c0a-cp-qWP">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Split View Controller-->
@@ -104,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ej-XB-5IF">
-                                <rect key="frame" x="402" y="92" width="200" height="200"/>
+                                <rect key="frame" x="402" y="50" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.84189138100000005" green="0.84189138100000005" blue="0.84189138100000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -112,27 +112,42 @@
                                     <constraint firstAttribute="width" constant="200" id="Osl-CA-YNl"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation Example" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGw-xa-mT4">
-                                <rect key="frame" x="402" y="63" width="148" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ej6-al-Zgz">
+                                <rect key="frame" x="402" y="285" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.84189138100000005" green="0.84189138100000005" blue="0.84189138100000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="2nb-aF-tmr"/>
+                                    <constraint firstAttribute="width" constant="200" id="T8Q-fw-m1e"/>
+                                </constraints>
+                            </view>
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1CL-Tp-XDf">
+                                <rect key="frame" x="402" y="520" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.84189138100000005" green="0.84189138100000005" blue="0.84189138100000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="2ny-Hg-hF7"/>
+                                    <constraint firstAttribute="height" constant="200" id="dfh-ku-CIY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DGw-xa-mT4" firstAttribute="leading" secondItem="wmi-1i-XWc" secondAttribute="leading" constant="402" id="8kM-Km-xVf"/>
-                            <constraint firstItem="DGw-xa-mT4" firstAttribute="top" secondItem="kps-3e-AFU" secondAttribute="bottom" constant="43" id="Kht-7H-muK"/>
-                            <constraint firstItem="7ej-XB-5IF" firstAttribute="leading" secondItem="DGw-xa-mT4" secondAttribute="leading" id="YLR-5X-MdD"/>
-                            <constraint firstItem="7ej-XB-5IF" firstAttribute="top" secondItem="DGw-xa-mT4" secondAttribute="bottom" constant="8" id="a1R-s4-yNI"/>
+                            <constraint firstAttribute="centerX" secondItem="7ej-XB-5IF" secondAttribute="centerX" constant="-150.5" id="0kJ-VS-cYe"/>
+                            <constraint firstAttribute="centerX" secondItem="Ej6-al-Zgz" secondAttribute="centerX" constant="-150.5" id="IaO-1Z-E4P"/>
+                            <constraint firstAttribute="centerY" secondItem="1CL-Tp-XDf" secondAttribute="centerY" constant="-236" id="esh-YF-yjP"/>
+                            <constraint firstAttribute="centerY" secondItem="7ej-XB-5IF" secondAttribute="centerY" constant="234" id="hZV-IK-4D6"/>
+                            <constraint firstAttribute="centerY" secondItem="Ej6-al-Zgz" secondAttribute="centerY" constant="-1" id="lu7-vy-Lqs"/>
+                            <constraint firstAttribute="centerX" secondItem="1CL-Tp-XDf" secondAttribute="centerX" constant="-150.5" id="wVI-NG-7nR"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
-                        <outlet property="animationView" destination="7ej-XB-5IF" id="VxX-q3-dlN"/>
-                        <outlet property="animationViewHeight" destination="Osl-CA-YNl" id="2TM-n2-cNi"/>
-                        <outlet property="animationViewWidth" destination="IOl-hh-CvT" id="ZWc-SN-8qh"/>
+                        <outlet property="firstView" destination="7ej-XB-5IF" id="rbD-nT-M3l"/>
+                        <outlet property="secondView" destination="Ej6-al-Zgz" id="A5v-Ap-RjS"/>
+                        <outlet property="secondViewHeight" destination="2nb-aF-tmr" id="g8R-Ac-u9V"/>
+                        <outlet property="secondViewWidth" destination="T8Q-fw-m1e" id="k2L-f4-pIK"/>
+                        <outlet property="thirdView" destination="1CL-Tp-XDf" id="GiE-Kl-xpz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMo-xx-qtt" userLabel="First Responder" sceneMemberID="firstResponder"/>

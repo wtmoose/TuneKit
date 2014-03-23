@@ -67,7 +67,15 @@
     if (self = [super initWithName:name type:type]) {
         _target = target;
         _keyPath = keyPath;
-        [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
+        // observe property changes if possible
+        @try {
+            [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
+        }
+        @catch (NSException *exception) {
+            // TODO log a warining?
+        }
+        @finally {
+        }
     }
     return self;
 }

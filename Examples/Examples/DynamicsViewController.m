@@ -36,7 +36,7 @@
         [TuneKit addRate:@"Colors per second" target:self keyPath:@"color" sampleInterval:2];
 //        [TuneKit addSlider:@"TODO" target:self keyPath:@"dynamicsView.layer.cornerRadius" min:0 max:20];
         [TuneKit addColorPicker:@"Color" target:self keyPath:@"color"];
-    } inPath:@[@"Dynamics Example"]];
+    } inPath:@[@"Dynamics Example"] sectionName:nil];
     
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.boundaryView];
 }

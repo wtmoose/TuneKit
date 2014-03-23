@@ -10,4 +10,12 @@
 
 @interface BasicsViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *firstView;
+
+@property (strong, nonatomic) IBOutlet UIView *secondView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *secondViewWidth;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *secondViewHeight;
+
+@property (strong, nonatomic) IBOutlet UIView *thirdView;
+
 @end

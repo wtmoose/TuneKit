@@ -15,6 +15,7 @@
 @property (strong, nonatomic) TKDialogViewController *dialog;
 @property (strong, nonatomic) NSMutableDictionary *dataModelsByPath;
 @property (strong, nonatomic) NSMutableArray *pathStack;
+@property (strong, nonatomic) NSMutableArray *sectionNameStack;
 @end
 
 static TuneKit *sharedInstance = nil;
@@ -23,6 +24,8 @@ NSString *kTuneKitPathRemovedNotification = @"kTuneKitPathRemovedNotification";
 NSString *kTuneKitPathChangedNotification = @"kTuneKitPathChangedNotification";
 NSString *kTuneKitDataModelKey = @"kTuneKitDataModelKey";
 NSString *kTuneKitPathKey = @"kTuneKitPathKey";
+NSString *kTuneKitNoSectionName = @"kTuneKitNoSectionName";
+NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 
 @implementation TuneKit
 
@@ -31,7 +34,7 @@ NSString *kTuneKitPathKey = @"kTuneKitPathKey";
     return sharedInstance;
 }
 
-#pragma mark - Public API
+#pragma mark - Enabling TuneKit (public)
 
 + (void)enable
 {
@@ -45,6 +48,60 @@ NSString *kTuneKitPathKey = @"kTuneKitPathKey";
 {
     return [self sharedInstance] != nil;
 }
+
+#pragma mark - Presenting the control panel (public)
+
++ (void)presentControlPanelAtLeftOrigin:(CGFloat)leftOrigin
+{
+    TuneKit *tk = [self sharedInstance];
+    [tk presentControlPanelAtLeftOrigin:leftOrigin];
+}
+
++ (void)dismissControlPanel
+{
+    TuneKit *tk = [self sharedInstance];
+    [tk dismissControlPanel];
+}
+
+#pragma mark - Managing the configuration heirarchy (public)
+
++ (void)add:(TKCallback)add inPath:(NSArray *)path sectionName:(NSString *)sectionName
+{
+    TuneKit *tk = [self sharedInstance];
+    [tk add:add inPath:path sectionName:sectionName];
+}
+
++ (void)removePath:(NSArray *)path
+{
+    TuneKit *tk = [self sharedInstance];
+    [tk removePath:path];
+}
+
++ (NSArray *)pathForViewController:(UIViewController *)viewController
+{
+    return [self pathForViewController:viewController subpath:nil];
+}
+
++ (NSArray *)pathForViewController:(UIViewController *)viewController subpath:(NSArray *)subpath
+{
+    if (viewController == nil) {
+        return nil;
+    }
+    
+    NSArray *parentPath = [self pathForViewController:viewController.parentViewController];
+    NSMutableArray *path = [NSMutableArray arrayWithCapacity:[parentPath count] + 1];
+    [path addObjectsFromArray:parentPath];
+    NSString *pathElement = viewController.title;
+    if (pathElement) {
+        [path addObject:pathElement];
+    }
+    [path addObjectsFromArray:subpath];
+    
+    return path;
+}
+
+#pragma mark - Adding controls (public)
+
 
 + (TKButtonConfig *)addButton:(NSString *)name target:(id)target selector:(SEL)selector
 {
@@ -88,33 +145,182 @@ NSString *kTuneKitPathKey = @"kTuneKitPathKey";
     return [tk addRate:name target:target keyPath:keyPath sampleInterval:sampleInterval];
 }
 
-+ (void)add:(TKCallback)add inPath:(NSArray *)path
+#pragma mark - Presenting the control panel (private)
+
+- (void)presentControlPanelAtLeftOrigin:(CGFloat)leftOrigin
 {
-    TuneKit *tk = [self sharedInstance];
-    [tk add:add inPath:path];
+    if (self.dialog == nil) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TuneKit" bundle:nil];
+        self.dialog = [storyboard instantiateViewControllerWithIdentifier:@"ControlPanelDialog"];
+        TKControlPanelTableViewController *controlPanel = (TKControlPanelTableViewController *)[self.dialog.viewControllers firstObject];
+        controlPanel.path = kTuneKitTopNode;
+        controlPanel.nodeViewControllerProvider = [self newNodeViewControllerProvider:controlPanel];
+        controlPanel.indexPathController.dataModel = [self.dataModelsByPath objectForKey:kTuneKitTopNode];
+    }
+    [self.dialog presentAtLeftOrigin:leftOrigin];
 }
 
-+ (void)removePath:(NSArray *)path
+- (TKControlPanelTableViewController *(^)(NSString *))newNodeViewControllerProvider:(TKControlPanelTableViewController *)parentControlPanel
 {
-    TuneKit *tk = [self sharedInstance];
-    [tk removePath:path];
+    __weak TuneKit *weakSelf = self;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TuneKit" bundle:nil];
+    return ^TKControlPanelTableViewController *(NSString *nodeName) {
+        NSString *path = [NSString stringWithFormat:@"%@ > %@", parentControlPanel.path, nodeName];
+        TKControlPanelTableViewController *nodePanel = [storyboard instantiateViewControllerWithIdentifier:@"ControlPanel"];
+        nodePanel.title = nodeName;
+        nodePanel.path = path;
+        nodePanel.nodeViewControllerProvider = [weakSelf newNodeViewControllerProvider:nodePanel];
+        nodePanel.indexPathController.dataModel = [weakSelf.dataModelsByPath objectForKey:path];
+        return nodePanel;
+    };
 }
 
-+ (void)presentControlPanelAtLeftOrigin:(CGFloat)leftOrigin
+- (void)dismissControlPanel
 {
-    TuneKit *tk = [self sharedInstance];
-    [tk presentControlPanelAtLeftOrigin:leftOrigin];
+    [self.dialog dismiss];
 }
 
-+ (void)dismissControlPanel
+#pragma mark - Managing the configuration heirarchy (private)
+
+- (void)add:(TKCallback)add inPath:(NSArray *)path sectionName:(NSString *)sectionName
 {
-    TuneKit *tk = [self sharedInstance];
-    [tk dismissControlPanel];
+    if (sectionName == nil) {
+        sectionName = kTuneKitNoSectionName;
+    }
+    
+    NSMutableString *pathString = [[NSMutableString alloc] initWithString:kTuneKitTopNode];
+    for (NSString *name in path) {
+        [self.pathStack addObject:pathString];
+        [self.sectionNameStack addObject:kTuneKitNavigationSectionName];
+        [self addNavigationNode:name];
+        [self.pathStack removeLastObject];
+        [self.sectionNameStack removeLastObject];
+        [pathString appendFormat:@" > %@", name];
+    }
+    if (add) {
+        [self.pathStack addObject:pathString];
+        [self.sectionNameStack addObject:sectionName];
+        add();
+        [self.pathStack removeLastObject];
+        [self.sectionNameStack removeLastObject];
+    }
 }
 
-#pragma mark - Configuration
+- (void)removePath:(NSArray *)path
+{
+    NSMutableArray *tmpPath = [NSMutableArray arrayWithObject:kTuneKitTopNode];
+    [tmpPath addObjectsFromArray:path];
+    NSString *pathString = [tmpPath componentsJoinedByString:@" > "];
+    NSString *node = [tmpPath lastObject];
+    [tmpPath removeLastObject];
+    NSString *parentPathString = [tmpPath componentsJoinedByString:@" > "];
+    [self removeNode:node path:pathString fromParentPath:parentPathString];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTuneKitPathRemovedNotification object:self userInfo:@{kTuneKitPathKey : pathString}];
+}
 
-- (TKNodeConfig *)addNode:(NSString *)name
+- (void)removeNode:(NSString *)node path:(NSString *)path fromParentPath:(NSString *)parentPath
+{
+    TLIndexPathDataModel *dataModel = [self.dataModelsByPath objectForKey:path];
+    for (TLIndexPathItem *item in dataModel.items) {
+        TKConfig *config = item.data;
+        switch (config.type) {
+            case TKConfigTypeNode:
+            {
+            NSString *childPath = [NSString stringWithFormat:@"%@ > %@", path, config.name];
+            [self removeNode:config.name path:childPath fromParentPath:path];
+            break;
+            }
+            default:
+                break;
+        }
+    }
+    // remove self after all children have bene removed
+    [self removeIdentifier:node fromDataModelForPath:parentPath];
+    [self.dataModelsByPath removeObjectForKey:path];
+}
+
+- (void)addConfigToDataModel:(TKConfig *)config
+{
+    NSString *path = [self.pathStack lastObject];
+    NSString *sectionName = [self.sectionNameStack lastObject];
+    if (!path) {
+        path = kTuneKitTopNode;
+        [self.pathStack addObject:path];
+    }
+    if (!sectionName) {
+        sectionName = kTuneKitNoSectionName;
+        [self.sectionNameStack addObject:sectionName];
+    }
+    TLIndexPathDataModel *oldDataModel = [self.dataModelsByPath objectForKey:path];
+    NSMutableArray *items = [NSMutableArray arrayWithArray:oldDataModel.items];
+    TLIndexPathItem *item = [[TLIndexPathItem alloc] initWithIdentifier:config.name sectionName:sectionName cellIdentifier:nil data:config];
+    [items addObject:item];
+    //    [items sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+    //        NSString *string1 = [obj1 identifier];
+    //        NSString *string2 = [obj2 identifier];
+    //        return [string1 caseInsensitiveCompare:string2];
+    //    }];
+    TLIndexPathDataModel *dataModel = [[TLIndexPathDataModel alloc] initWithItems:items];
+    [self.dataModelsByPath setObject:dataModel forKey:path];
+    [self notifyPathChanged:path];
+}
+
+- (void)removeIdentifier:(id)identifier fromDataModelForPath:(NSString *)path
+{
+    //    NSLog(@"Removing %@ from data model at %@", identifier, path);
+    TLIndexPathDataModel *oldDataModel = [self.dataModelsByPath objectForKey:path];
+    id item = [oldDataModel itemForIdentifier:identifier];
+    NSMutableArray *items = [NSMutableArray arrayWithArray:oldDataModel.items];
+    [items removeObject:item];
+    if ([items count]) {
+        TLIndexPathDataModel *dataModel = [[TLIndexPathDataModel alloc] initWithItems:items];
+        [self.dataModelsByPath setObject:dataModel forKey:path];
+        //        NSLog(@"Update data model at %@", path);
+    } else {
+        [self.dataModelsByPath removeObjectForKey:path];
+        //        NSLog(@"Removed empty data model at %@", path);
+    }
+    [self notifyPathChanged:path];
+}
+
+- (void)notifyPathChanged:(NSString *)path
+{
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:2];
+    userInfo[kTuneKitPathKey] = path;
+    TLIndexPathDataModel *dataModel = [self.dataModelsByPath objectForKey:path];
+    if (dataModel) {
+        userInfo[kTuneKitDataModelKey] = dataModel;
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTuneKitPathChangedNotification object:self userInfo:userInfo];
+}
+
+- (NSMutableArray *)pathStack
+{
+    if (_pathStack == nil) {
+        _pathStack = [NSMutableArray array];
+    }
+    return _pathStack;
+}
+
+- (NSMutableArray *)sectionNameStack
+{
+    if (_sectionNameStack == nil) {
+        _sectionNameStack = [NSMutableArray array];
+    }
+    return _sectionNameStack;
+}
+
+- (NSMutableDictionary *)dataModelsByPath
+{
+    if (_dataModelsByPath == nil) {
+        _dataModelsByPath = [NSMutableDictionary dictionary];
+    }
+    return _dataModelsByPath;
+}
+
+#pragma mark - Adding controls (private)
+
+- (TKNodeConfig *)addNavigationNode:(NSString *)name
 {
     TKNodeConfig *config = [TKNodeConfig configWithName:name];
     [self addConfigToDataModel:config];
@@ -169,157 +375,5 @@ NSString *kTuneKitPathKey = @"kTuneKitPathKey";
     [self addConfigToDataModel:config];
     return config;
 }
-
-- (void)add:(TKCallback)add inPath:(NSArray *)path
-{
-    NSMutableString *pathString = [[NSMutableString alloc] initWithString:kTuneKitTopNode];
-    for (NSString *name in path) {
-        [self.pathStack addObject:pathString];
-        [self addNode:name];
-        [self.pathStack removeLastObject];
-        [pathString appendFormat:@" > %@", name];
-    }
-    if (add) {
-        [self.pathStack addObject:pathString];
-        add();
-        [self.pathStack removeLastObject];
-    }
-}
-
-- (void)removePath:(NSArray *)path
-{
-    NSMutableArray *tmpPath = [NSMutableArray arrayWithObject:kTuneKitTopNode];
-    [tmpPath addObjectsFromArray:path];
-    NSString *pathString = [tmpPath componentsJoinedByString:@" > "];
-    NSString *node = [tmpPath lastObject];
-    [tmpPath removeLastObject];
-    NSString *parentPathString = [tmpPath componentsJoinedByString:@" > "];
-    [self removeNode:node path:pathString fromParentPath:parentPathString];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kTuneKitPathRemovedNotification object:self userInfo:@{kTuneKitPathKey : pathString}];
-}
-
-- (void)removeNode:(NSString *)node path:(NSString *)path fromParentPath:(NSString *)parentPath
-{
-    TLIndexPathDataModel *dataModel = [self.dataModelsByPath objectForKey:path];
-    for (TLIndexPathItem *item in dataModel.items) {
-        TKConfig *config = item.data;
-        switch (config.type) {
-            case TKConfigTypeNode:
-            {
-                NSString *childPath = [NSString stringWithFormat:@"%@ > %@", path, config.name];
-                [self removeNode:config.name path:childPath fromParentPath:path];
-                break;
-            }
-            default:
-                break;
-        }
-    }
-    // remove self after all children have bene removed
-    [self removeIdentifier:node fromDataModelForPath:parentPath];
-    [self.dataModelsByPath removeObjectForKey:path];
-}
-
-- (void)addConfigToDataModel:(TKConfig *)config
-{
-    NSString *path = [self.pathStack lastObject];
-    if (!path) {
-        path = kTuneKitTopNode;
-        [self.pathStack addObject:path];
-    }
-    TLIndexPathDataModel *oldDataModel = [self.dataModelsByPath objectForKey:path];
-    NSMutableArray *items = [NSMutableArray arrayWithArray:oldDataModel.items];
-    TLIndexPathItem *item = [[TLIndexPathItem alloc] initWithIdentifier:config.name sectionName:nil cellIdentifier:nil data:config];
-    [items addObject:item];
-//    [items sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-//        NSString *string1 = [obj1 identifier];
-//        NSString *string2 = [obj2 identifier];
-//        return [string1 caseInsensitiveCompare:string2];
-//    }];
-    TLIndexPathDataModel *dataModel = [[TLIndexPathDataModel alloc] initWithItems:items];
-    [self.dataModelsByPath setObject:dataModel forKey:path];
-    [self notifyPathChanged:path];
-}
-
-- (void)removeIdentifier:(id)identifier fromDataModelForPath:(NSString *)path
-{
-//    NSLog(@"Removing %@ from data model at %@", identifier, path);
-    TLIndexPathDataModel *oldDataModel = [self.dataModelsByPath objectForKey:path];
-    id item = [oldDataModel itemForIdentifier:identifier];
-    NSMutableArray *items = [NSMutableArray arrayWithArray:oldDataModel.items];
-    [items removeObject:item];
-    if ([items count]) {
-        TLIndexPathDataModel *dataModel = [[TLIndexPathDataModel alloc] initWithItems:items];
-        [self.dataModelsByPath setObject:dataModel forKey:path];
-//        NSLog(@"Update data model at %@", path);
-    } else {
-        [self.dataModelsByPath removeObjectForKey:path];
-//        NSLog(@"Removed empty data model at %@", path);
-    }
-    [self notifyPathChanged:path];
-}
-
-- (void)notifyPathChanged:(NSString *)path
-{
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:2];
-    userInfo[kTuneKitPathKey] = path;
-    TLIndexPathDataModel *dataModel = [self.dataModelsByPath objectForKey:path];
-    if (dataModel) {
-        userInfo[kTuneKitDataModelKey] = dataModel;
-    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:kTuneKitPathChangedNotification object:self userInfo:userInfo];
-}
-
-- (NSMutableArray *)pathStack
-{
-    if (_pathStack == nil) {
-        _pathStack = [NSMutableArray array];
-    }
-    return _pathStack;
-}
-
-#pragma mark - Presenting control panels
-
-- (void)presentControlPanelAtLeftOrigin:(CGFloat)leftOrigin
-{
-    if (self.dialog == nil) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TuneKit" bundle:nil];
-        self.dialog = [storyboard instantiateViewControllerWithIdentifier:@"ControlPanelDialog"];
-        TKControlPanelTableViewController *controlPanel = (TKControlPanelTableViewController *)[self.dialog.viewControllers firstObject];
-        controlPanel.path = kTuneKitTopNode;
-        controlPanel.nodeViewControllerProvider = [self newNodeViewControllerProvider:controlPanel];
-        controlPanel.indexPathController.dataModel = [self.dataModelsByPath objectForKey:kTuneKitTopNode];
-    }
-    [self.dialog presentAtLeftOrigin:leftOrigin];
-}
-
-- (TKControlPanelTableViewController *(^)(NSString *))newNodeViewControllerProvider:(TKControlPanelTableViewController *)parentControlPanel
-{
-    __weak TuneKit *weakSelf = self;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TuneKit" bundle:nil];
-    return ^TKControlPanelTableViewController *(NSString *nodeName) {
-        NSString *path = [NSString stringWithFormat:@"%@ > %@", parentControlPanel.path, nodeName];
-        TKControlPanelTableViewController *nodePanel = [storyboard instantiateViewControllerWithIdentifier:@"ControlPanel"];
-        nodePanel.path = path;
-        nodePanel.nodeViewControllerProvider = [weakSelf newNodeViewControllerProvider:nodePanel];
-        nodePanel.indexPathController.dataModel = [weakSelf.dataModelsByPath objectForKey:path];
-        return nodePanel;
-    };
-}
-
-- (void)dismissControlPanel
-{
-    [self.dialog dismiss];
-}
-
-#pragma mark - Data model
-
-- (NSMutableDictionary *)dataModelsByPath
-{
-    if (_dataModelsByPath == nil) {
-        _dataModelsByPath = [NSMutableDictionary dictionary];
-    }
-    return _dataModelsByPath;
-}
-
 
 @end

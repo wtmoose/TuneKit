@@ -138,7 +138,15 @@
         _max = max;
         float value = [[target valueForKeyPath:keyPath] floatValue];
         [self setValueInternal:value];
-        [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
+//        // observe property changes if possible
+//        @try {
+//        [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
+//        }
+//        @catch (NSException *exception) {
+//            // TODO log a warining?
+//        }
+//        @finally {
+//        }
     }
     return self;
 }

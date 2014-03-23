@@ -212,7 +212,7 @@
         _keyPath = keyPath;
         UIColor *value = [target valueForKeyPath:keyPath];
         [self setValueInternal:value];
-        [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
+//        [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
