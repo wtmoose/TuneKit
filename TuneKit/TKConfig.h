@@ -23,7 +23,8 @@ typedef NS_ENUM(NSInteger, TKConfigType)
 
 @property (strong, nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) TKConfigType type;
+@property (strong, nonatomic, readonly) NSString *identifier;
 
-- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type;
+- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type identifier:(NSString *)path;
 
 @end

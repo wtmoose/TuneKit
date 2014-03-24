@@ -61,19 +61,19 @@
 
 #pragma mark - Creating switch configs
 
-+ (TKSwitchConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
++ (TKSwitchConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath
 {
     NSNumber *value = [target valueForKeyPath:keyPath];
     __weak id weakTarget = target;
-    return [self configWithName:name changeHandler:^(id value) {
+    return [self configWithName:name identifier:identifier changeHandler:^(id value) {
         [weakTarget setValue:value forKeyPath:keyPath];
     } value:[value boolValue]];
     
 }
 
-+ (TKSwitchConfig *)configWithName:(NSString *)name changeHandler:(TKValueCallback)changeHandler value:(BOOL)value
++ (TKSwitchConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier changeHandler:(TKValueCallback)changeHandler value:(BOOL)value
 {
-    TKSwitchConfig *config = [[TKSwitchConfig alloc] initWithName:name type:TKConfigTypeSwitch];
+    TKSwitchConfig *config = [[TKSwitchConfig alloc] initWithName:name type:TKConfigTypeSwitch identifier:identifier];
     config.changeHandler = changeHandler;
     config.value = value;
     return config;

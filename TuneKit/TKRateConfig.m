@@ -71,9 +71,9 @@
 
 #pragma mark - Creating rate configs
 
-+ (TKLabelConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath sampleInterval:(NSTimeInterval)sampleInterval
++ (TKLabelConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath sampleInterval:(NSTimeInterval)sampleInterval
 {
-    TKRateConfig *config = [[TKRateConfig alloc] initWithName:name type:TKConfigTypeRate target:target keyPath:keyPath];
+    TKRateConfig *config = [[TKRateConfig alloc] initWithName:name type:TKConfigTypeRate identifier:identifier target:target keyPath:keyPath];
     config.sampleInterval = sampleInterval;
     config.times = [NSMutableArray array];
     return config;

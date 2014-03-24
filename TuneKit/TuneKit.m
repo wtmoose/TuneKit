@@ -163,14 +163,17 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 - (TKControlPanelTableViewController *(^)(NSString *))newNodeViewControllerProvider:(TKControlPanelTableViewController *)parentControlPanel
 {
     __weak TuneKit *weakSelf = self;
+    __weak TKControlPanelTableViewController *weakParentControlPanel = parentControlPanel;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TuneKit" bundle:nil];
     return ^TKControlPanelTableViewController *(NSString *nodeName) {
-        NSString *path = [NSString stringWithFormat:@"%@ > %@", parentControlPanel.path, nodeName];
+        __strong TuneKit *strongSelf = weakSelf;
+        __strong TKControlPanelTableViewController *strongParentControlPanel = weakParentControlPanel;
+        NSString *path = [NSString stringWithFormat:@"%@/%@", strongParentControlPanel.path, nodeName];
         TKControlPanelTableViewController *nodePanel = [storyboard instantiateViewControllerWithIdentifier:@"ControlPanel"];
         nodePanel.title = nodeName;
         nodePanel.path = path;
-        nodePanel.nodeViewControllerProvider = [weakSelf newNodeViewControllerProvider:nodePanel];
-        nodePanel.indexPathController.dataModel = [weakSelf.dataModelsByPath objectForKey:path];
+        nodePanel.nodeViewControllerProvider = [strongSelf newNodeViewControllerProvider:nodePanel];
+        nodePanel.indexPathController.dataModel = [strongSelf.dataModelsByPath objectForKey:path];
         return nodePanel;
     };
 }
@@ -195,7 +198,7 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
         [self addNavigationNode:name];
         [self.pathStack removeLastObject];
         [self.sectionNameStack removeLastObject];
-        [pathString appendFormat:@" > %@", name];
+        [pathString appendFormat:@"/%@", name];
     }
     if (add) {
         [self.pathStack addObject:pathString];
@@ -210,10 +213,10 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 {
     NSMutableArray *tmpPath = [NSMutableArray arrayWithObject:kTuneKitTopNode];
     [tmpPath addObjectsFromArray:path];
-    NSString *pathString = [tmpPath componentsJoinedByString:@" > "];
+    NSString *pathString = [tmpPath componentsJoinedByString:@"/"];
     NSString *node = [tmpPath lastObject];
     [tmpPath removeLastObject];
-    NSString *parentPathString = [tmpPath componentsJoinedByString:@" > "];
+    NSString *parentPathString = [tmpPath componentsJoinedByString:@"/"];
     [self removeNode:node path:pathString fromParentPath:parentPathString];
     [[NSNotificationCenter defaultCenter] postNotificationName:kTuneKitPathRemovedNotification object:self userInfo:@{kTuneKitPathKey : pathString}];
 }
@@ -226,9 +229,9 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
         switch (config.type) {
             case TKConfigTypeNode:
             {
-            NSString *childPath = [NSString stringWithFormat:@"%@ > %@", path, config.name];
-            [self removeNode:config.name path:childPath fromParentPath:path];
-            break;
+                NSString *childPath = [NSString stringWithFormat:@"%@/%@", path, config.name];
+                [self removeNode:config.name path:childPath fromParentPath:path];
+                break;
             }
             default:
                 break;
@@ -243,16 +246,12 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 {
     NSString *path = [self.pathStack lastObject];
     NSString *sectionName = [self.sectionNameStack lastObject];
-    if (!path) {
-        path = kTuneKitTopNode;
-        [self.pathStack addObject:path];
-    }
-    if (!sectionName) {
-        sectionName = kTuneKitNoSectionName;
-        [self.sectionNameStack addObject:sectionName];
-    }
     TLIndexPathDataModel *oldDataModel = [self.dataModelsByPath objectForKey:path];
     NSMutableArray *items = [NSMutableArray arrayWithArray:oldDataModel.items];
+    // TODO It might be confusing to use config.name as the identifier since config has
+    // an identifier property. But name works because names must be unique for the given
+    // data model. If this is changed to config.identifier, need to update places that
+    // do stuff like [dataModel itemForIdentifier:].
     TLIndexPathItem *item = [[TLIndexPathItem alloc] initWithIdentifier:config.name sectionName:sectionName cellIdentifier:nil data:config];
     [items addObject:item];
     //    [items sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
@@ -298,6 +297,7 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 {
     if (_pathStack == nil) {
         _pathStack = [NSMutableArray array];
+        [_pathStack addObject:kTuneKitTopNode];
     }
     return _pathStack;
 }
@@ -306,6 +306,7 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 {
     if (_sectionNameStack == nil) {
         _sectionNameStack = [NSMutableArray array];
+        [_sectionNameStack addObject:kTuneKitNoSectionName];
     }
     return _sectionNameStack;
 }
@@ -322,58 +323,72 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 
 - (TKNodeConfig *)addNavigationNode:(NSString *)name
 {
-    TKNodeConfig *config = [TKNodeConfig configWithName:name];
+    NSString *identifier = [self identifierForName:name];
+    TKNodeConfig *config = [TKNodeConfig configWithName:name identifier:identifier];
     [self addConfigToDataModel:config];
     return config;
 }
 
 - (TKButtonConfig *)addButton:(NSString *)name target:(id)target selector:(SEL)selector
 {
-    TKButtonConfig *config = [TKButtonConfig configWithName:name target:target selector:selector];
+    NSString *identifier = [self identifierForName:name];
+    TKButtonConfig *config = [TKButtonConfig configWithName:name identifier:identifier target:target selector:selector];
     [self addConfigToDataModel:config];
     return config;
 }
 
 - (TKButtonConfig *)addButton:(NSString *)name actionHanlder:(TKCallback)actionHanlder
 {
-    TKButtonConfig *config = [TKButtonConfig configWithName:name actionHanlder:actionHanlder];
+    NSString *identifier = [self identifierForName:name];
+    TKButtonConfig *config = [TKButtonConfig configWithName:name identifier:identifier actionHanlder:actionHanlder];
     [self addConfigToDataModel:config];
     return config;
 }
 
 - (TKSliderConfig *)addSlider:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max
 {
-    TKSliderConfig *config = [TKSliderConfig configWithName:name target:target keyPath:keyPath min:min max:max];
+    NSString *identifier = [self identifierForName:name];
+    TKSliderConfig *config = [TKSliderConfig configWithName:name identifier:identifier target:target keyPath:keyPath min:min max:max];
     [self addConfigToDataModel:config];
     return config;
 }
 
 - (TKSwitchConfig *)addSwitch:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
 {
-    TKSwitchConfig *config = [TKSwitchConfig configWithName:name target:target keyPath:keyPath];
+    NSString *identifier = [self identifierForName:name];
+    TKSwitchConfig *config = [TKSwitchConfig configWithName:name identifier:identifier target:target keyPath:keyPath];
     [self addConfigToDataModel:config];
     return config;
 }
 
 - (TKColorPickerConfig *)addColorPicker:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
 {
-    TKColorPickerConfig *config = [TKColorPickerConfig configWithName:name target:target keyPath:keyPath];
+    NSString *identifier = [self identifierForName:name];
+    TKColorPickerConfig *config = [TKColorPickerConfig configWithName:name identifier:identifier target:target keyPath:keyPath];
     [self addConfigToDataModel:config];
     return config;
 }
 
 - (TKLabelConfig *)addLabel:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
 {
-    TKLabelConfig *config = [TKLabelConfig configWithName:name target:target keyPath:keyPath];
+    NSString *identifier = [self identifierForName:name];
+    TKLabelConfig *config = [TKLabelConfig configWithName:name identifier:identifier target:target keyPath:keyPath];
     [self addConfigToDataModel:config];
     return config;
 }
 
 - (TKRateConfig *)addRate:(NSString *)name target:(id)target keyPath:(NSString *)keyPath sampleInterval:(NSTimeInterval)sampleInterval
 {
-    TKRateConfig *config = [TKRateConfig configWithName:name target:target keyPath:keyPath sampleInterval:sampleInterval];
+    NSString *identifier = [self identifierForName:name];
+    TKRateConfig *config = [TKRateConfig configWithName:name identifier:identifier target:target keyPath:keyPath sampleInterval:sampleInterval];
     [self addConfigToDataModel:config];
     return config;
+}
+
+- (NSString *)identifierForName:(NSString *)name
+{
+    NSString *path = [self.pathStack lastObject];
+    return [NSString stringWithFormat:@"%@/%@", path, name];
 }
 
 @end

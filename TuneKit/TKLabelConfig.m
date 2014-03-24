@@ -62,27 +62,19 @@
 
 #pragma mark - Creating label configs
 
-- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type target:(id)target keyPath:(NSString *)keyPath
+- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath
 {
-    if (self = [super initWithName:name type:type]) {
+    if (self = [super initWithName:name type:type identifier:identifier]) {
         _target = target;
         _keyPath = keyPath;
-        // observe property changes if possible
-        @try {
-            [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
-        }
-        @catch (NSException *exception) {
-            // TODO log a warining?
-        }
-        @finally {
-        }
+        [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
 
-+ (TKLabelConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
++ (TKLabelConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath
 {
-    TKLabelConfig *config = [[TKLabelConfig alloc] initWithName:name type:TKConfigTypeLabel target:target keyPath:keyPath];
+    TKLabelConfig *config = [[TKLabelConfig alloc] initWithName:name type:TKConfigTypeLabel identifier:identifier target:target keyPath:keyPath];
     return config;
 }
 

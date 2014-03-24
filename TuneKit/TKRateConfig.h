@@ -14,6 +14,6 @@
 
 #pragma mark - Creating rate configs
 
-+ (TKRateConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath sampleInterval:(NSTimeInterval)sampleInterval;
++ (TKRateConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath sampleInterval:(NSTimeInterval)sampleInterval;
 
 @end

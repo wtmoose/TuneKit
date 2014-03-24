@@ -17,12 +17,12 @@
 
 @implementation TKSliderConfig
 
-- (void)dealloc
-{
-    if (self.target) {
-        [self.target removeObserver:self forKeyPath:self.keyPath];
-    }
-}
+//- (void)dealloc
+//{
+//    if (self.target) {
+//        [self.target removeObserver:self forKeyPath:self.keyPath];
+//    }
+//}
 
 #pragma mark - Model bindings
 
@@ -129,9 +129,9 @@
 
 #pragma mark - Creating slider configs
 
-- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type target:(id)target keyPath:(NSString *)keyPath min:(float)min max:(float)max
+- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath min:(float)min max:(float)max
 {
-    if (self = [super initWithName:name type:type]) {
+    if (self = [super initWithName:name type:type identifier:identifier]) {
         _target = target;
         _keyPath = keyPath;
         _min = min;
@@ -151,9 +151,9 @@
     return self;
 }
 
-+ (TKSliderConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max
++ (TKSliderConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max
 {
-    TKSliderConfig *config = [[TKSliderConfig alloc] initWithName:name type:TKConfigTypeSlider target:target keyPath:keyPath min:min max:max];
+    TKSliderConfig *config = [[TKSliderConfig alloc] initWithName:name type:TKConfigTypeSlider identifier:identifier target:target keyPath:keyPath min:min max:max];
     return config;
 }
 

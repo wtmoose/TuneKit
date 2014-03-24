@@ -26,6 +26,8 @@
 {
     [super viewDidLoad];
     
+    [self installToolbar];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(pathChanged:)
                                                  name:kTuneKitPathChangedNotification
@@ -35,6 +37,15 @@
                                              selector:@selector(pathRemoved:)
                                                  name:kTuneKitPathRemovedNotification
                                                object:nil];
+}
+
+- (void)installToolbar
+{
+//    UIView *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Original", @"Modified"]];
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:segmentedControl];
+//    UIBarButtonItem *leftSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//    UIBarButtonItem *rightSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//    self.toolbarItems = @[leftSpace, item];
 }
 
 - (IBAction)dismiss
@@ -59,6 +70,9 @@
     NSDictionary *userInfo = notification.userInfo;
     NSString *path = [userInfo valueForKey:kTuneKitPathKey];
     if ([self.path isEqualToString:path]) {
+        // proactively discard indexPathController because, otherwise, there may
+        // be timing issues with deallocating controls that are KVO'ing client properties
+        self.indexPathController = nil;
         NSInteger index = [self.navigationController.viewControllers indexOfObject:self];
         if (index != NSNotFound && index > 0) {
             UIViewController *parentController = self.navigationController.viewControllers[index-1];

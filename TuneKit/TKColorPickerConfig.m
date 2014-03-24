@@ -19,12 +19,12 @@
 
 @implementation TKColorPickerConfig
 
-- (void)dealloc
-{
-    if (self.target) {
-        [self.target removeObserver:self forKeyPath:self.keyPath];
-    }
-}
+//- (void)dealloc
+//{
+//    if (self.target) {
+//        [self.target removeObserver:self forKeyPath:self.keyPath];
+//    }
+//}
 
 #pragma mark - Model bindings
 
@@ -205,9 +205,9 @@
 
 #pragma mark - Creating color picker configs
 
-- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type target:(id)target keyPath:(NSString *)keyPath
+- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath
 {
-    if (self = [super initWithName:name type:type]) {
+    if (self = [super initWithName:name type:type identifier:identifier]) {
         _target = target;
         _keyPath = keyPath;
         UIColor *value = [target valueForKeyPath:keyPath];
@@ -217,9 +217,9 @@
     return self;
 }
 
-+ (TKColorPickerConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
++ (TKColorPickerConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath
 {
-    TKColorPickerConfig *config = [[TKColorPickerConfig alloc] initWithName:name type:TKConfigTypeColorPicker target:target keyPath:keyPath];
+    TKColorPickerConfig *config = [[TKColorPickerConfig alloc] initWithName:name type:TKConfigTypeColorPicker identifier:identifier target:target keyPath:keyPath];
     return config;
 }
 

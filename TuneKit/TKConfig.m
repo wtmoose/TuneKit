@@ -14,11 +14,12 @@
 
 @implementation TKConfig
 
-- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type
+- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type identifier:(NSString *)identifier
 {
     if (self = [super init]) {
         _name = name;
         _type = type;
+        _identifier = identifier;
     }
     return self;
 }

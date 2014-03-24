@@ -39,18 +39,18 @@ _Pragma("clang diagnostic pop")                                         \
 
 #pragma mark - Creating button configs
 
-+ (TKButtonConfig *)configWithName:(NSString *)name target:(id)target selector:(SEL)selector
++ (TKButtonConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target selector:(SEL)selector
 {
-    return [self configWithName:name actionHanlder:^{
+    return [self configWithName:name identifier:(NSString *)identifier actionHanlder:^{
         if ([target respondsToSelector:selector]) {
             SUPPRESS_PERFORM_SELECTOR_LEAK_WARNING([target performSelector:selector]);
         }
     }];
 }
 
-+ (TKButtonConfig *)configWithName:(NSString *)name actionHanlder:(TKCallback)actionHanlder
++ (TKButtonConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier actionHanlder:(TKCallback)actionHanlder
 {
-    TKButtonConfig *config = [[TKButtonConfig alloc] initWithName:name type:TKConfigTypeButton];
+    TKButtonConfig *config = [[TKButtonConfig alloc] initWithName:name type:TKConfigTypeButton identifier:identifier];
     config.actionHanlder = actionHanlder;
     return config;
 }

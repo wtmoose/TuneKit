@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="X5e-vT-Skv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="X5e-vT-Skv">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Dialog View Controller-->
         <scene sceneID="y1j-CA-AJc">
             <objects>
-                <navigationController storyboardIdentifier="ControlPanelDialog" definesPresentationContext="YES" id="X5e-vT-Skv" customClass="TKDialogViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ControlPanelDialog" definesPresentationContext="YES" toolbarHidden="NO" id="X5e-vT-Skv" customClass="TKDialogViewController" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mej-WW-as5">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="1cN-FH-bU9">
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="qNf-Ww-Mak" kind="relationship" relationship="rootViewController" id="V7X-AV-3gq"/>
                     </connections>
@@ -27,7 +32,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="ControlPanel" id="qNf-Ww-Mak" customClass="TKControlPanelTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vJs-Eh-rCi">
-                        <rect key="frame" x="0.0" y="0.0" width="280" height="528"/>
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -62,7 +67,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <slider opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Og4-YR-a27" customClass="OBSlider">
-                                            <rect key="frame" x="13" y="20" width="259" height="34"/>
+                                            <rect key="frame" x="13" y="23" width="259" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </slider>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ol-rB-Gpf">
@@ -157,7 +162,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <slider opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="v6f-CH-fos" customClass="OBSlider">
-                                            <rect key="frame" x="41" y="179" width="199" height="34"/>
+                                            <rect key="frame" x="41" y="170" width="199" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="195" id="j7a-ub-tlW"/>
@@ -171,70 +176,70 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="33" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QJ-eN-9X1">
-                                            <rect key="frame" x="244" y="187" width="26" height="18"/>
+                                            <rect key="frame" x="244" y="176" width="26" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="23" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4Z-Uh-HuF">
-                                            <rect key="frame" x="15" y="185" width="12" height="21"/>
+                                            <rect key="frame" x="15" y="175" width="12" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <slider opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kJK-bT-DHu" customClass="OBSlider">
-                                            <rect key="frame" x="41" y="141" width="199" height="34"/>
+                                            <rect key="frame" x="41" y="135" width="199" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="195" id="Fpp-jQ-z7W"/>
                                             </constraints>
                                         </slider>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="32" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFU-28-94D">
-                                            <rect key="frame" x="244" y="148" width="26" height="18"/>
+                                            <rect key="frame" x="244" y="141" width="26" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="22" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0s1-Sy-55p">
-                                            <rect key="frame" x="15" y="147" width="12" height="21"/>
+                                            <rect key="frame" x="15" y="140" width="12" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <slider opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2J8-yV-VMc" customClass="OBSlider">
-                                            <rect key="frame" x="41" y="103" width="199" height="34"/>
+                                            <rect key="frame" x="41" y="100" width="199" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="195" id="C0Y-aH-18J"/>
                                             </constraints>
                                         </slider>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="31" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqP-1c-95r">
-                                            <rect key="frame" x="244" y="111" width="26" height="18"/>
+                                            <rect key="frame" x="244" y="106" width="26" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="21" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLz-cz-DCU">
-                                            <rect key="frame" x="15" y="109" width="13" height="21"/>
+                                            <rect key="frame" x="15" y="105" width="13" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <slider opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fPG-Sj-bJS" customClass="OBSlider">
-                                            <rect key="frame" x="41" y="65" width="199" height="34"/>
+                                            <rect key="frame" x="41" y="65" width="199" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="195" id="ahS-jC-pPV"/>
                                             </constraints>
                                         </slider>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbr-Rk-AX9">
-                                            <rect key="frame" x="244" y="73" width="26" height="18"/>
+                                            <rect key="frame" x="244" y="71" width="26" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e56-4A-fWg">
-                                            <rect key="frame" x="15" y="71" width="12" height="21"/>
+                                            <rect key="frame" x="15" y="70" width="12" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
@@ -248,7 +253,7 @@
                                             </segments>
                                         </segmentedControl>
                                         <view tag="40" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g6M-md-DUl" userLabel="Color previews">
-                                            <rect key="frame" x="15" y="220" width="255" height="48"/>
+                                            <rect key="frame" x="15" y="208" width="255" height="48"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zR5-gW-0g4" userLabel="Current color">
@@ -347,14 +352,16 @@
                             <outlet property="delegate" destination="qNf-Ww-Mak" id="fAM-rD-ciL"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="TuneKit" id="TG7-Xq-1DH">
-                        <barButtonItem key="rightBarButtonItem" title="Close" id="htr-Lx-9k5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="htr-Lx-9k5">
                             <connections>
                                 <action selector="dismiss" destination="qNf-Ww-Mak" id="oXq-Uc-USy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="280" height="800"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="veO-2l-4iU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -26,6 +26,6 @@
 
 #pragma mark - Creating color picker configs
 
-+ (TKColorPickerConfig *)configWithName:(NSString *)name target:(id)target keyPath:(NSString *)keyPath;
++ (TKColorPickerConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath;
 
 @end

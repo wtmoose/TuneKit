@@ -18,7 +18,7 @@
 
 #pragma mark - Creating button configs
 
-+ (TKButtonConfig *)configWithName:(NSString *)name target:(id)target selector:(SEL)selector;
-+ (TKButtonConfig *)configWithName:(NSString *)name actionHanlder:(TKCallback)actionHanlder;
++ (TKButtonConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target selector:(SEL)selector;
++ (TKButtonConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier actionHanlder:(TKCallback)actionHanlder;
 
 @end
