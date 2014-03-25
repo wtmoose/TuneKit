@@ -145,6 +145,37 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
     return [tk addRate:name target:target keyPath:keyPath sampleInterval:sampleInterval];
 }
 
+#pragma mark - Default values (public)
+
++ (id)defaultValueForIdentifier:(NSString *)identifier defaultGroup:(NSString *)defaultGroup
+{
+    NSString *key = [self keyForIdentifier:identifier defaultGroup:defaultGroup];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:key];
+}
+
++ (void)setDefaultValue:(id)value forIdentifier:(NSString *)identifier defaultGroup:(NSString *)defaultGroup
+{
+    NSString *key = [self keyForIdentifier:identifier defaultGroup:defaultGroup];
+    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+//    if (value) {
+//        [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+//    } else {
+//        [self removeDefaultValueForIdentifier:identifier defaultGroup:defaultGroup];
+//    }
+}
+
++ (void)removeDefaultValueForIdentifier:(NSString *)identifier defaultGroup:(NSString *)defaultGroup
+{
+    NSString *key = [self keyForIdentifier:identifier defaultGroup:defaultGroup];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+}
+
++ (NSString *)keyForIdentifier:(NSString *)identifier defaultGroup:(NSString *)defaultGroup
+{
+    return [NSString stringWithFormat:@"%@:%@", defaultGroup, identifier];
+}
+
 #pragma mark - Presenting the control panel (private)
 
 - (void)presentControlPanelAtLeftOrigin:(CGFloat)leftOrigin

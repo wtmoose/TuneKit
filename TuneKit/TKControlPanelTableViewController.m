@@ -9,8 +9,16 @@
 #import "TKControlPanelTableViewController.h"
 #import <TLIndexPathTools/TLIndexPathItem.h>
 #import "TuneKit.h"
+#import "NSObject+Utils.h"
+
+static  NSString *kTKDefaultGroupNumberChangedNotification = @"kTKDefaultGroupNumberChangedNotification";
+
+static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
 
 @interface TKControlPanelTableViewController ()
+@property (weak, nonatomic) UISegmentedControl *defaultGroupSelector;
+@property (nonatomic) NSInteger defaultGroupIndex;
+@property (readonly, strong, nonatomic) NSString *defaultGroupName;
 @end
 
 @implementation TKControlPanelTableViewController
@@ -22,11 +30,23 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        _defaultGroupIndex = -1;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [self installToolbar];
+
+    if (self.defaultGroupIndex == -1) {
+        self.defaultGroupIndex = 1;
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(pathChanged:)
@@ -37,15 +57,23 @@
                                              selector:@selector(pathRemoved:)
                                                  name:kTuneKitPathRemovedNotification
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(observeDefaultGroupChanged:)
+                                                 name:kTKDefaultGroupNumberChangedNotification
+                                               object:nil];
 }
 
 - (void)installToolbar
 {
-//    UIView *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Original", @"Modified"]];
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:segmentedControl];
-//    UIBarButtonItem *leftSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-//    UIBarButtonItem *rightSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-//    self.toolbarItems = @[leftSpace, item];
+    UISegmentedControl *defaultGroupSelector = [[UISegmentedControl alloc] initWithItems:@[@"Original", @"Tuned"]];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:defaultGroupSelector];
+    UIBarButtonItem *leftSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *rightSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    self.toolbarItems = @[leftSpace, item, rightSpace];
+    [defaultGroupSelector addTarget:self action:@selector(defaultGroupChanged:) forControlEvents:UIControlEventValueChanged];
+    self.defaultGroupSelector = defaultGroupSelector;
+    self.defaultGroupSelector.selectedSegmentIndex = self.defaultGroupIndex;
 }
 
 - (IBAction)dismiss
@@ -81,41 +109,50 @@
     }
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - Default values
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSString *)defaultGroupName
 {
-    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    
-    TLIndexPathItem *item = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
-    TKConfig *config = item.data;
-    
-    switch (config.type) {
-        case TKConfigTypeNode:
-            [self configureCell:cell forNodeConfig:(TKNodeConfig *)config];
-            break;
-        case TKConfigTypeButton:
-            [self configureCell:cell forButtonConfig:(TKButtonConfig *)config];
-            break;
-        case TKConfigTypeSlider:
-            [self configureCell:cell forSliderConfig:(TKSliderConfig *)config];
-            break;
-        case TKConfigTypeSwitch:
-            [self configureCell:cell forSwitchConfig:(TKSwitchConfig *)config];
-            break;
-        case TKConfigTypeColorPicker:
-            [self configureCell:cell forColorPickerConfig:(TKColorPickerConfig *)config];
-            break;
-        case TKConfigTypeLabel:
-        case TKConfigTypeRate:
-            [self configureCell:cell forLabelConfig:(TKLabelConfig *)config];
-            break;
-        default:
-            break;
+    if (self.defaultGroupIndex > 0) {
+        return [NSString stringWithFormat:@"DefaultGroup%d", (int)self.defaultGroupIndex];
     }
-    
-    return cell;
+    return nil;
 }
+
+- (void)setDefaultGroupIndex:(NSInteger)defaultGroupIndex
+{
+    if (_defaultGroupIndex != defaultGroupIndex) {
+        _defaultGroupIndex = defaultGroupIndex;
+        self.defaultGroupSelector.selectedSegmentIndex = defaultGroupIndex;
+        [self updateDefaultGroup];
+    }
+}
+
+- (void)updateDefaultGroup
+{
+    NSString *defaultGroupName = self.defaultGroupName;
+    for (TLIndexPathItem *item in self.indexPathController.items) {
+        TKConfig *config = item.data;
+        config.defaultGroupName = defaultGroupName;
+    }
+    for (UITableViewCell *cell in [self.tableView visibleCells]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        [self tableView:self.tableView configureCell:cell atIndexPath:indexPath];
+    }
+}
+
+- (IBAction)defaultGroupChanged:(UISegmentedControl *)sender {
+    NSDictionary *userInfo = @{kTKDefaultGroupNumberKey : @(sender.selectedSegmentIndex)};
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTKDefaultGroupNumberChangedNotification object:self userInfo:userInfo];
+}
+
+- (void)observeDefaultGroupChanged:(NSNotification *)notification
+{
+    NSNumber *defaultGroupNumber = [notification.userInfo objectForKey:kTKDefaultGroupNumberKey];
+    self.defaultGroupIndex = [defaultGroupNumber integerValue];
+}
+
+#pragma mark - UITableViewDataSource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -143,11 +180,20 @@
 
     if ([item.data isKindOfClass:[TKNodeConfig class]]) {
         TKNodeConfig *config = item.data;
-        UIViewController *viewController = self.nodeViewControllerProvider(config.name);
+        TKControlPanelTableViewController *viewController = self.nodeViewControllerProvider(config.name);
         if (viewController) {
+            viewController.defaultGroupIndex = self.defaultGroupIndex;
             [self.navigationController pushViewController:viewController animated:YES];
         }
     }
+}
+
+#pragma mark - TLIndexPathControllerDelegate
+
+- (void)controller:(TLIndexPathController *)controller didUpdateDataModel:(TLIndexPathUpdates *)updates
+{
+    [self updateDefaultGroup];
+    [super controller:controller didUpdateDataModel:updates];
 }
 
 #pragma mark - Cell configuration
@@ -183,6 +229,37 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    TLIndexPathItem *item = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
+    TKConfig *config = item.data;
+    config.defaultGroupName = self.defaultGroupName;
+    
+    switch (config.type) {
+        case TKConfigTypeNode:
+            [self configureCell:cell forNodeConfig:(TKNodeConfig *)config];
+            break;
+        case TKConfigTypeButton:
+            [self configureCell:cell forButtonConfig:(TKButtonConfig *)config];
+            break;
+        case TKConfigTypeSlider:
+            [self configureCell:cell forSliderConfig:(TKSliderConfig *)config];
+            break;
+        case TKConfigTypeSwitch:
+            [self configureCell:cell forSwitchConfig:(TKSwitchConfig *)config];
+            break;
+        case TKConfigTypeColorPicker:
+            [self configureCell:cell forColorPickerConfig:(TKColorPickerConfig *)config];
+            break;
+        case TKConfigTypeLabel:
+        case TKConfigTypeRate:
+            [self configureCell:cell forLabelConfig:(TKLabelConfig *)config];
+            break;
+        default:
+            break;
+    }
+}
+
 - (void)configureCell:(UITableViewCell *)cell forNodeConfig:(TKNodeConfig *)config
 {
     cell.textLabel.text = config.name;
@@ -198,12 +275,14 @@
     config.nameLabel = (UILabel *)[cell viewWithTag:1];
     config.valueLabel = (UILabel *)[cell viewWithTag:2];
     config.slider = (UISlider *)[cell viewWithTag:3];
+    config.slider.enabled = self.defaultGroupIndex > 0;
 }
 
 - (void)configureCell:(UITableViewCell *)cell forSwitchConfig:(TKSwitchConfig *)config
 {
     config.nameLabel = (UILabel *)[cell viewWithTag:1];
     config.theSwitch = (UISwitch *)[cell viewWithTag:2];
+    config.theSwitch.enabled = self.defaultGroupIndex > 0;
 }
 
 - (void)configureCell:(UITableViewCell *)cell forColorPickerConfig:(TKColorPickerConfig *)config
@@ -217,6 +296,10 @@
     UIView *colorPreviewsView = [cell viewWithTag:40];
     config.currentColorView = [colorPreviewsView viewWithTag:1];
     config.updatedColorView = [colorPreviewsView viewWithTag:2];
+    
+    for (UISlider *slider in config.sliders) {
+        slider.enabled = self.defaultGroupIndex > 0;
+    }
     
     colorPreviewsView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"checkers"]];
 }

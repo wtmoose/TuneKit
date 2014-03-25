@@ -12,6 +12,7 @@
 
 @interface BasicsViewController ()
 @property (strong, nonatomic) NSString *secondViewArea;
+@property (nonatomic) BOOL debugSwitch;
 @end
 
 @implementation BasicsViewController
@@ -43,6 +44,15 @@
         [TuneKit addRate:@"Changes per second" target:self keyPath:@"secondViewArea" sampleInterval:2];
         
     } inPath:[TuneKit pathForViewController:self] sectionName:@"Transform Example"];
+
+    // todo example
+    [TuneKit add:^{
+        
+        [TuneKit addSwitch:@"Switch Test" target:self keyPath:@"debugSwitch"];
+        
+        [TuneKit addLabel:@"Switch value" target:self keyPath:@"debugSwitch"];
+        
+    } inPath:[TuneKit pathForViewController:self] sectionName:@"ToDo Example"];
 
 }
 

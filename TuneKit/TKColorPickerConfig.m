@@ -11,10 +11,12 @@
 #import "TKColorPickerConfig.h"
 #import "TKGlobal.h"
 #import "NSObject+Utils.h"
+#import <tunekit/TuneKit.h>
 
 @interface TKColorPickerConfig ()
 @property (weak, nonatomic) id target;
 @property (strong, nonatomic) NSString *keyPath;
+@property (nonatomic) UIColor *initialValue;
 @end
 
 @implementation TKColorPickerConfig
@@ -41,18 +43,22 @@
 - (void)setValueInternal:(UIColor *)value
 {
     _value = value;
+    if (self.defaultGroupName) {
+        NSData *valueData = [NSKeyedArchiver archivedDataWithRootObject:value];
+        [TuneKit setDefaultValue:valueData forIdentifier:self.identifier defaultGroup:self.defaultGroupName];
+    }
     [self updateValueViews];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    UIColor *value = [change objectForKey:NSKeyValueChangeNewKey];
-    if (![NSObject nilSafeObject:self.value isEqual:value]) {
-        [self setValueInternal:value];
-        [self updateNewColor];
-        [self commitNewColor];
-    }
-}
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+//{
+//    UIColor *value = [change objectForKey:NSKeyValueChangeNewKey];
+//    if (![NSObject nilSafeObject:self.value isEqual:value]) {
+//        [self setValueInternal:value];
+//        [self updateNewColor];
+//        [self commitNewColor];
+//    }
+//}
 
 #pragma mark - View bindings
 
@@ -203,6 +209,28 @@
     [self updateCurrentColor];
 }
 
+#pragma mark - Default values
+
+- (void)setDefaultGroupName:(NSString *)defaultGroup
+{
+    if (![NSObject nilSafeObject:self.defaultGroupName isEqual:defaultGroup]) {
+        super.defaultGroupName = defaultGroup;
+        
+        if (defaultGroup) {
+            NSData *defaultValueData = [TuneKit defaultValueForIdentifier:self.identifier defaultGroup:defaultGroup];
+            
+            if (defaultValueData) {
+                self.value = [NSKeyedUnarchiver unarchiveObjectWithData:defaultValueData];
+            } else {
+                NSData *defaultValueData = [NSKeyedArchiver archivedDataWithRootObject:self.value];
+                [TuneKit setDefaultValue:defaultValueData forIdentifier:self.identifier defaultGroup:defaultGroup];
+            }
+        } else {
+            self.value = self.initialValue;
+        }
+    }
+}
+
 #pragma mark - Creating color picker configs
 
 - (instancetype)initWithName:(NSString *)name type:(TKConfigType)type identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath
@@ -210,8 +238,8 @@
     if (self = [super initWithName:name type:type identifier:identifier]) {
         _target = target;
         _keyPath = keyPath;
-        UIColor *value = [target valueForKeyPath:keyPath];
-        [self setValueInternal:value];
+        self.initialValue = [target valueForKeyPath:keyPath];
+        [self setValueInternal:self.initialValue];
 //        [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;

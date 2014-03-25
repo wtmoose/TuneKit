@@ -11,6 +11,6 @@
 
 @interface TKControlPanelTableViewController : TLTableViewController
 @property (strong, nonatomic) NSString *path;
-@property (strong, nonatomic) UIViewController *(^nodeViewControllerProvider)(NSString *nodeName);
+@property (strong, nonatomic) TKControlPanelTableViewController *(^nodeViewControllerProvider)(NSString *nodeName);
 - (IBAction)dismiss;
 @end

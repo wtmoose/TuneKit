@@ -137,4 +137,15 @@ extern NSString *kTuneKitNavigationSectionName;
  */
 + (TKRateConfig *)addRate:(NSString *)name target:(id)target keyPath:(NSString *)keyPath sampleInterval:(NSTimeInterval)sampleInterval;
 
+#pragma mark - Default values
+
+/**
+ */
+
++ (id)defaultValueForIdentifier:(NSString *)identifier defaultGroup:(NSString *)defaultGroup;
+
++ (void)setDefaultValue:(id)value forIdentifier:(NSString *)identifier defaultGroup:(NSString *)defaultGroup;
+
++ (void)removeDefaultValueForIdentifier:(NSString *)identifier defaultGroup:(NSString *)defaultGroup;
+
 @end

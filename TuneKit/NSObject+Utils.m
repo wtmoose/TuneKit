@@ -12,7 +12,7 @@
 
 + (BOOL)nilSafeObject:(id)object isEqual:(id)other
 {
-    if (object == nil && object == nil) return YES;
+    if (object == nil && other == nil) return YES;
     if (object == nil || other == nil) return NO;
     return [object isEqual:other];
 }

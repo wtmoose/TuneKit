@@ -8,25 +8,53 @@
 
 #import "TKSwitchConfig.h"
 #import "TKGlobal.h"
+#import "NSObject+Utils.h"
+#import <TuneKit/TuneKit.h>
 
 @interface TKSwitchConfig ()
-@property (strong, nonatomic) TKValueCallback changeHandler;
+@property (weak, nonatomic) id target;
+@property (strong, nonatomic) NSString *keyPath;
+@property (nonatomic) BOOL initialValue;
 @end
 
 @implementation TKSwitchConfig
+
+//- (void)dealloc
+//{
+//    if (self.target) {
+//        [self.target removeObserver:self forKeyPath:self.keyPath];
+//    }
+//}
 
 #pragma mark - Model bindings
 
 - (void)setValue:(BOOL)value
 {
     if (_value != value) {
-        _value = value;
-        [self updateValueViews];
-        if (self.changeHandler) {
-            self.changeHandler(@(value));
+        [self setValueInternal:value];
+        if (self.target) {
+            [self.target setValue:@(value) forKeyPath:self.keyPath];
         }
     }
 }
+
+- (void)setValueInternal:(BOOL)value
+{
+    _value = value;
+    if (self.defaultGroupName) {
+        [TuneKit setDefaultValue:@(self.value) forIdentifier:self.identifier defaultGroup:self.defaultGroupName];
+    }
+    [self updateValueViews];
+}
+
+
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+//{
+//    BOOL value = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];
+//    if (self.value != value) {
+//        [self setValueInternal:value];
+//    }
+//}
 
 #pragma mark - View bindings
 
@@ -59,23 +87,52 @@
     [self.theSwitch setOn:self.value animated:YES];
 }
 
+#pragma mark - Default values
+
+- (void)setDefaultGroupName:(NSString *)defaultGroup
+{
+    if (![NSObject nilSafeObject:self.defaultGroupName isEqual:defaultGroup]) {
+        super.defaultGroupName = defaultGroup;
+        
+        if (defaultGroup) {
+            NSNumber *defaultValue = [TuneKit defaultValueForIdentifier:self.identifier defaultGroup:defaultGroup];
+            
+            if (defaultValue) {
+                self.value = [defaultValue boolValue];
+            } else {
+                [TuneKit setDefaultValue:@(self.value) forIdentifier:self.identifier defaultGroup:defaultGroup];
+            }
+        } else {
+            self.value = self.initialValue;
+        }
+    }
+}
+
 #pragma mark - Creating switch configs
+
+- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath
+{
+    if (self = [super initWithName:name type:type identifier:identifier]) {
+        _target = target;
+        _keyPath = keyPath;
+        self.initialValue = [[target valueForKeyPath:keyPath] boolValue];
+        [self setValueInternal:self.initialValue];
+        //        // observe property changes if possible
+        //        @try {
+        //        [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
+        //        }
+        //        @catch (NSException *exception) {
+        //            // TODO log a warining?
+        //        }
+        //        @finally {
+        //        }
+    }
+    return self;
+}
 
 + (TKSwitchConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath
 {
-    NSNumber *value = [target valueForKeyPath:keyPath];
-    __weak id weakTarget = target;
-    return [self configWithName:name identifier:identifier changeHandler:^(id value) {
-        [weakTarget setValue:value forKeyPath:keyPath];
-    } value:[value boolValue]];
-    
-}
-
-+ (TKSwitchConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier changeHandler:(TKValueCallback)changeHandler value:(BOOL)value
-{
-    TKSwitchConfig *config = [[TKSwitchConfig alloc] initWithName:name type:TKConfigTypeSwitch identifier:identifier];
-    config.changeHandler = changeHandler;
-    config.value = value;
+    TKSwitchConfig *config = [[TKSwitchConfig alloc] initWithName:name type:TKConfigTypeSwitch identifier:identifier target:target keyPath:keyPath];
     return config;
 }
 

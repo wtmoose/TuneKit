@@ -9,10 +9,12 @@
 #import "TKSliderConfig.h"
 #import "TKGlobal.h"
 #import "NSObject+Utils.h"
+#import "TuneKit.h"
 
 @interface TKSliderConfig ()
 @property (weak, nonatomic) id target;
 @property (strong, nonatomic) NSString *keyPath;
+@property (nonatomic) CGFloat initialValue;
 @end
 
 @implementation TKSliderConfig
@@ -39,16 +41,19 @@
 - (void)setValueInternal:(float)value
 {
     _value = value;
+    if (self.defaultGroupName) {
+        [TuneKit setDefaultValue:@(self.value) forIdentifier:self.identifier defaultGroup:self.defaultGroupName];
+    }
     [self updateValueViews];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    float value = [[change objectForKey:NSKeyValueChangeNewKey] floatValue];
-    if (self.value != value) {
-        [self setValueInternal:value];
-    }
-}
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+//{
+//    float value = [[change objectForKey:NSKeyValueChangeNewKey] floatValue];
+//    if (self.value != value) {
+//        [self setValueInternal:value];
+//    }
+//}
 
 - (void)setMin:(float)min
 {
@@ -127,6 +132,27 @@
     self.valueLabel.text = [NSString stringWithFormat:format, self.value];
 }
 
+#pragma mark - Default values
+
+- (void)setDefaultGroupName:(NSString *)defaultGroup
+{
+    if (![NSObject nilSafeObject:self.defaultGroupName isEqual:defaultGroup]) {
+        super.defaultGroupName = defaultGroup;
+        
+        if (defaultGroup) {
+            NSNumber *defaultValue = [TuneKit defaultValueForIdentifier:self.identifier defaultGroup:defaultGroup];
+            
+            if (defaultValue) {
+                self.value = [defaultValue floatValue];
+            } else {
+                [TuneKit setDefaultValue:@(self.value) forIdentifier:self.identifier defaultGroup:defaultGroup];
+            }
+        } else {
+            self.value = self.initialValue;
+        }
+    }
+}
+
 #pragma mark - Creating slider configs
 
 - (instancetype)initWithName:(NSString *)name type:(TKConfigType)type identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath min:(float)min max:(float)max
@@ -136,8 +162,8 @@
         _keyPath = keyPath;
         _min = min;
         _max = max;
-        float value = [[target valueForKeyPath:keyPath] floatValue];
-        [self setValueInternal:value];
+        self.initialValue = [[target valueForKeyPath:keyPath] floatValue];
+        [self setValueInternal:self.initialValue];
 //        // observe property changes if possible
 //        @try {
 //        [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
