@@ -17,6 +17,7 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
 
 @interface TKControlPanelTableViewController ()
 @property (weak, nonatomic) UISegmentedControl *defaultGroupSelector;
+@property (weak, nonatomic) UIBarButtonItem *resetButtonItem;
 @property (nonatomic) NSInteger defaultGroupIndex;
 @property (readonly, strong, nonatomic) NSString *defaultGroupName;
 @end
@@ -70,10 +71,12 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:defaultGroupSelector];
     UIBarButtonItem *leftSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *rightSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    self.toolbarItems = @[leftSpace, item, rightSpace];
+    UIBarButtonItem *resetButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(resetDefaultValues)];
+    self.toolbarItems = @[leftSpace, item, rightSpace, resetButtonItem];
     [defaultGroupSelector addTarget:self action:@selector(defaultGroupChanged:) forControlEvents:UIControlEventValueChanged];
     self.defaultGroupSelector = defaultGroupSelector;
     self.defaultGroupSelector.selectedSegmentIndex = self.defaultGroupIndex;
+    self.resetButtonItem = resetButtonItem;
 }
 
 - (IBAction)dismiss
@@ -124,6 +127,7 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
     if (_defaultGroupIndex != defaultGroupIndex) {
         _defaultGroupIndex = defaultGroupIndex;
         self.defaultGroupSelector.selectedSegmentIndex = defaultGroupIndex;
+        self.resetButtonItem.enabled = defaultGroupIndex > 0;
         [self updateDefaultGroup];
     }
 }
@@ -150,6 +154,16 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
 {
     NSNumber *defaultGroupNumber = [notification.userInfo objectForKey:kTKDefaultGroupNumberKey];
     self.defaultGroupIndex = [defaultGroupNumber integerValue];
+}
+
+- (void)resetDefaultValues
+{
+    for (TLIndexPathItem *item in self.indexPathController.items) {
+        TKConfig *config = item.data;
+        config.defaultGroupName = nil;
+        [TuneKit removeDefaultValueForIdentifier:config.identifier defaultGroup:self.defaultGroupName];
+    }
+    [self updateDefaultGroup];
 }
 
 #pragma mark - UITableViewDataSource
