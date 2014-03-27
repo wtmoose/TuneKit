@@ -12,6 +12,7 @@
 
 #pragma mark - Creating node configs
 
-+ (TKNodeConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier;
++ (TKNodeConfig *)configWithName:(NSString *)name
+                      identifier:(NSString *)identifier;
 
 @end

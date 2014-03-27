@@ -12,8 +12,9 @@ typedef NS_ENUM(NSInteger, TKConfigType)
 {
     TKConfigTypeNode,
     TKConfigTypeButton,
-    TKConfigTypeSlider,
     TKConfigTypeSwitch,
+    TKConfigTypeSlider,
+    TKConfigTypeSegmentedControl,
     TKConfigTypeColorPicker,
     TKConfigTypeLabel,
     TKConfigTypeRate,
@@ -26,6 +27,7 @@ typedef NS_ENUM(NSInteger, TKConfigType)
 @property (strong, nonatomic, readonly) NSString *identifier;
 @property (strong, nonatomic) NSString *defaultGroupName;
 
-- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type identifier:(NSString *)path;
+- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type
+                  identifier:(NSString *)identifier;
 
 @end

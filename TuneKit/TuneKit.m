@@ -115,16 +115,37 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
     return [tk addButton:name actionHanlder:actionHanlder];
 }
 
++ (TKSwitchConfig *)addSwitch:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
+{
+    TuneKit *tk = [self sharedInstance];
+    return [tk addSwitch:name target:target keyPath:keyPath];
+}
+
 + (TKSliderConfig *)addSlider:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max
 {
     TuneKit *tk = [self sharedInstance];
     return [tk addSlider:name target:target keyPath:keyPath min:min max:max];
 }
 
-+ (TKSwitchConfig *)addSwitch:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
++ (TKSegmentedControlConfig *)addSegmentedControl:(NSString *)name
+                                           target:(id)target
+                                          keyPath:(NSString *)keyPath
+                                     segmentNames:(NSArray *)segmentNames
 {
     TuneKit *tk = [self sharedInstance];
-    return [tk addSwitch:name target:target keyPath:keyPath];
+    return [tk addSegmentedControl:name target:target keyPath:keyPath
+                      segmentNames:segmentNames];
+}
+
++ (TKSegmentedControlConfig *)addSegmentedControl:(NSString *)name
+                                           target:(id)target
+                                          keyPath:(NSString *)keyPath
+                                     segmentNames:(NSArray *)segmentNames
+                                    segmentValues:(NSArray *)segmentValues
+{
+    TuneKit *tk = [self sharedInstance];
+    return [tk addSegmentedControl:name target:target keyPath:keyPath
+                      segmentNames:segmentNames segmentValues:segmentValues];
 }
 
 + (TKColorPickerConfig *)addColorPicker:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
@@ -376,6 +397,14 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
     return config;
 }
 
+- (TKSwitchConfig *)addSwitch:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
+{
+    NSString *identifier = [self identifierForName:name];
+    TKSwitchConfig *config = [TKSwitchConfig configWithName:name identifier:identifier target:target keyPath:keyPath];
+    [self addConfigToDataModel:config];
+    return config;
+}
+
 - (TKSliderConfig *)addSlider:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max
 {
     NSString *identifier = [self identifierForName:name];
@@ -384,10 +413,25 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
     return config;
 }
 
-- (TKSwitchConfig *)addSwitch:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
+- (TKSegmentedControlConfig *)addSegmentedControl:(NSString *)name
+                                           target:(id)target
+                                          keyPath:(NSString *)keyPath
+                                     segmentNames:(NSArray *)segmentNames
 {
     NSString *identifier = [self identifierForName:name];
-    TKSwitchConfig *config = [TKSwitchConfig configWithName:name identifier:identifier target:target keyPath:keyPath];
+    TKSegmentedControlConfig *config = [TKSegmentedControlConfig configWithName:name identifier:identifier target:target keyPath:keyPath segmentNames:segmentNames];
+    [self addConfigToDataModel:config];
+    return config;
+}
+
+- (TKSegmentedControlConfig *)addSegmentedControl:(NSString *)name
+                                           target:(id)target
+                                          keyPath:(NSString *)keyPath
+                                     segmentNames:(NSArray *)segmentNames
+                                    segmentValues:(NSArray *)segmentValues
+{
+    NSString *identifier = [self identifierForName:name];
+    TKSegmentedControlConfig *config = [TKSegmentedControlConfig configWithName:name identifier:identifier target:target keyPath:keyPath segmentNames:segmentNames segmentValues:segmentValues];
     [self addConfigToDataModel:config];
     return config;
 }

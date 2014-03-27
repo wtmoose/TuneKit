@@ -21,10 +21,10 @@
                                                                cellIdentifier:nil
                                                                          data:@"Demonstrates some basic uses for TuneKit."];
 
-    TLIndexPathItem *dynamicsItem = [[TLIndexPathItem alloc] initWithIdentifier:@"Dynamics"
+    TLIndexPathItem *dynamicsItem = [[TLIndexPathItem alloc] initWithIdentifier:@"Plugins"
                                                                   sectionName:nil
                                                                cellIdentifier:nil
-                                                                         data:@"Does something with UIKit Dyanamics."];
+                                                                         data:@"Shows a few plugins."];
 
     self.indexPathController.items = @[basicsItem, dynamicsItem];
 }

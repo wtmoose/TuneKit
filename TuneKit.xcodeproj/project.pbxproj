@@ -14,6 +14,10 @@
 		863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
 		863BF50E18CD086700EF0056 /* TKLabelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50D18CD086700EF0056 /* TKLabelConfig.m */; };
 		863BF50F18CD086700EF0056 /* TKLabelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50D18CD086700EF0056 /* TKLabelConfig.m */; };
+		866303D218E272A300AA5B8A /* TKUIViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 866303D118E272A300AA5B8A /* TKUIViewAnimation.m */; };
+		866303D318E272A300AA5B8A /* TKUIViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 866303D118E272A300AA5B8A /* TKUIViewAnimation.m */; };
+		866303E918E3D52B00AA5B8A /* TKSegmentedControlConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 866303E818E3D52B00AA5B8A /* TKSegmentedControlConfig.m */; };
+		866303EA18E3D52B00AA5B8A /* TKSegmentedControlConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 866303E818E3D52B00AA5B8A /* TKSegmentedControlConfig.m */; };
 		868D7D9B18CE0F320081F9F6 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */; };
 		868D7D9C18CE0F320081F9F6 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */; };
 		86AB2D4918BD748100038D69 /* TuneKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86AB2D4818BD748100038D69 /* TuneKit.xcassets */; };
@@ -79,6 +83,11 @@
 		863BF50918CD044F00EF0056 /* TKRateConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRateConfig.m; sourceTree = "<group>"; };
 		863BF50C18CD086700EF0056 /* TKLabelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelConfig.h; sourceTree = "<group>"; };
 		863BF50D18CD086700EF0056 /* TKLabelConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelConfig.m; sourceTree = "<group>"; };
+		866303CF18E2726F00AA5B8A /* TKPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPlugin.h; sourceTree = "<group>"; };
+		866303D018E272A300AA5B8A /* TKUIViewAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKUIViewAnimation.h; sourceTree = "<group>"; };
+		866303D118E272A300AA5B8A /* TKUIViewAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKUIViewAnimation.m; sourceTree = "<group>"; };
+		866303E718E3D52B00AA5B8A /* TKSegmentedControlConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSegmentedControlConfig.h; sourceTree = "<group>"; };
+		866303E818E3D52B00AA5B8A /* TKSegmentedControlConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSegmentedControlConfig.m; sourceTree = "<group>"; };
 		868D7D9918CE0F320081F9F6 /* NSObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utils.h"; sourceTree = "<group>"; };
 		868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utils.m"; sourceTree = "<group>"; };
 		86AB2D4818BD748100038D69 /* TuneKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TuneKit.xcassets; sourceTree = "<group>"; };
@@ -143,6 +152,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		866303CC18E268A900AA5B8A /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				86CB5B0C18B7C784003039CC /* TKConfig.h */,
+				86CB5B0D18B7C784003039CC /* TKConfig.m */,
+				86CB5B1018B7C7CE003039CC /* TKSliderConfig.h */,
+				86CB5B1118B7C7CE003039CC /* TKSliderConfig.m */,
+				86CB699F18B825D0003039CC /* TKButtonConfig.h */,
+				86CB69A018B825D0003039CC /* TKButtonConfig.m */,
+				86F2834118B875C300CD971C /* TKColorPickerConfig.h */,
+				86F2834218B875C300CD971C /* TKColorPickerConfig.m */,
+				86EA9EA318C3089F00FEABC8 /* TKNodeConfig.h */,
+				86EA9EA418C3089F00FEABC8 /* TKNodeConfig.m */,
+				86C7A42618C81FD200759782 /* TKSwitchConfig.h */,
+				86C7A42718C81FD200759782 /* TKSwitchConfig.m */,
+				863BF50818CD044F00EF0056 /* TKRateConfig.h */,
+				863BF50918CD044F00EF0056 /* TKRateConfig.m */,
+				863BF50C18CD086700EF0056 /* TKLabelConfig.h */,
+				863BF50D18CD086700EF0056 /* TKLabelConfig.m */,
+				866303E718E3D52B00AA5B8A /* TKSegmentedControlConfig.h */,
+				866303E818E3D52B00AA5B8A /* TKSegmentedControlConfig.m */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		866303CD18E2707400AA5B8A /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				866303CF18E2726F00AA5B8A /* TKPlugin.h */,
+				866303D018E272A300AA5B8A /* TKUIViewAnimation.h */,
+				866303D118E272A300AA5B8A /* TKUIViewAnimation.m */,
+			);
+			name = Plugins;
+			sourceTree = "<group>";
+		};
 		868D7D9418CE0E9D0081F9F6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,22 +274,8 @@
 		86CB5B0B18B7C769003039CC /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				86CB5B0C18B7C784003039CC /* TKConfig.h */,
-				86CB5B0D18B7C784003039CC /* TKConfig.m */,
-				86CB5B1018B7C7CE003039CC /* TKSliderConfig.h */,
-				86CB5B1118B7C7CE003039CC /* TKSliderConfig.m */,
-				86CB699F18B825D0003039CC /* TKButtonConfig.h */,
-				86CB69A018B825D0003039CC /* TKButtonConfig.m */,
-				86F2834118B875C300CD971C /* TKColorPickerConfig.h */,
-				86F2834218B875C300CD971C /* TKColorPickerConfig.m */,
-				86EA9EA318C3089F00FEABC8 /* TKNodeConfig.h */,
-				86EA9EA418C3089F00FEABC8 /* TKNodeConfig.m */,
-				86C7A42618C81FD200759782 /* TKSwitchConfig.h */,
-				86C7A42718C81FD200759782 /* TKSwitchConfig.m */,
-				863BF50818CD044F00EF0056 /* TKRateConfig.h */,
-				863BF50918CD044F00EF0056 /* TKRateConfig.m */,
-				863BF50C18CD086700EF0056 /* TKLabelConfig.h */,
-				863BF50D18CD086700EF0056 /* TKLabelConfig.m */,
+				866303CD18E2707400AA5B8A /* Plugins */,
+				866303CC18E268A900AA5B8A /* Controls */,
 			);
 			name = Configurations;
 			sourceTree = "<group>";
@@ -388,6 +418,7 @@
 				86F2834318B875C300CD971C /* TKColorPickerConfig.m in Sources */,
 				868D7D9B18CE0F320081F9F6 /* NSObject+Utils.m in Sources */,
 				860D0EA018CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
+				866303D218E272A300AA5B8A /* TKUIViewAnimation.m in Sources */,
 				86CB5AEB18B7C1FF003039CC /* TuneKit.m in Sources */,
 				86CB69A118B825D0003039CC /* TKButtonConfig.m in Sources */,
 				86CB5B1218B7C7CE003039CC /* TKSliderConfig.m in Sources */,
@@ -396,6 +427,7 @@
 				86CB69A818B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
 				863BF50A18CD044F00EF0056 /* TKRateConfig.m in Sources */,
 				86CB5B0E18B7C784003039CC /* TKConfig.m in Sources */,
+				866303E918E3D52B00AA5B8A /* TKSegmentedControlConfig.m in Sources */,
 				86F2834718B9B21B00CD971C /* TKDialogViewController.m in Sources */,
 				863BF50E18CD086700EF0056 /* TKLabelConfig.m in Sources */,
 			);
@@ -408,6 +440,7 @@
 				86F2834418B875C300CD971C /* TKColorPickerConfig.m in Sources */,
 				868D7D9C18CE0F320081F9F6 /* NSObject+Utils.m in Sources */,
 				860D0EA118CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
+				866303D318E272A300AA5B8A /* TKUIViewAnimation.m in Sources */,
 				86CB5B0018B7C1FF003039CC /* TuneKitTests.m in Sources */,
 				86CB69A218B825D0003039CC /* TKButtonConfig.m in Sources */,
 				86CB5B1318B7C7CE003039CC /* TKSliderConfig.m in Sources */,
@@ -416,6 +449,7 @@
 				86CB69A918B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
 				863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */,
 				86CB5B0F18B7C784003039CC /* TKConfig.m in Sources */,
+				866303EA18E3D52B00AA5B8A /* TKSegmentedControlConfig.m in Sources */,
 				86F2834818B9B21B00CD971C /* TKDialogViewController.m in Sources */,
 				863BF50F18CD086700EF0056 /* TKLabelConfig.m in Sources */,
 			);

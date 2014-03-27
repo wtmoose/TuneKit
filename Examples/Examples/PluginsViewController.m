@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Tractable Labs. All rights reserved.
 //
 
-#import "DynamicsViewController.h"
+#import "PluginsViewController.h"
 #import <TuneKit/TuneKit.h>
 #import "UIColor+Hex.h"
 
-@interface DynamicsViewController ()
+@interface PluginsViewController ()
 @property (strong, nonatomic) IBOutlet UIView *boundaryView;
 @property (strong, nonatomic) IBOutlet UIView *actionView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *actionViewTop;
@@ -20,7 +20,7 @@
 @property (nonatomic) UIColor *color;
 @end
 
-@implementation DynamicsViewController
+@implementation PluginsViewController
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -84,7 +84,7 @@
     UIDynamicItemBehavior *behavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.actionView]];
     [behavior addLinearVelocity:velocity forItem:self.actionView];
     [self.animator addBehavior:behavior];
-    __weak DynamicsViewController *weakSelf = self;
+    __weak PluginsViewController *weakSelf = self;
     __weak UIDynamicItemBehavior *weakBehavior = behavior;
     [behavior setAction:^{
         if (!CGRectIntersectsRect(weakSelf.boundaryView.bounds, weakSelf.actionView.frame)) {

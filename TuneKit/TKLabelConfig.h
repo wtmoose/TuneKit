@@ -20,8 +20,15 @@
 
 #pragma mark - Creating label configs
 
-- (instancetype)initWithName:(NSString *)name type:(TKConfigType)type identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath;
+- (instancetype)initWithName:(NSString *)name
+                        type:(TKConfigType)type
+                  identifier:(NSString *)identifier
+                      target:(id)target
+                     keyPath:(NSString *)keyPath;
 
-+ (TKLabelConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath;
++ (TKLabelConfig *)configWithName:(NSString *)name
+                       identifier:(NSString *)identifier
+                           target:(id)target
+                          keyPath:(NSString *)keyPath;
 
 @end

@@ -23,6 +23,11 @@
 
 #pragma mark - Creating slider configs
 
-+ (TKSliderConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max;
++ (TKSliderConfig *)configWithName:(NSString *)name
+                        identifier:(NSString *)identifier
+                            target:(id)target
+                           keyPath:(NSString *)keyPath
+                               min:(CGFloat)min
+                               max:(CGFloat)max;
 
 @end

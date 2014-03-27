@@ -13,6 +13,7 @@
 @interface BasicsViewController ()
 @property (strong, nonatomic) NSString *secondViewArea;
 @property (nonatomic) BOOL debugSwitch;
+@property (nonatomic) UIViewAnimationOptions debugSegmentedControl;
 @end
 
 @implementation BasicsViewController
@@ -24,6 +25,8 @@
     self.title = @"Basics";
     
     self.firstView.backgroundColor = [UIColor colorWithHexRGB:0x1694AE];
+    
+    self.debugSegmentedControl = UIViewAnimationOptionCurveEaseInOut;
     
     // color example
     [TuneKit add:^{
@@ -50,8 +53,15 @@
         
         [TuneKit addSwitch:@"Switch Test" target:self keyPath:@"debugSwitch"];
         
-        [TuneKit addLabel:@"Switch value" target:self keyPath:@"debugSwitch"];
+        [TuneKit addLabel:@"Switch Value" target:self keyPath:@"debugSwitch"];
+
+        [TuneKit addSegmentedControl:@"Segmented Control Test" target:self
+                             keyPath:@"debugSegmentedControl"
+                        segmentNames:@[@"None", @"In", @"Out", @"In/Out"]
+                       segmentValues:@[@(UIViewAnimationOptionCurveLinear), @(UIViewAnimationOptionCurveEaseIn), @(UIViewAnimationOptionCurveEaseOut), @(UIViewAnimationOptionCurveEaseInOut)]];
         
+        [TuneKit addLabel:@"Segmented Control Value" target:self keyPath:@"debugSegmentedControl"];
+
     } inPath:[TuneKit pathForViewController:self] sectionName:@"ToDo Example"];
 
 }

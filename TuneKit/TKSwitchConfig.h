@@ -20,6 +20,9 @@
 
 #pragma mark - Creating slider configs
 
-+ (TKSwitchConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath;
++ (TKSwitchConfig *)configWithName:(NSString *)name
+                        identifier:(NSString *)identifier
+                            target:(id)target
+                           keyPath:(NSString *)keyPath;
 
 @end

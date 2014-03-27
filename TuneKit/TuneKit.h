@@ -12,11 +12,13 @@
 #import "TKGlobal.h"
 #import "TKNodeConfig.h"
 #import "TKButtonConfig.h"
-#import "TKSliderConfig.h"
 #import "TKSwitchConfig.h"
+#import "TKSliderConfig.h"
+#import "TKSegmentedControlConfig.h"
 #import "TKColorPickerConfig.h"
 #import "TKLabelConfig.h"
 #import "TKRateConfig.h"
+#import "TKPlugin.h"
 
 /**
  */
@@ -98,7 +100,8 @@ extern NSString *kTuneKitNavigationSectionName;
  and its ancestors, suffixed with an optional subpath. Any view controller that
  doesn't have a title set is skipped.
  */
-+ (NSArray *)pathForViewController:(UIViewController *)viewController subpath:(NSArray *)subpath;
++ (NSArray *)pathForViewController:(UIViewController *)viewController
+                           subpath:(NSArray *)subpath;
 
 /**
  Remove the specified path and all of it's content.
@@ -109,43 +112,70 @@ extern NSString *kTuneKitNavigationSectionName;
 
 /**
  */
-+ (TKButtonConfig *)addButton:(NSString *)name target:(id)target selector:(SEL)selector;
++ (TKButtonConfig *)addButton:(NSString *)name target:(id)target
+                     selector:(SEL)selector;
 
 /**
  */
-+ (TKButtonConfig *)addButton:(NSString *)name actionHanlder:(TKCallback)actionHanlder;
++ (TKButtonConfig *)addButton:(NSString *)name
+                actionHanlder:(TKCallback)actionHanlder;
 
 /**
  */
-+ (TKSliderConfig *)addSlider:(NSString *)name target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max;
++ (TKSwitchConfig *)addSwitch:(NSString *)name target:(id)target
+                      keyPath:(NSString *)keyPath;
 
 /**
  */
-+ (TKSwitchConfig *)addSwitch:(NSString *)name target:(id)target keyPath:(NSString *)keyPath;
++ (TKSliderConfig *)addSlider:(NSString *)name target:(id)target
+                      keyPath:(NSString *)keyPath min:(CGFloat)min
+                          max:(CGFloat)max;
 
 /**
  */
-+ (TKColorPickerConfig *)addColorPicker:(NSString *)name target:(id)target keyPath:(NSString *)keyPath;
++ (TKSegmentedControlConfig *)addSegmentedControl:(NSString *)name
+                                           target:(id)target
+                                          keyPath:(NSString *)keyPath
+                                     segmentNames:(NSArray *)segmentNames;
+
+/**
+ */
++ (TKSegmentedControlConfig *)addSegmentedControl:(NSString *)name
+                                           target:(id)target
+                                          keyPath:(NSString *)keyPath
+                                     segmentNames:(NSArray *)segmentNames
+                                    segmentValues:(NSArray *)segmentValues;
+
+/**
+ */
++ (TKColorPickerConfig *)addColorPicker:(NSString *)name target:(id)target
+                                keyPath:(NSString *)keyPath;
 
 /**
  Displays the given key path as a label
  */
-+ (TKLabelConfig *)addLabel:(NSString *)name target:(id)target keyPath:(NSString *)keyPath;
++ (TKLabelConfig *)addLabel:(NSString *)name target:(id)target
+                    keyPath:(NSString *)keyPath;
 
 /**
  Displays the rate at which the given key path is changed.
  */
-+ (TKRateConfig *)addRate:(NSString *)name target:(id)target keyPath:(NSString *)keyPath sampleInterval:(NSTimeInterval)sampleInterval;
++ (TKRateConfig *)addRate:(NSString *)name target:(id)target
+                  keyPath:(NSString *)keyPath
+           sampleInterval:(NSTimeInterval)sampleInterval;
 
 #pragma mark - Default values
 
 /**
  */
 
-+ (id)defaultValueForIdentifier:(NSString *)identifier defaultGroup:(NSString *)defaultGroup;
++ (id)defaultValueForIdentifier:(NSString *)identifier
+                   defaultGroup:(NSString *)defaultGroup;
 
-+ (void)setDefaultValue:(id)value forIdentifier:(NSString *)identifier defaultGroup:(NSString *)defaultGroup;
++ (void)setDefaultValue:(id)value forIdentifier:(NSString *)identifier
+           defaultGroup:(NSString *)defaultGroup;
 
-+ (void)removeDefaultValueForIdentifier:(NSString *)identifier defaultGroup:(NSString *)defaultGroup;
++ (void)removeDefaultValueForIdentifier:(NSString *)identifier
+                           defaultGroup:(NSString *)defaultGroup;
 
 @end

@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DynamicsViewController : UIViewController
+@interface PluginsViewController : UIViewController
 @end

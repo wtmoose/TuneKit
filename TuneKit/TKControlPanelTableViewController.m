@@ -224,11 +224,14 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
         case TKConfigTypeButton:
             return @"Button";
             break;
+        case TKConfigTypeSwitch:
+            return @"Switch";
+            break;
         case TKConfigTypeSlider:
             return @"Slider";
             break;
-        case TKConfigTypeSwitch:
-            return @"Switch";
+        case TKConfigTypeSegmentedControl:
+            return @"SegmentedControl";
             break;
         case TKConfigTypeColorPicker:
             return @"ColorPicker";
@@ -256,11 +259,14 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
         case TKConfigTypeButton:
             [self configureCell:cell forButtonConfig:(TKButtonConfig *)config];
             break;
+        case TKConfigTypeSwitch:
+            [self configureCell:cell forSwitchConfig:(TKSwitchConfig *)config];
+            break;
         case TKConfigTypeSlider:
             [self configureCell:cell forSliderConfig:(TKSliderConfig *)config];
             break;
-        case TKConfigTypeSwitch:
-            [self configureCell:cell forSwitchConfig:(TKSwitchConfig *)config];
+        case TKConfigTypeSegmentedControl:
+            [self configureCell:cell forSegmentedControlConfig:(TKSegmentedControlConfig *)config];
             break;
         case TKConfigTypeColorPicker:
             [self configureCell:cell forColorPickerConfig:(TKColorPickerConfig *)config];
@@ -284,6 +290,13 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
     config.button = (UIButton *)[cell viewWithTag:1];
 }
 
+- (void)configureCell:(UITableViewCell *)cell forSwitchConfig:(TKSwitchConfig *)config
+{
+    config.nameLabel = (UILabel *)[cell viewWithTag:1];
+    config.theSwitch = (UISwitch *)[cell viewWithTag:2];
+    config.theSwitch.enabled = self.defaultGroupIndex > 0;
+}
+
 - (void)configureCell:(UITableViewCell *)cell forSliderConfig:(TKSliderConfig *)config
 {
     config.nameLabel = (UILabel *)[cell viewWithTag:1];
@@ -292,11 +305,11 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
     config.slider.enabled = self.defaultGroupIndex > 0;
 }
 
-- (void)configureCell:(UITableViewCell *)cell forSwitchConfig:(TKSwitchConfig *)config
+- (void)configureCell:(UITableViewCell *)cell forSegmentedControlConfig:(TKSegmentedControlConfig *)config
 {
     config.nameLabel = (UILabel *)[cell viewWithTag:1];
-    config.theSwitch = (UISwitch *)[cell viewWithTag:2];
-    config.theSwitch.enabled = self.defaultGroupIndex > 0;
+    config.segmentedControl = (UISegmentedControl *)[cell viewWithTag:2];
+    config.segmentedControl.enabled = self.defaultGroupIndex > 0;
 }
 
 - (void)configureCell:(UITableViewCell *)cell forColorPickerConfig:(TKColorPickerConfig *)config
