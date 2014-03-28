@@ -9,7 +9,7 @@
 #import "TKSwitchConfig.h"
 #import "TKGlobal.h"
 #import "NSObject+Utils.h"
-#import <TuneKit/TuneKit.h>
+#import "TuneKit.h"
 
 @interface TKSwitchConfig ()
 @property (weak, nonatomic) id target;

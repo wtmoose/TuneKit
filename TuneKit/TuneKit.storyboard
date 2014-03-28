@@ -288,7 +288,7 @@
                                             <rect key="frame" x="15" y="208" width="255" height="48"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <view tag="1" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zR5-gW-0g4" userLabel="Current color">
+                                                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zR5-gW-0g4" userLabel="Current color">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.84189138100000005" green="0.84189138100000005" blue="0.84189138100000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -296,7 +296,7 @@
                                                         <constraint firstAttribute="height" constant="48" id="ErO-T4-kVx"/>
                                                     </constraints>
                                                 </view>
-                                                <view tag="2" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbX-bP-y4v" userLabel="Updated color">
+                                                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbX-bP-y4v" userLabel="Updated color">
                                                     <rect key="frame" x="128" y="0.0" width="127" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.90877016129032262" green="0.90877016129032262" blue="0.90877016129032262" alpha="1" colorSpace="calibratedRGB"/>

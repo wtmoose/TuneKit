@@ -84,7 +84,7 @@
                     <connections>
                         <segue destination="qCg-TZ-LlT" kind="replace" identifier="MainDetail" splitViewControllerTargetIndex="1" id="8So-pk-goR"/>
                         <segue destination="YMg-Vy-gc7" kind="replace" identifier="Basics" splitViewControllerTargetIndex="1" id="VQx-5T-h1N"/>
-                        <segue destination="Irc-Et-Quj" kind="replace" identifier="Dynamics" splitViewControllerTargetIndex="1" id="nHo-48-Nzr"/>
+                        <segue destination="Irc-Et-Quj" kind="replace" identifier="Plugins" splitViewControllerTargetIndex="1" id="nHo-48-Nzr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRd-GC-Fik" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -212,15 +212,11 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
-                        <outlet property="actionViewPan" destination="3gl-hx-7B2" id="JcQ-hx-bB9"/>
+                        <outlet property="firstViewHeight" destination="XUM-j9-beI" id="2W0-2x-MUH"/>
+                        <outlet property="firstViewWidth" destination="Eor-gH-mQA" id="4qT-rK-uh3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2z-1e-Jfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="3gl-hx-7B2">
-                    <connections>
-                        <action selector="actionViewPanned:" destination="Irc-Et-Quj" id="6zg-PE-SCZ"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="875" y="-244"/>
         </scene>

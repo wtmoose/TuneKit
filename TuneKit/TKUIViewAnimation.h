@@ -14,7 +14,7 @@
  Plugin for `animateWithDuration:delay:options:animations:completion:`
  */
 
-@interface TKUIViewAnimation : NSObject <TKPlugin>
+@interface TKUIViewAnimation : NSObject <TKPlugin, NSCopying>
 
 @property (nonatomic) NSTimeInterval duration;
 @property (nonatomic) NSTimeInterval delay;
@@ -24,13 +24,10 @@
 @property (strong, nonatomic) void(^animations)(void);
 @property (strong, nonatomic) void (^completion)(BOOL finished);
 
-- (void)setDuration:(NSTimeInterval)duration min:(NSTimeInterval)min max:(NSTimeInterval)max;
-- (void)setDelay:(NSTimeInterval)delay min:(NSTimeInterval)min max:(NSTimeInterval)max;
-
 - (void)performAnimation;
 
-+ (instancetype)viewAnimimation;
++ (instancetype)animimation;
 
-+ (instancetype)viewAnimimationWithName:(NSString *)name;
++ (instancetype)animimationWithName:(NSString *)name;
 
 @end

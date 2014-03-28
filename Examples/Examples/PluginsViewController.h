@@ -9,4 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PluginsViewController : UIViewController
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *firstViewHeight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *firstViewWidth;
 @end

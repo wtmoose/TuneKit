@@ -11,7 +11,7 @@
 #import "TKColorPickerConfig.h"
 #import "TKGlobal.h"
 #import "NSObject+Utils.h"
-#import <tunekit/TuneKit.h>
+#import "TuneKit.h"
 
 @interface TKColorPickerConfig ()
 @property (weak, nonatomic) id target;

@@ -19,6 +19,7 @@
 #import "TKLabelConfig.h"
 #import "TKRateConfig.h"
 #import "TKPlugin.h"
+#import "TKUIViewAnimation.h"
 
 /**
  */

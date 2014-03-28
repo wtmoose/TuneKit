@@ -11,87 +11,83 @@
 #import "UIColor+Hex.h"
 
 @interface PluginsViewController ()
-@property (strong, nonatomic) IBOutlet UIView *boundaryView;
-@property (strong, nonatomic) IBOutlet UIView *actionView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *actionViewTop;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *actionViewLeft;
-@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *actionViewPan;
-@property (strong, nonatomic) UIDynamicAnimator *animator;
-@property (nonatomic) UIColor *color;
+@property (nonatomic) CGFloat scale;
+@property (strong, nonatomic) TKUIViewAnimation *scaleAnimation;
+@property (strong, nonatomic) TKUIViewAnimation *returnAnimation;
 @end
 
 @implementation PluginsViewController
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewDidLoad
 {
-    [super viewDidAppear:animated];
+    [super viewDidLoad];
+    
+    self.title = @"Plugins";
 
-    self.actionView.backgroundColor = [UIColor colorWithHexRGB:0xB95861];
-    self.boundaryView.backgroundColor = [UIColor colorWithHexRGB:0xf1f1f1];
-//    
-//    CGPoint translation = CGPointMake(self.actionViewLeft.constant, self.actionViewTop.constant);
-//    [self.actionViewPan setTranslation:translation inView:self.boundaryView];
+    self.scaleAnimation = [TKUIViewAnimation animimationWithName:@"Scale"];
+    self.returnAnimation = [TKUIViewAnimation animimationWithName:@"Return"];
+    
+    self.scale = .75;
+    
+    self.scaleAnimation.duration = .5;
+    self.scaleAnimation.delay = 0;
+    self.scaleAnimation.easingCurve = UIViewAnimationOptionCurveEaseOut;
+    
+    self.returnAnimation.duration = .5;
+    self.returnAnimation.delay = .25;
+    self.returnAnimation.easingCurve = UIViewAnimationOptionCurveEaseIn;
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     [TuneKit add:^{
-        [TuneKit addRate:@"Colors per second" target:self keyPath:@"color" sampleInterval:2];
-//        [TuneKit addSlider:@"TODO" target:self keyPath:@"dynamicsView.layer.cornerRadius" min:0 max:20];
-        [TuneKit addColorPicker:@"Color" target:self keyPath:@"color"];
-    } inPath:@[@"Dynamics Example"] sectionName:nil];
-    
-    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.boundaryView];
+
+        [TuneKit addButton:@"Animate" target:self selector:@selector(performAnimation)];
+
+    } inPath:[TuneKit pathForViewController:self] sectionName:nil];
+
+    [TuneKit add:^{
+
+        [TuneKit addSlider:@"Scale" target:self keyPath:@"scale" min:.5 max:1.25];
+        [self.scaleAnimation addControls];
+
+    } inPath:[TuneKit pathForViewController:self] sectionName:@"Scale Animation"];
+
+    [TuneKit add:^{
+
+        [self.returnAnimation addControls];
+
+    } inPath:[TuneKit pathForViewController:self] sectionName:@"Return Animation"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [TuneKit removePath:@[@"Dynamics Example"]];
+    [TuneKit removePath:[TuneKit pathForViewController:self]];
 }
 
-- (void)setColor:(UIColor *)color
+- (void)performAnimation
 {
-    _color = color;
-}
-
-#pragma mark - Interaction
-
-- (IBAction)actionViewPanned:(UIPanGestureRecognizer *)sender {
-    switch (sender.state) {
-        case UIGestureRecognizerStateBegan:
-        {
-            CGPoint translation = self.actionView.frame.origin;
-            [sender setTranslation:translation inView:self.boundaryView];
-            break;
-        }
-        case UIGestureRecognizerStateChanged:
-        {
-            CGPoint translation = [sender translationInView:self.boundaryView];
-            self.actionViewLeft.constant = translation.x;
-            self.actionViewTop.constant = translation.y;
-            break;
-        }
-        case UIGestureRecognizerStateEnded:
-        case UIGestureRecognizerStateCancelled:
-        {
-            [self impartVelocity:[sender velocityInView:self.boundaryView]];
-        }
-        default:
-            break;
-    }
-}
-
-- (void)impartVelocity:(CGPoint)velocity
-{
-    UIDynamicItemBehavior *behavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.actionView]];
-    [behavior addLinearVelocity:velocity forItem:self.actionView];
-    [self.animator addBehavior:behavior];
     __weak PluginsViewController *weakSelf = self;
-    __weak UIDynamicItemBehavior *weakBehavior = behavior;
-    [behavior setAction:^{
-        if (!CGRectIntersectsRect(weakSelf.boundaryView.bounds, weakSelf.actionView.frame)) {
-            [weakSelf.animator removeBehavior:weakBehavior];
-//            [weakSelf.boundaryView setNeedsLayout];
+    [self.scaleAnimation setAnimations:^{
+        weakSelf.firstViewWidth.constant *= weakSelf.scale;
+        weakSelf.firstViewHeight.constant *= weakSelf.scale;
+        [weakSelf.view layoutIfNeeded];
+    }];
+    [self.returnAnimation setAnimations:^{
+        weakSelf.firstViewWidth.constant /= weakSelf.scale;
+        weakSelf.firstViewHeight.constant /= weakSelf.scale;
+        [weakSelf.view layoutIfNeeded];
+    }];
+    [self.scaleAnimation setCompletion:^(BOOL finished) {
+        if (finished) {
+            [weakSelf.returnAnimation performAnimation];
         }
     }];
+    [self.scaleAnimation performAnimation];
 }
 
 @end
