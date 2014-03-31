@@ -174,7 +174,7 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
     if ([sectionName isEqualToString:kTuneKitNoSectionName]) {
         return 0;
     }
-    return 20;
+    return 48;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

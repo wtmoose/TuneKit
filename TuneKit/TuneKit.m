@@ -290,7 +290,8 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
         }
     }
     // remove self after all children have bene removed
-    [self removeIdentifier:node fromDataModelForPath:parentPath];
+    NSString *identifier = [NSString stringWithFormat:@"%@/%@/%@", parentPath, kTuneKitNavigationSectionName, node];
+    [self removeIdentifier:identifier fromDataModelForPath:parentPath];
     [self.dataModelsByPath removeObjectForKey:path];
 }
 
@@ -304,7 +305,7 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
     // an identifier property. But name works because names must be unique for the given
     // data model. If this is changed to config.identifier, need to update places that
     // do stuff like [dataModel itemForIdentifier:].
-    TLIndexPathItem *item = [[TLIndexPathItem alloc] initWithIdentifier:config.name sectionName:sectionName cellIdentifier:nil data:config];
+    TLIndexPathItem *item = [[TLIndexPathItem alloc] initWithIdentifier:config.identifier sectionName:sectionName cellIdentifier:nil data:config];
     [items addObject:item];
     //    [items sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
     //        NSString *string1 = [obj1 identifier];
@@ -463,7 +464,11 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 - (NSString *)identifierForName:(NSString *)name
 {
     NSString *path = [self.pathStack lastObject];
-    return [NSString stringWithFormat:@"%@/%@", path, name];
+    NSString *sectionName = [self.sectionNameStack lastObject];
+    if ([sectionName isEqualToString:kTuneKitNoSectionName]) {
+        sectionName = nil;
+    }
+    return [NSString stringWithFormat:@"%@/%@/%@", path, sectionName, name];
 }
 
 @end
