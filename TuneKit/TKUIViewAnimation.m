@@ -8,16 +8,6 @@
 
 #import "TKUIViewAnimation.h"
 
-NSString *TKPluginName(NSString *prefix, NSString *suffix) {
-    NSMutableArray *components = [NSMutableArray arrayWithCapacity:2];
-    if (prefix) {
-        [components addObject:prefix];
-    }if (suffix) {
-        [components addObject:suffix];
-    }
-    return [components componentsJoinedByString:@" "];
-}
-
 @interface TKUIViewAnimation ()
 @property (strong, nonatomic) NSString *name;
 @end

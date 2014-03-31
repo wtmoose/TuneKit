@@ -180,3 +180,9 @@ extern NSString *kTuneKitNavigationSectionName;
                            defaultGroup:(NSString *)defaultGroup;
 
 @end
+
+/**
+ */
+NSString *TKPluginName(NSString *prefix, NSString *suffix);
+
+
