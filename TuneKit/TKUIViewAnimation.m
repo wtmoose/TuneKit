@@ -7,6 +7,7 @@
 //
 
 #import "TKUIViewAnimation.h"
+#import "UIView+TuneKit.h"
 
 @interface TKUIViewAnimation ()
 @property (strong, nonatomic) NSString *name;
@@ -61,13 +62,11 @@
 
 - (void)addControls
 {
-    [TuneKit addSlider:TKPluginName(self.name, @"Duration") target:self keyPath:@"duration" min:0.f max:2.f * self.duration];
-    [TuneKit addSlider:TKPluginName(self.name, @"Delay") target:self keyPath:@"delay" min:0.f max:2.f * self.delay];
-    [TuneKit addSegmentedControl:TKPluginName(self.name, @"Easing")
-                          target:self
-                         keyPath:@"easingCurve"
-                    segmentNames:@[@"Linear", @"In", @"Out", @"In/Out"]
-                   segmentValues:@[@(UIViewAnimationOptionCurveLinear), @(UIViewAnimationOptionCurveEaseIn), @(UIViewAnimationOptionCurveEaseOut), @(UIViewAnimationOptionCurveEaseInOut)]];
+    [TuneKit addSlider:TKPluginName(self.name, @"Duration") target:self
+               keyPath:@"duration" min:0.f max:2.f * self.duration];
+    [TuneKit addSlider:TKPluginName(self.name, @"Delay") target:self keyPath:@"delay"
+                   min:0.f max:2.f * self.delay];
+    [UIView addAnimationEasingCurveConfig:@"Easing" target:self keyPath:@"easingCurve"];
 }
 
 #pragma mark - NSCopying

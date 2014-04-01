@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "TuneKit.h"
-#import "TKPlugin.h"
 
 /**
  Plugin for `animateWithDuration:delay:options:animations:completion:`
  */
 
-@interface TKUIViewAnimation : NSObject <TKPlugin, NSCopying>
+@interface TKUIViewAnimation : NSObject <NSCopying>
 
 @property (nonatomic) NSTimeInterval duration;
 @property (nonatomic) NSTimeInterval delay;
