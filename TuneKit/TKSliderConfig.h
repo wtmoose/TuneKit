@@ -23,7 +23,7 @@
 
 #pragma mark - Creating slider configs
 
-+ (TKSliderConfig *)configWithName:(NSString *)name
++ (instancetype)configWithName:(NSString *)name
                         identifier:(NSString *)identifier
                             target:(id)target
                            keyPath:(NSString *)keyPath

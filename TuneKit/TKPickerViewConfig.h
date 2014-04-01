@@ -1,37 +1,37 @@
 //
-//  TKSegmentedControlConfig.h
+//  TKPickerViewConfig.h
 //  TuneKit
 //
-//  Created by Tim Moose on 3/26/14.
+//  Created by Tim Moose on 3/31/14.
 //  Copyright (c) 2014 Tractable Labs. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "TKConfig.h"
 
-@interface TKSegmentedControlConfig : TKConfig
+@interface TKPickerViewConfig : TKConfig <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic) id value;
-@property (readonly, copy, nonatomic) NSArray *segmentValues;
+@property (readonly, copy, nonatomic) NSArray *pickerValues;
 
 #pragma mark - View bindings
 
-@property (weak, nonatomic) UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) UIPickerView *pickerView;
 @property (weak, nonatomic) UILabel *nameLabel;
 
 #pragma mark - Creating segmented control configs
 
-+ (instancetype)configWithName:(NSString *)name
++ (TKPickerViewConfig *)configWithName:(NSString *)name
                                   identifier:(NSString *)identifier
                                       target:(id)target
                                      keyPath:(NSString *)keyPath
-                                segmentNames:(NSArray *)segmentNames;
+                                pickerNames:(NSArray *)pickerNames;
 
-+ (instancetype)configWithName:(NSString *)name
++ (TKPickerViewConfig *)configWithName:(NSString *)name
                                   identifier:(NSString *)identifier
                                       target:(id)target
                                      keyPath:(NSString *)keyPath
-                                segmentNames:(NSArray *)segmentNames
-                               segmentValues:(NSArray *)segmentValues;
+                                pickerNames:(NSArray *)pickerNames
+                               pickerValues:(NSArray *)pickerValues;
 
 @end

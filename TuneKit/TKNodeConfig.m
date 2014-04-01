@@ -12,7 +12,7 @@
 
 #pragma mark - Creating node configs
 
-+ (TKNodeConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier
++ (instancetype)configWithName:(NSString *)name identifier:(NSString *)identifier
 {
     TKNodeConfig *config = [[TKNodeConfig alloc] initWithName:name type:TKConfigTypeNode identifier:identifier];
     return config;

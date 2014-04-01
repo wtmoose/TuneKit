@@ -13,7 +13,8 @@
 @interface BasicsViewController ()
 @property (strong, nonatomic) NSString *secondViewArea;
 @property (nonatomic) BOOL debugSwitch;
-@property (nonatomic) UIViewAnimationOptions debugSegmentedControl;
+@property (nonatomic) NSInteger debugSegmentedControl;
+@property (nonatomic) NSString *debugPickerView;
 @end
 
 @implementation BasicsViewController
@@ -26,7 +27,8 @@
     
     self.firstView.backgroundColor = [UIColor colorWithHexRGB:0x1694AE];
     
-    self.debugSegmentedControl = UIViewAnimationOptionCurveEaseInOut;
+    self.debugSegmentedControl = 1;
+    self.debugPickerView = @"Two";
     
     // color example
     [TuneKit add:^{
@@ -57,13 +59,18 @@
 
         [TuneKit addSegmentedControl:@"Segmented Control Test" target:self
                              keyPath:@"debugSegmentedControl"
-                        segmentNames:@[@"None", @"In", @"Out", @"In/Out"]
-                       segmentValues:@[@(UIViewAnimationOptionCurveLinear), @(UIViewAnimationOptionCurveEaseIn), @(UIViewAnimationOptionCurveEaseOut), @(UIViewAnimationOptionCurveEaseInOut)]];
+                        segmentNames:@[@"One", @"Two", @"Three", @"Four"]
+                       segmentValues:@[@(1), @(2), @(3), @(4)]];
+        
+        [TuneKit addLabel:@"Segmented Control Value" target:self keyPath:@"debugSegmentedControl"];
+
+        [TuneKit addPickerView:@"Picker View Test" target:self keyPath:@"debugPickerView"
+                   pickerNames:@[@"One", @"Two", @"Three", @"Four"]
+                  pickerValues:@[@"One", @"Two", @"Three", @"Four"]];
         
         [TuneKit addLabel:@"Segmented Control Value" target:self keyPath:@"debugSegmentedControl"];
 
     } inPath:[TuneKit pathForViewController:self] sectionName:@"ToDo Example"];
-
 }
 
 - (void)viewDidLayoutSubviews

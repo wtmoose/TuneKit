@@ -1,24 +1,24 @@
 //
-//  TKSegmentedControlConfig.m
+//  TKPickerViewConfig.m
 //  TuneKit
 //
-//  Created by Tim Moose on 3/26/14.
+//  Created by Tim Moose on 3/31/14.
 //  Copyright (c) 2014 Tractable Labs. All rights reserved.
 //
 
-#import "TKSegmentedControlConfig.h"
+#import "TKPickerViewConfig.h"
 #import "TuneKit.h"
 #import "NSObject+Utils.h"
 
-@interface TKSegmentedControlConfig ()
+@interface TKPickerViewConfig ()
 @property (weak, nonatomic) id target;
 @property (strong, nonatomic) NSString *keyPath;
-@property (copy, nonatomic) NSArray *segmentNames;
-@property (copy, nonatomic) NSArray *segmentValues;
+@property (copy, nonatomic) NSArray *pickerNames;
+@property (copy, nonatomic) NSArray *pickerValues;
 @property (nonatomic) id initialValue;
 @end
 
-@implementation TKSegmentedControlConfig
+@implementation TKPickerViewConfig
 
 #pragma mark - Model bindings
 
@@ -43,13 +43,14 @@
 
 #pragma mark - View bindings
 
-- (void)setSegmentedControl:(UISegmentedControl *)segmentedControl
+- (void)setPickerView:(UIPickerView *)pickerView
 {
-    if (_segmentedControl != segmentedControl) {
-        _segmentedControl = segmentedControl;
-        [self updateSegments];
+    if (_pickerView != pickerView) {
+        _pickerView.delegate = nil;
+        _pickerView = pickerView;
+        pickerView.delegate = self;
+        [pickerView reloadAllComponents];
         [self updateValueViews];
-        [segmentedControl addTarget:self action:@selector(controlValueChanged:) forControlEvents:UIControlEventValueChanged];
     }
 }
 
@@ -61,26 +62,12 @@
     }
 }
 
-#pragma mark - Segmented control
-
-- (void)controlValueChanged:(UISegmentedControl *)control
-{
-    NSInteger index = control.selectedSegmentIndex;
-    self.value = index >= 0 ? self.segmentValues[index] : nil;
-}
-
-- (void)updateSegments
-{
-    [self.segmentedControl removeAllSegments];
-    for (int i = 0; i < [self.segmentNames count]; i++) {
-        [self.segmentedControl insertSegmentWithTitle:self.segmentNames[i] atIndex:i animated:NO];
-    }
-}
+#pragma mark - Picker view
 
 - (void)updateValueViews
 {
-    NSInteger index = self.value ? [self.segmentValues indexOfObject:self.value] : NSNotFound;
-    self.segmentedControl.selectedSegmentIndex = index >= 0 ? index : -1;
+    NSInteger index = self.value ? [self.pickerValues indexOfObject:self.value] : 0;
+    [self.pickerView selectRow:index inComponent:0 animated:YES];
 }
 
 #pragma mark - Default values
@@ -104,20 +91,44 @@
     }
 }
 
+#pragma mark - UIPickerViewDataSource
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [self.pickerValues count];
+}
+
+#pragma mark - UIPickerViewDelegate
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return self.pickerNames[row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.value = self.pickerValues[row];
+}
+
 #pragma mark - Creating segmented control configs
 
 - (instancetype)initWithName:(NSString *)name
                   identifier:(NSString *)identifier
                       target:(id)target
                      keyPath:(NSString *)keyPath
-                segmentNames:(NSArray *)segmentNames
-               segmentValues:(NSArray *)segmentValues
+                pickerNames:(NSArray *)pickerNames
+               pickerValues:(NSArray *)pickerValues
 {
-    if (self = [super initWithName:name type:TKConfigTypeSegmentedControl identifier:identifier]) {
+    if (self = [super initWithName:name type:TKConfigTypePickerView identifier:identifier]) {
         _target = target;
         _keyPath = keyPath;
-        _segmentNames = segmentNames;
-        _segmentValues = segmentValues;
+        _pickerNames = pickerNames;
+        _pickerValues = pickerValues;
     }
     self.initialValue = [target valueForKeyPath:keyPath];
     [self setValueInternal:self.initialValue];
@@ -128,11 +139,11 @@
                                   identifier:(NSString *)identifier
                                       target:(id)target
                                      keyPath:(NSString *)keyPath
-                                segmentNames:(NSArray *)segmentNames
+                                pickerNames:(NSArray *)pickerNames
 {
-    // TODO determine the property type in deciding whether segment
+    // TODO determine the property type in deciding whether picker
     // values are numbers representing the selected index or strings
-    // matching the segment names
+    // matching the picker names
     [NSException raise:@"TODO" format:nil];
     return nil;
 }
@@ -141,10 +152,10 @@
                                   identifier:(NSString *)identifier
                                       target:(id)target
                                      keyPath:(NSString *)keyPath
-                                segmentNames:(NSArray *)segmentNames
-                               segmentValues:(NSArray *)segmentValues
+                                pickerNames:(NSArray *)pickerNames
+                               pickerValues:(NSArray *)pickerValues
 {
-    TKSegmentedControlConfig *config = [[TKSegmentedControlConfig alloc] initWithName:name identifier:identifier target:target keyPath:keyPath segmentNames:segmentNames segmentValues:segmentValues];
+    TKPickerViewConfig *config = [[TKPickerViewConfig alloc] initWithName:name identifier:identifier target:target keyPath:keyPath pickerNames:pickerNames pickerValues:pickerValues];
     return config;
 }
 

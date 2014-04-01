@@ -148,6 +148,26 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
                       segmentNames:segmentNames segmentValues:segmentValues];
 }
 
++ (TKPickerViewConfig *)addPickerView:(NSString *)name
+                               target:(id)target
+                              keyPath:(NSString *)keyPath
+                          pickerNames:(NSArray *)pickerNames
+{
+    TuneKit *tk = [self sharedInstance];
+    return [tk addPickerView:name target:target keyPath:keyPath pickerNames:pickerNames];
+}
+
++ (TKPickerViewConfig *)addPickerView:(NSString *)name
+                               target:(id)target
+                              keyPath:(NSString *)keyPath
+                          pickerNames:(NSArray *)pickerNames
+                         pickerValues:(NSArray *)pickerValues
+{
+    TuneKit *tk = [self sharedInstance];
+    return [tk addPickerView:name target:target keyPath:keyPath pickerNames:pickerNames
+                pickerValues:pickerValues];
+}
+
 + (TKColorPickerConfig *)addColorPicker:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
 {
     TuneKit *tk = [self sharedInstance];
@@ -433,6 +453,33 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 {
     NSString *identifier = [self identifierForName:name];
     TKSegmentedControlConfig *config = [TKSegmentedControlConfig configWithName:name identifier:identifier target:target keyPath:keyPath segmentNames:segmentNames segmentValues:segmentValues];
+    [self addConfigToDataModel:config];
+    return config;
+}
+
+- (TKPickerViewConfig *)addPickerView:(NSString *)name
+                               target:(id)target
+                              keyPath:(NSString *)keyPath
+                          pickerNames:(NSArray *)pickerNames
+{
+    NSString *identifier = [self identifierForName:name];
+    TKPickerViewConfig *config = [TKPickerViewConfig configWithName:name
+                                                         identifier:identifier
+                                                             target:target
+                                                            keyPath:keyPath
+                                                        pickerNames:pickerNames];
+    [self addConfigToDataModel:config];
+    return config;
+}
+
+- (TKPickerViewConfig *)addPickerView:(NSString *)name
+                               target:(id)target
+                              keyPath:(NSString *)keyPath
+                          pickerNames:(NSArray *)pickerNames
+                         pickerValues:(NSArray *)pickerValues
+{
+    NSString *identifier = [self identifierForName:name];
+    TKPickerViewConfig *config = [TKPickerViewConfig configWithName:name identifier:identifier target:target keyPath:keyPath pickerNames:pickerNames pickerValues:pickerValues];
     [self addConfigToDataModel:config];
     return config;
 }

@@ -245,7 +245,7 @@
     return self;
 }
 
-+ (TKColorPickerConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath
++ (instancetype)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath
 {
     TKColorPickerConfig *config = [[TKColorPickerConfig alloc] initWithName:name type:TKConfigTypeColorPicker identifier:identifier target:target keyPath:keyPath];
     return config;

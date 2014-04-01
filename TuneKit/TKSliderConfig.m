@@ -177,7 +177,7 @@
     return self;
 }
 
-+ (TKSliderConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max
++ (instancetype)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath min:(CGFloat)min max:(CGFloat)max
 {
     TKSliderConfig *config = [[TKSliderConfig alloc] initWithName:name type:TKConfigTypeSlider identifier:identifier target:target keyPath:keyPath min:min max:max];
     return config;

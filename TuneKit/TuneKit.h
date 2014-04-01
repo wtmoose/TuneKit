@@ -15,6 +15,7 @@
 #import "TKSwitchConfig.h"
 #import "TKSliderConfig.h"
 #import "TKSegmentedControlConfig.h"
+#import "TKPickerViewConfig.h"
 #import "TKColorPickerConfig.h"
 #import "TKLabelConfig.h"
 #import "TKRateConfig.h"
@@ -146,6 +147,21 @@ extern NSString *kTuneKitNavigationSectionName;
                                           keyPath:(NSString *)keyPath
                                      segmentNames:(NSArray *)segmentNames
                                     segmentValues:(NSArray *)segmentValues;
+
+/**
+ */
++ (TKPickerViewConfig *)addPickerView:(NSString *)name
+                               target:(id)target
+                              keyPath:(NSString *)keyPath
+                          pickerNames:(NSArray *)pickerNames;
+
+/**
+ */
++ (TKPickerViewConfig *)addPickerView:(NSString *)name
+                                           target:(id)target
+                                          keyPath:(NSString *)keyPath
+                                     pickerNames:(NSArray *)pickerNames
+                                    pickerValues:(NSArray *)pickerValues;
 
 /**
  */

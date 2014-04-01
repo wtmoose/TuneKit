@@ -72,7 +72,7 @@
     return self;
 }
 
-+ (TKLabelConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath
++ (instancetype)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target keyPath:(NSString *)keyPath
 {
     TKLabelConfig *config = [[TKLabelConfig alloc] initWithName:name type:TKConfigTypeLabel identifier:identifier target:target keyPath:keyPath];
     return config;

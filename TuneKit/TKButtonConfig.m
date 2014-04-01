@@ -39,7 +39,7 @@ _Pragma("clang diagnostic pop")                                         \
 
 #pragma mark - Creating button configs
 
-+ (TKButtonConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target selector:(SEL)selector
++ (instancetype)configWithName:(NSString *)name identifier:(NSString *)identifier target:(id)target selector:(SEL)selector
 {
     return [self configWithName:name identifier:(NSString *)identifier actionHanlder:^{
         if ([target respondsToSelector:selector]) {
@@ -48,7 +48,7 @@ _Pragma("clang diagnostic pop")                                         \
     }];
 }
 
-+ (TKButtonConfig *)configWithName:(NSString *)name identifier:(NSString *)identifier actionHanlder:(TKCallback)actionHanlder
++ (instancetype)configWithName:(NSString *)name identifier:(NSString *)identifier actionHanlder:(TKCallback)actionHanlder
 {
     TKButtonConfig *config = [[TKButtonConfig alloc] initWithName:name type:TKConfigTypeButton identifier:identifier];
     config.actionHanlder = actionHanlder;

@@ -233,6 +233,9 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
         case TKConfigTypeSegmentedControl:
             return @"SegmentedControl";
             break;
+        case TKConfigTypePickerView:
+            return @"PickerView";
+            break;
         case TKConfigTypeColorPicker:
             return @"ColorPicker";
             break;
@@ -267,6 +270,9 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
             break;
         case TKConfigTypeSegmentedControl:
             [self configureCell:cell forSegmentedControlConfig:(TKSegmentedControlConfig *)config];
+            break;
+        case TKConfigTypePickerView:
+            [self configureCell:cell forPickerViewConfig:(TKPickerViewConfig *)config];
             break;
         case TKConfigTypeColorPicker:
             [self configureCell:cell forColorPickerConfig:(TKColorPickerConfig *)config];
@@ -310,6 +316,14 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
     config.nameLabel = (UILabel *)[cell viewWithTag:1];
     config.segmentedControl = (UISegmentedControl *)[cell viewWithTag:2];
     config.segmentedControl.enabled = self.defaultGroupIndex > 0;
+    config.segmentedControl.apportionsSegmentWidthsByContent = YES;
+}
+
+- (void)configureCell:(UITableViewCell *)cell forPickerViewConfig:(TKPickerViewConfig *)config
+{
+    config.nameLabel = (UILabel *)[cell viewWithTag:1];
+    config.pickerView = (UIPickerView *)[cell viewWithTag:2];
+    config.pickerView.userInteractionEnabled = self.defaultGroupIndex > 0;
 }
 
 - (void)configureCell:(UITableViewCell *)cell forColorPickerConfig:(TKColorPickerConfig *)config
