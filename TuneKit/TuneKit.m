@@ -199,11 +199,6 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
     NSString *key = [self keyForIdentifier:identifier defaultGroup:defaultGroup];
     [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];
-//    if (value) {
-//        [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
-//    } else {
-//        [self removeDefaultValueForIdentifier:identifier defaultGroup:defaultGroup];
-//    }
 }
 
 + (void)removeDefaultValueForIdentifier:(NSString *)identifier defaultGroup:(NSString *)defaultGroup
