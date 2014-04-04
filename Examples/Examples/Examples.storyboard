@@ -84,7 +84,7 @@
                     <connections>
                         <segue destination="qCg-TZ-LlT" kind="replace" identifier="MainDetail" splitViewControllerTargetIndex="1" id="8So-pk-goR"/>
                         <segue destination="YMg-Vy-gc7" kind="replace" identifier="Basics" splitViewControllerTargetIndex="1" id="VQx-5T-h1N"/>
-                        <segue destination="Irc-Et-Quj" kind="replace" identifier="Plugins" splitViewControllerTargetIndex="1" id="nHo-48-Nzr"/>
+                        <segue destination="Irc-Et-Quj" kind="replace" identifier="Animations" splitViewControllerTargetIndex="1" id="nHo-48-Nzr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRd-GC-Fik" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="-298" y="-127"/>
         </scene>
-        <!--Plugins View Controller-->
+        <!--Animations View Controller-->
         <scene sceneID="YwK-jy-ssq">
             <objects>
-                <viewController id="Irc-Et-Quj" customClass="PluginsViewController" sceneMemberID="viewController">
+                <viewController id="Irc-Et-Quj" customClass="AnimationsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6a5-Ep-HVt"/>
                         <viewControllerLayoutGuide type="bottom" id="Yem-40-RvO"/>
@@ -212,6 +212,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
+                        <outlet property="firstView" destination="2cU-hu-xOl" id="2Jg-f9-tEV"/>
                         <outlet property="firstViewHeight" destination="XUM-j9-beI" id="2W0-2x-MUH"/>
                         <outlet property="firstViewWidth" destination="Eor-gH-mQA" id="4qT-rK-uh3"/>
                     </connections>

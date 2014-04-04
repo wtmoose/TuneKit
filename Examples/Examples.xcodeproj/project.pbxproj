@@ -19,7 +19,7 @@
 		8674982E18AC81BA004E0C51 /* Examples.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8674982D18AC81BA004E0C51 /* Examples.storyboard */; };
 		86AB2D4718BD548100038D69 /* BasicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AB2D4618BD548100038D69 /* BasicsViewController.m */; };
 		86CB5A9818AF3C07003039CC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 86CB5A9718AF3C07003039CC /* Podfile */; };
-		86EA9EEB18C3AC9000FEABC8 /* PluginsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EA9EEA18C3AC9000FEABC8 /* PluginsViewController.m */; };
+		86EA9EEB18C3AC9000FEABC8 /* AnimationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EA9EEA18C3AC9000FEABC8 /* AnimationsViewController.m */; };
 		E9F3B1AD1A4E44279654D3B4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B25B58634241C686E25A3D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +45,8 @@
 		86AB2D4518BD548100038D69 /* BasicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicsViewController.h; sourceTree = "<group>"; };
 		86AB2D4618BD548100038D69 /* BasicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicsViewController.m; sourceTree = "<group>"; };
 		86CB5A9718AF3C07003039CC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		86EA9EE918C3AC9000FEABC8 /* PluginsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginsViewController.h; sourceTree = "<group>"; };
-		86EA9EEA18C3AC9000FEABC8 /* PluginsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginsViewController.m; sourceTree = "<group>"; };
+		86EA9EE918C3AC9000FEABC8 /* AnimationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationsViewController.h; sourceTree = "<group>"; };
+		86EA9EEA18C3AC9000FEABC8 /* AnimationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +97,7 @@
 		867497BA18AB2CB6004E0C51 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				86EA9EE818C3AA9100FEABC8 /* Plugins */,
+				86EA9EE818C3AA9100FEABC8 /* Animations */,
 				86AB2D4418BD53E200038D69 /* Basics */,
 				867497C318AB2CB6004E0C51 /* AppDelegate.h */,
 				867497C418AB2CB6004E0C51 /* AppDelegate.m */,
@@ -140,13 +140,13 @@
 			name = Basics;
 			sourceTree = "<group>";
 		};
-		86EA9EE818C3AA9100FEABC8 /* Plugins */ = {
+		86EA9EE818C3AA9100FEABC8 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				86EA9EE918C3AC9000FEABC8 /* PluginsViewController.h */,
-				86EA9EEA18C3AC9000FEABC8 /* PluginsViewController.m */,
+				86EA9EE918C3AC9000FEABC8 /* AnimationsViewController.h */,
+				86EA9EEA18C3AC9000FEABC8 /* AnimationsViewController.m */,
 			);
-			name = Plugins;
+			name = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86EA9EEB18C3AC9000FEABC8 /* PluginsViewController.m in Sources */,
+				86EA9EEB18C3AC9000FEABC8 /* AnimationsViewController.m in Sources */,
 				867497CB18AB2CB6004E0C51 /* SelectorTableViewController.m in Sources */,
 				867497ED18AB30B9004E0C51 /* UIColor+Hex.m in Sources */,
 				86AB2D4718BD548100038D69 /* BasicsViewController.m in Sources */,

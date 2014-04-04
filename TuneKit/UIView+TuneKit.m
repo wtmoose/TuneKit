@@ -7,6 +7,7 @@
 //
 
 #import "UIView+TuneKit.h"
+#import "TuneKit.h"
 
 @implementation UIView (TuneKit)
 
@@ -18,6 +19,13 @@
         return [TuneKit addSegmentedControl:name target:target keyPath:keyPath segmentNames:names segmentValues:values];
     }
     return nil;
+}
+
++ (UIViewAnimationOptions)mergeEasing:(UIViewAnimationOptions)easing andOtherOptions:(UIViewAnimationOptions)otherOptions
+{
+    UIViewAnimationOptions options =  otherOptions & ~UIViewAnimationOptionCurveLinear & ~UIViewAnimationOptionCurveEaseIn & ~UIViewAnimationOptionCurveEaseOut & ~UIViewAnimationOptionCurveEaseInOut;
+    options = options | easing;
+    return options;
 }
 
 @end

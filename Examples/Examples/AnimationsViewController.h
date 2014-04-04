@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PluginsViewController : UIViewController
+@interface AnimationsViewController : UIViewController
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *firstViewHeight;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *firstViewWidth;
+@property (strong, nonatomic) IBOutlet UIView *firstView;
 @end

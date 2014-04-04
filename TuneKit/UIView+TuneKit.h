@@ -7,10 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TuneKit.h"
+
+@class TKSegmentedControlConfig;
 
 @interface UIView (TuneKit)
 
-+ (TKSegmentedControlConfig *)addAnimationEasingCurveConfig:(NSString *)name target:(id)target keyPath:(NSString *)keyPath;
+/**
+ Adds a segmented control configured for selecting easing curves.
+ `keyPath` should be of type `UIViewAnimationOptions`.
+ */
++ (TKSegmentedControlConfig *)addAnimationEasingCurveConfig:(NSString *)name
+                                                     target:(id)target
+                                                    keyPath:(NSString *)keyPath;
+
+/**
+ Merges the given easing curve with other options, removing any previous
+ easing curve option from the given options. Useful for tuning an easing curve
+ for an animation that might have other options present.
+ */
++ (UIViewAnimationOptions)mergeEasing:(UIViewAnimationOptions)easing
+                      andOtherOptions:(UIViewAnimationOptions)otherOptions;
 
 @end

@@ -19,7 +19,9 @@
 #import "TKColorPickerConfig.h"
 #import "TKLabelConfig.h"
 #import "TKRateConfig.h"
-#import "TKUIViewAnimation.h"
+#import "UIView+TuneKit.h"
+#import "UIViewAnimator.h"
+#import "UIViewSpringAnimator.h"
 
 /**
  */

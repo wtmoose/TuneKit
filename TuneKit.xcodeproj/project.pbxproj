@@ -10,12 +10,12 @@
 		3CDB83ED63FB44BEA571E6D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54C10009A8C4326887BE111 /* libPods.a */; };
 		860D0EA018CADC3B00633FA3 /* TKDialogScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */; };
 		860D0EA118CADC3B00633FA3 /* TKDialogScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */; };
+		8619A58118EF6E980085A475 /* UIViewSpringAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A58018EF6E980085A475 /* UIViewSpringAnimator.m */; };
+		8619A58218EF6E980085A475 /* UIViewSpringAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A58018EF6E980085A475 /* UIViewSpringAnimator.m */; };
 		863BF50A18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
 		863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
 		863BF50E18CD086700EF0056 /* TKLabelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50D18CD086700EF0056 /* TKLabelConfig.m */; };
 		863BF50F18CD086700EF0056 /* TKLabelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50D18CD086700EF0056 /* TKLabelConfig.m */; };
-		866303D218E272A300AA5B8A /* TKUIViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 866303D118E272A300AA5B8A /* TKUIViewAnimation.m */; };
-		866303D318E272A300AA5B8A /* TKUIViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 866303D118E272A300AA5B8A /* TKUIViewAnimation.m */; };
 		866303E918E3D52B00AA5B8A /* TKSegmentedControlConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 866303E818E3D52B00AA5B8A /* TKSegmentedControlConfig.m */; };
 		866303EA18E3D52B00AA5B8A /* TKSegmentedControlConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 866303E818E3D52B00AA5B8A /* TKSegmentedControlConfig.m */; };
 		8663044618EA62DE00AA5B8A /* TKPickerViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8663044518EA62DE00AA5B8A /* TKPickerViewConfig.m */; };
@@ -25,6 +25,8 @@
 		868D7D9B18CE0F320081F9F6 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */; };
 		868D7D9C18CE0F320081F9F6 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */; };
 		86AB2D4918BD748100038D69 /* TuneKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86AB2D4818BD748100038D69 /* TuneKit.xcassets */; };
+		86B9685818EF6C860048C5A3 /* UIViewAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B9685718EF6C860048C5A3 /* UIViewAnimator.m */; };
+		86B9685918EF6C860048C5A3 /* UIViewAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B9685718EF6C860048C5A3 /* UIViewAnimator.m */; };
 		86C7A42818C81FD200759782 /* TKSwitchConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7A42718C81FD200759782 /* TKSwitchConfig.m */; };
 		86C7A42918C81FD200759782 /* TKSwitchConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7A42718C81FD200759782 /* TKSwitchConfig.m */; };
 		86CB5AE418B7C1FF003039CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CB5AE318B7C1FF003039CC /* Foundation.framework */; };
@@ -83,12 +85,12 @@
 		2313EA3C34A54573AED6FB07 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		860D0E9E18CADC3B00633FA3 /* TKDialogScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDialogScrollView.h; sourceTree = "<group>"; };
 		860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDialogScrollView.m; sourceTree = "<group>"; };
+		8619A57F18EF6E980085A475 /* UIViewSpringAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewSpringAnimator.h; sourceTree = "<group>"; };
+		8619A58018EF6E980085A475 /* UIViewSpringAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewSpringAnimator.m; sourceTree = "<group>"; };
 		863BF50818CD044F00EF0056 /* TKRateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRateConfig.h; sourceTree = "<group>"; };
 		863BF50918CD044F00EF0056 /* TKRateConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRateConfig.m; sourceTree = "<group>"; };
 		863BF50C18CD086700EF0056 /* TKLabelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelConfig.h; sourceTree = "<group>"; };
 		863BF50D18CD086700EF0056 /* TKLabelConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelConfig.m; sourceTree = "<group>"; };
-		866303D018E272A300AA5B8A /* TKUIViewAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKUIViewAnimation.h; sourceTree = "<group>"; };
-		866303D118E272A300AA5B8A /* TKUIViewAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKUIViewAnimation.m; sourceTree = "<group>"; };
 		866303E718E3D52B00AA5B8A /* TKSegmentedControlConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSegmentedControlConfig.h; sourceTree = "<group>"; };
 		866303E818E3D52B00AA5B8A /* TKSegmentedControlConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSegmentedControlConfig.m; sourceTree = "<group>"; };
 		8663044418EA62DE00AA5B8A /* TKPickerViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPickerViewConfig.h; sourceTree = "<group>"; };
@@ -98,6 +100,8 @@
 		868D7D9918CE0F320081F9F6 /* NSObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utils.h"; sourceTree = "<group>"; };
 		868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utils.m"; sourceTree = "<group>"; };
 		86AB2D4818BD748100038D69 /* TuneKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TuneKit.xcassets; sourceTree = "<group>"; };
+		86B9685618EF6C860048C5A3 /* UIViewAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAnimator.h; sourceTree = "<group>"; };
+		86B9685718EF6C860048C5A3 /* UIViewAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAnimator.m; sourceTree = "<group>"; };
 		86C7A42618C81FD200759782 /* TKSwitchConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSwitchConfig.h; sourceTree = "<group>"; };
 		86C7A42718C81FD200759782 /* TKSwitchConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSwitchConfig.m; sourceTree = "<group>"; };
 		86CB5AE018B7C1FF003039CC /* libTuneKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTuneKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,8 +193,10 @@
 		866303CD18E2707400AA5B8A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				866303D018E272A300AA5B8A /* TKUIViewAnimation.h */,
-				866303D118E272A300AA5B8A /* TKUIViewAnimation.m */,
+				8619A57F18EF6E980085A475 /* UIViewSpringAnimator.h */,
+				8619A58018EF6E980085A475 /* UIViewSpringAnimator.m */,
+				86B9685618EF6C860048C5A3 /* UIViewAnimator.h */,
+				86B9685718EF6C860048C5A3 /* UIViewAnimator.m */,
 				8663044D18EA803F00AA5B8A /* UIView+TuneKit.h */,
 				8663044E18EA803F00AA5B8A /* UIView+TuneKit.m */,
 			);
@@ -200,6 +206,7 @@
 		868D7D9418CE0E9D0081F9F6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				86EA9E8C18C0600600FEABC8 /* TKGlobal.h */,
 				868D7D9918CE0F320081F9F6 /* NSObject+Utils.h */,
 				868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */,
 			);
@@ -244,13 +251,13 @@
 		86CB5AE518B7C1FF003039CC /* TuneKit */ = {
 			isa = PBXGroup;
 			children = (
-				868D7D9418CE0E9D0081F9F6 /* Utils */,
-				86CB69A318B86096003039CC /* UI */,
 				86CB5AE818B7C1FF003039CC /* TuneKit.h */,
 				86CB5AEA18B7C1FF003039CC /* TuneKit.m */,
+				866303CC18E268A900AA5B8A /* Controls */,
+				866303CD18E2707400AA5B8A /* Extensions */,
 				86CB5AE618B7C1FF003039CC /* Supporting Files */,
-				86CB5B0B18B7C769003039CC /* Configurations */,
-				86EA9E8C18C0600600FEABC8 /* TKGlobal.h */,
+				86CB69A318B86096003039CC /* UI */,
+				868D7D9418CE0E9D0081F9F6 /* Utils */,
 			);
 			path = TuneKit;
 			sourceTree = "<group>";
@@ -279,15 +286,6 @@
 				86CB5AFC18B7C1FF003039CC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		86CB5B0B18B7C769003039CC /* Configurations */ = {
-			isa = PBXGroup;
-			children = (
-				866303CD18E2707400AA5B8A /* Extensions */,
-				866303CC18E268A900AA5B8A /* Controls */,
-			);
-			name = Configurations;
 			sourceTree = "<group>";
 		};
 		86CB69A318B86096003039CC /* UI */ = {
@@ -428,11 +426,12 @@
 				86F2834318B875C300CD971C /* TKColorPickerConfig.m in Sources */,
 				868D7D9B18CE0F320081F9F6 /* NSObject+Utils.m in Sources */,
 				860D0EA018CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
-				866303D218E272A300AA5B8A /* TKUIViewAnimation.m in Sources */,
 				86CB5AEB18B7C1FF003039CC /* TuneKit.m in Sources */,
 				86CB69A118B825D0003039CC /* TKButtonConfig.m in Sources */,
 				8663044F18EA803F00AA5B8A /* UIView+TuneKit.m in Sources */,
 				86CB5B1218B7C7CE003039CC /* TKSliderConfig.m in Sources */,
+				86B9685818EF6C860048C5A3 /* UIViewAnimator.m in Sources */,
+				8619A58118EF6E980085A475 /* UIViewSpringAnimator.m in Sources */,
 				86C7A42818C81FD200759782 /* TKSwitchConfig.m in Sources */,
 				86EA9EA518C3089F00FEABC8 /* TKNodeConfig.m in Sources */,
 				86CB69A818B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
@@ -452,11 +451,12 @@
 				86F2834418B875C300CD971C /* TKColorPickerConfig.m in Sources */,
 				868D7D9C18CE0F320081F9F6 /* NSObject+Utils.m in Sources */,
 				860D0EA118CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
-				866303D318E272A300AA5B8A /* TKUIViewAnimation.m in Sources */,
 				86CB5B0018B7C1FF003039CC /* TuneKitTests.m in Sources */,
 				86CB69A218B825D0003039CC /* TKButtonConfig.m in Sources */,
 				8663045018EA803F00AA5B8A /* UIView+TuneKit.m in Sources */,
 				86CB5B1318B7C7CE003039CC /* TKSliderConfig.m in Sources */,
+				86B9685918EF6C860048C5A3 /* UIViewAnimator.m in Sources */,
+				8619A58218EF6E980085A475 /* UIViewSpringAnimator.m in Sources */,
 				86C7A42918C81FD200759782 /* TKSwitchConfig.m in Sources */,
 				86EA9EA618C3089F00FEABC8 /* TKNodeConfig.m in Sources */,
 				86CB69A918B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
