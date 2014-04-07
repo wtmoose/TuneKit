@@ -55,7 +55,7 @@
 
 #pragma mark - Creating animators
 
-+ (instancetype)animimator
++ (instancetype)animator
 {
     return [self animimatorWithNamePrefix:nil];
 }

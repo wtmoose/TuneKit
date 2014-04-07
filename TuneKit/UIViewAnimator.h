@@ -40,7 +40,7 @@
 
 #pragma mark - Creating animators
 
-+ (instancetype)animimator;
++ (instancetype)animator;
 
 + (instancetype)animimatorWithNamePrefix:(NSString *)name;
 
