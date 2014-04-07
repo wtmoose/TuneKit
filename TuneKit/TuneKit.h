@@ -19,9 +19,6 @@
 #import "TKColorPickerConfig.h"
 #import "TKLabelConfig.h"
 #import "TKRateConfig.h"
-#import "UIView+TuneKit.h"
-#import "UIViewAnimator.h"
-#import "UIViewSpringAnimator.h"
 
 /**
  */
@@ -201,5 +198,18 @@ extern NSString *kTuneKitNavigationSectionName;
 /**
  */
 NSString *TKPluginName(NSString *prefix, NSString *suffix);
+
+/**
+ Import extensions
+ */
+
+#import "UIView+TuneKit.h"
+#import "UIViewAnimator.h"
+#import "UIViewSpringAnimator.h"
+#import "CAAnimator.h"
+#import "CABasicAnimator.h"
+#import "CAGroupAnimator.h"
+#import "CATransitionAnimator.h"
+#import "CAKeyFrameAnimator.h"
 
 

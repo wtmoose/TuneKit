@@ -257,8 +257,10 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
     if (sectionName == nil) {
         sectionName = kTuneKitNoSectionName;
     }
-    
-    NSMutableString *pathString = [[NSMutableString alloc] initWithString:kTuneKitTopNode];
+    NSMutableString *pathString = [[NSMutableString alloc] initWithString:[self.pathStack lastObject]];
+    if ([pathString length] == 0) {
+        [pathString appendString:kTuneKitTopNode];
+    }
     for (NSString *name in path) {
         [self.pathStack addObject:pathString];
         [self.sectionNameStack addObject:kTuneKitNavigationSectionName];

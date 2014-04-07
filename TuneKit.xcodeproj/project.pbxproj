@@ -12,6 +12,18 @@
 		860D0EA118CADC3B00633FA3 /* TKDialogScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */; };
 		8619A58118EF6E980085A475 /* UIViewSpringAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A58018EF6E980085A475 /* UIViewSpringAnimator.m */; };
 		8619A58218EF6E980085A475 /* UIViewSpringAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A58018EF6E980085A475 /* UIViewSpringAnimator.m */; };
+		8619A5CA18F0FAEA0085A475 /* CAAnimation+TuneKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5C918F0FAEA0085A475 /* CAAnimation+TuneKit.m */; };
+		8619A5CB18F0FAEA0085A475 /* CAAnimation+TuneKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5C918F0FAEA0085A475 /* CAAnimation+TuneKit.m */; };
+		8619A5D218F10DC70085A475 /* CAAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5D118F10DC70085A475 /* CAAnimator.m */; };
+		8619A5D318F10DC70085A475 /* CAAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5D118F10DC70085A475 /* CAAnimator.m */; };
+		8619A5EF18F1BA390085A475 /* CABasicAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5EE18F1BA390085A475 /* CABasicAnimator.m */; };
+		8619A5F018F1BA390085A475 /* CABasicAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5EE18F1BA390085A475 /* CABasicAnimator.m */; };
+		8619A5F318F1BA470085A475 /* CAGroupAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5F218F1BA470085A475 /* CAGroupAnimator.m */; };
+		8619A5F418F1BA470085A475 /* CAGroupAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5F218F1BA470085A475 /* CAGroupAnimator.m */; };
+		8619A5F718F1BA560085A475 /* CATransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5F618F1BA560085A475 /* CATransitionAnimator.m */; };
+		8619A5F818F1BA560085A475 /* CATransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5F618F1BA560085A475 /* CATransitionAnimator.m */; };
+		8619A5FB18F1BABD0085A475 /* CAKeyFrameAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5FA18F1BABD0085A475 /* CAKeyFrameAnimator.m */; };
+		8619A5FC18F1BABD0085A475 /* CAKeyFrameAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5FA18F1BABD0085A475 /* CAKeyFrameAnimator.m */; };
 		863BF50A18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
 		863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
 		863BF50E18CD086700EF0056 /* TKLabelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50D18CD086700EF0056 /* TKLabelConfig.m */; };
@@ -87,6 +99,18 @@
 		860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDialogScrollView.m; sourceTree = "<group>"; };
 		8619A57F18EF6E980085A475 /* UIViewSpringAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewSpringAnimator.h; sourceTree = "<group>"; };
 		8619A58018EF6E980085A475 /* UIViewSpringAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewSpringAnimator.m; sourceTree = "<group>"; };
+		8619A5C818F0FAEA0085A475 /* CAAnimation+TuneKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+TuneKit.h"; sourceTree = "<group>"; };
+		8619A5C918F0FAEA0085A475 /* CAAnimation+TuneKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+TuneKit.m"; sourceTree = "<group>"; };
+		8619A5D018F10DC70085A475 /* CAAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAnimator.h; sourceTree = "<group>"; };
+		8619A5D118F10DC70085A475 /* CAAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAAnimator.m; sourceTree = "<group>"; };
+		8619A5ED18F1BA390085A475 /* CABasicAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CABasicAnimator.h; sourceTree = "<group>"; };
+		8619A5EE18F1BA390085A475 /* CABasicAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CABasicAnimator.m; sourceTree = "<group>"; };
+		8619A5F118F1BA470085A475 /* CAGroupAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGroupAnimator.h; sourceTree = "<group>"; };
+		8619A5F218F1BA470085A475 /* CAGroupAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGroupAnimator.m; sourceTree = "<group>"; };
+		8619A5F518F1BA560085A475 /* CATransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATransitionAnimator.h; sourceTree = "<group>"; };
+		8619A5F618F1BA560085A475 /* CATransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATransitionAnimator.m; sourceTree = "<group>"; };
+		8619A5F918F1BABD0085A475 /* CAKeyFrameAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAKeyFrameAnimator.h; sourceTree = "<group>"; };
+		8619A5FA18F1BABD0085A475 /* CAKeyFrameAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAKeyFrameAnimator.m; sourceTree = "<group>"; };
 		863BF50818CD044F00EF0056 /* TKRateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRateConfig.h; sourceTree = "<group>"; };
 		863BF50918CD044F00EF0056 /* TKRateConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRateConfig.m; sourceTree = "<group>"; };
 		863BF50C18CD086700EF0056 /* TKLabelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelConfig.h; sourceTree = "<group>"; };
@@ -199,6 +223,18 @@
 				86B9685718EF6C860048C5A3 /* UIViewAnimator.m */,
 				8663044D18EA803F00AA5B8A /* UIView+TuneKit.h */,
 				8663044E18EA803F00AA5B8A /* UIView+TuneKit.m */,
+				8619A5C818F0FAEA0085A475 /* CAAnimation+TuneKit.h */,
+				8619A5C918F0FAEA0085A475 /* CAAnimation+TuneKit.m */,
+				8619A5D018F10DC70085A475 /* CAAnimator.h */,
+				8619A5D118F10DC70085A475 /* CAAnimator.m */,
+				8619A5ED18F1BA390085A475 /* CABasicAnimator.h */,
+				8619A5EE18F1BA390085A475 /* CABasicAnimator.m */,
+				8619A5F118F1BA470085A475 /* CAGroupAnimator.h */,
+				8619A5F218F1BA470085A475 /* CAGroupAnimator.m */,
+				8619A5F518F1BA560085A475 /* CATransitionAnimator.h */,
+				8619A5F618F1BA560085A475 /* CATransitionAnimator.m */,
+				8619A5F918F1BABD0085A475 /* CAKeyFrameAnimator.h */,
+				8619A5FA18F1BABD0085A475 /* CAKeyFrameAnimator.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -425,15 +461,21 @@
 			files = (
 				86F2834318B875C300CD971C /* TKColorPickerConfig.m in Sources */,
 				868D7D9B18CE0F320081F9F6 /* NSObject+Utils.m in Sources */,
+				8619A5FB18F1BABD0085A475 /* CAKeyFrameAnimator.m in Sources */,
+				8619A5CA18F0FAEA0085A475 /* CAAnimation+TuneKit.m in Sources */,
 				860D0EA018CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
 				86CB5AEB18B7C1FF003039CC /* TuneKit.m in Sources */,
+				8619A5EF18F1BA390085A475 /* CABasicAnimator.m in Sources */,
 				86CB69A118B825D0003039CC /* TKButtonConfig.m in Sources */,
+				8619A5F718F1BA560085A475 /* CATransitionAnimator.m in Sources */,
 				8663044F18EA803F00AA5B8A /* UIView+TuneKit.m in Sources */,
 				86CB5B1218B7C7CE003039CC /* TKSliderConfig.m in Sources */,
 				86B9685818EF6C860048C5A3 /* UIViewAnimator.m in Sources */,
 				8619A58118EF6E980085A475 /* UIViewSpringAnimator.m in Sources */,
 				86C7A42818C81FD200759782 /* TKSwitchConfig.m in Sources */,
 				86EA9EA518C3089F00FEABC8 /* TKNodeConfig.m in Sources */,
+				8619A5D218F10DC70085A475 /* CAAnimator.m in Sources */,
+				8619A5F318F1BA470085A475 /* CAGroupAnimator.m in Sources */,
 				86CB69A818B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
 				863BF50A18CD044F00EF0056 /* TKRateConfig.m in Sources */,
 				86CB5B0E18B7C784003039CC /* TKConfig.m in Sources */,
@@ -450,15 +492,21 @@
 			files = (
 				86F2834418B875C300CD971C /* TKColorPickerConfig.m in Sources */,
 				868D7D9C18CE0F320081F9F6 /* NSObject+Utils.m in Sources */,
+				8619A5FC18F1BABD0085A475 /* CAKeyFrameAnimator.m in Sources */,
+				8619A5CB18F0FAEA0085A475 /* CAAnimation+TuneKit.m in Sources */,
 				860D0EA118CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
 				86CB5B0018B7C1FF003039CC /* TuneKitTests.m in Sources */,
+				8619A5F018F1BA390085A475 /* CABasicAnimator.m in Sources */,
 				86CB69A218B825D0003039CC /* TKButtonConfig.m in Sources */,
+				8619A5F818F1BA560085A475 /* CATransitionAnimator.m in Sources */,
 				8663045018EA803F00AA5B8A /* UIView+TuneKit.m in Sources */,
 				86CB5B1318B7C7CE003039CC /* TKSliderConfig.m in Sources */,
 				86B9685918EF6C860048C5A3 /* UIViewAnimator.m in Sources */,
 				8619A58218EF6E980085A475 /* UIViewSpringAnimator.m in Sources */,
 				86C7A42918C81FD200759782 /* TKSwitchConfig.m in Sources */,
 				86EA9EA618C3089F00FEABC8 /* TKNodeConfig.m in Sources */,
+				8619A5D318F10DC70085A475 /* CAAnimator.m in Sources */,
+				8619A5F418F1BA470085A475 /* CAGroupAnimator.m in Sources */,
 				86CB69A918B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
 				863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */,
 				86CB5B0F18B7C784003039CC /* TKConfig.m in Sources */,

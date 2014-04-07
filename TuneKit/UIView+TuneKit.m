@@ -14,7 +14,7 @@
 + (TKSegmentedControlConfig *)addAnimationEasingCurveConfig:(NSString *)name target:(id)target keyPath:(NSString *)keyPath
 {
     if ([TuneKit isEnabled]) {
-        NSArray *names = @[@"Linear", @"In", @"Out", @"In/Out"];
+        NSArray *names = @[@"Linear", @"In", @"Out", @"InOut"];
         NSArray *values = @[@(UIViewAnimationOptionCurveLinear), @(UIViewAnimationOptionCurveEaseIn), @(UIViewAnimationOptionCurveEaseOut), @(UIViewAnimationOptionCurveEaseInOut)];
         return [TuneKit addSegmentedControl:name target:target keyPath:keyPath segmentNames:names segmentValues:values];
     }
