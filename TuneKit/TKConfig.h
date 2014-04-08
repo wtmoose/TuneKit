@@ -21,12 +21,18 @@ typedef NS_ENUM(NSInteger, TKConfigType)
     TKConfigTypeRate,
 };
 
+/**
+ Notification sent to the default center when the value of `isTuned` changes.
+ */
+extern NSString *kTKConfigTunedChanged;
+
 @interface TKConfig : NSObject
 
 @property (strong, nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) TKConfigType type;
 @property (strong, nonatomic, readonly) NSString *identifier;
 @property (strong, nonatomic) NSString *defaultGroupName;
+@property (readonly, nonatomic) BOOL isTuned;
 
 - (instancetype)initWithName:(NSString *)name type:(TKConfigType)type
                   identifier:(NSString *)identifier;

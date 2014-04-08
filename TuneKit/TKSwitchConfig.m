@@ -15,6 +15,7 @@
 @property (weak, nonatomic) id target;
 @property (strong, nonatomic) NSString *keyPath;
 @property (nonatomic) BOOL initialValue;
+@property (nonatomic) BOOL internalIsTuned;
 @end
 
 @implementation TKSwitchConfig
@@ -44,9 +45,9 @@
     if (self.defaultGroupName) {
         [TuneKit setDefaultValue:@(self.value) forIdentifier:self.identifier defaultGroup:self.defaultGroupName];
     }
+    self.internalIsTuned = self.value != self.initialValue;
     [self updateValueViews];
 }
-
 
 //- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 //{
@@ -55,6 +56,19 @@
 //        [self setValueInternal:value];
 //    }
 //}
+
+- (void)setInternalIsTuned:(BOOL)internalIsTuned
+{
+    if (_internalIsTuned != internalIsTuned) {
+        _internalIsTuned = internalIsTuned;
+        [[NSNotificationCenter defaultCenter] postNotificationName:kTKConfigTunedChanged object:self];
+    }
+}
+
+- (BOOL)isTuned
+{
+    return self.internalIsTuned;
+}
 
 #pragma mark - View bindings
 

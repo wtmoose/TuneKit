@@ -63,6 +63,10 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
                                              selector:@selector(observeDefaultGroupChanged:)
                                                  name:kTKDefaultGroupNumberChangedNotification
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(isTunedChanged:)
+                                                 name:kTKConfigTunedChanged object:nil];
 }
 
 - (void)installToolbar
@@ -109,6 +113,16 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
             UIViewController *parentController = self.navigationController.viewControllers[index-1];
             [self.navigationController popToViewController:parentController animated:YES];
         }
+    }
+}
+
+- (void)isTunedChanged:(NSNotification *)notification
+{
+    TKConfig *config = notification.object;
+    NSIndexPath *indexPath = [self.indexPathController.dataModel indexPathForIdentifier:config.identifier];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (cell) {
+        [self tableView:self.tableView configureCell:cell atIndexPath:indexPath];
     }
 }
 
@@ -160,8 +174,8 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
 {
     for (TLIndexPathItem *item in self.indexPathController.items) {
         TKConfig *config = item.data;
-        config.defaultGroupName = nil;
         [TuneKit removeDefaultValueForIdentifier:config.identifier defaultGroup:self.defaultGroupName];
+        config.defaultGroupName = nil;
     }
     [self updateDefaultGroup];
 }
@@ -197,6 +211,7 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
         TKControlPanelTableViewController *viewController = self.nodeViewControllerProvider(config.name);
         if (viewController) {
             viewController.defaultGroupIndex = self.defaultGroupIndex;
+            viewController.view.tintColor = self.view.tintColor;
             [self.navigationController pushViewController:viewController animated:YES];
         }
     }
@@ -284,6 +299,8 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
         default:
             break;
     }
+    
+//    cell.backgroundColor = config.isTuned ? self.tunedBackgroundColor : [UIColor whiteColor];
 }
 
 - (void)configureCell:(UITableViewCell *)cell forNodeConfig:(TKNodeConfig *)config
@@ -301,6 +318,8 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
     config.nameLabel = (UILabel *)[cell viewWithTag:1];
     config.theSwitch = (UISwitch *)[cell viewWithTag:2];
     config.theSwitch.enabled = self.defaultGroupIndex > 0;
+    config.theSwitch.onTintColor = self.view.tintColor;
+    [self configureNameLabel:config.nameLabel forConfig:config];
 }
 
 - (void)configureCell:(UITableViewCell *)cell forSliderConfig:(TKSliderConfig *)config
@@ -309,6 +328,7 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
     config.valueLabel = (UILabel *)[cell viewWithTag:2];
     config.slider = (UISlider *)[cell viewWithTag:3];
     config.slider.enabled = self.defaultGroupIndex > 0;
+    [self configureNameLabel:config.nameLabel forConfig:config];
 }
 
 - (void)configureCell:(UITableViewCell *)cell forSegmentedControlConfig:(TKSegmentedControlConfig *)config
@@ -317,6 +337,7 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
     config.segmentedControl = (UISegmentedControl *)[cell viewWithTag:2];
     config.segmentedControl.enabled = self.defaultGroupIndex > 0;
     config.segmentedControl.apportionsSegmentWidthsByContent = YES;
+    [self configureNameLabel:config.nameLabel forConfig:config];
 }
 
 - (void)configureCell:(UITableViewCell *)cell forPickerViewConfig:(TKPickerViewConfig *)config
@@ -324,6 +345,7 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
     config.nameLabel = (UILabel *)[cell viewWithTag:1];
     config.pickerView = (UIPickerView *)[cell viewWithTag:2];
     config.pickerView.userInteractionEnabled = self.defaultGroupIndex > 0;
+    [self configureNameLabel:config.nameLabel forConfig:config];
 }
 
 - (void)configureCell:(UITableViewCell *)cell forColorPickerConfig:(TKColorPickerConfig *)config
@@ -337,18 +359,26 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
     UIView *colorPreviewsView = [cell viewWithTag:40];
     config.currentColorView = [colorPreviewsView viewWithTag:1];
     config.updatedColorView = [colorPreviewsView viewWithTag:2];
-    
     for (UISlider *slider in config.sliders) {
         slider.enabled = self.defaultGroupIndex > 0;
     }
-    
     colorPreviewsView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"checkers"]];
+    [self configureNameLabel:config.nameLabel forConfig:config];
 }
 
 - (void)configureCell:(UITableViewCell *)cell forLabelConfig:(TKLabelConfig *)config
 {
     config.nameLabel = (UILabel *)[cell viewWithTag:1];
     config.valueLabel = (UILabel *)[cell viewWithTag:2];
+    [self configureNameLabel:config.nameLabel forConfig:config];
+}
+
+- (void)configureNameLabel:(UILabel *)nameLabel forConfig:(TKConfig *)config
+{
+    nameLabel.font = config.isTuned
+            ? [UIFont boldSystemFontOfSize:nameLabel.font.pointSize]
+            : [UIFont systemFontOfSize:nameLabel.font.pointSize];
+    nameLabel.textColor = config.isTuned ? [UIColor darkTextColor] : [UIColor grayColor];
 }
 
 - (NSArray *)view:(UIView *)view viewsWithTags:(NSArray *)tags

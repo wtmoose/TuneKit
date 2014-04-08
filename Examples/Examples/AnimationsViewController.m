@@ -22,12 +22,12 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Plugins";
+    self.title = @"Animation";
     
     self.firstView.backgroundColor = [UIColor colorWithHexRGB:0x625592];
 
-    self.scaleAnimator = [UIViewAnimator animimator];
-    self.returnAnimator = [UIViewSpringAnimator animimator];
+    self.scaleAnimator = [UIViewAnimator animator];
+    self.returnAnimator = [UIViewSpringAnimator animator];
     
     self.scale = .75;
     

@@ -12,6 +12,8 @@
 @class TKSliderConfig;
 @class TKColorPickerConfig;
 
+NSString *kTKConfigTunedChanged = @"kTKConfigTunedChanged";
+
 @implementation TKConfig
 
 - (instancetype)initWithName:(NSString *)name type:(TKConfigType)type identifier:(NSString *)identifier
@@ -20,6 +22,7 @@
         _name = name;
         _type = type;
         _identifier = identifier;
+        _isTuned = NO;
     }
     return self;
 }

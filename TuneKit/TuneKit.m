@@ -223,6 +223,7 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
         controlPanel.path = kTuneKitTopNode;
         controlPanel.nodeViewControllerProvider = [self newNodeViewControllerProvider:controlPanel];
         controlPanel.indexPathController.dataModel = [self.dataModelsByPath objectForKey:kTuneKitTopNode];
+        controlPanel.view.tintColor = self.dialog.view.tintColor;
     }
     [self.dialog presentAtLeftOrigin:leftOrigin];
 }

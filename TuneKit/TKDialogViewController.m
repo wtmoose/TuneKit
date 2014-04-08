@@ -9,6 +9,7 @@
 #import "TKDialogViewController.h"
 #import "TuneKit.h"
 #import "TKDialogScrollView.h"
+#import "NSObject+Utils.h"
 
 @interface TKDialogViewController ()
 @property (strong, nonatomic) TKDialogScrollView *scrollView;
@@ -25,49 +26,38 @@
 
 #pragma mark - View controller lifecycle
 
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//    for (UIGestureRecognizer *recongnizer in self.scrollView.gestureRecognizers) {
-//        recongnizer.delegate = self;
-//    }
-//}
-//
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.title = @"TuneKit Dialog";
+    self.view.tintColor = [UIColor colorWithHue:139.f/255.f saturation:202.f/255.f brightness:206.f/255.f alpha:1.f];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+
     self.cornerRadius = 5.f;
     self.shadowRadius = 6.f;
     self.shadowOpacity = 0.15f;
     self.shadowYOffset = 4.f;
     self.decelerationRate = 0.6;
 
-//    [TuneKit add:^{
-//        
+    [TuneKit add:^{
+        [TuneKit addColorPicker:@"Tint Color" target:self keyPath:@"view.tintColor"];
 //        [TuneKit addSlider:@"Corner Radius" target:self keyPath:@"cornerRadius" min:0 max:20];
 //        [TuneKit addSlider:@"Shadow Radius" target:self keyPath:@"shadowRadius" min:0 max:10];
 //        [TuneKit addSlider:@"Shadow Opacity" target:self keyPath:@"shadowOpacity" min:0 max:1];
 //        [TuneKit addSlider:@"Shadow Y Offset" target:self keyPath:@"shadowYOffset" min:-5 max:5];
 //        [TuneKit addSlider:@"Deceleration Rate" target:self keyPath:@"decelerationRate" min:UIScrollViewDecelerationRateFast * 0.1 max:UIScrollViewDecelerationRateFast * 1.5];
-//        
-//    } inPath:@[@"TuneKit Control Panel"]];
+    } inPath:[TuneKit pathForViewController:self] sectionName:nil];
 }
 
-//- (void)viewDidDisappear:(BOOL)animated
-//{
-//    [super viewDidDisappear:animated];
-//    
-//    [TuneKit removePath:@[@"TuneKit Control Panel"]];
-//}
-
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//    
-//    [self.dismissButton addTarget:self action:@selector(dismiss)
-//                 forControlEvents:UIControlEventTouchUpInside];
-//}
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [TuneKit removePath:[TuneKit pathForViewController:self]];
+}
 
 //#pragma mark - Content
 //

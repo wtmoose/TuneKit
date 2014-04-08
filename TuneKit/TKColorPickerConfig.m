@@ -17,6 +17,7 @@
 @property (weak, nonatomic) id target;
 @property (strong, nonatomic) NSString *keyPath;
 @property (nonatomic) UIColor *initialValue;
+@property (nonatomic) BOOL internalIsTuned;
 @end
 
 @implementation TKColorPickerConfig
@@ -47,6 +48,7 @@
         NSData *valueData = [NSKeyedArchiver archivedDataWithRootObject:value];
         [TuneKit setDefaultValue:valueData forIdentifier:self.identifier defaultGroup:self.defaultGroupName];
     }
+    self.internalIsTuned = ![NSObject nilSafeObject:self.value isEqual:self.initialValue];
     [self updateValueViews];
 }
 
@@ -59,6 +61,20 @@
 //        [self commitNewColor];
 //    }
 //}
+
+
+- (void)setInternalIsTuned:(BOOL)internalIsTuned
+{
+    if (_internalIsTuned != internalIsTuned) {
+        _internalIsTuned = internalIsTuned;
+        [[NSNotificationCenter defaultCenter] postNotificationName:kTKConfigTunedChanged object:self];
+    }
+}
+
+- (BOOL)isTuned
+{
+    return self.internalIsTuned;
+}
 
 #pragma mark - View bindings
 
