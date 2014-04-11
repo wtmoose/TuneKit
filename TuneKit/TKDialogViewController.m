@@ -43,21 +43,21 @@
     self.shadowYOffset = 4.f;
     self.decelerationRate = 0.6;
 
-    [TuneKit add:^{
-        [TuneKit addColorPicker:@"Tint Color" target:self keyPath:@"view.tintColor"];
+//    [TuneKit add:^{
+//        [TuneKit addColorPicker:@"Tint Color" target:self keyPath:@"view.tintColor"];
 //        [TuneKit addSlider:@"Corner Radius" target:self keyPath:@"cornerRadius" min:0 max:20];
 //        [TuneKit addSlider:@"Shadow Radius" target:self keyPath:@"shadowRadius" min:0 max:10];
 //        [TuneKit addSlider:@"Shadow Opacity" target:self keyPath:@"shadowOpacity" min:0 max:1];
 //        [TuneKit addSlider:@"Shadow Y Offset" target:self keyPath:@"shadowYOffset" min:-5 max:5];
 //        [TuneKit addSlider:@"Deceleration Rate" target:self keyPath:@"decelerationRate" min:UIScrollViewDecelerationRateFast * 0.1 max:UIScrollViewDecelerationRateFast * 1.5];
-    } inPath:[TuneKit pathForViewController:self] sectionName:nil];
+//    } inPath:[TuneKit pathForViewController:self] sectionName:nil];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    [TuneKit removePath:[TuneKit pathForViewController:self]];
-}
+//- (void)viewDidDisappear:(BOOL)animated
+//{
+//    [super viewDidDisappear:animated];
+//    [TuneKit removePath:[TuneKit pathForViewController:self]];
+//}
 
 //#pragma mark - Content
 //
