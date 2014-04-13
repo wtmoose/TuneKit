@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSMutableDictionary *dataModelsByPath;
 @property (strong, nonatomic) NSMutableArray *pathStack;
 @property (strong, nonatomic) NSMutableArray *sectionNameStack;
+@property (strong, nonatomic) NSMutableDictionary *addRemoveConfigQueue;
 @end
 
 static TuneKit *sharedInstance = nil;
@@ -288,7 +289,6 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
     [tmpPath removeLastObject];
     NSString *parentPathString = [tmpPath componentsJoinedByString:@"/"];
     [self removeNode:node path:pathString fromParentPath:parentPathString];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kTuneKitPathRemovedNotification object:self userInfo:@{kTuneKitPathKey : pathString}];
 }
 
 - (void)removeNode:(NSString *)node path:(NSString *)path fromParentPath:(NSString *)parentPath
@@ -310,47 +310,70 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
     // remove self after all children have bene removed
     NSString *identifier = [NSString stringWithFormat:@"%@/%@/%@", parentPath, kTuneKitNavigationSectionName, node];
     [self removeIdentifier:identifier fromDataModelForPath:parentPath];
-    [self.dataModelsByPath removeObjectForKey:path];
+    [[self addRemoveConfigQueueItemsForPath:path] removeAllObjects];
 }
 
 - (void)addConfigToDataModel:(TKConfig *)config
 {
     NSString *path = [self.pathStack lastObject];
     NSString *sectionName = [self.sectionNameStack lastObject];
-    TLIndexPathDataModel *oldDataModel = [self.dataModelsByPath objectForKey:path];
-    NSMutableArray *items = [NSMutableArray arrayWithArray:oldDataModel.items];
+    NSMutableArray *items = [self addRemoveConfigQueueItemsForPath:path];
     // TODO It might be confusing to use config.name as the identifier since config has
     // an identifier property. But name works because names must be unique for the given
     // data model. If this is changed to config.identifier, need to update places that
     // do stuff like [dataModel itemForIdentifier:].
     TLIndexPathItem *item = [[TLIndexPathItem alloc] initWithIdentifier:config.identifier sectionName:sectionName cellIdentifier:nil data:config];
     [items addObject:item];
-    //    [items sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-    //        NSString *string1 = [obj1 identifier];
-    //        NSString *string2 = [obj2 identifier];
-    //        return [string1 caseInsensitiveCompare:string2];
-    //    }];
-    TLIndexPathDataModel *dataModel = [[TLIndexPathDataModel alloc] initWithItems:items];
-    [self.dataModelsByPath setObject:dataModel forKey:path];
-    [self notifyPathChanged:path];
+    [self performSelector:@selector(dequeAddRemoveConfigs) withObject:nil afterDelay:0];
 }
+
 
 - (void)removeIdentifier:(id)identifier fromDataModelForPath:(NSString *)path
 {
-    //    NSLog(@"Removing %@ from data model at %@", identifier, path);
+    NSMutableArray *items = [self addRemoveConfigQueueItemsForPath:path];
     TLIndexPathDataModel *oldDataModel = [self.dataModelsByPath objectForKey:path];
     id item = [oldDataModel itemForIdentifier:identifier];
-    NSMutableArray *items = [NSMutableArray arrayWithArray:oldDataModel.items];
     [items removeObject:item];
-    if ([items count]) {
+    [self performSelector:@selector(dequeAddRemoveConfigs) withObject:nil afterDelay:0];
+}
+
+- (void)dequeAddRemoveConfigs
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(dequeAddRemoveConfigs) object:nil];
+    NSLog(@"dequeue");
+    for (NSString *path in [self.addRemoveConfigQueue allKeys]) {
+        NSArray *items = self.addRemoveConfigQueue[path];
         TLIndexPathDataModel *dataModel = [[TLIndexPathDataModel alloc] initWithItems:items];
-        [self.dataModelsByPath setObject:dataModel forKey:path];
-        //        NSLog(@"Update data model at %@", path);
-    } else {
-        [self.dataModelsByPath removeObjectForKey:path];
-        //        NSLog(@"Removed empty data model at %@", path);
+        if ([items count]) {
+            [self.dataModelsByPath setObject:dataModel forKey:path];
+            [self notifyPathChanged:path];
+        } else if (dataModel) {
+            [self.dataModelsByPath removeObjectForKey:path];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kTuneKitPathRemovedNotification
+                                                                object:self
+                                                              userInfo:@{kTuneKitPathKey : path}];
+        }
     }
-    [self notifyPathChanged:path];
+    [self.addRemoveConfigQueue removeAllObjects];
+}
+
+- (NSMutableDictionary *)addRemoveConfigQueue
+{
+    if (!_addRemoveConfigQueue) {
+        _addRemoveConfigQueue = [NSMutableDictionary dictionary];
+    }
+    return _addRemoveConfigQueue;
+}
+
+- (NSMutableArray *)addRemoveConfigQueueItemsForPath:(NSString *)path
+{
+    NSMutableArray *items = [self.addRemoveConfigQueue objectForKey:path];
+    if (!items) {
+        TLIndexPathDataModel *oldDataModel = [self.dataModelsByPath objectForKey:path];
+        items = [NSMutableArray arrayWithArray:oldDataModel.items];
+        [self.addRemoveConfigQueue setObject:items forKey:path];
+    }
+    return items;
 }
 
 - (void)notifyPathChanged:(NSString *)path
