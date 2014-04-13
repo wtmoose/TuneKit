@@ -25,12 +25,7 @@
 
 + (instancetype)animimator
 {
-    return [self animimatorWithNamePrefix:nil];
-}
-
-+ (instancetype)animimatorWithNamePrefix:(NSString *)namePrefix
-{
-    return [[CAKeyFrameAnimator alloc] initWithNamePrefix:namePrefix];
+    return [[CAKeyFrameAnimator alloc] init];
 }
 
 @end

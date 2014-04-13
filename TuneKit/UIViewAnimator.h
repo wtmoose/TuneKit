@@ -19,13 +19,14 @@
 
 #pragma mark - Configuring the animator
 
-@property (strong, nonatomic) NSString *namePrefix;
 @property (nonatomic) NSTimeInterval duration;
 @property (nonatomic) NSTimeInterval delay;
 @property (nonatomic) UIViewAnimationOptions easing;
 @property (nonatomic) UIViewAnimationOptions options;
 
 #pragma mark - Performing the animation
+
+- (void)animateWithAnimations:(void(^)(void))animations;
 
 - (void)animateWithAnimations:(void(^)(void))animations
                withCompletion:(void(^)(BOOL finished))completion;
@@ -41,9 +42,5 @@
 #pragma mark - Creating animators
 
 + (instancetype)animator;
-
-+ (instancetype)animimatorWithNamePrefix:(NSString *)name;
-
-- (instancetype)initWithNamePrefix:(NSString *)namePrefix;
 
 @end

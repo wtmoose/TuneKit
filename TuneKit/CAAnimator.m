@@ -37,7 +37,7 @@
 {
     if ([TuneKit isEnabled]) {
         NSTimeInterval max = MAX(.5f, 2.f * self.duration);
-        return [TuneKit addSlider:TKPluginName(self.namePrefix, @"Duration")
+        return [TuneKit addSlider:@"Duration"
                            target:self
                           keyPath:@"duration"
                               min:0.f
@@ -50,7 +50,7 @@
 {
     if ([TuneKit isEnabled]) {
         NSTimeInterval max = MAX(.5f, 2.f * self.delay);
-        return [TuneKit addSlider:TKPluginName(self.namePrefix, @"Delay")
+        return [TuneKit addSlider:@"Delay"
                            target:self
                           keyPath:@"delay"
                               min:0.f
@@ -62,7 +62,7 @@
 - (TKSegmentedControlConfig *)addMediaTimingFunctionNameControl
 {
     if ([TuneKit isEnabled]) {
-        return [CAAnimation addMediaTimingFunctionNameConfig:TKPluginName(self.namePrefix, @"Easing")
+        return [CAAnimation addMediaTimingFunctionNameConfig:@"Easing"
                                                   target:self
                                                  keyPath:@"mediaTimingFunctionName"];
     }
@@ -74,20 +74,6 @@
 + (instancetype)animimator
 {
     return nil;// TODO raise exception?
-}
-
-+ (instancetype)animimatorWithNamePrefix:(NSString *)name
-{
-    return nil;// TODO raise exception?
-}
-
-- (instancetype)initWithNamePrefix:(NSString *)namePrefix
-{
-    if (self = [super init]) {
-        _namePrefix = namePrefix;
-        _mediaTimingFunctionName = kCAMediaTimingFunctionDefault;
-    }
-    return self;
 }
 
 #pragma mark - NSCopying

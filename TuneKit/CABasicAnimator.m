@@ -25,12 +25,7 @@
 
 + (instancetype)animimator
 {
-    return [self animimatorWithNamePrefix:nil];
-}
-
-+ (instancetype)animimatorWithNamePrefix:(NSString *)namePrefix
-{
-    return [[CABasicAnimator alloc] initWithNamePrefix:namePrefix];
+    return [[CABasicAnimator alloc] init];
 }
 
 @end

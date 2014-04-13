@@ -31,6 +31,11 @@
 #pragma mark - Running the animation
 
 - (void)animateWithAnimations:(void (^)(void))animations
+{
+    [self animateWithAnimations:animations withCompletion:nil];
+}
+
+- (void)animateWithAnimations:(void (^)(void))animations
                withCompletion:(void (^)(BOOL))completion
 {
     [UIView animateWithDuration:self.duration
@@ -58,7 +63,7 @@
 {
     if ([TuneKit isEnabled]) {
         NSTimeInterval max = MAX(.5f, 2.f * self.duration);
-        return [TuneKit addSlider:TKPluginName(self.namePrefix, @"Duration")
+        return [TuneKit addSlider:@"Duration"
                            target:self
                           keyPath:@"duration"
                               min:0.f
@@ -71,7 +76,7 @@
 {
     if ([TuneKit isEnabled]) {
         NSTimeInterval max = MAX(.5f, 2.f * self.delay);
-        return [TuneKit addSlider:TKPluginName(self.namePrefix, @"Delay")
+        return [TuneKit addSlider:@"Delay"
                            target:self
                           keyPath:@"delay"
                               min:0.f
@@ -83,7 +88,7 @@
 - (TKSegmentedControlConfig *)addEasingControl
 {
     if ([TuneKit isEnabled]) {
-        return [UIView addAnimationEasingCurveConfig:TKPluginName(self.namePrefix, @"Easing")
+        return [UIView addAnimationEasingCurveConfig:@"Easing"
                                               target:self
                                              keyPath:@"easing"];
     }
@@ -94,20 +99,7 @@
 
 + (instancetype)animator
 {
-    return [self animimatorWithNamePrefix:nil];
-}
-
-+ (instancetype)animimatorWithNamePrefix:(NSString *)namePrefix
-{
-    return [[UIViewAnimator alloc] initWithNamePrefix:namePrefix];
-}
-
-- (instancetype)initWithNamePrefix:(NSString *)namePrefix
-{
-    if (self = [super init]) {
-        _namePrefix = namePrefix;
-    }
-    return self;
+    return [[UIViewAnimator alloc] init];
 }
 
 #pragma mark - NSCopying

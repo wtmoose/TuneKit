@@ -15,7 +15,6 @@
 
 #pragma mark - Configuring the animator
 
-@property (strong, nonatomic) NSString *namePrefix;
 @property (nonatomic) NSTimeInterval duration;
 @property (nonatomic) NSTimeInterval delay;
 @property (nonatomic) NSString *mediaTimingFunctionName;
@@ -35,9 +34,5 @@
 #pragma mark - Creating animators
 
 + (instancetype)animimator;
-
-+ (instancetype)animimatorWithNamePrefix:(NSString *)name;
-
-- (instancetype)initWithNamePrefix:(NSString *)namePrefix;
 
 @end

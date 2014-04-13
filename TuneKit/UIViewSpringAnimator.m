@@ -36,7 +36,7 @@
 
 - (TKSliderConfig *)addDampingControl
 {
-    return [TuneKit addSlider:TKPluginName(self.namePrefix, @"Damping")
+    return [TuneKit addSlider:@"Damping"
                        target:self
                       keyPath:@"damping"
                           min:0.f
@@ -46,7 +46,7 @@
 - (TKSliderConfig *)addInitialVelocityControl
 {
     CGFloat max = MAX(50.f, 2.f*fabs(self.initialVelocity));
-    return [TuneKit addSlider:TKPluginName(self.namePrefix, @"Initial Velocity")
+    return [TuneKit addSlider:@"Initial Velocity"
                        target:self
                       keyPath:@"initialVelocity"
                           min:-max
@@ -57,12 +57,7 @@
 
 + (instancetype)animator
 {
-    return [self animimatorWithNamePrefix:nil];
-}
-
-+ (instancetype)animimatorWithNamePrefix:(NSString *)namePrefix
-{
-    return [[UIViewSpringAnimator alloc] initWithNamePrefix:namePrefix];
+    return [[UIViewSpringAnimator alloc] init];
 }
 
 #pragma mark - NSCopying
