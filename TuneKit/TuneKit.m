@@ -366,7 +366,6 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 - (void)dequeAddRemoveConfigs
 {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(dequeAddRemoveConfigs) object:nil];
-    NSLog(@"dequeue");
     for (NSString *path in [self.addRemoveConfigQueue allKeys]) {
         NSArray *items = self.addRemoveConfigQueue[path];
         TLIndexPathDataModel *dataModel = [[TLIndexPathDataModel alloc] initWithItems:items];
