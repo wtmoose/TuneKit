@@ -23,4 +23,12 @@
 
 - (IBAction)dismiss;
 
+- (IBAction)toggleExpandedCollapsed;
+
+@property (nonatomic) BOOL collapsed;
+- (void)setCollapsed:(BOOL)collapsed animated:(BOOL)animated;
+
+@property (nonatomic) BOOL hidden;
+- (void)setHidden:(BOOL)hidden afterDelay:(NSTimeInterval)delay;
+
 @end

@@ -40,7 +40,7 @@
     [super viewDidAppear:animated];
     
     // present the control panel
-    [TuneKit presentControlPanelAtLeftOrigin:350.f];
+    [TuneKit presentControlPanelAtLeftOrigin:350.f options:0];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -8,6 +8,7 @@
 
 // TODO add an option to use KVO
 
+// core imports
 #import <UIKit/UIKit.h>
 #import "TKGlobal.h"
 #import "TKNodeConfig.h"
@@ -19,6 +20,23 @@
 #import "TKColorPickerConfig.h"
 #import "TKLabelConfig.h"
 #import "TKRateConfig.h"
+// extensions
+#import "UIView+TuneKit.h"
+#import "UIViewAnimator.h"
+#import "UIViewSpringAnimator.h"
+#import "CAAnimator.h"
+#import "CABasicAnimator.h"
+#import "CAGroupAnimator.h"
+#import "CATransitionAnimator.h"
+#import "CAKeyFrameAnimator.h"
+
+/**
+ */
+typedef NS_ENUM(NSInteger, TKDialogOptions)
+{
+    TKDialogShowsCloseButton = 1 << 0,
+    TKDialogShowsCollapseButton = 1 << 1,
+};
 
 /**
  */
@@ -61,9 +79,13 @@ extern NSString *kTuneKitNavigationSectionName;
 
 #pragma mark - Presenting the control panel
 
-+ (void)presentControlPanelAtLeftOrigin:(CGFloat)leftOrigin;
++ (void)presentControlPanelAtLeftOrigin:(CGFloat)leftOrigin options:(TKDialogOptions)options;
 
 + (void)dismissControlPanel;
+
++ (void)setControlPanelCollapsed:(BOOL)collapsed animated:(BOOL)animated;
+
++ (void)setControlPanelHidden:(BOOL)hidden afterDelay:(NSTimeInterval)delay;
 
 #pragma mark - Managing the configuration heirarchy
 
@@ -198,18 +220,5 @@ extern NSString *kTuneKitNavigationSectionName;
 /**
  */
 NSString *TKPluginName(NSString *prefix, NSString *suffix);
-
-/**
- Import extensions
- */
-
-#import "UIView+TuneKit.h"
-#import "UIViewAnimator.h"
-#import "UIViewSpringAnimator.h"
-#import "CAAnimator.h"
-#import "CABasicAnimator.h"
-#import "CAGroupAnimator.h"
-#import "CATransitionAnimator.h"
-#import "CAKeyFrameAnimator.h"
 
 

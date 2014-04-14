@@ -52,16 +52,28 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 
 #pragma mark - Presenting the control panel (public)
 
-+ (void)presentControlPanelAtLeftOrigin:(CGFloat)leftOrigin
++ (void)presentControlPanelAtLeftOrigin:(CGFloat)leftOrigin options:(TKDialogOptions)options
 {
     TuneKit *tk = [self sharedInstance];
-    [tk presentControlPanelAtLeftOrigin:leftOrigin];
+    [tk presentControlPanelAtLeftOrigin:leftOrigin options:options];
 }
 
 + (void)dismissControlPanel
 {
     TuneKit *tk = [self sharedInstance];
     [tk dismissControlPanel];
+}
+
++ (void)setControlPanelCollapsed:(BOOL)collapsed animated:(BOOL)animated
+{
+    TuneKit *tk = [self sharedInstance];
+    [tk setControlPanelCollapsed:collapsed animated:animated];
+}
+
++ (void)setControlPanelHidden:(BOOL)hidden afterDelay:(NSTimeInterval)delay
+{
+    TuneKit *tk = [self sharedInstance];
+    [tk setControlPanelHidden:hidden afterDelay:delay];
 }
 
 #pragma mark - Managing the configuration heirarchy (public)
@@ -215,7 +227,7 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 
 #pragma mark - Presenting the control panel (private)
 
-- (void)presentControlPanelAtLeftOrigin:(CGFloat)leftOrigin
+- (void)presentControlPanelAtLeftOrigin:(CGFloat)leftOrigin options:(TKDialogOptions)options
 {
     if (self.dialog == nil) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TuneKit" bundle:nil];
@@ -226,6 +238,10 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
         controlPanel.indexPathController.dataModel = [self.dataModelsByPath objectForKey:kTuneKitTopNode];
         controlPanel.view.tintColor = self.dialog.view.tintColor;
     }
+    if (options == 0) {
+        options = TKDialogShowsCloseButton | TKDialogShowsCollapseButton;
+    }
+    // TODO apply options to dialog
     [self.dialog presentAtLeftOrigin:leftOrigin];
 }
 
@@ -250,6 +266,16 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 - (void)dismissControlPanel
 {
     [self.dialog dismiss];
+}
+
+- (void)setControlPanelCollapsed:(BOOL)collapsed animated:(BOOL)animated
+{
+    [self.dialog setCollapsed:collapsed animated:animated];
+}
+
+- (void)setControlPanelHidden:(BOOL)hidden afterDelay:(NSTimeInterval)delay
+{
+    [self.dialog setHidden:hidden afterDelay:delay];
 }
 
 #pragma mark - Managing the configuration heirarchy (private)

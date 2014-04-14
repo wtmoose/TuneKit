@@ -20,6 +20,7 @@
 @property (nonatomic) CGFloat shadowOpacity;
 @property (nonatomic) CGFloat shadowYOffset;
 @property (nonatomic) CGFloat decelerationRate;
+@property (strong, nonatomic) UIViewAnimator *hiddenAnimator;
 @end
 
 @implementation TKDialogViewController
@@ -43,6 +44,9 @@
     self.shadowYOffset = 4.f;
     self.decelerationRate = 0.6;
 
+    self.hiddenAnimator = [UIViewAnimator animator];
+    self.hiddenAnimator.duration = 0.25;
+    
 //    [TuneKit add:^{
 //        [TuneKit addColorPicker:@"Tint Color" target:self keyPath:@"view.tintColor"];
 //        [TuneKit addSlider:@"Corner Radius" target:self keyPath:@"cornerRadius" min:0 max:20];
@@ -111,6 +115,42 @@
 - (IBAction)dismiss {
     [self.containerView removeFromSuperview];
     [self removeFromParentViewController];
+}
+
+- (void)toggleExpandedCollapsed
+{
+    
+}
+
+- (void)setCollapsed:(BOOL)collapsed
+{
+    [self setCollapsed:collapsed animated:NO];
+}
+
+- (void)setCollapsed:(BOOL)collapsed animated:(BOOL)animated
+{
+    if (_collapsed != collapsed) {
+        _collapsed = collapsed;
+        
+        
+    }
+}
+
+- (void)setHidden:(BOOL)hidden
+{
+    [self setHidden:hidden afterDelay:0];
+}
+
+- (void)setHidden:(BOOL)hidden afterDelay:(NSTimeInterval)delay
+{
+    if (_hidden != hidden) {
+        _hidden = hidden;
+        UIViewAnimator *animator = [self.hiddenAnimator copy];
+        animator.delay = delay;
+        [animator animateWithAnimations:^{
+            [self.view superview].alpha = hidden ? 0 : 1;
+        }];
+    }
 }
 
 - (void)viewDidLayoutSubviews
