@@ -85,6 +85,8 @@ extern NSString *kTuneKitNavigationSectionName;
 
 + (void)setControlPanelCollapsed:(BOOL)collapsed animated:(BOOL)animated;
 
++ (void)setControlPanelHidden:(BOOL)hidden animated:(BOOL)animated;
+
 + (void)setControlPanelHidden:(BOOL)hidden afterDelay:(NSTimeInterval)delay;
 
 #pragma mark - Managing the configuration heirarchy

@@ -70,6 +70,12 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
     [tk setControlPanelCollapsed:collapsed animated:animated];
 }
 
++ (void)setControlPanelHidden:(BOOL)hidden animated:(BOOL)animated
+{
+    TuneKit *tk = [self sharedInstance];
+    [tk setControlPanelHidden:hidden animated:animated];
+}
+
 + (void)setControlPanelHidden:(BOOL)hidden afterDelay:(NSTimeInterval)delay
 {
     TuneKit *tk = [self sharedInstance];
@@ -271,6 +277,15 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 - (void)setControlPanelCollapsed:(BOOL)collapsed animated:(BOOL)animated
 {
     [self.dialog setCollapsed:collapsed animated:animated];
+}
+
+- (void)setControlPanelHidden:(BOOL)hidden animated:(BOOL)animated
+{
+    if (animated) {
+        [self.dialog setHidden:hidden afterDelay:0];
+    } else {
+        self.dialog.hidden = hidden;
+    }
 }
 
 - (void)setControlPanelHidden:(BOOL)hidden afterDelay:(NSTimeInterval)delay

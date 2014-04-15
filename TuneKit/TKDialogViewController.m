@@ -138,17 +138,19 @@
 
 - (void)setHidden:(BOOL)hidden
 {
-    [self setHidden:hidden afterDelay:0];
+    if (_hidden != hidden) {
+        _hidden = hidden;
+        [self.view superview].alpha = hidden ? 0 : 1;
+    }
 }
 
 - (void)setHidden:(BOOL)hidden afterDelay:(NSTimeInterval)delay
 {
     if (_hidden != hidden) {
-        _hidden = hidden;
         UIViewAnimator *animator = [self.hiddenAnimator copy];
         animator.delay = delay;
         [animator animateWithAnimations:^{
-            [self.view superview].alpha = hidden ? 0 : 1;
+            self.hidden = hidden;
         }];
     }
 }
