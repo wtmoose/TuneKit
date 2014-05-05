@@ -71,7 +71,7 @@
 
 #pragma mark - Creating animators
 
-+ (instancetype)animimator
++ (instancetype)animator
 {
     return nil;// TODO raise exception?
 }

@@ -23,7 +23,7 @@
 
 #pragma mark - Creating animators
 
-+ (instancetype)animimator
++ (instancetype)animator
 {
     return [[CABasicAnimator alloc] init];
 }

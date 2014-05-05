@@ -33,6 +33,6 @@
 
 #pragma mark - Creating animators
 
-+ (instancetype)animimator;
++ (instancetype)animator;
 
 @end
