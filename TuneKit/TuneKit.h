@@ -1,14 +1,11 @@
-//
-//  TuneKit.h
-//  TuneKit
-//
 //  Created by Tim Moose on 2/21/14.
 //  Copyright (c) 2014 Tractable Labs. All rights reserved.
 //
+//  This source code is licensed under the MIT-style license found in the
+//  LICENSE file in the root directory of this source tree.
 
 // TODO add an option to use KVO
 
-// core imports
 #import <UIKit/UIKit.h>
 #import "TKGlobal.h"
 #import "TKNodeConfig.h"
@@ -20,7 +17,6 @@
 #import "TKColorPickerConfig.h"
 #import "TKLabelConfig.h"
 #import "TKRateConfig.h"
-// extensions
 #import "UIView+TuneKit.h"
 #import "TKUIViewAnimator.h"
 #import "TKUIViewSpringAnimator.h"

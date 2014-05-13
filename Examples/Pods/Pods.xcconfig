@@ -2,7 +2,7 @@ CLANG_CXX_LANGUAGE_STANDARD = c++11
 CLANG_CXX_LIBRARY = libc++
 FRAMEWORK_SEARCH_PATHS = '${PODS_ROOT}/Reveal-iOS-SDK/Reveal-Framework-1.0.4' "$(PODS_ROOT)/Reveal-iOS-SDK/Reveal-Framework-1.0.4"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/OBSlider" "${PODS_ROOT}/Headers/Reveal-iOS-SDK" "${PODS_ROOT}/Headers/TLIndexPathTools" "${PODS_ROOT}/Headers/TuneKit" "${PODS_ROOT}/Headers/pop"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/OBSlider" -isystem "${PODS_ROOT}/Headers/Reveal-iOS-SDK" -isystem "${PODS_ROOT}/Headers/TLIndexPathTools" -isystem "${PODS_ROOT}/Headers/TuneKit" -isystem "${PODS_ROOT}/Headers/pop"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AHEasing" "${PODS_ROOT}/Headers/OBSlider" "${PODS_ROOT}/Headers/Reveal-iOS-SDK" "${PODS_ROOT}/Headers/TLIndexPathTools" "${PODS_ROOT}/Headers/TLLayoutTransitioning" "${PODS_ROOT}/Headers/TuneKit" "${PODS_ROOT}/Headers/pop"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/AHEasing" -isystem "${PODS_ROOT}/Headers/OBSlider" -isystem "${PODS_ROOT}/Headers/Reveal-iOS-SDK" -isystem "${PODS_ROOT}/Headers/TLIndexPathTools" -isystem "${PODS_ROOT}/Headers/TLLayoutTransitioning" -isystem "${PODS_ROOT}/Headers/TuneKit" -isystem "${PODS_ROOT}/Headers/pop"
 OTHER_LDFLAGS = -ObjC -lc++ -framework CFNetwork -framework CoreData -framework CoreGraphics -framework Foundation -framework QuartzCore -framework Reveal -framework UIKit
 PODS_ROOT = ${SRCROOT}/Pods

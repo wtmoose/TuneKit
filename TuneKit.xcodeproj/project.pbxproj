@@ -30,6 +30,14 @@
 		862EBABB1921CD2000BBFB40 /* TKPOPAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAB51921CCBA00BBFB40 /* TKPOPAnimationBuilder.m */; };
 		862EBABE1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBABD1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m */; };
 		862EBABF1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBABD1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m */; };
+		862EBADB192286D900BBFB40 /* TKTLLayoutTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAD8192286D900BBFB40 /* TKTLLayoutTransitioner.m */; };
+		862EBADC192286D900BBFB40 /* TKTLLayoutTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAD8192286D900BBFB40 /* TKTLLayoutTransitioner.m */; };
+		862EBADD192286D900BBFB40 /* UICollectionView+TKTLLayoutTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBADA192286D900BBFB40 /* UICollectionView+TKTLLayoutTransitioning.m */; };
+		862EBADE192286D900BBFB40 /* UICollectionView+TKTLLayoutTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBADA192286D900BBFB40 /* UICollectionView+TKTLLayoutTransitioning.m */; };
+		862EBAEB1922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAE81922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.m */; };
+		862EBAEC1922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAE81922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.m */; };
+		862EBAED1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAEA1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m */; };
+		862EBAEE1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAEA1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m */; };
 		863BF50A18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
 		863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
 		863BF50E18CD086700EF0056 /* TKLabelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50D18CD086700EF0056 /* TKLabelConfig.m */; };
@@ -123,6 +131,14 @@
 		862EBAB81921CD1700BBFB40 /* TKPOPPropertyAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKPOPPropertyAnimationBuilder.m; path = Extensions/Pop/TKPOPPropertyAnimationBuilder.m; sourceTree = SOURCE_ROOT; };
 		862EBABC1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKPOPSpringAnimationBuilder.h; path = Extensions/Pop/TKPOPSpringAnimationBuilder.h; sourceTree = SOURCE_ROOT; };
 		862EBABD1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKPOPSpringAnimationBuilder.m; path = Extensions/Pop/TKPOPSpringAnimationBuilder.m; sourceTree = SOURCE_ROOT; };
+		862EBAD7192286D900BBFB40 /* TKTLLayoutTransitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTLLayoutTransitioner.h; sourceTree = "<group>"; };
+		862EBAD8192286D900BBFB40 /* TKTLLayoutTransitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTLLayoutTransitioner.m; sourceTree = "<group>"; };
+		862EBAD9192286D900BBFB40 /* UICollectionView+TKTLLayoutTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+TKTLLayoutTransitioning.h"; sourceTree = "<group>"; };
+		862EBADA192286D900BBFB40 /* UICollectionView+TKTLLayoutTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+TKTLLayoutTransitioning.m"; sourceTree = "<group>"; };
+		862EBAE71922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CAKeyframeAnimation+TKAHEasing.h"; path = "Extensions/AHEasing/CAKeyframeAnimation+TKAHEasing.h"; sourceTree = SOURCE_ROOT; };
+		862EBAE81922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CAKeyframeAnimation+TKAHEasing.m"; path = "Extensions/AHEasing/CAKeyframeAnimation+TKAHEasing.m"; sourceTree = SOURCE_ROOT; };
+		862EBAE91922A9B600BBFB40 /* TKAHEasingAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKAHEasingAnimationBuilder.h; path = Extensions/AHEasing/TKAHEasingAnimationBuilder.h; sourceTree = SOURCE_ROOT; };
+		862EBAEA1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKAHEasingAnimationBuilder.m; path = Extensions/AHEasing/TKAHEasingAnimationBuilder.m; sourceTree = SOURCE_ROOT; };
 		863BF50818CD044F00EF0056 /* TKRateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRateConfig.h; sourceTree = "<group>"; };
 		863BF50918CD044F00EF0056 /* TKRateConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRateConfig.m; sourceTree = "<group>"; };
 		863BF50C18CD086700EF0056 /* TKLabelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelConfig.h; sourceTree = "<group>"; };
@@ -244,6 +260,28 @@
 			name = Pop;
 			sourceTree = "<group>";
 		};
+		862EBACD192285DB00BBFB40 /* TLLayouTransitioning */ = {
+			isa = PBXGroup;
+			children = (
+				862EBAD7192286D900BBFB40 /* TKTLLayoutTransitioner.h */,
+				862EBAD8192286D900BBFB40 /* TKTLLayoutTransitioner.m */,
+				862EBAD9192286D900BBFB40 /* UICollectionView+TKTLLayoutTransitioning.h */,
+				862EBADA192286D900BBFB40 /* UICollectionView+TKTLLayoutTransitioning.m */,
+			);
+			name = TLLayouTransitioning;
+			sourceTree = "<group>";
+		};
+		862EBACE192285E700BBFB40 /* AHEasing */ = {
+			isa = PBXGroup;
+			children = (
+				862EBAE71922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.h */,
+				862EBAE81922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.m */,
+				862EBAE91922A9B600BBFB40 /* TKAHEasingAnimationBuilder.h */,
+				862EBAEA1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m */,
+			);
+			name = AHEasing;
+			sourceTree = "<group>";
+		};
 		866303CC18E268A900AA5B8A /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +312,8 @@
 		866303CD18E2707400AA5B8A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				862EBACE192285E700BBFB40 /* AHEasing */,
+				862EBACD192285DB00BBFB40 /* TLLayouTransitioning */,
 				862EBAB31921CC5900BBFB40 /* Pop */,
 				862EBAB21921C88D00BBFB40 /* Core Animation */,
 				862EBAB11921C87800BBFB40 /* UIKit */,
@@ -507,6 +547,7 @@
 				8619A5FB18F1BABD0085A475 /* TKCAKeyFrameAnimationBuilder.m in Sources */,
 				8619A5CA18F0FAEA0085A475 /* CAAnimation+TuneKit.m in Sources */,
 				860D0EA018CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
+				862EBAEB1922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.m in Sources */,
 				86CB5AEB18B7C1FF003039CC /* TuneKit.m in Sources */,
 				8619A5EF18F1BA390085A475 /* TKCABasicAnimationBuilder.m in Sources */,
 				86CB69A118B825D0003039CC /* TKButtonConfig.m in Sources */,
@@ -514,6 +555,7 @@
 				862EBABE1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m in Sources */,
 				8663044F18EA803F00AA5B8A /* UIView+TuneKit.m in Sources */,
 				86CB5B1218B7C7CE003039CC /* TKSliderConfig.m in Sources */,
+				862EBADD192286D900BBFB40 /* UICollectionView+TKTLLayoutTransitioning.m in Sources */,
 				86B9685818EF6C860048C5A3 /* TKUIViewAnimator.m in Sources */,
 				8619A58118EF6E980085A475 /* TKUIViewSpringAnimator.m in Sources */,
 				86C7A42818C81FD200759782 /* TKSwitchConfig.m in Sources */,
@@ -521,8 +563,10 @@
 				8619A5D218F10DC70085A475 /* TKCAAnimationBuilder.m in Sources */,
 				8619A5F318F1BA470085A475 /* TKCAGroupAnimationBuilder.m in Sources */,
 				86CB69A818B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
+				862EBADB192286D900BBFB40 /* TKTLLayoutTransitioner.m in Sources */,
 				863BF50A18CD044F00EF0056 /* TKRateConfig.m in Sources */,
 				86CB5B0E18B7C784003039CC /* TKConfig.m in Sources */,
+				862EBAED1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m in Sources */,
 				866303E918E3D52B00AA5B8A /* TKSegmentedControlConfig.m in Sources */,
 				8663044618EA62DE00AA5B8A /* TKPickerViewConfig.m in Sources */,
 				86F2834718B9B21B00CD971C /* TKDialogViewController.m in Sources */,
@@ -541,6 +585,7 @@
 				8619A5CB18F0FAEA0085A475 /* CAAnimation+TuneKit.m in Sources */,
 				860D0EA118CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
 				86CB5B0018B7C1FF003039CC /* TuneKitTests.m in Sources */,
+				862EBAEC1922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.m in Sources */,
 				8619A5F018F1BA390085A475 /* TKCABasicAnimationBuilder.m in Sources */,
 				86CB69A218B825D0003039CC /* TKButtonConfig.m in Sources */,
 				8619A5F818F1BA560085A475 /* TKCATransitionAnimationBuilder.m in Sources */,
@@ -548,6 +593,7 @@
 				862EBABF1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m in Sources */,
 				8663045018EA803F00AA5B8A /* UIView+TuneKit.m in Sources */,
 				86CB5B1318B7C7CE003039CC /* TKSliderConfig.m in Sources */,
+				862EBADE192286D900BBFB40 /* UICollectionView+TKTLLayoutTransitioning.m in Sources */,
 				86B9685918EF6C860048C5A3 /* TKUIViewAnimator.m in Sources */,
 				8619A58218EF6E980085A475 /* TKUIViewSpringAnimator.m in Sources */,
 				86C7A42918C81FD200759782 /* TKSwitchConfig.m in Sources */,
@@ -555,8 +601,10 @@
 				8619A5D318F10DC70085A475 /* TKCAAnimationBuilder.m in Sources */,
 				862EBABB1921CD2000BBFB40 /* TKPOPAnimationBuilder.m in Sources */,
 				8619A5F418F1BA470085A475 /* TKCAGroupAnimationBuilder.m in Sources */,
+				862EBADC192286D900BBFB40 /* TKTLLayoutTransitioner.m in Sources */,
 				86CB69A918B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
 				863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */,
+				862EBAEE1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m in Sources */,
 				86CB5B0F18B7C784003039CC /* TKConfig.m in Sources */,
 				866303EA18E3D52B00AA5B8A /* TKSegmentedControlConfig.m in Sources */,
 				8663044718EA62DE00AA5B8A /* TKPickerViewConfig.m in Sources */,

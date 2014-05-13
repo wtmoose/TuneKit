@@ -20,10 +20,23 @@ Pod::Spec.new do |s|
   s.dependency 'TLIndexPathTools'
   s.dependency 'OBSlider'
   s.requires_arc = true
-  
-  s.subspec "Pop" do |ss|
+
+  s.subspec "core" do |ss|
+  end
+
+  s.subspec "pop" do |ss|
     ss.dependency 'pop', '~> 1.0'
     ss.source_files = "Extensions/Pop"
+  end
+
+  s.subspec "AHEasing" do |ss|
+    ss.dependency 'AHEasing', '~> 1.1'
+    ss.source_files = "Extensions/AHEasing"
+  end
+
+  s.subspec "TLLayoutTransitioning" do |ss|
+    ss.dependency 'TLLayoutTransitioning', '~> 1.0.0'
+    ss.source_files = "Extensions/TLLayoutTransitioning"
   end
 
 end

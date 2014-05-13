@@ -1,20 +1,37 @@
 PODS:
+  - AHEasing (1.2)
   - OBSlider (1.1.0)
   - pop (1.0.4)
   - Reveal-iOS-SDK (1.0.4)
-  - TLIndexPathTools (HEAD based on 0.3.0)
+  - TLIndexPathTools (0.3.0)
+  - TLLayoutTransitioning (1.0.0):
+    - AHEasing
   - TuneKit (0.0.1):
     - OBSlider
     - TLIndexPathTools
-    - TuneKit/Pop
-  - TuneKit/Pop (0.0.1):
+    - TuneKit/AHEasing
+    - TuneKit/core
+    - TuneKit/pop
+    - TuneKit/TLLayoutTransitioning
+  - TuneKit/AHEasing (0.0.1):
+    - AHEasing (~> 1.1)
+    - OBSlider
+    - TLIndexPathTools
+  - TuneKit/core (0.0.1):
+    - OBSlider
+    - TLIndexPathTools
+  - TuneKit/pop (0.0.1):
     - OBSlider
     - pop (~> 1.0)
     - TLIndexPathTools
+  - TuneKit/TLLayoutTransitioning (0.0.1):
+    - OBSlider
+    - TLIndexPathTools
+    - TLLayoutTransitioning (~> 1.0.0)
 
 DEPENDENCIES:
   - Reveal-iOS-SDK
-  - TLIndexPathTools (HEAD)
+  - TLIndexPathTools (~> 0.3.0)
   - TuneKit (from `..`)
 
 EXTERNAL SOURCES:
@@ -22,10 +39,12 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
+  AHEasing: 539ed2ec2d50bf14e0ad66789b4e5a5b048aff8b
   OBSlider: 1eae1ad6fea0af687f7dde0366003044c4ba3d27
   pop: 63a4f5e8942077fed2efe195036ecc572c71c48c
   Reveal-iOS-SDK: 9de027a2cb0812e9ae220d9047161f3a0ac2db74
   TLIndexPathTools: 1c4158d341c4bf4375e86a6a579955de84cbf34e
-  TuneKit: efd53a270fc35a5ddabbdf99835b8c8d82d16426
+  TLLayoutTransitioning: 925d8fbcc9964eea933e93600067f759cb823780
+  TuneKit: e03f8bc5204475a2ebd60c238aaeaa4bbbbe19cf
 
 COCOAPODS: 0.32.1

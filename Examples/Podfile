@@ -2,5 +2,5 @@ platform :ios, "7.0"
 workspace 'Examples.xcworkspace'
 xcodeproj 'Examples.xcodeproj'
 pod 'Reveal-iOS-SDK'
-pod 'TLIndexPathTools', :head
+pod 'TLIndexPathTools', '~> 0.3.0'
 pod 'TuneKit', :path => '..'

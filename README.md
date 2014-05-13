@@ -103,9 +103,19 @@ todo
 
 ##Installation
 
-Use CocoaPods. The podspec is not published, so you'll need to point to the GitHub repo:
+Use CocoaPods. The podspec is not published yet, so you'll need to point to the GitHub repo. To get everything including 3rd-party extensions, use:
 
     pod 'TuneKit', :git => 'https://github.com/wtmoose/TuneKit.git'
+
+To omit all 3rd-party extensions, use:
+
+    pod 'TuneKit/core', :git => 'https://github.com/wtmoose/TuneKit.git'
+
+To selectively include 3rd-party extensions, use any combination of:
+
+    pod 'TuneKit/pop', :git => 'https://github.com/wtmoose/TuneKit.git'
+    pod 'TuneKit/AHEasing', :git => 'https://github.com/wtmoose/TuneKit.git'
+    pod 'TuneKit/TLLayoutTransitioning', :git => 'https://github.com/wtmoose/TuneKit.git'
 
 ##Examples
 

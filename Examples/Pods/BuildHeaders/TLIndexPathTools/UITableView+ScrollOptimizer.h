@@ -1,1 +1,1 @@
-../../TLIndexPathTools/TLIndexPathTools/Extensions/UITableView+ScrollOptimizer.h
+../../TLIndexPathTools/TLIndexPathTools/UITableView+ScrollOptimizer.h
