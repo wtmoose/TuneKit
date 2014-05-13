@@ -10,20 +10,26 @@
 		3CDB83ED63FB44BEA571E6D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54C10009A8C4326887BE111 /* libPods.a */; };
 		860D0EA018CADC3B00633FA3 /* TKDialogScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */; };
 		860D0EA118CADC3B00633FA3 /* TKDialogScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */; };
-		8619A58118EF6E980085A475 /* UIViewSpringAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A58018EF6E980085A475 /* UIViewSpringAnimator.m */; };
-		8619A58218EF6E980085A475 /* UIViewSpringAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A58018EF6E980085A475 /* UIViewSpringAnimator.m */; };
+		8619A58118EF6E980085A475 /* TKUIViewSpringAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A58018EF6E980085A475 /* TKUIViewSpringAnimator.m */; };
+		8619A58218EF6E980085A475 /* TKUIViewSpringAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A58018EF6E980085A475 /* TKUIViewSpringAnimator.m */; };
 		8619A5CA18F0FAEA0085A475 /* CAAnimation+TuneKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5C918F0FAEA0085A475 /* CAAnimation+TuneKit.m */; };
 		8619A5CB18F0FAEA0085A475 /* CAAnimation+TuneKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5C918F0FAEA0085A475 /* CAAnimation+TuneKit.m */; };
-		8619A5D218F10DC70085A475 /* CAAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5D118F10DC70085A475 /* CAAnimator.m */; };
-		8619A5D318F10DC70085A475 /* CAAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5D118F10DC70085A475 /* CAAnimator.m */; };
-		8619A5EF18F1BA390085A475 /* CABasicAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5EE18F1BA390085A475 /* CABasicAnimator.m */; };
-		8619A5F018F1BA390085A475 /* CABasicAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5EE18F1BA390085A475 /* CABasicAnimator.m */; };
-		8619A5F318F1BA470085A475 /* CAGroupAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5F218F1BA470085A475 /* CAGroupAnimator.m */; };
-		8619A5F418F1BA470085A475 /* CAGroupAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5F218F1BA470085A475 /* CAGroupAnimator.m */; };
-		8619A5F718F1BA560085A475 /* CATransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5F618F1BA560085A475 /* CATransitionAnimator.m */; };
-		8619A5F818F1BA560085A475 /* CATransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5F618F1BA560085A475 /* CATransitionAnimator.m */; };
-		8619A5FB18F1BABD0085A475 /* CAKeyFrameAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5FA18F1BABD0085A475 /* CAKeyFrameAnimator.m */; };
-		8619A5FC18F1BABD0085A475 /* CAKeyFrameAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5FA18F1BABD0085A475 /* CAKeyFrameAnimator.m */; };
+		8619A5D218F10DC70085A475 /* TKCAAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5D118F10DC70085A475 /* TKCAAnimationBuilder.m */; };
+		8619A5D318F10DC70085A475 /* TKCAAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5D118F10DC70085A475 /* TKCAAnimationBuilder.m */; };
+		8619A5EF18F1BA390085A475 /* TKCABasicAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5EE18F1BA390085A475 /* TKCABasicAnimationBuilder.m */; };
+		8619A5F018F1BA390085A475 /* TKCABasicAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5EE18F1BA390085A475 /* TKCABasicAnimationBuilder.m */; };
+		8619A5F318F1BA470085A475 /* TKCAGroupAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5F218F1BA470085A475 /* TKCAGroupAnimationBuilder.m */; };
+		8619A5F418F1BA470085A475 /* TKCAGroupAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5F218F1BA470085A475 /* TKCAGroupAnimationBuilder.m */; };
+		8619A5F718F1BA560085A475 /* TKCATransitionAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5F618F1BA560085A475 /* TKCATransitionAnimationBuilder.m */; };
+		8619A5F818F1BA560085A475 /* TKCATransitionAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5F618F1BA560085A475 /* TKCATransitionAnimationBuilder.m */; };
+		8619A5FB18F1BABD0085A475 /* TKCAKeyFrameAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5FA18F1BABD0085A475 /* TKCAKeyFrameAnimationBuilder.m */; };
+		8619A5FC18F1BABD0085A475 /* TKCAKeyFrameAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8619A5FA18F1BABD0085A475 /* TKCAKeyFrameAnimationBuilder.m */; };
+		862EBAB61921CCBA00BBFB40 /* TKPOPAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAB51921CCBA00BBFB40 /* TKPOPAnimationBuilder.m */; };
+		862EBAB91921CD1700BBFB40 /* TKPOPPropertyAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAB81921CD1700BBFB40 /* TKPOPPropertyAnimationBuilder.m */; };
+		862EBABA1921CD1700BBFB40 /* TKPOPPropertyAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAB81921CD1700BBFB40 /* TKPOPPropertyAnimationBuilder.m */; };
+		862EBABB1921CD2000BBFB40 /* TKPOPAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAB51921CCBA00BBFB40 /* TKPOPAnimationBuilder.m */; };
+		862EBABE1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBABD1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m */; };
+		862EBABF1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBABD1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m */; };
 		863BF50A18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
 		863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
 		863BF50E18CD086700EF0056 /* TKLabelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50D18CD086700EF0056 /* TKLabelConfig.m */; };
@@ -37,8 +43,8 @@
 		868D7D9B18CE0F320081F9F6 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */; };
 		868D7D9C18CE0F320081F9F6 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */; };
 		86AB2D4918BD748100038D69 /* TuneKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86AB2D4818BD748100038D69 /* TuneKit.xcassets */; };
-		86B9685818EF6C860048C5A3 /* UIViewAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B9685718EF6C860048C5A3 /* UIViewAnimator.m */; };
-		86B9685918EF6C860048C5A3 /* UIViewAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B9685718EF6C860048C5A3 /* UIViewAnimator.m */; };
+		86B9685818EF6C860048C5A3 /* TKUIViewAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B9685718EF6C860048C5A3 /* TKUIViewAnimator.m */; };
+		86B9685918EF6C860048C5A3 /* TKUIViewAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B9685718EF6C860048C5A3 /* TKUIViewAnimator.m */; };
 		86C7A42818C81FD200759782 /* TKSwitchConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7A42718C81FD200759782 /* TKSwitchConfig.m */; };
 		86C7A42918C81FD200759782 /* TKSwitchConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7A42718C81FD200759782 /* TKSwitchConfig.m */; };
 		86CB5AE418B7C1FF003039CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CB5AE318B7C1FF003039CC /* Foundation.framework */; };
@@ -97,20 +103,26 @@
 		2313EA3C34A54573AED6FB07 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		860D0E9E18CADC3B00633FA3 /* TKDialogScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDialogScrollView.h; sourceTree = "<group>"; };
 		860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDialogScrollView.m; sourceTree = "<group>"; };
-		8619A57F18EF6E980085A475 /* UIViewSpringAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewSpringAnimator.h; sourceTree = "<group>"; };
-		8619A58018EF6E980085A475 /* UIViewSpringAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewSpringAnimator.m; sourceTree = "<group>"; };
+		8619A57F18EF6E980085A475 /* TKUIViewSpringAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKUIViewSpringAnimator.h; sourceTree = "<group>"; };
+		8619A58018EF6E980085A475 /* TKUIViewSpringAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKUIViewSpringAnimator.m; sourceTree = "<group>"; };
 		8619A5C818F0FAEA0085A475 /* CAAnimation+TuneKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+TuneKit.h"; sourceTree = "<group>"; };
 		8619A5C918F0FAEA0085A475 /* CAAnimation+TuneKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+TuneKit.m"; sourceTree = "<group>"; };
-		8619A5D018F10DC70085A475 /* CAAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAnimator.h; sourceTree = "<group>"; };
-		8619A5D118F10DC70085A475 /* CAAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAAnimator.m; sourceTree = "<group>"; };
-		8619A5ED18F1BA390085A475 /* CABasicAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CABasicAnimator.h; sourceTree = "<group>"; };
-		8619A5EE18F1BA390085A475 /* CABasicAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CABasicAnimator.m; sourceTree = "<group>"; };
-		8619A5F118F1BA470085A475 /* CAGroupAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGroupAnimator.h; sourceTree = "<group>"; };
-		8619A5F218F1BA470085A475 /* CAGroupAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGroupAnimator.m; sourceTree = "<group>"; };
-		8619A5F518F1BA560085A475 /* CATransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATransitionAnimator.h; sourceTree = "<group>"; };
-		8619A5F618F1BA560085A475 /* CATransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATransitionAnimator.m; sourceTree = "<group>"; };
-		8619A5F918F1BABD0085A475 /* CAKeyFrameAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAKeyFrameAnimator.h; sourceTree = "<group>"; };
-		8619A5FA18F1BABD0085A475 /* CAKeyFrameAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAKeyFrameAnimator.m; sourceTree = "<group>"; };
+		8619A5D018F10DC70085A475 /* TKCAAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCAAnimationBuilder.h; sourceTree = "<group>"; };
+		8619A5D118F10DC70085A475 /* TKCAAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCAAnimationBuilder.m; sourceTree = "<group>"; };
+		8619A5ED18F1BA390085A475 /* TKCABasicAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCABasicAnimationBuilder.h; sourceTree = "<group>"; };
+		8619A5EE18F1BA390085A475 /* TKCABasicAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCABasicAnimationBuilder.m; sourceTree = "<group>"; };
+		8619A5F118F1BA470085A475 /* TKCAGroupAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCAGroupAnimationBuilder.h; sourceTree = "<group>"; };
+		8619A5F218F1BA470085A475 /* TKCAGroupAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCAGroupAnimationBuilder.m; sourceTree = "<group>"; };
+		8619A5F518F1BA560085A475 /* TKCATransitionAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCATransitionAnimationBuilder.h; sourceTree = "<group>"; };
+		8619A5F618F1BA560085A475 /* TKCATransitionAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCATransitionAnimationBuilder.m; sourceTree = "<group>"; };
+		8619A5F918F1BABD0085A475 /* TKCAKeyFrameAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCAKeyFrameAnimationBuilder.h; sourceTree = "<group>"; };
+		8619A5FA18F1BABD0085A475 /* TKCAKeyFrameAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCAKeyFrameAnimationBuilder.m; sourceTree = "<group>"; };
+		862EBAB41921CCBA00BBFB40 /* TKPOPAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKPOPAnimationBuilder.h; path = Extensions/Pop/TKPOPAnimationBuilder.h; sourceTree = SOURCE_ROOT; };
+		862EBAB51921CCBA00BBFB40 /* TKPOPAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKPOPAnimationBuilder.m; path = Extensions/Pop/TKPOPAnimationBuilder.m; sourceTree = SOURCE_ROOT; };
+		862EBAB71921CD1700BBFB40 /* TKPOPPropertyAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKPOPPropertyAnimationBuilder.h; path = Extensions/Pop/TKPOPPropertyAnimationBuilder.h; sourceTree = SOURCE_ROOT; };
+		862EBAB81921CD1700BBFB40 /* TKPOPPropertyAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKPOPPropertyAnimationBuilder.m; path = Extensions/Pop/TKPOPPropertyAnimationBuilder.m; sourceTree = SOURCE_ROOT; };
+		862EBABC1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKPOPSpringAnimationBuilder.h; path = Extensions/Pop/TKPOPSpringAnimationBuilder.h; sourceTree = SOURCE_ROOT; };
+		862EBABD1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKPOPSpringAnimationBuilder.m; path = Extensions/Pop/TKPOPSpringAnimationBuilder.m; sourceTree = SOURCE_ROOT; };
 		863BF50818CD044F00EF0056 /* TKRateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRateConfig.h; sourceTree = "<group>"; };
 		863BF50918CD044F00EF0056 /* TKRateConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRateConfig.m; sourceTree = "<group>"; };
 		863BF50C18CD086700EF0056 /* TKLabelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelConfig.h; sourceTree = "<group>"; };
@@ -124,8 +136,8 @@
 		868D7D9918CE0F320081F9F6 /* NSObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utils.h"; sourceTree = "<group>"; };
 		868D7D9A18CE0F320081F9F6 /* NSObject+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utils.m"; sourceTree = "<group>"; };
 		86AB2D4818BD748100038D69 /* TuneKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TuneKit.xcassets; sourceTree = "<group>"; };
-		86B9685618EF6C860048C5A3 /* UIViewAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAnimator.h; sourceTree = "<group>"; };
-		86B9685718EF6C860048C5A3 /* UIViewAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAnimator.m; sourceTree = "<group>"; };
+		86B9685618EF6C860048C5A3 /* TKUIViewAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKUIViewAnimator.h; sourceTree = "<group>"; };
+		86B9685718EF6C860048C5A3 /* TKUIViewAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKUIViewAnimator.m; sourceTree = "<group>"; };
 		86C7A42618C81FD200759782 /* TKSwitchConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSwitchConfig.h; sourceTree = "<group>"; };
 		86C7A42718C81FD200759782 /* TKSwitchConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSwitchConfig.m; sourceTree = "<group>"; };
 		86CB5AE018B7C1FF003039CC /* libTuneKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTuneKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +199,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		862EBAB11921C87800BBFB40 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				8619A57F18EF6E980085A475 /* TKUIViewSpringAnimator.h */,
+				8619A58018EF6E980085A475 /* TKUIViewSpringAnimator.m */,
+				86B9685618EF6C860048C5A3 /* TKUIViewAnimator.h */,
+				86B9685718EF6C860048C5A3 /* TKUIViewAnimator.m */,
+				8663044D18EA803F00AA5B8A /* UIView+TuneKit.h */,
+				8663044E18EA803F00AA5B8A /* UIView+TuneKit.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
+		862EBAB21921C88D00BBFB40 /* Core Animation */ = {
+			isa = PBXGroup;
+			children = (
+				8619A5C818F0FAEA0085A475 /* CAAnimation+TuneKit.h */,
+				8619A5C918F0FAEA0085A475 /* CAAnimation+TuneKit.m */,
+				8619A5D018F10DC70085A475 /* TKCAAnimationBuilder.h */,
+				8619A5D118F10DC70085A475 /* TKCAAnimationBuilder.m */,
+				8619A5ED18F1BA390085A475 /* TKCABasicAnimationBuilder.h */,
+				8619A5EE18F1BA390085A475 /* TKCABasicAnimationBuilder.m */,
+				8619A5F118F1BA470085A475 /* TKCAGroupAnimationBuilder.h */,
+				8619A5F218F1BA470085A475 /* TKCAGroupAnimationBuilder.m */,
+				8619A5F518F1BA560085A475 /* TKCATransitionAnimationBuilder.h */,
+				8619A5F618F1BA560085A475 /* TKCATransitionAnimationBuilder.m */,
+				8619A5F918F1BABD0085A475 /* TKCAKeyFrameAnimationBuilder.h */,
+				8619A5FA18F1BABD0085A475 /* TKCAKeyFrameAnimationBuilder.m */,
+			);
+			name = "Core Animation";
+			sourceTree = "<group>";
+		};
+		862EBAB31921CC5900BBFB40 /* Pop */ = {
+			isa = PBXGroup;
+			children = (
+				862EBAB41921CCBA00BBFB40 /* TKPOPAnimationBuilder.h */,
+				862EBAB51921CCBA00BBFB40 /* TKPOPAnimationBuilder.m */,
+				862EBAB71921CD1700BBFB40 /* TKPOPPropertyAnimationBuilder.h */,
+				862EBAB81921CD1700BBFB40 /* TKPOPPropertyAnimationBuilder.m */,
+				862EBABC1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.h */,
+				862EBABD1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m */,
+			);
+			name = Pop;
+			sourceTree = "<group>";
+		};
 		866303CC18E268A900AA5B8A /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,24 +274,9 @@
 		866303CD18E2707400AA5B8A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8619A57F18EF6E980085A475 /* UIViewSpringAnimator.h */,
-				8619A58018EF6E980085A475 /* UIViewSpringAnimator.m */,
-				86B9685618EF6C860048C5A3 /* UIViewAnimator.h */,
-				86B9685718EF6C860048C5A3 /* UIViewAnimator.m */,
-				8663044D18EA803F00AA5B8A /* UIView+TuneKit.h */,
-				8663044E18EA803F00AA5B8A /* UIView+TuneKit.m */,
-				8619A5C818F0FAEA0085A475 /* CAAnimation+TuneKit.h */,
-				8619A5C918F0FAEA0085A475 /* CAAnimation+TuneKit.m */,
-				8619A5D018F10DC70085A475 /* CAAnimator.h */,
-				8619A5D118F10DC70085A475 /* CAAnimator.m */,
-				8619A5ED18F1BA390085A475 /* CABasicAnimator.h */,
-				8619A5EE18F1BA390085A475 /* CABasicAnimator.m */,
-				8619A5F118F1BA470085A475 /* CAGroupAnimator.h */,
-				8619A5F218F1BA470085A475 /* CAGroupAnimator.m */,
-				8619A5F518F1BA560085A475 /* CATransitionAnimator.h */,
-				8619A5F618F1BA560085A475 /* CATransitionAnimator.m */,
-				8619A5F918F1BABD0085A475 /* CAKeyFrameAnimator.h */,
-				8619A5FA18F1BABD0085A475 /* CAKeyFrameAnimator.m */,
+				862EBAB31921CC5900BBFB40 /* Pop */,
+				862EBAB21921C88D00BBFB40 /* Core Animation */,
+				862EBAB11921C87800BBFB40 /* UIKit */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -459,29 +501,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				862EBAB61921CCBA00BBFB40 /* TKPOPAnimationBuilder.m in Sources */,
 				86F2834318B875C300CD971C /* TKColorPickerConfig.m in Sources */,
 				868D7D9B18CE0F320081F9F6 /* NSObject+Utils.m in Sources */,
-				8619A5FB18F1BABD0085A475 /* CAKeyFrameAnimator.m in Sources */,
+				8619A5FB18F1BABD0085A475 /* TKCAKeyFrameAnimationBuilder.m in Sources */,
 				8619A5CA18F0FAEA0085A475 /* CAAnimation+TuneKit.m in Sources */,
 				860D0EA018CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
 				86CB5AEB18B7C1FF003039CC /* TuneKit.m in Sources */,
-				8619A5EF18F1BA390085A475 /* CABasicAnimator.m in Sources */,
+				8619A5EF18F1BA390085A475 /* TKCABasicAnimationBuilder.m in Sources */,
 				86CB69A118B825D0003039CC /* TKButtonConfig.m in Sources */,
-				8619A5F718F1BA560085A475 /* CATransitionAnimator.m in Sources */,
+				8619A5F718F1BA560085A475 /* TKCATransitionAnimationBuilder.m in Sources */,
+				862EBABE1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m in Sources */,
 				8663044F18EA803F00AA5B8A /* UIView+TuneKit.m in Sources */,
 				86CB5B1218B7C7CE003039CC /* TKSliderConfig.m in Sources */,
-				86B9685818EF6C860048C5A3 /* UIViewAnimator.m in Sources */,
-				8619A58118EF6E980085A475 /* UIViewSpringAnimator.m in Sources */,
+				86B9685818EF6C860048C5A3 /* TKUIViewAnimator.m in Sources */,
+				8619A58118EF6E980085A475 /* TKUIViewSpringAnimator.m in Sources */,
 				86C7A42818C81FD200759782 /* TKSwitchConfig.m in Sources */,
 				86EA9EA518C3089F00FEABC8 /* TKNodeConfig.m in Sources */,
-				8619A5D218F10DC70085A475 /* CAAnimator.m in Sources */,
-				8619A5F318F1BA470085A475 /* CAGroupAnimator.m in Sources */,
+				8619A5D218F10DC70085A475 /* TKCAAnimationBuilder.m in Sources */,
+				8619A5F318F1BA470085A475 /* TKCAGroupAnimationBuilder.m in Sources */,
 				86CB69A818B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
 				863BF50A18CD044F00EF0056 /* TKRateConfig.m in Sources */,
 				86CB5B0E18B7C784003039CC /* TKConfig.m in Sources */,
 				866303E918E3D52B00AA5B8A /* TKSegmentedControlConfig.m in Sources */,
 				8663044618EA62DE00AA5B8A /* TKPickerViewConfig.m in Sources */,
 				86F2834718B9B21B00CD971C /* TKDialogViewController.m in Sources */,
+				862EBAB91921CD1700BBFB40 /* TKPOPPropertyAnimationBuilder.m in Sources */,
 				863BF50E18CD086700EF0056 /* TKLabelConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,21 +537,24 @@
 			files = (
 				86F2834418B875C300CD971C /* TKColorPickerConfig.m in Sources */,
 				868D7D9C18CE0F320081F9F6 /* NSObject+Utils.m in Sources */,
-				8619A5FC18F1BABD0085A475 /* CAKeyFrameAnimator.m in Sources */,
+				8619A5FC18F1BABD0085A475 /* TKCAKeyFrameAnimationBuilder.m in Sources */,
 				8619A5CB18F0FAEA0085A475 /* CAAnimation+TuneKit.m in Sources */,
 				860D0EA118CADC3B00633FA3 /* TKDialogScrollView.m in Sources */,
 				86CB5B0018B7C1FF003039CC /* TuneKitTests.m in Sources */,
-				8619A5F018F1BA390085A475 /* CABasicAnimator.m in Sources */,
+				8619A5F018F1BA390085A475 /* TKCABasicAnimationBuilder.m in Sources */,
 				86CB69A218B825D0003039CC /* TKButtonConfig.m in Sources */,
-				8619A5F818F1BA560085A475 /* CATransitionAnimator.m in Sources */,
+				8619A5F818F1BA560085A475 /* TKCATransitionAnimationBuilder.m in Sources */,
+				862EBABA1921CD1700BBFB40 /* TKPOPPropertyAnimationBuilder.m in Sources */,
+				862EBABF1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m in Sources */,
 				8663045018EA803F00AA5B8A /* UIView+TuneKit.m in Sources */,
 				86CB5B1318B7C7CE003039CC /* TKSliderConfig.m in Sources */,
-				86B9685918EF6C860048C5A3 /* UIViewAnimator.m in Sources */,
-				8619A58218EF6E980085A475 /* UIViewSpringAnimator.m in Sources */,
+				86B9685918EF6C860048C5A3 /* TKUIViewAnimator.m in Sources */,
+				8619A58218EF6E980085A475 /* TKUIViewSpringAnimator.m in Sources */,
 				86C7A42918C81FD200759782 /* TKSwitchConfig.m in Sources */,
 				86EA9EA618C3089F00FEABC8 /* TKNodeConfig.m in Sources */,
-				8619A5D318F10DC70085A475 /* CAAnimator.m in Sources */,
-				8619A5F418F1BA470085A475 /* CAGroupAnimator.m in Sources */,
+				8619A5D318F10DC70085A475 /* TKCAAnimationBuilder.m in Sources */,
+				862EBABB1921CD2000BBFB40 /* TKPOPAnimationBuilder.m in Sources */,
+				8619A5F418F1BA470085A475 /* TKCAGroupAnimationBuilder.m in Sources */,
 				86CB69A918B86473003039CC /* TKControlPanelTableViewController.m in Sources */,
 				863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */,
 				86CB5B0F18B7C784003039CC /* TKConfig.m in Sources */,

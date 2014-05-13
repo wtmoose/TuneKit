@@ -20,4 +20,10 @@ Pod::Spec.new do |s|
   s.dependency 'TLIndexPathTools'
   s.dependency 'OBSlider'
   s.requires_arc = true
+  
+  s.subspec "Pop" do |ss|
+    ss.dependency 'pop', '~> 1.0'
+    ss.source_files = "Extensions/Pop"
+  end
+
 end

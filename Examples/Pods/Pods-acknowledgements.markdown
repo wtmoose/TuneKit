@@ -418,7 +418,7 @@ table tr:nth-child(even),table td:nth-child(even)
 </head>
 <body class="normal">
   <div id="wrapper">
-      <h1 id="reveallicenseagreement">REVEAL LICENSE AGREEMENT</h1>
+      <h1 id="reveallicenseagreementv1.1">REVEAL LICENSE AGREEMENT v1.1</h1>
 
 <h2 id="noticetouser:">NOTICE TO USER:</h2>
 
@@ -436,11 +436,11 @@ table tr:nth-child(even),table td:nth-child(even)
 
 <h2 id="licensegrant">2. LICENSE GRANT</h2>
 
-<p>The Company may, at its sole discretion, grant you a Trial License, a Personal License, an Educational License or a Commercial Seat License.</p>
+<p>The Company may, at its sole discretion, grant you a Trial License, a Personal License, an Educational License, a Commercial Seat License, a Site License or an Enterprise License.</p>
 
-<p>If you have not purchased or otherwise rightfully obtained a Personal License, an Educational License or a Commercial Seat License for the Reveal Software, the Trial License Terms (2.1) are applicable to your use of the Reveal Software. The Trial License Terms are also applicable to any usage of the Reveal Software by you that is not covered under any other licenses you may have.</p>
+<p>If you have not purchased or otherwise rightfully obtained a Personal License, an Educational License, a Commercial Seat License, a Site License or an Enterprise License for the Reveal Software, the Trial License Terms (2.1) are applicable to your use of the Reveal Software. The Trial License Terms are also applicable to any usage of the Reveal Software by you that is not covered under any other licenses you may have.</p>
 
-<p>The Personal License Terms (2.2) apply if you have a Personal License. The Commercial Seat License Terms (2.3) apply if you have a Commercial Seat License. The Educational License Terms (2.4) apply if you have an Educational License.</p>
+<p>The Personal License Terms (2.2) apply if you have a Personal License. The Commercial Seat License Terms (2.3) apply if you have a Commercial Seat License. The Educational License Terms (2.4) apply if you have an Educational License. The Site License Terms (2.5) apply if you have a Site License. The Enterprise License Terms (2.6) apply if you have an Enterprise License.</p>
 
 <p>The General Terms (3) apply in all cases.</p>
 
@@ -448,7 +448,7 @@ table tr:nth-child(even),table td:nth-child(even)
 
 <p>The Company grants you a non-exclusive license to use the Software for time-limited evaluation purposes, only in accordance with the terms and conditions set forth herein. The Software may be used for a period of 30 calendar days from the first time you run the Software. Upon lapse of such trial period all of or part of the functionality of the Software will be disabled automatically.</p>
 
-<p>If you wish to use the Software after the trial period, you must purchase a Personal License, a Commercial Seat License or an Educational License. The Company may extend to you an expiring license key, in which event such a license key will be considered a means to extend the trial period under the Trial License Terms.</p>
+<p>If you wish to use the Software after the trial period, you must purchase a Personal License, a Commercial Seat License, an Educational License, a Site License or an Enterprise License. The Company may extend to you an expiring license key, in which event such a license key will be considered a means to extend the trial period under the Trial License Terms.</p>
 
 <h3 id="personallicenseterms">2.2 PERSONAL LICENSE TERMS</h3>
 
@@ -469,6 +469,26 @@ table tr:nth-child(even),table td:nth-child(even)
 <p>The Company grants you a non-exclusive license to use the Software, only in accordance with the terms and conditions set forth herein. This License grants you the right to activate and use the Software on no more than 2 computers primarily used by you.</p>
 
 <p>Educational Licenses are available only to individual students and teaching staff. Use of the Software under this license must be for non-commercial purposes only, including education and research.</p>
+
+<h3 id="sitelicenseterms">2.5 SITE LICENSE TERMS</h3>
+
+<p>The Company grants you a non-exclusive license to use the Software, only in accordance with the terms and conditions set forth herein. This License is only available to companies, commercial institutions, government agencies and business entities.</p>
+
+<p>This License does not allow the Software to be activated and used on computers that are not either a) owned by you, b) owned by any fully owned subsidiary of yours, c) owned by or operated primarily by your employees or employees of any fully owned subsidiary of yours.</p>
+
+<p>Unless otherwise specified, any Site License you acquire from the Company is valid only for use at the business locations listed on your sales invoice.</p>
+
+<p>This License does not allow the use of the Software other than for business purposes of your company. If entering into a Site License you personally warrant that you have full legal authority to enter into this agreement on behalf of your employer.</p>
+
+<h3 id="enterpriselicenseterms">2.6 ENTERPRISE LICENSE TERMS</h3>
+
+<p>The Company grants you a non-exclusive license to use the Software, only in accordance with the terms and conditions set forth herein. This License is only available to companies, commercial institutions, government agencies and business entities.</p>
+
+<p>This License does not allow the Software to be activated and used on computers that are not either a) owned by you, b) owned by any fully owned subsidiary of yours, c) owned by or operated primarily by your employees or employees of any fully owned subsidiary of yours.</p>
+
+<p>This License allows global use of the Software by all employees or employees of any fully owned subsidiary of the company, commercial institution, government agency or business entity listed in your sales invoice.</p>
+
+<p>This License does not allow the use of the Software other than for business purposes of your company. If entering into an Enterprise License you personally warrant that you have full legal authority to enter into this agreement on behalf of your employer.</p>
 
 <h2 id="generalterms">3. GENERAL TERMS</h2>
 
@@ -599,4 +619,38 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+## pop
+
+BSD License
+
+For Pop software
+
+Copyright (c) 2014, Facebook, Inc. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+ * Neither the name Facebook nor the names of its contributors may be used to
+   endorse or promote products derived from this software without specific
+   prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 Generated by CocoaPods - http://cocoapods.org

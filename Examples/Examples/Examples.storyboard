@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="c0a-cp-qWP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="c0a-cp-qWP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -85,6 +85,7 @@
                         <segue destination="qCg-TZ-LlT" kind="replace" identifier="MainDetail" splitViewControllerTargetIndex="1" id="8So-pk-goR"/>
                         <segue destination="YMg-Vy-gc7" kind="replace" identifier="Basics" splitViewControllerTargetIndex="1" id="VQx-5T-h1N"/>
                         <segue destination="Irc-Et-Quj" kind="replace" identifier="Animations" splitViewControllerTargetIndex="1" id="nHo-48-Nzr"/>
+                        <segue destination="rqf-Sb-ddT" kind="replace" identifier="Pop" splitViewControllerTargetIndex="1" id="BXG-Qb-fkF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRd-GC-Fik" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -220,6 +221,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2z-1e-Jfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="875" y="-244"/>
+        </scene>
+        <!--Pop Animation View Controller-->
+        <scene sceneID="VWh-bS-zmh">
+            <objects>
+                <viewController id="rqf-Sb-ddT" customClass="PopAnimationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U9x-ty-IJ3"/>
+                        <viewControllerLayoutGuide type="bottom" id="8PB-9v-Tk7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UKX-FR-PeL">
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBO-xd-Pyd">
+                                <rect key="frame" x="402" y="50" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.84189138100000005" green="0.84189138100000005" blue="0.84189138100000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="fwj-Ox-s3J"/>
+                                    <constraint firstAttribute="width" constant="200" id="yIR-Au-K5j"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="XBO-xd-Pyd" secondAttribute="centerY" constant="234" id="3SH-0f-NYd"/>
+                            <constraint firstAttribute="centerX" secondItem="XBO-xd-Pyd" secondAttribute="centerX" constant="-150.5" id="tcl-WV-IVE"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <connections>
+                        <outlet property="firstView" destination="XBO-xd-Pyd" id="4ny-yv-yxa"/>
+                        <outlet property="verticalAlignment" destination="3SH-0f-NYd" id="BoM-gY-jIQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5jc-8N-T3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="875" y="718"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

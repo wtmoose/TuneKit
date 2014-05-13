@@ -12,8 +12,8 @@
 
 @interface AnimationsViewController ()
 @property (nonatomic) CGFloat scale;
-@property (strong, nonatomic) UIViewAnimator *scaleAnimator;
-@property (strong, nonatomic) UIViewSpringAnimator *returnAnimator;
+@property (strong, nonatomic) TKUIViewAnimator *scaleAnimator;
+@property (strong, nonatomic) TKUIViewSpringAnimator *returnAnimator;
 @end
 
 @implementation AnimationsViewController
@@ -26,8 +26,8 @@
     
     self.firstView.backgroundColor = [UIColor colorWithHexRGB:0x625592];
 
-    self.scaleAnimator = [UIViewAnimator animator];
-    self.returnAnimator = [UIViewSpringAnimator animator];
+    self.scaleAnimator = [TKUIViewAnimator animator];
+    self.returnAnimator = [TKUIViewSpringAnimator animator];
     
     self.scale = .75;
     
@@ -45,24 +45,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     [TuneKit add:^{
-
         [TuneKit addButton:@"Animate" target:self selector:@selector(performAnimation)];
-
     } inPath:[TuneKit pathForViewController:self] sectionName:nil];
-
     [TuneKit add:^{
-
         [TuneKit addSlider:@"Scale" target:self keyPath:@"scale" min:.5 max:1.25];
         [self.scaleAnimator addAllControls];
-
     } inPath:[TuneKit pathForViewController:self] sectionName:@"Scale Animation (Basic)"];
-
     [TuneKit add:^{
-
         [self.returnAnimator addAllControls];
-
     } inPath:[TuneKit pathForViewController:self] sectionName:@"Return Animation (Spring)"];
 }
 

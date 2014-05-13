@@ -21,12 +21,17 @@
                                                                cellIdentifier:nil
                                                                          data:@"Demonstrates some basic uses for TuneKit."];
 
-    TLIndexPathItem *dynamicsItem = [[TLIndexPathItem alloc] initWithIdentifier:@"Animations"
+    TLIndexPathItem *animationsItem = [[TLIndexPathItem alloc] initWithIdentifier:@"Animations"
                                                                   sectionName:nil
                                                                cellIdentifier:nil
                                                                          data:@"Show how to easily tune animations using the various TuneKit animation convenience classes, such as UIViewSpringAnimator."];
 
-    self.indexPathController.items = @[basicsItem, dynamicsItem];
+    TLIndexPathItem *popItem = [[TLIndexPathItem alloc] initWithIdentifier:@"Pop"
+                                                                  sectionName:nil
+                                                               cellIdentifier:nil
+                                                                         data:@"Integration with Facebook's Pop animation framework (experimental)."];
+
+    self.indexPathController.items = @[basicsItem, animationsItem, popItem];
 }
 
 - (void)viewWillAppear:(BOOL)animated

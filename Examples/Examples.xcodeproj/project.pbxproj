@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		862EBAC31921FE3E00BBFB40 /* PopAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAC21921FE3E00BBFB40 /* PopAnimationViewController.m */; };
 		867497B518AB2CB6004E0C51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867497B418AB2CB6004E0C51 /* Foundation.framework */; };
 		867497B718AB2CB6004E0C51 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867497B618AB2CB6004E0C51 /* CoreGraphics.framework */; };
 		867497B918AB2CB6004E0C51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867497B818AB2CB6004E0C51 /* UIKit.framework */; };
@@ -26,6 +27,8 @@
 /* Begin PBXFileReference section */
 		2CF539812BC24FE9AD9F38F8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		31B25B58634241C686E25A3D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		862EBAC11921FE3E00BBFB40 /* PopAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopAnimationViewController.h; sourceTree = "<group>"; };
+		862EBAC21921FE3E00BBFB40 /* PopAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopAnimationViewController.m; sourceTree = "<group>"; };
 		867497B118AB2CB6004E0C51 /* Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		867497B418AB2CB6004E0C51 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		867497B618AB2CB6004E0C51 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		862EBAC01921FE2000BBFB40 /* Pop */ = {
+			isa = PBXGroup;
+			children = (
+				862EBAC11921FE3E00BBFB40 /* PopAnimationViewController.h */,
+				862EBAC21921FE3E00BBFB40 /* PopAnimationViewController.m */,
+			);
+			name = Pop;
+			sourceTree = "<group>";
+		};
 		867497A818AB2CB6004E0C51 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +109,7 @@
 		867497BA18AB2CB6004E0C51 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				862EBAC01921FE2000BBFB40 /* Pop */,
 				86EA9EE818C3AA9100FEABC8 /* Animations */,
 				86AB2D4418BD53E200038D69 /* Basics */,
 				867497C318AB2CB6004E0C51 /* AppDelegate.h */,
@@ -252,6 +265,7 @@
 			files = (
 				86EA9EEB18C3AC9000FEABC8 /* AnimationsViewController.m in Sources */,
 				867497CB18AB2CB6004E0C51 /* SelectorTableViewController.m in Sources */,
+				862EBAC31921FE3E00BBFB40 /* PopAnimationViewController.m in Sources */,
 				867497ED18AB30B9004E0C51 /* UIColor+Hex.m in Sources */,
 				86AB2D4718BD548100038D69 /* BasicsViewController.m in Sources */,
 				867497C518AB2CB6004E0C51 /* AppDelegate.m in Sources */,

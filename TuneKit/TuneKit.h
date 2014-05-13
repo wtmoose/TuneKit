@@ -22,13 +22,13 @@
 #import "TKRateConfig.h"
 // extensions
 #import "UIView+TuneKit.h"
-#import "UIViewAnimator.h"
-#import "UIViewSpringAnimator.h"
-#import "CAAnimator.h"
-#import "CABasicAnimator.h"
-#import "CAGroupAnimator.h"
-#import "CATransitionAnimator.h"
-#import "CAKeyFrameAnimator.h"
+#import "TKUIViewAnimator.h"
+#import "TKUIViewSpringAnimator.h"
+#import "TKCAAnimationBuilder.h"
+#import "TKCABasicAnimationBuilder.h"
+#import "TKCAGroupAnimationBuilder.h"
+#import "TKCATransitionAnimationBuilder.h"
+#import "TKCAKeyFrameAnimationBuilder.h"
 
 /**
  */

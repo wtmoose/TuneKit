@@ -1,9 +1,15 @@
 PODS:
   - OBSlider (1.1.0)
-  - Reveal-iOS-SDK (1.0.3)
-  - TLIndexPathTools (HEAD based on 0.2.1)
+  - pop (1.0.4)
+  - Reveal-iOS-SDK (1.0.4)
+  - TLIndexPathTools (HEAD based on 0.3.0)
   - TuneKit (0.0.1):
     - OBSlider
+    - TLIndexPathTools
+    - TuneKit/Pop
+  - TuneKit/Pop (0.0.1):
+    - OBSlider
+    - pop (~> 1.0)
     - TLIndexPathTools
 
 DEPENDENCIES:
@@ -17,8 +23,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   OBSlider: 1eae1ad6fea0af687f7dde0366003044c4ba3d27
-  Reveal-iOS-SDK: 8e6a6f22a9520437e4a180fe1d4e99f43b75430e
-  TLIndexPathTools: 396e76177d4e8343d693fa5049aae1be58cefb95
-  TuneKit: bbaac6e3b722fd86c020d70b1c3796bedad35de3
+  pop: 63a4f5e8942077fed2efe195036ecc572c71c48c
+  Reveal-iOS-SDK: 9de027a2cb0812e9ae220d9047161f3a0ac2db74
+  TLIndexPathTools: 1c4158d341c4bf4375e86a6a579955de84cbf34e
+  TuneKit: efd53a270fc35a5ddabbdf99835b8c8d82d16426
 
-COCOAPODS: 0.31.1
+COCOAPODS: 0.32.1

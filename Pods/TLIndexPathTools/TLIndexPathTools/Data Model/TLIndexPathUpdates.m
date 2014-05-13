@@ -37,6 +37,7 @@
         
         _oldDataModel = oldDataModel;
         _updatedDataModel = updatedDataModel;
+        _updateModifiedItems = YES;
         
         NSMutableArray *insertedSectionNames = [[NSMutableArray alloc] init];
         NSMutableArray *deletedSectionNames = [[NSMutableArray alloc] init];
@@ -151,7 +152,7 @@
         //duplicate animations being applied to cells. This doesn't always look
         //nice, but it is better than a crash.
         
-        if (self.modifiedItems.count) {
+        if (self.modifiedItems.count && self.updateModifiedItems) {
             NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
             for (id item in self.modifiedItems) {
                 NSIndexPath *indexPath = [self.updatedDataModel indexPathForItem:item];
@@ -309,17 +310,27 @@
             [collectionView deleteItemsAtIndexPaths:indexPaths];
         }
         
-        if (self.movedItems.count) {
-            for (id item in self.movedItems) {
-                NSIndexPath *oldIndexPath = [self.oldDataModel indexPathForItem:item];
-                NSIndexPath *updatedIndexPath = [self.updatedDataModel indexPathForItem:item];
-                [collectionView moveItemAtIndexPath:oldIndexPath toIndexPath:updatedIndexPath];
-            }
+        for (id item in self.movedItems) {
+            NSIndexPath *oldIndexPath = [self.oldDataModel indexPathForItem:item];
+            NSIndexPath *updatedIndexPath = [self.updatedDataModel indexPathForItem:item];
+            [collectionView moveItemAtIndexPath:oldIndexPath toIndexPath:updatedIndexPath];
         }
-        
-        // TODO update modified items
-    
+
     } completion:^(BOOL finished) {
+
+        // Doing this in the batch updates can result in poor looking animation when
+        // an item is moving and reloading at the same time. The resulting animation
+        // can show to versions of the cell, one version remains in the original spot
+        // and fades out, while the other version slides to the new location.
+        if (self.modifiedItems.count && self.updateModifiedItems) {
+            NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
+            for (id item in self.modifiedItems) {
+                NSIndexPath *indexPath = [self.updatedDataModel indexPathForItem:item];
+                [indexPaths addObject:indexPath];
+            }
+            [collectionView reloadItemsAtIndexPaths:indexPaths];
+        }
+
         if (completion) {
             completion(finished);
         }

@@ -20,7 +20,7 @@
 @property (nonatomic) CGFloat shadowOpacity;
 @property (nonatomic) CGFloat shadowYOffset;
 @property (nonatomic) CGFloat decelerationRate;
-@property (strong, nonatomic) UIViewAnimator *hiddenAnimator;
+@property (strong, nonatomic) TKUIViewAnimator *hiddenAnimator;
 @end
 
 @implementation TKDialogViewController
@@ -44,7 +44,7 @@
     self.shadowYOffset = 4.f;
     self.decelerationRate = 0.6;
 
-    self.hiddenAnimator = [UIViewAnimator animator];
+    self.hiddenAnimator = [TKUIViewAnimator animator];
     self.hiddenAnimator.duration = 0.25;
     
 //    [TuneKit add:^{
@@ -147,7 +147,7 @@
 - (void)setHidden:(BOOL)hidden afterDelay:(NSTimeInterval)delay
 {
     if (_hidden != hidden) {
-        UIViewAnimator *animator = [self.hiddenAnimator copy];
+        TKUIViewAnimator *animator = [self.hiddenAnimator copy];
         animator.delay = delay;
         [animator animateWithAnimations:^{
             self.hidden = hidden;
