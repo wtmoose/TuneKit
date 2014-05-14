@@ -45,7 +45,7 @@
     animation.timingFunction = [CAMediaTimingFunction functionWithName:self.mediaTimingFunctionName];
 }
 
-#pragma mark - Adding default TuneKit controls
+#pragma mark - Adding TuneKit controls
 
 - (NSArray *)addAllControls
 {

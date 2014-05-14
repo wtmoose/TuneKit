@@ -4,12 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AHEasing.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-OBSlider.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-TLIndexPathTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-TLLayoutTransitioning.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>10DB1A8A125448099F00AD27</key>
+		<key>1014F7DA3C42421895527404</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2A13407197D243E5B7156FE4</key>
+		<key>266C3E306AA744348B4AEF7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7FEEDC4CCC6E48E5BB467B57</key>
+		<key>2C4C2CAD21EE41E0B17E5CC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>909F39514785419DA7AC9B16</key>
+		<key>A8735B2A92D54273BE6CB1AC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C8EA098A59624030958DEF76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D9F05AFA85474A29B1663792</key>
 		<dict>
 			<key>primary</key>
 			<true/>

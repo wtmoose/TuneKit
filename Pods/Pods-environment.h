@@ -6,6 +6,12 @@
 // project.
 
 
+// AHEasing
+#define COCOAPODS_POD_AVAILABLE_AHEasing
+#define COCOAPODS_VERSION_MAJOR_AHEasing 1
+#define COCOAPODS_VERSION_MINOR_AHEasing 2
+#define COCOAPODS_VERSION_PATCH_AHEasing 0
+
 // OBSlider
 #define COCOAPODS_POD_AVAILABLE_OBSlider
 #define COCOAPODS_VERSION_MAJOR_OBSlider 1
@@ -17,6 +23,12 @@
 #define COCOAPODS_VERSION_MAJOR_TLIndexPathTools 0
 #define COCOAPODS_VERSION_MINOR_TLIndexPathTools 3
 #define COCOAPODS_VERSION_PATCH_TLIndexPathTools 0
+
+// TLLayoutTransitioning
+#define COCOAPODS_POD_AVAILABLE_TLLayoutTransitioning
+#define COCOAPODS_VERSION_MAJOR_TLLayoutTransitioning 1
+#define COCOAPODS_VERSION_MINOR_TLLayoutTransitioning 0
+#define COCOAPODS_VERSION_PATCH_TLLayoutTransitioning 0
 
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop

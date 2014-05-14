@@ -38,6 +38,10 @@
 		862EBAEC1922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAE81922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.m */; };
 		862EBAED1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAEA1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m */; };
 		862EBAEE1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBAEA1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m */; };
+		862EBB081923198B00BBFB40 /* TKPOPBasicAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBB071923198B00BBFB40 /* TKPOPBasicAnimationBuilder.m */; };
+		862EBB091923198B00BBFB40 /* TKPOPBasicAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBB071923198B00BBFB40 /* TKPOPBasicAnimationBuilder.m */; };
+		862EBB0C192319DF00BBFB40 /* TKPOPDecayAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBB0B192319DF00BBFB40 /* TKPOPDecayAnimationBuilder.m */; };
+		862EBB0D192319DF00BBFB40 /* TKPOPDecayAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 862EBB0B192319DF00BBFB40 /* TKPOPDecayAnimationBuilder.m */; };
 		863BF50A18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
 		863BF50B18CD044F00EF0056 /* TKRateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50918CD044F00EF0056 /* TKRateConfig.m */; };
 		863BF50E18CD086700EF0056 /* TKLabelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BF50D18CD086700EF0056 /* TKLabelConfig.m */; };
@@ -139,6 +143,10 @@
 		862EBAE81922A9B600BBFB40 /* CAKeyframeAnimation+TKAHEasing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CAKeyframeAnimation+TKAHEasing.m"; path = "Extensions/AHEasing/CAKeyframeAnimation+TKAHEasing.m"; sourceTree = SOURCE_ROOT; };
 		862EBAE91922A9B600BBFB40 /* TKAHEasingAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKAHEasingAnimationBuilder.h; path = Extensions/AHEasing/TKAHEasingAnimationBuilder.h; sourceTree = SOURCE_ROOT; };
 		862EBAEA1922A9B600BBFB40 /* TKAHEasingAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKAHEasingAnimationBuilder.m; path = Extensions/AHEasing/TKAHEasingAnimationBuilder.m; sourceTree = SOURCE_ROOT; };
+		862EBB061923198B00BBFB40 /* TKPOPBasicAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPOPBasicAnimationBuilder.h; sourceTree = "<group>"; };
+		862EBB071923198B00BBFB40 /* TKPOPBasicAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPOPBasicAnimationBuilder.m; sourceTree = "<group>"; };
+		862EBB0A192319DF00BBFB40 /* TKPOPDecayAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPOPDecayAnimationBuilder.h; sourceTree = "<group>"; };
+		862EBB0B192319DF00BBFB40 /* TKPOPDecayAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPOPDecayAnimationBuilder.m; sourceTree = "<group>"; };
 		863BF50818CD044F00EF0056 /* TKRateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRateConfig.h; sourceTree = "<group>"; };
 		863BF50918CD044F00EF0056 /* TKRateConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRateConfig.m; sourceTree = "<group>"; };
 		863BF50C18CD086700EF0056 /* TKLabelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelConfig.h; sourceTree = "<group>"; };
@@ -256,6 +264,10 @@
 				862EBAB81921CD1700BBFB40 /* TKPOPPropertyAnimationBuilder.m */,
 				862EBABC1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.h */,
 				862EBABD1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m */,
+				862EBB061923198B00BBFB40 /* TKPOPBasicAnimationBuilder.h */,
+				862EBB071923198B00BBFB40 /* TKPOPBasicAnimationBuilder.m */,
+				862EBB0A192319DF00BBFB40 /* TKPOPDecayAnimationBuilder.h */,
+				862EBB0B192319DF00BBFB40 /* TKPOPDecayAnimationBuilder.m */,
 			);
 			name = Pop;
 			sourceTree = "<group>";
@@ -555,6 +567,8 @@
 				862EBABE1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m in Sources */,
 				8663044F18EA803F00AA5B8A /* UIView+TuneKit.m in Sources */,
 				86CB5B1218B7C7CE003039CC /* TKSliderConfig.m in Sources */,
+				862EBB081923198B00BBFB40 /* TKPOPBasicAnimationBuilder.m in Sources */,
+				862EBB0C192319DF00BBFB40 /* TKPOPDecayAnimationBuilder.m in Sources */,
 				862EBADD192286D900BBFB40 /* UICollectionView+TKTLLayoutTransitioning.m in Sources */,
 				86B9685818EF6C860048C5A3 /* TKUIViewAnimator.m in Sources */,
 				8619A58118EF6E980085A475 /* TKUIViewSpringAnimator.m in Sources */,
@@ -593,6 +607,8 @@
 				862EBABF1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m in Sources */,
 				8663045018EA803F00AA5B8A /* UIView+TuneKit.m in Sources */,
 				86CB5B1318B7C7CE003039CC /* TKSliderConfig.m in Sources */,
+				862EBB091923198B00BBFB40 /* TKPOPBasicAnimationBuilder.m in Sources */,
+				862EBB0D192319DF00BBFB40 /* TKPOPDecayAnimationBuilder.m in Sources */,
 				862EBADE192286D900BBFB40 /* UICollectionView+TKTLLayoutTransitioning.m in Sources */,
 				86B9685918EF6C860048C5A3 /* TKUIViewAnimator.m in Sources */,
 				8619A58218EF6E980085A475 /* TKUIViewSpringAnimator.m in Sources */,

@@ -22,7 +22,7 @@
 - (CAKeyframeAnimation *)animationWithKeyPath:(NSString *)keyPath fromPoint:(CGPoint)fromPoint toPoint:(CGPoint)toPoint;
 - (CAKeyframeAnimation *)animationWithKeyPath:(NSString *)keyPath fromSize:(CGSize)fromSize toSize:(CGSize)toSize;
 
-#pragma mark - Adding default TuneKit controls
+#pragma mark - Adding TuneKit controls
 
 - (TKPickerViewConfig *)addEasingFunctionNameControl;
 - (TKSliderConfig *)addNumberOfKeyframesControl;

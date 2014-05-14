@@ -17,7 +17,7 @@
 @property (nonatomic) CGFloat damping;
 @property (nonatomic) CGFloat initialVelocity;
 
-#pragma mark - Adding default TuneKit controls
+#pragma mark - Adding TuneKit controls
 
 - (TKSliderConfig *)addDampingControl;
 - (TKSliderConfig *)addInitialVelocityControl;

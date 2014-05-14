@@ -37,7 +37,6 @@
         
         _oldDataModel = oldDataModel;
         _updatedDataModel = updatedDataModel;
-        _updateModifiedItems = YES;
         
         NSMutableArray *insertedSectionNames = [[NSMutableArray alloc] init];
         NSMutableArray *deletedSectionNames = [[NSMutableArray alloc] init];
@@ -152,7 +151,7 @@
         //duplicate animations being applied to cells. This doesn't always look
         //nice, but it is better than a crash.
         
-        if (self.modifiedItems.count && self.updateModifiedItems) {
+        if (self.modifiedItems.count) {
             NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
             for (id item in self.modifiedItems) {
                 NSIndexPath *indexPath = [self.updatedDataModel indexPathForItem:item];
@@ -322,7 +321,7 @@
         // an item is moving and reloading at the same time. The resulting animation
         // can show to versions of the cell, one version remains in the original spot
         // and fades out, while the other version slides to the new location.
-        if (self.modifiedItems.count && self.updateModifiedItems) {
+        if (self.modifiedItems.count) {
             NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
             for (id item in self.modifiedItems) {
                 NSIndexPath *indexPath = [self.updatedDataModel indexPathForItem:item];

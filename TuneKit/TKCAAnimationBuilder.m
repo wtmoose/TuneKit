@@ -17,7 +17,7 @@
     return nil; // TODO raise exception?
 }
 
-#pragma mark - Adding default TuneKit controls
+#pragma mark - Adding TuneKit controls
 
 - (NSArray *)addAllControls
 {

@@ -29,7 +29,7 @@
 - (void)animateWithAnimations:(void(^)(void))animations
                withCompletion:(void(^)(BOOL finished))completion;
 
-#pragma mark - Adding default TuneKit controls
+#pragma mark - Adding TuneKit controls
 
 - (NSArray *)addAllControls;
 

@@ -43,7 +43,7 @@
                      completion:completion];
 }
 
-#pragma mark - Adding default TuneKit controls
+#pragma mark - Adding TuneKit controls
 
 - (NSArray *)addAllControls
 {

@@ -1,16 +1,23 @@
 PODS:
-  - OBSlider (HEAD based on 1.1.0)
+  - AHEasing (1.2)
+  - OBSlider (1.1.0)
   - pop (1.0.4)
-  - TLIndexPathTools (HEAD based on 0.3.0)
+  - TLIndexPathTools (0.3.0)
+  - TLLayoutTransitioning (1.0.0):
+    - AHEasing
 
 DEPENDENCIES:
-  - OBSlider (HEAD)
+  - AHEasing (~> 1.1)
+  - OBSlider (~> 1.1.0)
   - pop (~> 1.0)
-  - TLIndexPathTools (HEAD)
+  - TLIndexPathTools (~> 0.3.0)
+  - TLLayoutTransitioning (~> 1.0.0)
 
 SPEC CHECKSUMS:
+  AHEasing: 539ed2ec2d50bf14e0ad66789b4e5a5b048aff8b
   OBSlider: 1eae1ad6fea0af687f7dde0366003044c4ba3d27
   pop: 63a4f5e8942077fed2efe195036ecc572c71c48c
   TLIndexPathTools: 1c4158d341c4bf4375e86a6a579955de84cbf34e
+  TLLayoutTransitioning: 925d8fbcc9964eea933e93600067f759cb823780
 
 COCOAPODS: 0.32.1

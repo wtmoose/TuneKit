@@ -21,8 +21,11 @@
 - (POPSpringAnimation *)animation;
 - (POPSpringAnimation *)animationWithPropertyNamed:(NSString *)name;
 
-#pragma mark - Adding default TuneKit controls
+#pragma mark - Adding TuneKit controls
 
+/**
+ Adds delay, bounciness and speed only
+ */
 - (NSArray *)addBasicControls;
 
 - (TKSliderConfig *)addSpringBounciness;
