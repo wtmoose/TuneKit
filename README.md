@@ -2,6 +2,8 @@
 
 TuneKit lets you easily create custom control panels to modify the look and feel of your iOS app in real time. Tune animations, colors, etc. and get instant feedback.
 
+The current state of this project is very experimental. _APIs may change drastically_. Check back later for a more stable version.
+
 ##Overview
 
 First, enable TuneKit, for example in your app's delegate:
