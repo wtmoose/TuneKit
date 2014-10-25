@@ -380,8 +380,17 @@ NSString *kTuneKitNavigationSectionName = @"kTuneKitNavigationSectionName";
 {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(dequeAddRemoveConfigs) object:nil];
     for (NSString *path in [self.addRemoveConfigQueue allKeys]) {
-        NSArray *items = self.addRemoveConfigQueue[path];
-        TLIndexPathDataModel *dataModel = [[TLIndexPathDataModel alloc] initWithItems:items];
+        NSMutableSet *identifiers = [NSMutableSet set];
+        NSMutableOrderedSet *items = [NSMutableOrderedSet orderedSetWithArray:self.addRemoveConfigQueue[path]];
+        for (TLIndexPathItem *item in [items array]) {
+            if ([identifiers containsObject:item.identifier]) {
+                // remove duplicates that can accumulate with navigation nodes
+                [items removeObject:item];
+            } else {
+                [identifiers addObject:item.identifier];
+            }
+        }
+        TLIndexPathDataModel *dataModel = [[TLIndexPathDataModel alloc] initWithItems:[items array]];
         if ([items count]) {
             [self.dataModelsByPath setObject:dataModel forKey:path];
             [self notifyPathChanged:path];
