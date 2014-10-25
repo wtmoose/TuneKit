@@ -42,7 +42,7 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     [self installToolbar];
 
     if (self.defaultGroupIndex == -1) {
@@ -67,6 +67,15 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(isTunedChanged:)
                                                  name:kTKConfigTunedChanged object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    // iOS8 workaround
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
 - (void)installToolbar
@@ -223,6 +232,13 @@ static  NSString *kTKDefaultGroupNumberKey = @"kTKDefaultGroupNumberKey";
 {
     [self updateDefaultGroup];
     [super controller:controller didUpdateDataModel:updates];
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return NO;
 }
 
 #pragma mark - Cell configuration

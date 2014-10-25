@@ -27,6 +27,15 @@
 
 #pragma mark - View controller lifecycle
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    // iOS8 workaround
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -165,6 +174,13 @@
 {
     _decelerationRate = decelerationRate;
     self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast * self.decelerationRate;
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return NO;
 }
 
 #pragma mark - Theme

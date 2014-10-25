@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TKDialogViewController : UINavigationController
+@interface TKDialogViewController : UINavigationController <UIGestureRecognizerDelegate>
 
 //@property (strong, nonatomic) IBOutlet UIView *titleBar;
 //@property (strong, nonatomic) IBOutlet UIView *containerView;
