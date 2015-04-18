@@ -11,6 +11,7 @@
 
 @interface TKRBBSpringAnimationBuilder ()
 @property (strong, nonatomic) RBBSpringAnimation *prototype;
+@property (nonatomic) BOOL durationLabelAdded;
 @end
 
 @implementation TKRBBSpringAnimationBuilder
@@ -50,8 +51,16 @@
     [self updateDuration];
 }
 
+- (void)setDurationAdjustment:(CGFloat)durationAdjustment
+{
+    _durationAdjustment = durationAdjustment;
+    [self updateDuration];
+}
+
 - (void)updateDuration {
-    self.prototype.duration = [self.prototype durationForEpsilon:0.01];
+    if (self.durationLabelAdded) {
+        self.prototype.duration = [self.prototype durationForEpsilon:0.01] + self.durationAdjustment;
+    }
 }
 
 #pragma mark - Creating the animation
@@ -75,6 +84,7 @@
         [controls addObject:[self addDampingControl]];
         [controls addObject:[self addMassControl]];
         [controls addObject:[self addStiffnessControl]];
+        [controls addObject:[self addDurationAdjustment]];
         [controls addObject:[self addDurationLabel]];
         return controls;
     }
@@ -120,9 +130,23 @@
     return nil;
 }
 
+- (TKSliderConfig *)addDurationAdjustment
+{
+    if ([TuneKit isEnabled]) {
+        CGFloat max = MAX(0.5, 4.f * self.durationAdjustment);
+        return [TuneKit addSlider:@"Duration Adjustment"
+                           target:self
+                          keyPath:@"durationAdjustment"
+                              min:0.f
+                              max:max];
+    }
+    return nil;
+}
+
 - (TKLabelConfig *)addDurationLabel
 {
     if ([TuneKit isEnabled]) {
+        self.durationLabelAdded = YES;
         return [TuneKit addLabel:@"Duration" target:self keyPath:@"prototype.duration"];
     }
     return nil;

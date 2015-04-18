@@ -45,7 +45,7 @@
 - (void)performAnimation
 {
     RBBSpringAnimation *animation = [self.springAnimationBuilder animation];
-    animation.duration = [animation durationForEpsilon:0.01] + 0.1;
+    animation.duration = [animation durationForEpsilon:0.01] + self.springAnimationBuilder.durationAdjustment;
     animation.keyPath = @"position.y";
     animation.fromValue = @(self.firstView.layer.position.y);
     self.verticalAlignment.constant = self.verticalAlignment.constant == -100.f ? 234.f : -100.f;

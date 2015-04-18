@@ -17,6 +17,7 @@
 @property (nonatomic) CGFloat damping;
 @property (nonatomic) CGFloat mass;
 @property (nonatomic) CGFloat stiffness;
+@property (readonly, nonatomic) CGFloat durationAdjustment;
 @property (readonly, nonatomic) CGFloat duration;
 
 #pragma mark - Creating the animation
@@ -31,6 +32,7 @@
 - (TKSliderConfig *)addMassControl;
 - (TKSliderConfig *)addStiffnessControl;
 - (TKSliderConfig *)addVelocityControl;
+- (TKSliderConfig *)addDurationAdjustment;
 - (TKLabelConfig *)addDurationLabel;
 
 #pragma mark - Creating builders
