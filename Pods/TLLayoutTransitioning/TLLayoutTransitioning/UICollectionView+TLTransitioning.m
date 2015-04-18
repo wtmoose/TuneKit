@@ -71,7 +71,6 @@ static char kTLEasingFunctionKey;
     if (duration <= 0) {
         [NSException raise:@"" format:@""];//TODO
     }
-    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     NSMutableDictionary *data = [NSMutableDictionary dictionaryWithCapacity:10];
     data[@"duration"] = @(duration);
     data[@"startTime"] = @(CACurrentMediaTime());
@@ -102,7 +101,6 @@ static char kTLEasingFunctionKey;
         if (cancelCompletion) {
             cancelCompletion();
         }
-        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
     }];
     data[@"transitionLayout"] = transitionLayout;
     data[@"link"] = link;
@@ -388,11 +386,30 @@ CGPoint TLTransitionPoint(CGPoint fromPoint, CGPoint toPoint, CGFloat progress)
     return point;
 }
 
+CGSize TLTransitionSize(CGSize fromSize, CGSize toSize, CGFloat progress)
+{
+    CGFloat t = progress;
+    CGFloat f = 1 - t;
+    CGSize size;
+    size.width = t * toSize.width + f * fromSize.width;
+    size.height = t * toSize.height + f * fromSize.height;
+    return size;
+}
+
 CGFloat TLTransitionFloat(CGFloat fromFloat, CGFloat toFloat, CGFloat progress)
 {
     CGFloat t = progress;
     CGFloat f = 1 - t;
     return t * toFloat + f * fromFloat;
+}
+
+UIEdgeInsets TLTransitionInset(UIEdgeInsets fromInset, UIEdgeInsets toInset, CGFloat progress)
+{
+    CGFloat top = TLTransitionFloat(fromInset.top, toInset.top, progress);
+    CGFloat left = TLTransitionFloat(fromInset.left, toInset.left, progress);
+    CGFloat bottom = TLTransitionFloat(fromInset.bottom, toInset.bottom, progress);
+    CGFloat right = TLTransitionFloat(fromInset.right, toInset.right, progress);
+    return UIEdgeInsetsMake(top, left, bottom, right);
 }
 
 CGFloat TLConvertTimespace(CGFloat time, CGFloat startTime, CGFloat endTime)

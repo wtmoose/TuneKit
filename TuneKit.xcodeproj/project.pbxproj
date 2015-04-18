@@ -86,6 +86,7 @@
 		86F2834718B9B21B00CD971C /* TKDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F2834618B9B21B00CD971C /* TKDialogViewController.m */; };
 		86F2834818B9B21B00CD971C /* TKDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F2834618B9B21B00CD971C /* TKDialogViewController.m */; };
 		86F2834A18BA6DD100CD971C /* TuneKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 86F2834918BA6DD100CD971C /* TuneKit.podspec */; };
+		86F9B4BA1AE2EA9E00A6F2F8 /* TKRBBSpringAnimationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F9B4B91AE2EA9E00A6F2F8 /* TKRBBSpringAnimationBuilder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +113,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2313EA3C34A54573AED6FB07 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		38C14980DE471EACADB0B46F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		860D0E9E18CADC3B00633FA3 /* TKDialogScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDialogScrollView.h; sourceTree = "<group>"; };
 		860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDialogScrollView.m; sourceTree = "<group>"; };
 		8619A57F18EF6E980085A475 /* TKUIViewSpringAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKUIViewSpringAnimator.h; sourceTree = "<group>"; };
@@ -195,6 +196,9 @@
 		86F2834518B9B21B00CD971C /* TKDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDialogViewController.h; sourceTree = "<group>"; };
 		86F2834618B9B21B00CD971C /* TKDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDialogViewController.m; sourceTree = "<group>"; };
 		86F2834918BA6DD100CD971C /* TuneKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TuneKit.podspec; sourceTree = "<group>"; };
+		86F9B4B81AE2EA9E00A6F2F8 /* TKRBBSpringAnimationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRBBSpringAnimationBuilder.h; sourceTree = "<group>"; };
+		86F9B4B91AE2EA9E00A6F2F8 /* TKRBBSpringAnimationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRBBSpringAnimationBuilder.m; sourceTree = "<group>"; };
+		9651259EB763BD885EAC328C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F54C10009A8C4326887BE111 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -324,6 +328,7 @@
 		866303CD18E2707400AA5B8A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				86F9B4B41AE2EA0C00A6F2F8 /* RBBAnimation */,
 				862EBACE192285E700BBFB40 /* AHEasing */,
 				862EBACD192285DB00BBFB40 /* TLLayouTransitioning */,
 				862EBAB31921CC5900BBFB40 /* Pop */,
@@ -353,7 +358,7 @@
 				86CB5AF918B7C1FF003039CC /* TuneKitTests */,
 				86CB5AE218B7C1FF003039CC /* Frameworks */,
 				86CB5AE118B7C1FF003039CC /* Products */,
-				2313EA3C34A54573AED6FB07 /* Pods.xcconfig */,
+				C672E06AFF080A6D8641E90C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -431,6 +436,24 @@
 				860D0E9F18CADC3B00633FA3 /* TKDialogScrollView.m */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		86F9B4B41AE2EA0C00A6F2F8 /* RBBAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				86F9B4B81AE2EA9E00A6F2F8 /* TKRBBSpringAnimationBuilder.h */,
+				86F9B4B91AE2EA9E00A6F2F8 /* TKRBBSpringAnimationBuilder.m */,
+			);
+			name = RBBAnimation;
+			sourceTree = "<group>";
+		};
+		C672E06AFF080A6D8641E90C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9651259EB763BD885EAC328C /* Pods.debug.xcconfig */,
+				38C14980DE471EACADB0B46F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -528,7 +551,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B9551BE984684E99AA56C920 /* Check Pods Manifest.lock */ = {
@@ -564,6 +587,7 @@
 				8619A5EF18F1BA390085A475 /* TKCABasicAnimationBuilder.m in Sources */,
 				86CB69A118B825D0003039CC /* TKButtonConfig.m in Sources */,
 				8619A5F718F1BA560085A475 /* TKCATransitionAnimationBuilder.m in Sources */,
+				86F9B4BA1AE2EA9E00A6F2F8 /* TKRBBSpringAnimationBuilder.m in Sources */,
 				862EBABE1921CD3A00BBFB40 /* TKPOPSpringAnimationBuilder.m in Sources */,
 				8663044F18EA803F00AA5B8A /* UIView+TuneKit.m in Sources */,
 				86CB5B1218B7C7CE003039CC /* TKSliderConfig.m in Sources */,
@@ -721,7 +745,7 @@
 		};
 		86CB5B0418B7C1FF003039CC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2313EA3C34A54573AED6FB07 /* Pods.xcconfig */;
+			baseConfigurationReference = 9651259EB763BD885EAC328C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/TuneKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -734,7 +758,7 @@
 		};
 		86CB5B0518B7C1FF003039CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2313EA3C34A54573AED6FB07 /* Pods.xcconfig */;
+			baseConfigurationReference = 38C14980DE471EACADB0B46F /* Pods.release.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/TuneKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

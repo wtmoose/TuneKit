@@ -31,7 +31,12 @@
                                                                cellIdentifier:nil
                                                                          data:@"Integration with Facebook's Pop animation framework (experimental)."];
 
-    self.indexPathController.items = @[basicsItem, animationsItem, popItem];
+    TLIndexPathItem *rbbItem = [[TLIndexPathItem alloc] initWithIdentifier:@"RBBSpringAnimation"
+                                                               sectionName:nil
+                                                            cellIdentifier:nil
+                                                                      data:@"Integration with RBBSpringAnimation."];
+
+    self.indexPathController.items = @[basicsItem, animationsItem, popItem, rbbItem];
 }
 
 - (void)viewWillAppear:(BOOL)animated

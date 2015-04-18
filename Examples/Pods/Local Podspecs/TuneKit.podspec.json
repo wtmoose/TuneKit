@@ -1,0 +1,65 @@
+{
+  "name": "TuneKit",
+  "version": "0.0.1",
+  "summary": "TuneKit lets you modify the look and feel of\n                   your iOS app in real time.",
+  "description": "                   TuneKit creates on-the-fly control panels to modify the look \n                   and feel of your iOS app in real time.. Tune animations, \n                   colors, etc. and get instant feedback.\n",
+  "homepage": "",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Timothy Moose": "wtm@tractablelabs.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": "TuneKit/**/*.{h,m,pch}",
+  "resources": [
+    "TuneKit/**/*.{png,storyboard,xib}"
+  ],
+  "dependencies": {
+    "TLIndexPathTools": [
+
+    ],
+    "OBSlider": [
+
+    ]
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "core"
+    },
+    {
+      "name": "pop",
+      "dependencies": {
+        "pop": [
+          "~> 1.0"
+        ]
+      },
+      "source_files": "Extensions/Pop"
+    },
+    {
+      "name": "AHEasing",
+      "dependencies": {
+        "AHEasing": [
+          "~> 1.1"
+        ]
+      },
+      "source_files": "Extensions/AHEasing"
+    },
+    {
+      "name": "TLLayoutTransitioning",
+      "dependencies": {
+        "TLLayoutTransitioning": [
+          "~> 1.0.0"
+        ]
+      },
+      "source_files": "Extensions/TLLayoutTransitioning"
+    },
+    {
+      "name": "RBBAnimation",
+      "source_files": "Extensions/RBBAnimation"
+    }
+  ]
+}

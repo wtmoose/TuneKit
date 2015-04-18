@@ -1,4 +1,4 @@
-//
+
 //  TLTableViewController.m
 //
 //  Copyright (c) 2013 Tim Moose (http://tractablelabs.com)
@@ -24,10 +24,12 @@
 #import "TLTableViewController.h"
 #import "TLIndexPathItem.h"
 #import "TLDynamicSizeView.h"
+#import "TLDynamicHeightCell.h"
 
 @interface TLTableViewController ()
 @property (strong, nonatomic) NSMutableDictionary *prototypeCells;
 @property (strong, nonatomic) NSMutableDictionary *viewControllerByCellInstanceId;
+@property (weak, nonatomic) NSIndexPath *currentCellForRowAtIndexPath;
 @end
 
 @implementation TLTableViewController
@@ -39,6 +41,9 @@
     if (self = [super initWithCoder:aDecoder]) {
         [self initialize];
     }
+    // Temporary workaround for "Unknown class TLDynamicHeightCell in Interface Builder file."
+    // error. Still trying to figure that one out, but any reference to this class in code resolves it.
+    [TLDynamicHeightCell class];
     return self;
 }
 
@@ -58,11 +63,17 @@
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
 - (void)initialize
 {
     _indexPathController = [[TLIndexPathController alloc] init];
     _indexPathController.delegate = self;
     _rowAnimationStyle = UITableViewRowAnimationFade;
+//    [TLDynamicHeightCell class];
 }
 
 #pragma mark - Index path controller
@@ -157,7 +168,10 @@
     }
     
     if (!controller) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        NSIndexPath *indexPath = self.currentCellForRowAtIndexPath;
+        if (indexPath == nil) {
+            indexPath = [self.tableView indexPathForCell:cell];
+        }
         controller = [self tableView:tableView instantiateViewControllerForCell:cell atIndexPath:indexPath];
         if (controller) {
             [self setViewController:controller forKey:key];
@@ -190,6 +204,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.currentCellForRowAtIndexPath = indexPath;
     NSString *cellId = [self tableView:tableView cellIdentifierAtIndexPath:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (!cell) {
@@ -200,6 +215,7 @@
         [self addChildViewController:controller];
     }
     [self tableView:tableView configureCell:cell atIndexPath:indexPath];
+    self.currentCellForRowAtIndexPath = nil;
     return cell;
 }
 
@@ -230,15 +246,32 @@
         UITableViewCell *cell = [self tableView:tableView prototypeForCellIdentifier:cellId];
         if ([cell conformsToProtocol:@protocol(TLDynamicSizeView)]) {
             id<TLDynamicSizeView> v = (id<TLDynamicSizeView>)cell;
-            id data;
-            if ([item isKindOfClass:[TLIndexPathItem class]]) {
-                TLIndexPathItem *i = (TLIndexPathItem *)item;
-                data = i.data;
+            if ([v respondsToSelector:@selector(sizeWithData:)]) {
+                // cell knows how to calculate its size
+                id data;
+                if ([item isKindOfClass:[TLIndexPathItem class]]) {
+                    TLIndexPathItem *i = (TLIndexPathItem *)item;
+                    data = i.data;
+                } else {
+                    data = item;
+                }
+                CGSize computedSize = [v sizeWithData:data];
+                return computedSize.height;
             } else {
-                data = item;
+                id tmp = self.currentCellForRowAtIndexPath;
+                self.currentCellForRowAtIndexPath = indexPath;
+                // automatically calculate size
+                [self tableView:tableView configureCell:cell atIndexPath:indexPath];
+                CGSize systemSize = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+                self.currentCellForRowAtIndexPath = tmp;
+                CGFloat separatorHeight = tableView.separatorStyle == UITableViewCellSeparatorStyleNone ? 0 : 1 / [UIScreen mainScreen].scale;
+                return systemSize.height + separatorHeight;
             }
-            CGSize computedSize = [v sizeWithData:data];
-            return computedSize.height;
+        } else if (CGRectIsEmpty(cell.bounds)) {
+            // Fix for adaptive storyboards. New adaptive storyboards (created in iOS8 or later),
+            // which dequeue cells with empty bounds. If we see empty bounds, then fall back
+            // (or perhaps forward) to self-sizing cells
+            return UITableViewAutomaticDimension;
         } else {
             return cell.bounds.size.height;
         }
@@ -257,6 +290,7 @@
 
 - (void)controller:(TLIndexPathController *)controller didUpdateDataModel:(TLIndexPathUpdates *)updates
 {
+    if (!updates.hasChanges) { return; }
     //only perform batch udpates if view is visible
     if (self.isViewLoaded && self.view.window) {
         [updates performBatchUpdatesOnTableView:self.tableView withRowAnimation:self.rowAnimationStyle];

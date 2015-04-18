@@ -1,23 +1,36 @@
 PODS:
   - AHEasing (1.2)
   - OBSlider (1.1.0)
-  - pop (1.0.4)
-  - TLIndexPathTools (0.3.0)
-  - TLLayoutTransitioning (1.0.0):
+  - pop (1.0.7)
+  - RBBAnimation (0.4.0)
+  - TLIndexPathTools (0.3.10)
+  - TLLayoutTransitioning (1.0.4):
     - AHEasing
 
 DEPENDENCIES:
   - AHEasing (~> 1.1)
   - OBSlider (~> 1.1.0)
   - pop (~> 1.0)
+  - RBBAnimation (from `https://github.com/robb/RBBAnimation.git`, tag `v0.4.0`)
   - TLIndexPathTools (~> 0.3.0)
   - TLLayoutTransitioning (~> 1.0.0)
 
-SPEC CHECKSUMS:
-  AHEasing: 539ed2ec2d50bf14e0ad66789b4e5a5b048aff8b
-  OBSlider: 1eae1ad6fea0af687f7dde0366003044c4ba3d27
-  pop: 63a4f5e8942077fed2efe195036ecc572c71c48c
-  TLIndexPathTools: 1c4158d341c4bf4375e86a6a579955de84cbf34e
-  TLLayoutTransitioning: 925d8fbcc9964eea933e93600067f759cb823780
+EXTERNAL SOURCES:
+  RBBAnimation:
+    :git: https://github.com/robb/RBBAnimation.git
+    :tag: v0.4.0
 
-COCOAPODS: 0.32.1
+CHECKOUT OPTIONS:
+  RBBAnimation:
+    :git: https://github.com/robb/RBBAnimation.git
+    :tag: v0.4.0
+
+SPEC CHECKSUMS:
+  AHEasing: 847f583bcd83a2bb850e38ccdb26d22e2593f34d
+  OBSlider: 490f108007bfdd5414a38650b211fe403a95b8a0
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
+  RBBAnimation: 4b2d66f6d993febce63cd564da934985313b9c59
+  TLIndexPathTools: 20052553989ab8a83719e66b5d6d382f5e0f577b
+  TLLayoutTransitioning: 6a2694027ac0b3acbf8ec3d21a1185d761777740
+
+COCOAPODS: 0.36.3

@@ -10,29 +10,29 @@
 	<string>Examples</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>CA5C3278-8958-414E-9C6F-42706CDF41B8</key>
+		<key>ACA7294B0A74CB929C3D129A354C6AE99D68A330</key>
 		<string>https://github.com/wtmoose/TuneKit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Examples/Examples.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CA5C3278-8958-414E-9C6F-42706CDF41B8</key>
+		<key>ACA7294B0A74CB929C3D129A354C6AE99D68A330</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/wtmoose/TuneKit.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CA5C3278-8958-414E-9C6F-42706CDF41B8</string>
+	<string>ACA7294B0A74CB929C3D129A354C6AE99D68A330</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CA5C3278-8958-414E-9C6F-42706CDF41B8</string>
+			<string>ACA7294B0A74CB929C3D129A354C6AE99D68A330</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TuneKit</string>
 		</dict>

@@ -39,4 +39,8 @@ Pod::Spec.new do |s|
     ss.source_files = "Extensions/TLLayoutTransitioning"
   end
 
+  s.subspec "RBBAnimation" do |ss|
+    ss.source_files = "Extensions/RBBAnimation"
+  end
+
 end

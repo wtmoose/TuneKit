@@ -1,1 +1,0 @@
-../../../../TuneKit/TKSegmentedControlConfig.h

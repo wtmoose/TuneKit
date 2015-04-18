@@ -1,1 +1,0 @@
-../../../../TuneKit/TKLabelConfig.h

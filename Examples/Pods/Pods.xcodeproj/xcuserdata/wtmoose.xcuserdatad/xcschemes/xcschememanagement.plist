@@ -14,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Reveal-iOS-SDK.xcscheme</key>
+		<key>Pods-RBBAnimation.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,42 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>85686F15CC2D4413B9DCDE9B</key>
+		<key>001CEA588A3266A3E6F1B366</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>856D82952929454389CC0A9F</key>
+		<key>044F838F24FD715C51EEB8E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9DB35DACC10445A88E3AB3E4</key>
+		<key>10027E49CE910806D717B9E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AE8CF287978043D5864CDA18</key>
+		<key>49D9ABF69CF8FC2D7E869429</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C23A36AB1259454B908103DF</key>
+		<key>646781F0D22BCCEB2B6DD165</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EDAEAC9CC97349EF890CBC9D</key>
+		<key>AFAECF33421CEA630146136E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F2D4E095B01F463EA47018C8</key>
+		<key>C61C3AD60BB745A44BAEFF50</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F9D6B9C4AAC04A6A9500B9D2</key>
+		<key>D9F9E3A2C884B643E5A736D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
