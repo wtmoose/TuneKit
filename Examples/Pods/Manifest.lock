@@ -28,6 +28,7 @@ PODS:
     - TLIndexPathTools
   - TuneKit/RBBAnimation (0.0.1):
     - OBSlider
+    - RBBAnimation (~> 0.4.0)
     - TLIndexPathTools
   - TuneKit/TLLayoutTransitioning (0.0.1):
     - OBSlider
@@ -60,6 +61,6 @@ SPEC CHECKSUMS:
   Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
   TLIndexPathTools: 20052553989ab8a83719e66b5d6d382f5e0f577b
   TLLayoutTransitioning: 6a2694027ac0b3acbf8ec3d21a1185d761777740
-  TuneKit: 22ad53020acdab00cee8262d871cd6022fc8d710
+  TuneKit: 500bb7cf76d107ce5c627d56bc99e94d586e17da
 
 COCOAPODS: 0.36.3

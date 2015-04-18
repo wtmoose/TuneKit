@@ -40,6 +40,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "RBBAnimation" do |ss|
+    ss.dependency 'RBBAnimation', '~> 0.4.0'
     ss.source_files = "Extensions/RBBAnimation"
   end
 

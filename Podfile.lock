@@ -11,19 +11,9 @@ DEPENDENCIES:
   - AHEasing (~> 1.1)
   - OBSlider (~> 1.1.0)
   - pop (~> 1.0)
-  - RBBAnimation (from `https://github.com/robb/RBBAnimation.git`, tag `v0.4.0`)
+  - RBBAnimation (~> 0.4.0)
   - TLIndexPathTools (~> 0.3.0)
   - TLLayoutTransitioning (~> 1.0.0)
-
-EXTERNAL SOURCES:
-  RBBAnimation:
-    :git: https://github.com/robb/RBBAnimation.git
-    :tag: v0.4.0
-
-CHECKOUT OPTIONS:
-  RBBAnimation:
-    :git: https://github.com/robb/RBBAnimation.git
-    :tag: v0.4.0
 
 SPEC CHECKSUMS:
   AHEasing: 847f583bcd83a2bb850e38ccdb26d22e2593f34d

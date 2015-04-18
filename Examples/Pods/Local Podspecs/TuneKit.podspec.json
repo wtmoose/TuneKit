@@ -59,6 +59,11 @@
     },
     {
       "name": "RBBAnimation",
+      "dependencies": {
+        "RBBAnimation": [
+          "~> 0.4.0"
+        ]
+      },
       "source_files": "Extensions/RBBAnimation"
     }
   ]
