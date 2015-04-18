@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <TLIndexPathTools/TLTableViewController.h>
 
-@interface TKControlPanelTableViewController : TLTableViewController
+@interface TKControlPanelTableViewController : TLTableViewController <UIGestureRecognizerDelegate>
 @property (strong, nonatomic) NSString *path;
 @property (strong, nonatomic) TKControlPanelTableViewController *(^nodeViewControllerProvider)(NSString *nodeName);
 - (IBAction)dismiss;
