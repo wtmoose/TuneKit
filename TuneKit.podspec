@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #s.source       = { :git => "", :tag => "0.0.1" }
   s.source_files  = 'TuneKit/**/*.{h,m,pch}'
   #s.public_header_files = 'TuneKit/**/TKTuneKit.h'
-  s.resources 	 = ['TuneKit/**/*.{png,storyboard,xib}']
+  s.resources 	 = ['TuneKit/**/*.{storyboard,xib,xcassets}']
   s.dependency 'TLIndexPathTools'
   s.dependency 'OBSlider'
   s.requires_arc = true
