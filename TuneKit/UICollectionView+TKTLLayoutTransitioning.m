@@ -6,7 +6,7 @@
 
 #import "UICollectionView+TKTLLayoutTransitioning.h"
 #import <TLLayoutTransitioning/UICollectionView+TLTransitioning.h>
-#import <TuneKit/TuneKit.h>
+#import "TuneKit.h"
 
 @implementation UICollectionView (TKTLLayoutTransitioning)
 

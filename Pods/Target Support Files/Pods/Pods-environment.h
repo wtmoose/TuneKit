@@ -16,7 +16,7 @@
 #define COCOAPODS_POD_AVAILABLE_OBSlider
 #define COCOAPODS_VERSION_MAJOR_OBSlider 1
 #define COCOAPODS_VERSION_MINOR_OBSlider 1
-#define COCOAPODS_VERSION_PATCH_OBSlider 0
+#define COCOAPODS_VERSION_PATCH_OBSlider 1
 
 // RBBAnimation
 #define COCOAPODS_POD_AVAILABLE_RBBAnimation
@@ -28,7 +28,7 @@
 #define COCOAPODS_POD_AVAILABLE_TLIndexPathTools
 #define COCOAPODS_VERSION_MAJOR_TLIndexPathTools 0
 #define COCOAPODS_VERSION_MINOR_TLIndexPathTools 3
-#define COCOAPODS_VERSION_PATCH_TLIndexPathTools 10
+#define COCOAPODS_VERSION_PATCH_TLIndexPathTools 15
 
 // TLLayoutTransitioning
 #define COCOAPODS_POD_AVAILABLE_TLLayoutTransitioning

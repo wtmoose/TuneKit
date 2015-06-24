@@ -1,9 +1,9 @@
 PODS:
   - AHEasing (1.2)
-  - OBSlider (1.1.0)
+  - OBSlider (1.1.1)
   - pop (1.0.7)
   - RBBAnimation (0.4.0)
-  - TLIndexPathTools (0.3.10)
+  - TLIndexPathTools (0.3.15)
   - TLLayoutTransitioning (1.0.4):
     - AHEasing
 
@@ -17,10 +17,10 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AHEasing: 847f583bcd83a2bb850e38ccdb26d22e2593f34d
-  OBSlider: 490f108007bfdd5414a38650b211fe403a95b8a0
+  OBSlider: 38853ebbb9cc6978a9b7ddc0d4f525588e8bb294
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   RBBAnimation: 4b2d66f6d993febce63cd564da934985313b9c59
-  TLIndexPathTools: 20052553989ab8a83719e66b5d6d382f5e0f577b
+  TLIndexPathTools: 23e38a2088ad460f97d20e82b6b054ae99e0e982
   TLLayoutTransitioning: 6a2694027ac0b3acbf8ec3d21a1185d761777740
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.37.2

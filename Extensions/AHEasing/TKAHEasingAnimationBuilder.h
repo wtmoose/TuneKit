@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 tractablelabs.com. All rights reserved.
 //
 
-#import <TuneKit/TuneKit.h>
+#import "TuneKit.h"
 
 @interface TKAHEasingAnimationBuilder : TKCAKeyFrameAnimationBuilder
 
