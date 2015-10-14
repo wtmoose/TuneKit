@@ -1,13 +1,11 @@
+//  Created by Tim Moose on 4/6/14.
+//  Copyright (c) 2014 Tractable Labs. All rights reserved.
 //
-//  TKTLLayoutTransitioner.h
-//  TuneKit
-//
-//  Created by Tim Moose on 3/28/14.
-//  Copyright (c) 2014 tractablelabs.com. All rights reserved.
-//
+//  This source code is licensed under the MIT-style license found in the
+//  LICENSE file in the root directory of this source tree.
 
 #import <Foundation/Foundation.h>
-#import <TuneKit/TuneKit.h>
+#import "TuneKit.h"
 #import <TLLayoutTransitioning/TLTransitionLayout.h>
 #import <TLLayoutTransitioning/UICollectionView+TLTransitioning.h>
 #import "CAKeyframeAnimation+TKAHEasing.h"

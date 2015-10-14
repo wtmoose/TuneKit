@@ -4,37 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AHEasing.xcscheme</key>
+		<key>AHEasing.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-OBSlider.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-RBBAnimation.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-TLIndexPathTools.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-TLLayoutTransitioning.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-TuneKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-pop.xcscheme</key>
+		<key>OBSlider.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -44,45 +19,70 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RBBAnimation.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TLIndexPathTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TLLayoutTransitioning.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TuneKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>pop.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>071487D2D53A6CE1E7648022</key>
+		<key>195C05800B58050E608869E31FEE7273</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0FD65DC66C2F68E146FC3C85</key>
+		<key>2A973F921CE66420BEDAB949331299B7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1ED649E5D97CE927F91AFF88</key>
+		<key>47C800E42623009B7192B025B3DD25A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>518DD9E659AE752E9A151D83</key>
+		<key>7D1F6F7E1AA4BD849D762EBCEC3E01A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>54F83385AB5B37100B72D499</key>
+		<key>7D7D79F9F56E775EDF42E3D872AB5C95</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>62622D61AD1AFD7081857210</key>
+		<key>823DFEC9B1CA2C0F58BA40E042CF8015</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF10D3286299D47FE056574A</key>
+		<key>F8CE28F29273DC6C8784881CD8F68EAF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E242F4A991FA02E544D3FC1F</key>
+		<key>FBC4941E61EF84108A8A8AE8C4F08270</key>
 		<dict>
 			<key>primary</key>
 			<true/>
