@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   TLIndexPathTools:
-    :commit: 1617c34797c7e03e2dd4a0678c9aa994d2863f36
+    :commit: 0875f7d3c1c912eda11c617d860c02fb1a2d3eb4
     :git: https://github.com/wtmoose/TLIndexPathTools.git
 
 SPEC CHECKSUMS:
