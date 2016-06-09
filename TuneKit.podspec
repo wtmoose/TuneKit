@@ -9,11 +9,11 @@ Pod::Spec.new do |s|
                    and feel of your iOS app in real time.. Tune animations, 
                    colors, etc. and get instant feedback.
                    DESC
-  s.homepage     = ""
+  s.homepage     = "tractablelabs.com"
   s.license      = { :type => 'MIT' }
   s.author       = { "Timothy Moose" => "wtm@tractablelabs.com" }
   s.platform     = :ios, '7.0'
-  #s.source       = { :git => "", :tag => "0.0.1" }
+  s.source       = { :git => "", :tag => "0.0.1" }
   s.source_files  = 'TuneKit/**/*.{h,m,pch}'
   #s.public_header_files = 'TuneKit/**/TKTuneKit.h'
   s.resources 	 = ['TuneKit/**/*.{storyboard,xib,xcassets}']
