@@ -2,7 +2,7 @@
   "name": "TuneKit",
   "version": "0.0.1",
   "summary": "TuneKit lets you modify the look and feel of\n                   your iOS app in real time.",
-  "description": "                   TuneKit creates on-the-fly control panels to modify the look \n                   and feel of your iOS app in real time.. Tune animations, \n                   colors, etc. and get instant feedback.\n",
+  "description": "TuneKit creates on-the-fly control panels to modify the look \nand feel of your iOS app in real time.. Tune animations, \ncolors, etc. and get instant feedback.",
   "homepage": "",
   "license": {
     "type": "MIT"
@@ -15,7 +15,7 @@
   },
   "source_files": "TuneKit/**/*.{h,m,pch}",
   "resources": [
-    "TuneKit/**/*.{png,storyboard,xib}"
+    "TuneKit/**/*.{storyboard,xib,xcassets}"
   ],
   "dependencies": {
     "TLIndexPathTools": [

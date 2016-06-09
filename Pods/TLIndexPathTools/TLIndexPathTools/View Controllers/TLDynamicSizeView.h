@@ -38,6 +38,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @protocol TLDynamicSizeView <NSObject>
 @optional

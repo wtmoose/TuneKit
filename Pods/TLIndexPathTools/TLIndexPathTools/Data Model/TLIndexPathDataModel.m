@@ -46,7 +46,6 @@ const NSString *TLIndexPathDataModelNilSectionName = @"__TLIndexPathDataModelNil
 @synthesize identifiersByIndexPath = _identifiersByIndexPath;
 @synthesize indexPathsByIdentifier = _indexPathsByIdentifier;
 @synthesize items = _items;
-@synthesize indexPaths = _indexPaths;
 @synthesize sectionNames = _sectionNames;
 @synthesize sections = _sections;
 
@@ -54,7 +53,7 @@ const NSString *TLIndexPathDataModelNilSectionName = @"__TLIndexPathDataModelNil
 
 - (id)init
 {
-    return [self initWithItems:nil sectionNameKeyPath:nil identifierKeyPath:nil];
+    return [self initWithItems:@[] sectionNameKeyPath:nil identifierKeyPath:nil];
 }
 
 - (id)initWithItems:(NSArray *)items
@@ -152,7 +151,7 @@ const NSString *TLIndexPathDataModelNilSectionName = @"__TLIndexPathDataModelNil
     return self;
 }
 
-- (id)initWithSectionInfos:(NSArray *)sectionInfos sectionNameBlock:(NSString *(^)(id))sectionNameBlock identifierBlock:(id (^)(id))identifierBlock
+- (id)initWithSectionInfos:(NSArray<TLIndexPathSectionInfo *> *)sectionInfos sectionNameBlock:(NSString *(^)(id))sectionNameBlock identifierBlock:(id (^)(id))identifierBlock
 {
     //if there are no sections, insert an empty section to keep UICollectionView
     //happy. If we don't do this, UICollectionView will crash on the first
@@ -160,7 +159,7 @@ const NSString *TLIndexPathDataModelNilSectionName = @"__TLIndexPathDataModelNil
     //UICollectionView controller reports zero sections.
     if (sectionInfos.count == 0) {
         TLIndexPathSectionInfo *sectionInfo = [[TLIndexPathSectionInfo alloc]
-                                               initWithItems:nil
+                                               initWithItems:@[]
                                                name:[TLIndexPathDataModelNilSectionName copy]
                                                indexTitle:nil];
         sectionInfos = @[sectionInfo];
@@ -243,7 +242,7 @@ const NSString *TLIndexPathDataModelNilSectionName = @"__TLIndexPathDataModelNil
 
 - (NSInteger)sectionForSectionName:(NSString *)sectionName
 {
-    id<NSFetchedResultsSectionInfo>sectionInfo = [self.sectionInfosBySectionName objectForKey:sectionName];
+    TLIndexPathSectionInfo *sectionInfo = [self.sectionInfosBySectionName objectForKey:sectionName];
     return sectionInfo ? [self.sections indexOfObject:sectionInfo] : NSNotFound;
 }
 

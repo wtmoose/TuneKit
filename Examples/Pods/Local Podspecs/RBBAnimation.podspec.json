@@ -2,7 +2,7 @@
   "name": "RBBAnimation",
   "version": "0.4.0",
   "summary": "Block-based animations made easy.",
-  "description": "    RBBAnimation is a subclass of CAKeyframeAnimation that allows you to\n    declare your animations using blocks instead of writing out all the\n    individual key-frames.\n\n    It also comes with a replacement for CASpringAnimation.\n",
+  "description": "RBBAnimation is a subclass of CAKeyframeAnimation that allows you to\ndeclare your animations using blocks instead of writing out all the\nindividual key-frames.\n\nIt also comes with a replacement for CASpringAnimation.",
   "homepage": "https://github.com/robb/RBBAnimation",
   "license": "MIT",
   "authors": {

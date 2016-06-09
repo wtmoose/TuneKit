@@ -133,7 +133,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSString * TLIndexPathDataModelNilSectionName;
+@class TLIndexPathSectionInfo;
 
 @interface TLIndexPathDataModel : NSObject
 
@@ -164,7 +167,7 @@ extern NSString * TLIndexPathDataModelNilSectionName;
  @param identifierKeyPath  the item key path to use for identification. Specifying `nil`
         will result in the default object identification rules being used.
  */
-- (id)initWithItems:(NSArray *)items sectionNameKeyPath:(NSString *)sectionNameKeyPath identifierKeyPath:(NSString *)identifierKeyPath;
+- (id)initWithItems:(NSArray *)items sectionNameKeyPath:(NSString * __nullable)sectionNameKeyPath identifierKeyPath:(NSString * __nullable)identifierKeyPath;
 
 /**
  Use this initializer to organize sections and identify items using blocks. This
@@ -178,7 +181,7 @@ extern NSString * TLIndexPathDataModelNilSectionName;
  @param identifierBlock  block that returns the identifier for the given item.
  Specifying `nil` will result in the default object identification rules being used.
  */
-- (id)initWithItems:(NSArray *)items sectionNameBlock:(NSString *(^)(id item))sectionNameBlock identifierBlock:(id(^)(id item))identifierBlock;
+- (id)initWithItems:(NSArray *)items sectionNameBlock:(NSString *(^ __nullable)(id item))sectionNameBlock identifierBlock:(id(^ __nullable)(id item))identifierBlock;
 
 /**
  Use this initializer to explicitly specify sections by providing an array of
@@ -189,7 +192,7 @@ extern NSString * TLIndexPathDataModelNilSectionName;
  @param identifierKeyPath  the item key path to use for identification. Specifying `nil`
  will result in the default object identification rules being used.
 */
-- (id)initWithSectionInfos:(NSArray *)sectionInfos identifierKeyPath:(NSString *)identifierKeyPath;
+- (id)initWithSectionInfos:(NSArray<TLIndexPathSectionInfo *> *)sectionInfos identifierKeyPath:(NSString * __nullable)identifierKeyPath;
 
 #pragma mark - Data model configuration
 /** @name Data model configuration */
@@ -205,7 +208,7 @@ extern NSString * TLIndexPathDataModelNilSectionName;
  the `identifierKeyPath` to this key field, TLIndexPathTools will be able to track
  items across data models.
  */
-@property (strong, nonatomic, readonly) NSString *identifierKeyPath;
+@property (strong, nonatomic, readonly, nullable) NSString *identifierKeyPath;
 
 /**
  The key path used to identify an item's section. If specified in the relevant
@@ -213,7 +216,7 @@ extern NSString * TLIndexPathDataModelNilSectionName;
  the value of the their `sectionNameKeyPath`. Unlike `NSFetchedResultsController`,
  items do not need to be presorted by section.
  */
-@property (strong, nonatomic, readonly) NSString *sectionNameKeyPath;
+@property (strong, nonatomic, readonly, nullable) NSString *sectionNameKeyPath;
 
 #pragma mark - Data model content
 /** @name Data model content */
@@ -222,7 +225,7 @@ extern NSString * TLIndexPathDataModelNilSectionName;
  The title of the data model. Can be used to store a value for the view controller's `title` property.
  This property will be removed in a later version.
  */
-@property (strong, nonatomic) NSString *title __attribute__((deprecated));
+@property (strong, nonatomic, nullable) NSString *title __attribute__((deprecated));
 
 /**
  The number of sections in the data model.
@@ -234,13 +237,13 @@ extern NSString * TLIndexPathDataModelNilSectionName;
  any explicit sections, this array will contain the single name `TLIndexPathDataModelNilSectionName`.
  Note that section names are unique. See Section Names.
  */
-@property (strong, nonatomic, readonly) NSArray *sectionNames;
+@property (strong, nonatomic, readonly) NSArray<NSString *> *sectionNames;
 
 /**
  The array of `TLIndexPathSectionInfo` objects organizing the data into sections.
  `TLIndexPathSectionInfo` is an implementation of the `NSFetchedResultsSectionInfo` protocol.
  */
-@property (strong, nonatomic, readonly) NSArray *sections;
+@property (strong, nonatomic, readonly) NSArray<TLIndexPathSectionInfo *> *sections;
 
 /**
  An array containing all items.
@@ -250,7 +253,7 @@ extern NSString * TLIndexPathDataModelNilSectionName;
 /**
  An array containing all index paths.
  */
-@property (strong, nonatomic, readonly) NSArray *indexPaths;
+@property (strong, nonatomic, readonly) NSArray<NSIndexPath *> *indexPaths;
 
 /**
  The number of rows in the specified section. Returns `NSNotFound` for an invalid section.
@@ -278,28 +281,28 @@ extern NSString * TLIndexPathDataModelNilSectionName;
 
  @param section  the specified section index
 */
-- (NSString *)sectionTitleForSection:(NSInteger)section;
+- (NSString * __nullable)sectionTitleForSection:(NSInteger)section;
 
 /**
  Returns the `TLIndexPathSectionInfo` object for the given section. Returns nil for an invalid section.
 
  @param section  the specified section index
 */
-- (id<NSFetchedResultsSectionInfo>)sectionInfoForSection:(NSInteger)section;
+- (id<NSFetchedResultsSectionInfo> __nullable)sectionInfoForSection:(NSInteger)section;
 
 /**
  Returns the item at the given index path. Returns `nil` for an invalid index path.
  
  @param indexPath  the specified index path
  */
-- (id)itemAtIndexPath:(NSIndexPath *)indexPath;
+- (id __nullable)itemAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
  Returns the item identifier at the given index path. Returns `nil` for an invalid index path.
  
  @param indexPath  the specified index path
  */
-- (id)identifierAtIndexPath:(NSIndexPath *)indexPath;
+- (id __nullable)identifierAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
  Retuns YES if the data model contains the given item.
@@ -313,28 +316,28 @@ extern NSString * TLIndexPathDataModelNilSectionName;
  
  @param item  the specified item
  */
-- (NSIndexPath *)indexPathForItem:(id)item;
+- (NSIndexPath * __nullable)indexPathForItem:(id)item;
 
 /**
  Returns the index path for the given identifier. Returns `nil` for an invalid identifier.
  
  @param identifier  the specified identifier
  */
-- (NSIndexPath *)indexPathForIdentifier:(id)identifier;
+- (NSIndexPath * __nullable)indexPathForIdentifier:(id)identifier;
 
 /**
  Returns the identifier for the given item. Returns `nil` if the item is not a member of the data model.
  
  @param item  the specified item
  */
-- (id)identifierForItem:(id)item;
+- (id __nullable)identifierForItem:(id)item;
 
 /**
  Returns the item for the given identifier. Returns `nil` for an invalid identifier.
  
  @param identifier  the specified identifier
  */
-- (id)itemForIdentifier:(id)identifier;
+- (id __nullable)itemForIdentifier:(id)identifier;
 
 /**
  Returns the current version of the given item. This method can be useful in scenarios
@@ -344,6 +347,8 @@ extern NSString * TLIndexPathDataModelNilSectionName;
  
  @param anotherVersionOfItem  the specified item from a different version of the data model.
  */
-- (id)currentVersionOfItem:(id)anotherVersionOfItem;
+- (id __nullable)currentVersionOfItem:(id)anotherVersionOfItem;
 
 @end
+
+NS_ASSUME_NONNULL_END
