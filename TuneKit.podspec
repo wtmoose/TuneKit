@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT' }
   s.author       = { "Timothy Moose" => "wtm@tractablelabs.com" }
   s.platform     = :ios, '8.1'
-  s.source       = { :git => "", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/wtmoose/TuneKit.git", :tag => "0.0.1" }
   s.source_files  = 'TuneKit/**/*.{h,m,pch}'
   #s.public_header_files = 'TuneKit/**/TKTuneKit.h'
   s.resources 	 = ['TuneKit/**/*.{storyboard,xib,xcassets}']
